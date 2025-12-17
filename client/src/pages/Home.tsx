@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight } from "lucide-react";
 import { Link } from "wouter";
 import heroImage from "@assets/generated_images/abstract_geometric_financial_network_visualization.png";
+import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, 2);
@@ -18,10 +19,21 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-block border-b border-primary pb-1">
-                <span className="font-mono text-sm tracking-widest uppercase text-primary font-bold">
-                  Academic Portfolio
-                </span>
+              <div className="flex items-center gap-5 border-b border-primary/20 pb-6 w-fit animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
+                  <img 
+                    src={headshot} 
+                    alt="Prof. Alex Sterling" 
+                    className="relative w-20 h-20 rounded-full object-cover border-2 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-heading text-xl font-bold">Prof. Alex Sterling</h3>
+                  <span className="font-mono text-xs tracking-widest uppercase text-primary font-bold">
+                    Academic Portfolio
+                  </span>
+                </div>
               </div>
               
               <h1 className="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-foreground">
