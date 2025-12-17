@@ -81,14 +81,35 @@ export default function Home() {
       </section>
 
       {/* Latest Updates / News Ticker vibe */}
-      <section className="border-b border-border bg-secondary/30 py-4 overflow-hidden">
-        <div className="container mx-auto px-6 flex items-center gap-4">
-          <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shrink-0">LATEST</span>
-          <div className="font-mono text-sm text-muted-foreground whitespace-nowrap animate-in fade-in slide-in-from-right-10 duration-1000">
+      <section className="border-b border-border bg-secondary/30 py-4 overflow-hidden relative group">
+        <div className="container mx-auto px-6 flex items-center gap-4 absolute inset-0 z-20 pointer-events-none">
+          <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shrink-0 pointer-events-auto">LATEST</span>
+        </div>
+        <div className="flex items-center gap-8 animate-marquee whitespace-nowrap min-w-full pl-32 hover:[animation-play-state:paused]">
+          <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
             [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
-            <span className="mx-4 text-primary">•</span>
+          </span>
+          <span className="text-primary">•</span>
+          <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
             [Sep 2024] Presenting at NBER Asset Pricing meeting.
-          </div>
+          </span>
+          <span className="text-primary">•</span>
+          <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
+            [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in Information-Rich Markets".
+          </span>
+          <span className="text-primary">•</span>
+           {/* Duplicate content for seamless loop */}
+           <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
+            [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
+          </span>
+          <span className="text-primary">•</span>
+          <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
+            [Sep 2024] Presenting at NBER Asset Pricing meeting.
+          </span>
+          <span className="text-primary">•</span>
+          <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
+            [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in Information-Rich Markets".
+          </span>
         </div>
       </section>
 
