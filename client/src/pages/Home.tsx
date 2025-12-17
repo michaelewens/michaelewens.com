@@ -13,20 +13,8 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
       <Navigation />
       
-      {/* Latest Updates / News Ticker vibe - Moved to top */}
-      <section className="pt-24 border-b border-border bg-secondary/30 py-4 overflow-hidden relative z-0">
-        <div className="container mx-auto px-6 flex items-center gap-4">
-          <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shrink-0">LATEST</span>
-          <div className="font-mono text-sm text-muted-foreground whitespace-nowrap animate-in fade-in slide-in-from-right-10 duration-1000">
-            [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
-            <span className="mx-4 text-primary">•</span>
-            [Sep 2024] Presenting at NBER Asset Pricing meeting.
-          </div>
-        </div>
-      </section>
-
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 px-6 border-b border-border overflow-hidden">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 border-b border-border overflow-hidden">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -78,6 +66,18 @@ export default function Home() {
 
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/20 -skew-x-12 -z-0 translate-x-1/4" />
+      </section>
+
+      {/* Latest Updates / News Ticker vibe */}
+      <section className="border-b border-border bg-secondary/30 py-4 overflow-hidden">
+        <div className="container mx-auto px-6 flex items-center gap-4">
+          <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shrink-0">LATEST</span>
+          <div className="font-mono text-sm text-muted-foreground whitespace-nowrap animate-in fade-in slide-in-from-right-10 duration-1000">
+            [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
+            <span className="mx-4 text-primary">•</span>
+            [Sep 2024] Presenting at NBER Asset Pricing meeting.
+          </div>
+        </div>
       </section>
 
       {/* Featured Research */}
