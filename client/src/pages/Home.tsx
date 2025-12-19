@@ -15,69 +15,47 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 border-b border-border overflow-hidden">
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="flex items-center gap-5 border-b border-primary/20 pb-6 w-fit animate-in fade-in slide-in-from-bottom-4 duration-700">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
-                  <img 
-                    src={headshot} 
-                    alt="Prof. Alex Sterling" 
-                    className="relative w-20 h-20 rounded-full object-cover border-2 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h3 className="font-heading text-xl font-bold">Prof. Alex Sterling</h3>
-                  <span className="font-mono text-xs tracking-widest uppercase text-primary font-bold">
-                    Academic Portfolio
-                  </span>
-                </div>
-              </div>
-              
-              <h1 className="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-foreground">
-                Deciphering <br/>
-                <span className="text-muted-foreground italic">Market Signals</span> <br/>
-                in Noise.
-              </h1>
-              
-              <p className="text-xl text-muted-foreground max-w-md leading-relaxed">
-                Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
-              </p>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-center text-center">
+        <div className="container mx-auto max-w-3xl relative z-10 flex flex-col items-center gap-8">
+          <div className="relative group animate-in fade-in zoom-in-50 duration-1000">
+             <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
+             <img 
+              src={headshot} 
+              alt="Prof. Alex Sterling" 
+              className="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
+            />
+          </div>
 
-              <div className="flex gap-4 pt-4">
-                <Button asChild size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 bg-foreground text-background hover:bg-primary">
-                  <Link href="/research">
-                    VIEW RESEARCH <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                
-                <Button asChild variant="outline" size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary">
-                  <Link href="/contact">
-                    CONTACT
-                  </Link>
-                </Button>
-              </div>
-            </div>
+          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+              Prof. Alex Sterling
+            </h1>
+            <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold">
+              Academic Portfolio
+            </p>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed font-light">
+              Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
+            </p>
+          </div>
 
-            <div className="relative aspect-square md:aspect-[4/5] bg-secondary/30 border border-border p-4 hidden md:block rotate-3 hover:rotate-0 transition-transform duration-700">
-               <img 
-                src={heroImage} 
-                alt="Abstract Financial Visualization" 
-                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 contrast-125"
-              />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 backdrop-blur-sm border border-primary/20 p-4 flex items-center justify-center">
-                <div className="font-mono text-xs text-primary text-center">
-                  DATA <br/> DRIVEN <br/> INSIGHTS
-                </div>
-              </div>
-            </div>
+          <div className="flex gap-4 pt-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+            <Button asChild size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 bg-foreground text-background hover:bg-primary shadow-lg hover:shadow-xl transition-all">
+              <Link href="/research">
+                VIEW RESEARCH <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            
+            <Button asChild variant="outline" size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary">
+              <Link href="/contact">
+                CONTACT
+              </Link>
+            </Button>
           </div>
         </div>
 
-        {/* Decorative background elements */}
+        {/* Decorative background elements - Simplified */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/20 -skew-x-12 -z-0 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-primary/5 rounded-full blur-3xl -z-0 translate-y-1/4 -translate-x-1/4" />
       </section>
 
       {/* Latest Updates / News Ticker vibe */}
