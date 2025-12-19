@@ -51,24 +51,24 @@ export default function Home() {
                <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
                <img 
                 src={headshot} 
-                alt="Prof. Alex Sterling" 
+                alt="Prof. Michael Ewens" 
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
               />
             </div>
             
             <div className="space-y-2">
               <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-                Prof. Alex Sterling
+                Prof. Michael Ewens
               </h1>
               <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
-                Academic Portfolio
+                David L. and Elsie M. Dodd Professor of Finance
               </p>
             </div>
           </div>
 
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 w-full pl-2">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light whitespace-nowrap">
-              Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
+              Researching private equity and entrepreneurial finance.
             </p>
           </div>
 
