@@ -55,7 +55,7 @@ export default function Navigation() {
             Alex Sterling
           </h1>
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
-            Financial Economics
+            Private Equity & Entrepreneurial Finance
           </p>
         </Link>
 
