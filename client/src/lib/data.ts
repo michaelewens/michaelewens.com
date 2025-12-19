@@ -8,6 +8,7 @@ export interface Paper {
   abstract: string;
   pdfUrl: string;
   codeUrl?: string;
+  slidesUrl?: string;
   tags: string[];
 }
 
@@ -49,6 +50,7 @@ export const papers: Paper[] = [
     abstract: "We propose a novel machine learning framework to extract asset pricing factors from unstructured text data. Our model outperforms standard benchmarks in out-of-sample return prediction.",
     pdfUrl: "#",
     codeUrl: "#",
+    slidesUrl: "#",
     tags: ["Asset Pricing", "Machine Learning", "NLP"]
   },
   {
@@ -59,6 +61,7 @@ export const papers: Paper[] = [
     status: "Working Paper",
     abstract: "This paper analyzes the liquidity provision mechanisms in automated market makers (AMMs). We find that impermanent loss is systematically underpriced by retail liquidity providers.",
     pdfUrl: "#",
+    slidesUrl: "#",
     tags: ["Market Microstructure", "DeFi", "Crypto"]
   },
   {
