@@ -7,6 +7,14 @@ To change which ones appear on the homepage:
 
 For example, to make the "Global Supply Chains" paper appear first, move its entire block (lines 75-85) to line 51, before the "Asset Pricing" paper.
 
+To change the **number of papers** shown on the homepage:
+Find the `FEATURED_COUNT` constant near the top of `client/src/lib/data.ts` and change the number:
+
+```typescript
+// Number of papers to feature on the homepage
+export const FEATURED_COUNT = 2; // Change this to 3, 4, etc.
+```
+
 To add a **new paper**:
 Copy this template and paste it at the top of the `papers` array:
 

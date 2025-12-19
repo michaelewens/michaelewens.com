@@ -5,6 +5,9 @@ import defiImg from "@assets/generated_images/defi_network_nodes_and_links.png";
 import supplyChainImg from "@assets/generated_images/supply_chain_logistics_abstract.png";
 import hftImg from "@assets/generated_images/high_frequency_trading_algorithmic_lines.png";
 
+// Number of papers to feature on the homepage
+export const FEATURED_COUNT = 2;
+
 export interface Paper {
   id: string;
   title: string;

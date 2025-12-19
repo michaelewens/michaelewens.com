@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import ResearchList from "@/components/ResearchList";
-import { papers, projects } from "@/lib/data";
+import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
@@ -8,7 +8,7 @@ import heroImage from "@assets/generated_images/abstract_geometric_financial_net
 import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
 
 export default function Home() {
-  const featuredPapers = papers.slice(0, 2);
+  const featuredPapers = papers.slice(0, FEATURED_COUNT);
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
