@@ -1,5 +1,4 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,6 +12,28 @@ import Contact from "@/pages/Contact";
 import Teaching from "@/pages/Teaching";
 import CV from "@/pages/CV";
 import Search from "@/pages/Search";
+import { useState, useEffect } from "react";
+
+// Manual implementation of useHashLocation to ensure compatibility with GitHub Pages
+// and avoid potential issues with wouter's submodule exports in some environments
+const currentLocation = () => {
+  return window.location.hash.replace(/^#/, "") || "/";
+};
+
+const useHashLocation = () => {
+  const [loc, setLoc] = useState(currentLocation());
+
+  useEffect(() => {
+    const handler = () => setLoc(currentLocation());
+
+    // Subscribe to hash changes
+    window.addEventListener("hashchange", handler);
+    return () => window.removeEventListener("hashchange", handler);
+  }, []);
+
+  const navigate = (to: string) => (window.location.hash = to);
+  return [loc, navigate] as const;
+};
 
 function Router() {
   return (
