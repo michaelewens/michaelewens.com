@@ -1,3 +1,10 @@
+import textProcessingImg from "@assets/generated_images/abstract_visualization_of_financial_text_processing.png";
+import orderBookImg from "@assets/generated_images/limit_order_book_heatmap_visualization.png";
+import macroDataImg from "@assets/generated_images/global_macroeconomic_data_connection_map.png";
+import defiImg from "@assets/generated_images/defi_network_nodes_and_links.png";
+import supplyChainImg from "@assets/generated_images/supply_chain_logistics_abstract.png";
+import hftImg from "@assets/generated_images/high_frequency_trading_algorithmic_lines.png";
+
 export interface Paper {
   id: string;
   title: string;
@@ -98,7 +105,7 @@ export const projects: Project[] = [
     language: "Python",
     stars: 1240,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/abstract_visualization_of_financial_text_processing.png"
+    imageUrl: textProcessingImg
   },
   {
     id: "pr2",
@@ -107,7 +114,7 @@ export const projects: Project[] = [
     language: "Rust",
     stars: 856,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/limit_order_book_heatmap_visualization.png"
+    imageUrl: orderBookImg
   },
   {
     id: "pr3",
@@ -116,7 +123,7 @@ export const projects: Project[] = [
     language: "R",
     stars: 342,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/global_macroeconomic_data_connection_map.png"
+    imageUrl: macroDataImg
   },
   {
     id: "pr4",
@@ -125,7 +132,7 @@ export const projects: Project[] = [
     language: "Python",
     stars: 620,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/defi_network_nodes_and_links.png"
+    imageUrl: defiImg
   },
   {
     id: "pr5",
@@ -134,7 +141,7 @@ export const projects: Project[] = [
     language: "JavaScript",
     stars: 415,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/supply_chain_logistics_abstract.png"
+    imageUrl: supplyChainImg
   },
   {
     id: "pr6",
@@ -143,7 +150,7 @@ export const projects: Project[] = [
     language: "C++",
     stars: 890,
     url: "#",
-    imageUrl: "/attached_assets/generated_images/high_frequency_trading_algorithmic_lines.png"
+    imageUrl: hftImg
   }
 ];
 
