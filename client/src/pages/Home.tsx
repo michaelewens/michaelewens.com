@@ -7,8 +7,36 @@ import { Link } from "wouter";
 import heroImage from "@assets/generated_images/abstract_geometric_financial_network_visualization.png";
 import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
 
+import wefiImage from "@assets/generated_images/abstract_finance_innovation_network.png";
+import phdWorkshopImage from "@assets/generated_images/academic_workshop_abstract.png";
+import afaImage from "@assets/generated_images/mentorship_and_guidance_abstract.png";
+
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
+
+  const initiatives = [
+    {
+      id: "wefi",
+      title: "WEFI",
+      description: "Workshop on Entrepreneurial Finance and Innovation.",
+      image: wefiImage,
+      link: "#"
+    },
+    {
+      id: "phd-workshop",
+      title: "PhD Workshop",
+      description: "Annual workshop for doctoral students in finance.",
+      image: phdWorkshopImage,
+      link: "#"
+    },
+    {
+      id: "afa-mentoring",
+      title: "AFA Mentoring",
+      description: "Mentorship program for junior faculty and students.",
+      image: afaImage,
+      link: "#"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
@@ -123,6 +151,42 @@ export default function Home() {
                 VIEW ALL RESEARCH
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Initiatives Section */}
+      <section className="bg-secondary/5 py-20 border-t border-border">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="grid md:grid-cols-3 gap-6">
+            {initiatives.map((item) => (
+              <div key={item.id} className="group relative h-64 overflow-hidden border border-border bg-background">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
+                  />
+                  <div className="absolute inset-0 bg-background/80 transition-opacity duration-500 group-hover:opacity-70" />
+                </div>
+                
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-center items-center p-6 text-center z-10">
+                  <h3 className="font-heading text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 max-w-xs">
+                    {item.description}
+                  </p>
+                  <Button asChild size="sm" className="rounded-none font-mono text-xs tracking-wider bg-foreground text-background hover:bg-primary transition-all">
+                    <a href={item.link}>
+                      LEARN MORE
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
