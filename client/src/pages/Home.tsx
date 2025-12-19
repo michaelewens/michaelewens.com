@@ -38,8 +38,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 max-w-2xl pl-2">
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 w-full pl-2">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light whitespace-nowrap">
               Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
             </p>
           </div>
