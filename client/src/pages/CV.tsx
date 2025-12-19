@@ -14,8 +14,8 @@ export default function CV() {
             <p className="text-xl text-muted-foreground">Updated: December 2025</p>
           </div>
           <Button size="lg" className="rounded-none gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-mono uppercase tracking-wider">
-            <Download className="h-4 w-4" /> Download PDF
-          </Button>
+            <a href="@assets/ewens_cv2025.pdf"><Download className="h-4 w-4" /> Download PDF
+          </Button></a>
         </header>
 
         <section className="mb-16">
