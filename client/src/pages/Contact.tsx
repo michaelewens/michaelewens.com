@@ -11,12 +11,12 @@ export default function Contact() {
           <div>
             <header className="mb-12">
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Get in Touch</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-xl text-muted-foreground leading-relaxed">
                 I am always interested in discussing new research ideas, potential collaborations, or speaking opportunities.
               </p>
             </header>
 
-            <div className="space-y-8 font-mono text-sm max-w-xl">
+            <div className="space-y-8 font-mono text-sm">
               <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3">
                   <Mail className="h-5 w-5 text-primary" />
@@ -53,7 +53,7 @@ export default function Contact() {
               </div>
             </div>
             
-            <div className="mt-12 p-6 border border-border bg-secondary/20 max-w-2xl">
+            <div className="mt-12 p-6 border border-border bg-secondary/20">
                <p className="text-sm text-muted-foreground italic">
                  For media inquiries, please contact the University Press Office directly at press@university.edu.
                </p>
