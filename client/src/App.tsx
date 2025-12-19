@@ -31,8 +31,10 @@ const useHashLocation = () => {
     return () => window.removeEventListener("hashchange", handler);
   }, []);
 
-  const navigate = (to: string) => (window.location.hash = to);
-  return [loc, navigate] as const;
+  const navigate = (to: string) => {
+    window.location.hash = to;
+  };
+  return [loc, navigate] as [string, (to: string) => void];
 };
 
 function Router() {
