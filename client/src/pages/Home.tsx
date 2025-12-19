@@ -113,9 +113,11 @@ export default function Home() {
           
           <ResearchList papers={featuredPapers} />
           
-          <div className="mt-12 md:hidden">
-            <Button asChild variant="outline" className="w-full rounded-none">
-              <Link href="/research">View All Research</Link>
+          <div className="mt-12 flex justify-center md:justify-start">
+            <Button asChild variant="outline" size="lg" className="w-full md:w-auto rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary">
+              <Link href="/research">
+                VIEW ALL RESEARCH
+              </Link>
             </Button>
           </div>
         </div>
