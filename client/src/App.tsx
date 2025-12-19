@@ -12,6 +12,7 @@ import Contact from "@/pages/Contact";
 import Press from "@/pages/Press";
 import Teaching from "@/pages/Teaching";
 import CV from "@/pages/CV";
+import Search from "@/pages/Search";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/press" component={Press} />
       <Route path="/teaching" component={Teaching} />
       <Route path="/cv" component={CV} />
+      <Route path="/search" component={Search} />
       <Route component={NotFound} />
     </Switch>
   );

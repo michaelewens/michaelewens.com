@@ -6,9 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,14 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setLocation(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setIsOpen(false);
+    }
+  };
 
   const navItems = [
     { name: "About", path: "/about", icon: User },
@@ -69,11 +78,15 @@ export default function Navigation() {
           ))}
           
           <div className="relative w-64 ml-4">
-            <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input 
-              placeholder="Search research..." 
-              className="pl-8 h-9 bg-secondary/50 border-transparent focus:bg-background focus:border-border transition-all rounded-none font-mono text-xs"
-            />
+            <form onSubmit={handleSearch}>
+              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input 
+                placeholder="Search research..." 
+                className="pl-8 h-9 bg-secondary/50 border-transparent focus:bg-background focus:border-border transition-all rounded-none font-mono text-xs"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </form>
           </div>
         </div>
 
@@ -90,13 +103,15 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">
           <div className="flex flex-col space-y-4">
-             <div className="relative w-full mb-4">
+             <form onSubmit={handleSearch} className="relative w-full mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input 
                 placeholder="Search..." 
                 className="pl-9 h-10 bg-secondary/50 rounded-none font-mono"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-            </div>
+            </form>
             {navItems.map((item) => (
               <Link 
                 key={item.path} 
