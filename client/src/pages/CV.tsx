@@ -11,7 +11,7 @@ export default function CV() {
         <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-border pb-8">
           <div>
             <h1 className="font-heading text-5xl md:text-6xl font-bold mb-2">Curriculum Vitae</h1>
-            <p className="text-xl text-muted-foreground">Updated: October 2024</p>
+            <p className="text-xl text-muted-foreground">Updated: December 2025</p>
           </div>
           <Button size="lg" className="rounded-none gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-mono uppercase tracking-wider">
             <Download className="h-4 w-4" /> Download PDF
