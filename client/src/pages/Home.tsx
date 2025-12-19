@@ -15,30 +15,36 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-center text-center">
-        <div className="container mx-auto max-w-3xl relative z-10 flex flex-col items-center gap-8">
-          <div className="relative group animate-in fade-in zoom-in-50 duration-1000">
-             <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
-             <img 
-              src={headshot} 
-              alt="Prof. Alex Sterling" 
-              className="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
-            />
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
+        <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
+          
+          <div className="flex flex-row items-center gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+             <div className="relative group shrink-0">
+               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
+               <img 
+                src={headshot} 
+                alt="Prof. Alex Sterling" 
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+                Prof. Alex Sterling
+              </h1>
+              <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
+                Academic Portfolio
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-              Prof. Alex Sterling
-            </h1>
-            <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold">
-              Academic Portfolio
-            </p>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed font-light">
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 max-w-2xl pl-2">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
               Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
             </p>
           </div>
 
-          <div className="flex gap-4 pt-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+          <div className="flex gap-4 pt-2 pl-2 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
             <Button asChild size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 bg-foreground text-background hover:bg-primary shadow-lg hover:shadow-xl transition-all">
               <Link href="/research">
                 VIEW RESEARCH <ArrowRight className="ml-2 h-4 w-4" />
