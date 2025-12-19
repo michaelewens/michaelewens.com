@@ -24,15 +24,15 @@ export default function Home() {
     },
     {
       id: "phd-workshop",
-      title: "PhD Workshop",
-      description: "Annual workshop for doctoral students in finance.",
+      title: "Entrepreneurial finance PhD Workshop",
+      description: "I teach the annual workshop for doctoral students in entrepreneurial finance.",
       image: phdWorkshopImage,
       link: "#"
     },
     {
       id: "afa-mentoring",
-      title: "AFA Mentoring",
-      description: "Mentorship program for junior faculty and students.",
+      title: "AFA Junior Faculty Mentoring",
+      description: "I co-chair the junior faculty mentorship program run by the AFA.",
       image: afaImage,
       link: "#"
     }
