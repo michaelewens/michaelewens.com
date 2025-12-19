@@ -9,7 +9,6 @@ import About from "@/pages/About";
 import Research from "@/pages/Research";
 import DataCode from "@/pages/DataCode";
 import Contact from "@/pages/Contact";
-import Press from "@/pages/Press";
 import Teaching from "@/pages/Teaching";
 import CV from "@/pages/CV";
 import Search from "@/pages/Search";
@@ -22,7 +21,6 @@ function Router() {
       <Route path="/research" component={Research} />
       <Route path="/data-code" component={DataCode} />
       <Route path="/contact" component={Contact} />
-      <Route path="/press" component={Press} />
       <Route path="/teaching" component={Teaching} />
       <Route path="/cv" component={CV} />
       <Route path="/search" component={Search} />

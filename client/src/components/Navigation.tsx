@@ -33,7 +33,6 @@ export default function Navigation() {
     { name: "CV", path: "/cv", icon: FileText },
     { name: "Data & Code", path: "/data-code", icon: Code },
     { name: "Teaching", path: "/teaching", icon: GraduationCap },
-    { name: "Press", path: "/press", icon: Newspaper },
     { name: "Contact", path: "/contact", icon: Mail },
   ];
 

@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, MapPin, Award, BookOpen, GraduationCap } from "lucide-react";
+import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight } from "lucide-react";
 import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
 import { Link } from "wouter";
+import { press } from "@/lib/data";
 
 export default function About() {
   return (
@@ -127,6 +128,37 @@ export default function About() {
                   <p className="text-foreground font-medium">University Graduate Fellowship</p>
                   <span className="font-mono text-sm text-muted-foreground">2017</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Press Coverage - Moved from standalone page */}
+            <div className="border-t border-border pt-10">
+              <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
+                <Newspaper className="h-6 w-6 text-primary" /> Press Coverage
+              </h2>
+              <div className="space-y-0">
+                {press.map((item) => (
+                  <a 
+                    key={item.id} 
+                    href={item.url}
+                    className="group block border-b border-border py-4 hover:bg-secondary/20 transition-colors px-4 -mx-4"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-4">
+                      <div className="flex-1">
+                        <div className="text-xs font-mono text-primary font-bold mb-1 uppercase tracking-wider">
+                          {item.outlet}
+                        </div>
+                        <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground shrink-0 mt-1 sm:mt-0">
+                        <span className="font-mono text-sm">{item.date}</span>
+                        <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
 
