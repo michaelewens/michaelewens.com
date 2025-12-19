@@ -18,8 +18,9 @@ export default function ResearchList({ papers, showAbstract = true, className }:
           key={paper.id} 
           className="group relative border-l-2 border-transparent hover:border-primary pl-6 transition-all duration-300 py-2"
         >
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-            <div className="flex-1 space-y-2">
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Main Content */}
+            <div className="flex-1 space-y-2 order-2 lg:order-1">
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <Badge variant={paper.status === "Published" ? "default" : "outline"} className="rounded-none font-mono text-xs uppercase tracking-wider">
                   {paper.status}
@@ -52,26 +53,40 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                   </span>
                 ))}
               </div>
+
+              {/* Action Buttons - Moved here for mobile, but also works well on desktop below abstract */}
+              <div className="flex flex-wrap gap-3 pt-4">
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5">
+                  <FileDown className="h-3 w-3" />
+                  PDF
+                </Button>
+                {paper.codeUrl && (
+                  <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
+                    <Github className="h-3 w-3" />
+                    Code
+                  </Button>
+                )}
+                {paper.slidesUrl && (
+                  <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
+                    <Presentation className="h-3 w-3" />
+                    Slides
+                  </Button>
+                )}
+              </div>
             </div>
 
-            <div className="flex md:flex-col gap-2 shrink-0">
-              <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5">
-                <FileDown className="h-3 w-3" />
-                PDF
-              </Button>
-              {paper.codeUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
-                  <Github className="h-3 w-3" />
-                  Code
-                </Button>
-              )}
-              {paper.slidesUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
-                  <Presentation className="h-3 w-3" />
-                  Slides
-                </Button>
-              )}
-            </div>
+            {/* Image Section */}
+            {paper.imageUrl && (
+              <div className="w-full lg:w-48 shrink-0 order-1 lg:order-2 mb-4 lg:mb-0">
+                <div className="aspect-[4/3] lg:aspect-square overflow-hidden bg-secondary/20 border border-border/50">
+                  <img 
+                    src={paper.imageUrl} 
+                    alt={`Visualization for ${paper.title}`}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-105"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       ))}
