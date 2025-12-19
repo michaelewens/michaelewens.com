@@ -1,4 +1,5 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -15,17 +16,19 @@ import Search from "@/pages/Search";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/research" component={Research} />
-      <Route path="/data-code" component={DataCode} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/teaching" component={Teaching} />
-      <Route path="/cv" component={CV} />
-      <Route path="/search" component={Search} />
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter hook={useHashLocation}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/research" component={Research} />
+        <Route path="/data-code" component={DataCode} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/teaching" component={Teaching} />
+        <Route path="/cv" component={CV} />
+        <Route path="/search" component={Search} />
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
