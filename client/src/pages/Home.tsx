@@ -1,8 +1,8 @@
 import Navigation from "@/components/Navigation";
 import ResearchList from "@/components/ResearchList";
-import { papers } from "@/lib/data";
+import { papers, projects } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MoveRight } from "lucide-react";
+import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import heroImage from "@assets/generated_images/abstract_geometric_financial_network_visualization.png";
 import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
@@ -116,6 +116,71 @@ export default function Home() {
           <div className="mt-12 md:hidden">
             <Button asChild variant="outline" className="w-full rounded-none">
               <Link href="/research">View All Research</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Data & Code Section */}
+      <section className="bg-secondary/10 py-20 md:py-32 border-t border-border">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
+            <div>
+              <h2 className="font-heading text-4xl font-bold mb-2">Data & Code</h2>
+              <p className="text-muted-foreground">Open source tools and datasets.</p>
+            </div>
+            
+            <Link href="/data-code" className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group">
+              VIEW ALL <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <div 
+                key={project.id} 
+                className="group relative aspect-[4/3] overflow-hidden border border-border bg-background"
+              >
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0">
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
+                  />
+                  <div className="absolute inset-0 bg-background/90 transition-opacity duration-500 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                </div>
+
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-between p-6">
+                  <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
+                    <span className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider mb-3">
+                      {project.language}
+                    </span>
+                    <h3 className="font-heading text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                    <Button asChild variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:bg-primary hover:text-primary-foreground w-full">
+                      <a href={project.url} target="_blank" rel="noopener noreferrer">
+                        VIEW PROJECT <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 md:hidden">
+            <Button asChild variant="outline" className="w-full rounded-none">
+              <Link href="/data-code">View All Projects</Link>
             </Button>
           </div>
         </div>

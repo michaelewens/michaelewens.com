@@ -19,6 +19,7 @@ export interface Project {
   language: string;
   stars?: number;
   url: string;
+  imageUrl?: string;
 }
 
 export interface PressItem {
@@ -96,7 +97,8 @@ export const projects: Project[] = [
     description: "Pre-trained NLP models optimized for financial texts and earnings call transcripts.",
     language: "Python",
     stars: 1240,
-    url: "#"
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/abstract_visualization_of_financial_text_processing.png"
   },
   {
     id: "pr2",
@@ -104,7 +106,8 @@ export const projects: Project[] = [
     description: "High-fidelity limit order book simulator for backtesting market making strategies.",
     language: "Rust",
     stars: 856,
-    url: "#"
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/limit_order_book_heatmap_visualization.png"
   },
   {
     id: "pr3",
@@ -112,7 +115,35 @@ export const projects: Project[] = [
     description: "R package for harmonizing historical macroeconomic time series across different sources.",
     language: "R",
     stars: 342,
-    url: "#"
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/global_macroeconomic_data_connection_map.png"
+  },
+  {
+    id: "pr4",
+    title: "DeFi-Network-Graph",
+    description: "Graph neural network tools for analyzing transaction flows in decentralized finance protocols.",
+    language: "Python",
+    stars: 620,
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/defi_network_nodes_and_links.png"
+  },
+  {
+    id: "pr5",
+    title: "SupplyChain-Viz",
+    description: "Interactive visualization dashboard for global supply chain disruptions and shock propagation.",
+    language: "JavaScript",
+    stars: 415,
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/supply_chain_logistics_abstract.png"
+  },
+  {
+    id: "pr6",
+    title: "HFT-Algo-Lab",
+    description: "Educational environment for simulating and visualizing high-frequency trading algorithms.",
+    language: "C++",
+    stars: 890,
+    url: "#",
+    imageUrl: "/attached_assets/generated_images/high_frequency_trading_algorithmic_lines.png"
   }
 ];
 
