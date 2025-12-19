@@ -4,10 +4,6 @@ import macroDataImg from "@assets/generated_images/global_macroeconomic_data_con
 import defiImg from "@assets/generated_images/defi_network_nodes_and_links.png";
 import supplyChainImg from "@assets/generated_images/supply_chain_logistics_abstract.png";
 import hftImg from "@assets/generated_images/high_frequency_trading_algorithmic_lines.png";
-import nlpAssetPricingImg from "@assets/generated_images/nlp_asset_pricing_visualization.png";
-import ammLiquidityImg from "@assets/generated_images/amm_liquidity_curve_visualization.png";
-import supplyChainMapImg from "@assets/generated_images/supply_chain_map_visualization.png";
-import hftChartImg from "@assets/generated_images/high_frequency_trading_chart.png";
 
 export interface Paper {
   id: string;
@@ -21,7 +17,6 @@ export interface Paper {
   codeUrl?: string;
   slidesUrl?: string;
   tags: string[];
-  imageUrl?: string;
 }
 
 export interface Project {
@@ -64,8 +59,7 @@ export const papers: Paper[] = [
     pdfUrl: "#",
     codeUrl: "#",
     slidesUrl: "#",
-    tags: ["Asset Pricing", "Machine Learning", "NLP"],
-    imageUrl: nlpAssetPricingImg
+    tags: ["Asset Pricing", "Machine Learning", "NLP"]
   },
   {
     id: "p2",
@@ -76,8 +70,7 @@ export const papers: Paper[] = [
     abstract: "This paper analyzes the liquidity provision mechanisms in automated market makers (AMMs). We find that impermanent loss is systematically underpriced by retail liquidity providers.",
     pdfUrl: "#",
     slidesUrl: "#",
-    tags: ["Market Microstructure", "DeFi", "Crypto"],
-    imageUrl: ammLiquidityImg
+    tags: ["Market Microstructure", "DeFi", "Crypto"]
   },
   {
     id: "p3",
@@ -88,8 +81,7 @@ export const papers: Paper[] = [
     status: "Forthcoming",
     abstract: "We document a structural break in exchange rate pass-through elasticities following the post-2020 supply chain disruptions. Evidence suggests a shift in pricing-to-market behavior.",
     pdfUrl: "#",
-    tags: ["Macro-Finance", "International Finance"],
-    imageUrl: supplyChainMapImg
+    tags: ["Macro-Finance", "International Finance"]
   },
   {
     id: "p4",
@@ -101,8 +93,7 @@ export const papers: Paper[] = [
     abstract: "Using granular order book data, we show that HFT activity stabilizes prices during normal market conditions but exacerbates volatility during flash crashes.",
     pdfUrl: "#",
     codeUrl: "#",
-    tags: ["Market Microstructure", "HFT"],
-    imageUrl: hftChartImg
+    tags: ["Market Microstructure", "HFT"]
   }
 ];
 
