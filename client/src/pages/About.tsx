@@ -55,13 +55,11 @@ export default function About() {
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6 text-foreground">About Me</h1>
               <div className="prose prose-lg text-muted-foreground leading-relaxed max-w-none">
                 <p className="text-xl text-foreground font-light mb-6">
-                  I am an Assistant Professor of Finance at the University of Economics. My research focuses on Asset Pricing, Market Microstructure, and the application of Machine Learning in Finance.
-                </p>
-                <p className="mb-4">
-                  In my work, I combine economic theory with novel data sources and computational methods to understand how information is incorporated into asset prices. I am particularly interested in the role of unstructured data—such as news text and earnings calls—in financial markets.
-                </p>
-                <p>
-                  Prior to joining the University of Economics, I completed my Ph.D. at Top Tier University, where my dissertation on High-Frequency Trading was awarded the Best Thesis Prize. I hold a B.S. in Mathematics and Economics from State University.
+                I am the David L. and Elsie M. Dodd Professor of Finance at the Columbia Business School and co-director of the school's Private Equity Program.  Prior to this, he was on the faculty at the California Institute of Technology and Carnegie Mellon University’s Tepper School of Business.</p>
+    
+                <p className="mb-4">My research studies private equity, venture capital, and the financing of high-growth entrepreneurial firms. There, I investigate the interactions and differences between the public and private capital markets. My research appeared in the Journal of Finance, Journal of Financial Economics, Review of Financial Studies, and Management Science (among other). It has also appeared in the Economist, Bloomberg, and the New York Times. I am a Research Associate at the National Bureau of Economic Research and Associate Editor of the Journal of Financial Economics and Management Science. </p>  
+                 
+                <p className="mb-4">I received a Ph.D. in economics from the University of California, San Diego. Since 2006, he has been a quantitative advisor for Correlation Ventures, a quantitative-focused venture capital firm.  Prof. Ewens teaches private equity and entrepreneurial finance at the Columbia Business School. 
                 </p>
               </div>
             </div>
@@ -78,7 +76,7 @@ export default function About() {
                   "Venture Capital",
                   "Corporate Hierarchy",
                   "Innovation",
-                  "Entrepreurship"
+                  "Entrepreneurship"
                 ].map((interest) => (
                   <li key={interest} className="flex items-center gap-2 text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />
