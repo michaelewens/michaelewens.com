@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight } from "lucide-react";
-import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
+import headshot from "@assets/generated_images/ewens_arms.png";
 import { Link } from "wouter";
 import { press } from "@/lib/data";
 
@@ -94,17 +94,17 @@ export default function About() {
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
                   <div>
-                    <h3 className="font-bold text-lg text-foreground">Ph.D. in Financial Economics</h3>
-                    <p className="text-muted-foreground">Top Tier University</p>
+                    <h3 className="font-bold text-lg text-foreground">Ph.D. in Economics</h3>
+                    <p className="text-muted-foreground">University of California San Diego</p>
                   </div>
-                  <span className="font-mono text-sm text-muted-foreground">2022</span>
+                  <span className="font-mono text-sm text-muted-foreground">2010</span>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
                   <div>
-                    <h3 className="font-bold text-lg text-foreground">B.S. in Mathematics and Economics</h3>
-                    <p className="text-muted-foreground">State University</p>
+                    <h3 className="font-bold text-lg text-foreground">B.A. in Mathematics and Economics</h3>
+                    <p className="text-muted-foreground">Washington University in St. Louis</p>
                   </div>
-                  <span className="font-mono text-sm text-muted-foreground">2017</span>
+                  <span className="font-mono text-sm text-muted-foreground">2004</span>
                 </div>
               </div>
             </div>
