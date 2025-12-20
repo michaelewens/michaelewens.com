@@ -12,7 +12,7 @@ export default function Teaching() {
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <header className="mb-16">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Teaching</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
+          <p className="text-xl text-muted-foreground">
             Links to courses and (some) syllabi.  Faculty who are teaching in similar areas are welcome to use these materials (reach out for more information).
           </p>
         </header>

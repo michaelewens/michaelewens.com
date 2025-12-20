@@ -13,7 +13,7 @@ export default function DataCode() {
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-6xl">
         <header className="mb-16 border-b border-border pb-12">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Data & Code</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed">
             Data and code releases from my research. All repositories are available on{" "}
             <a href="https://github.com/michaelewens" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               my GitHub profile
