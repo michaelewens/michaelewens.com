@@ -39,6 +39,12 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                 ))}
               </p>
 
+              {paper.journal && (
+                <p className="text-sm font-medium text-primary">
+                  {paper.journal}
+                </p>
+              )}
+
               {showAbstract && (
                 <p className="text-muted-foreground leading-relaxed max-w-3xl mt-2">
                   {paper.abstract}
