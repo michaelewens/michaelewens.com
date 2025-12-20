@@ -43,6 +43,14 @@ export interface Course {
   syllabusUrl?: string;
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  imageUrl?: string;
+}
+
 export const papers: Paper[] = [
   {
     id: "p17",
@@ -478,5 +486,68 @@ export const courses: Course[] = [
     institution: "Carnegie Mellon Tepper",
     level: "PhD",
     year: "2011–2014"
+  }
+];
+
+export const projectItems: ProjectItem[] = [
+  {
+    id: "proj1",
+    title: "Gender Equity in Private Equity",
+    description: "We are building a comprehensive database of private equity professionals, their demographics and career trajectories. The goal: to describe gender representation and understand the constraints faced by under-represented workers in the industry. The draft report was released in September 2024.",
+    url: "https://genderequityinpe.com/"
+  },
+  {
+    id: "proj2",
+    title: "Blue Sky Law Data",
+    description: "This website provides the background and data for the NSF-funded 'The Impact of Securities Regulation on Financial Development and Entrepreneurship'. The project aims to document the history of state securities laws from 1948 to 1980, characterize the stringency of those laws over time, and connect the laws' characteristics to economic outcomes.",
+    url: "https://blueskylaws.org/"
+  },
+  {
+    id: "proj3",
+    title: "Summer PhD Workshop on Entrepreneurial Finance",
+    description: "This week-long workshop follows the structure of the Entrepreneurial Finance Ph.D. course with modifications. We cover major topics from the 6-week in-person course and highlight key institutional details required for successful entrepreneurial finance research. Students have ample opportunities to interact with peers and participating faculty.",
+    url: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
+  },
+  {
+    id: "proj4",
+    title: "Entrepreneurial Finance: A PhD Course",
+    description: "The course aims to provide an overview of modern research in entrepreneurial finance and, more importantly, provide the foundation for success in producing research: mastering institutional details. These include definitions, industry norms, regulations, laws, databases, disclosure rules, and more.",
+    url: "https://entrepreneurial.finance/"
+  },
+  {
+    id: "proj5",
+    title: "Workshop on Entrepreneurial Finance and Innovation (WEFI)",
+    description: "A virtual workshop (held on Mondays) featuring research in entrepreneurial finance and innovation. We also hold lectures and student-led conferences. Co-organizers are Camille Hebert (Univ. of Toronto), Song Ma (Yale) and Melanie Wallskog (Duke).",
+    url: "https://workshop-efi.com/"
+  },
+  {
+    id: "proj6",
+    title: "Gender, Race and Entrepreneurship Lecture",
+    description: "A review of the economics of discrimination with a focus on the unique ways it manifests itself in firm formation and financing decisions. The presentation covers recent advances in testing alternative explanations for differential treatment by race and proposes a framework for future research.",
+    url: "https://www.workshop-efi.com/lecture-series/gender-race-and-entrepreneurship"
+  },
+  {
+    id: "proj7",
+    title: "Race and Gender in Entrepreneurial Finance",
+    description: "This website is the companion to 'Race and Gender in Entrepreneurial Finance' prepared for the Handbook on the Economics of Corporate Finance. The site details statistics related to race and gender in entrepreneurship, data used in the paper, references, and teaching slides.",
+    url: "https://foundinggaps.com/"
+  },
+  {
+    id: "proj8",
+    title: "Columbia Private Equity Conference",
+    description: "This two-day conference (formerly the 'Southern California Private Equity Conference') brings together leading academics studying private equity, venture capital and entrepreneurial finance. Co-organizers are Tabina Babina (Columbia), Song Ma (Yale), and Emmanuel Yimfor (Columbia).",
+    url: "https://columbiapeconference.com/"
+  },
+  {
+    id: "proj9",
+    title: "Private or Public Equity?",
+    description: "This website is the companion to 'Private or Public Equity? The Evolving Entrepreneurial Finance Landscape' joint with Joan Farre-Mensa. The site provides detail on the data used in the paper, references, presentation slides and teaching slides.",
+    url: "https://privatepublicmkts.com/"
+  },
+  {
+    id: "proj10",
+    title: "Website Advice for Ph.D. Job Candidates",
+    description: "Recruiting season for econ and finance PhDs is about preparing your job market paper, writing your research statement, and practicing your job talk. You should also have a website, but not just any website. Email me for slides that I made for my students that job market candidates may find helpful.",
+    url: "mailto:michael.ewens@columbia.edu"
   }
 ];

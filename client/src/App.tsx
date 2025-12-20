@@ -12,6 +12,7 @@ import Contact from "@/pages/Contact";
 import Teaching from "@/pages/Teaching";
 import CV from "@/pages/CV";
 import Search from "@/pages/Search";
+import Projects from "@/pages/Projects";
 import { useState, useEffect } from "react";
 
 // Manual implementation of useHashLocation to ensure compatibility with GitHub Pages
@@ -48,6 +49,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/teaching" component={Teaching} />
         <Route path="/cv" component={CV} />
+        <Route path="/projects" component={Projects} />
         <Route path="/search" component={Search} />
         <Route component={NotFound} />
       </Switch>

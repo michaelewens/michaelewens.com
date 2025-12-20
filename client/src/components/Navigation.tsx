@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, Menu, X, FileText, Code, GraduationCap, Mail, Newspaper, User } from "lucide-react";
+import { Search, Menu, X, FileText, Code, GraduationCap, Mail, Newspaper, User, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,7 @@ export default function Navigation() {
     { name: "Research", path: "/research", icon: FileText },
     { name: "CV", path: "/cv", icon: FileText },
     { name: "Data & Code", path: "/data-code", icon: Code },
+    { name: "Projects", path: "/projects", icon: Lightbulb },
     { name: "Teaching", path: "/teaching", icon: GraduationCap },
     { name: "Contact", path: "/contact", icon: Mail },
   ];
