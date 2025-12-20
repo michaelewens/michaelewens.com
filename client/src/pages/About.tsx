@@ -190,16 +190,40 @@ export default function About() {
               </h2>
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">AFA Best Paper Award (Finalist)</p>
+                  <p className="text-foreground font-medium">Best Paper, Finance Down Under Conference, University of Melbourne</p>
                   <span className="font-mono text-sm text-muted-foreground">2024</span>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">NSF Graduate Research Fellowship</p>
-                  <span className="font-mono text-sm text-muted-foreground">2019 - 2022</span>
+                  <p className="text-foreground font-medium">Best Paper, 31st Utah Winter Finance Conference — "Regulatory Costs of Being Public"</p>
+                  <span className="font-mono text-sm text-muted-foreground">2022</span>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">University Graduate Fellowship</p>
-                  <span className="font-mono text-sm text-muted-foreground">2017</span>
+                  <p className="text-foreground font-medium">CICF Conference Best Paper Award — "Regulatory Costs of Being Public"</p>
+                  <span className="font-mono text-sm text-muted-foreground">2021</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">Distinguished Referee, Review of Financial Studies</p>
+                  <span className="font-mono text-sm text-muted-foreground">2021</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">Editor's Choice (RFS) — "The Deregulation of the Private Equity Markets and the Decline in IPOs"</p>
+                  <span className="font-mono text-sm text-muted-foreground">2020</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">NSF Grant SES-1949582 — "The Impact of Securities Regulation on Financial Development"</p>
+                  <span className="font-mono text-sm text-muted-foreground">2020–2023</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">Tuck Outstanding Paper in VC and PE — "Venture Capital Contracts"</p>
+                  <span className="font-mono text-sm text-muted-foreground">2019</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">Best Discussant Prize, ASU Sonoran Winter Finance Conference</p>
+                  <span className="font-mono text-sm text-muted-foreground">2018</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <p className="text-foreground font-medium">Kauffman Junior Faculty Fellowship in Entrepreneurship Research</p>
+                  <span className="font-mono text-sm text-muted-foreground">2013–2014</span>
                 </div>
               </div>
             </div>
