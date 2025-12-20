@@ -360,14 +360,16 @@ export const courses: Course[] = [
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2025–"
+    year: "2025–",
+    syllabusUrl:"https://courses.business.columbia.edu/B8329"
   },
   {
     id: "c2",
     title: "Private Equity Field Study",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2024–"
+    year: "2024–",
+    syllabusUrl:"https://business.columbia.edu/privateequity/private-equity-field-study"
   },
   {
     id: "c3",
@@ -381,7 +383,8 @@ export const courses: Course[] = [
     title: "Private Equity Allocation",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2024"
+    year: "2024",
+    syllabusUrl: "https://courses.business.columbia.edu/B8335"
   },
   {
     id: "c5",
@@ -395,7 +398,8 @@ export const courses: Course[] = [
     title: "Research in Entrepreneurial Finance",
     institution: "Columbia Business School",
     level: "PhD",
-    year: "2023–"
+    year: "2023–",
+    syllabusUrl: "https://entrepreneurial.finance/"
   },
   {
     id: "c7",
@@ -409,7 +413,8 @@ export const courses: Course[] = [
     title: "Race and Gender in Entrepreneurial Finance",
     institution: "NBER Entrepreneurship Bootcamp",
     level: "PhD",
-    year: "2023–2024"
+    year: "2023–2024",
+    syllabusUrl: "https://www.nber.org/conferences/entrepreneurship-research-boot-camp-summer-2024"
   },
   {
     id: "c9",
@@ -437,7 +442,7 @@ export const courses: Course[] = [
     title: "Introduction to Financial Accounting",
     institution: "Caltech",
     level: "Undergraduate",
-    year: "2014–2019"
+    year: "2016–2019"
   },
   {
     id: "c13",
@@ -451,7 +456,7 @@ export const courses: Course[] = [
     title: "Private Equity Finance",
     institution: "Carnegie Mellon Tepper",
     level: "MBA",
-    year: "2010–2014"
+    year: "2014"
   },
   {
     id: "c15",
@@ -472,6 +477,6 @@ export const courses: Course[] = [
     title: "Empirical Methods for Corporate Finance and Accounting",
     institution: "Carnegie Mellon Tepper",
     level: "PhD",
-    year: "2010–2014"
+    year: "2011–2014"
   }
 ];
