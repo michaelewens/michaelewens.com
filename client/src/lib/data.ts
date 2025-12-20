@@ -185,29 +185,138 @@ export const press: PressItem[] = [
 export const courses: Course[] = [
   {
     id: "c1",
-    code: "FIN 401",
-    title: "Advanced Asset Pricing",
-    institution: "University of Economics",
-    level: "PhD",
-    year: "Fall 2024",
-    syllabusUrl: "#"
+    code: "PE-VC",
+    title: "Private Equity Value Creation",
+    institution: "Columbia Business School",
+    level: "Graduate",
+    year: "2025–"
   },
   {
     id: "c2",
-    code: "FIN 302",
-    title: "Fintech and Blockchain",
-    institution: "University of Economics",
+    code: "PE-FS",
+    title: "Private Equity Field Study",
+    institution: "Columbia Business School",
     level: "Graduate",
-    year: "Spring 2024",
-    syllabusUrl: "#"
+    year: "2024–"
   },
   {
     id: "c3",
-    code: "ECO 201",
-    title: "Introduction to Financial Markets",
-    institution: "University of Economics",
+    code: "PE-FIN",
+    title: "Private Equity Finance",
+    institution: "Columbia Business School",
+    level: "Graduate",
+    year: "2024–"
+  },
+  {
+    id: "c4",
+    code: "PE-ALL",
+    title: "Private Equity Allocation",
+    institution: "Columbia Business School",
+    level: "Graduate",
+    year: "2024"
+  },
+  {
+    id: "c5",
+    code: "PE-TOP",
+    title: "Current Topics in Private Equity",
+    institution: "Columbia Business School",
+    level: "Graduate",
+    year: "2023–2024"
+  },
+  {
+    id: "c6",
+    code: "REF",
+    title: "Research in Entrepreneurial Finance",
+    institution: "Columbia Business School",
+    level: "PhD",
+    year: "2023–"
+  },
+  {
+    id: "c7",
+    code: "ENT-FIN",
+    title: "Entrepreneurial Finance",
+    institution: "Columbia Business School",
+    level: "Graduate",
+    year: "2021, 2023, 2024"
+  },
+  {
+    id: "c8",
+    code: "NBER",
+    title: "Race and Gender in Entrepreneurial Finance",
+    institution: "NBER Entrepreneurship Bootcamp",
+    level: "PhD",
+    year: "2023–2024"
+  },
+  {
+    id: "c9",
+    code: "CORP-FIN",
+    title: "Corporate Finance",
+    institution: "Caltech",
     level: "Undergraduate",
-    year: "Fall 2023",
-    syllabusUrl: "#"
+    year: "2014–2019"
+  },
+  {
+    id: "c10",
+    code: "VC",
+    title: "Venture Capital",
+    institution: "Caltech",
+    level: "Undergraduate",
+    year: "2014–2019"
+  },
+  {
+    id: "c11",
+    code: "METHODS",
+    title: "Applied Methods for the Social Sciences",
+    institution: "Caltech",
+    level: "PhD",
+    year: "2014–2019"
+  },
+  {
+    id: "c12",
+    code: "ACCT",
+    title: "Introduction to Financial Accounting",
+    institution: "Caltech",
+    level: "Undergraduate",
+    year: "2014–2019"
+  },
+  {
+    id: "c13",
+    code: "NVF",
+    title: "New Venture Finance",
+    institution: "UCSD Rady School of Management",
+    level: "Graduate",
+    year: "2015"
+  },
+  {
+    id: "c14",
+    code: "PE-FIN",
+    title: "Private Equity Finance",
+    institution: "Carnegie Mellon Tepper",
+    level: "Graduate",
+    year: "2010–2014"
+  },
+  {
+    id: "c15",
+    code: "VC-FIN",
+    title: "Venture Capital Finance",
+    institution: "Carnegie Mellon Tepper",
+    level: "Graduate",
+    year: "2010–2014"
+  },
+  {
+    id: "c16",
+    code: "ENT-FIN",
+    title: "Entrepreneurial Finance",
+    institution: "Carnegie Mellon Tepper",
+    level: "Undergraduate",
+    year: "2010–2014"
+  },
+  {
+    id: "c17",
+    code: "EMP-METH",
+    title: "Empirical Methods for Corporate Finance and Accounting",
+    institution: "Carnegie Mellon Tepper",
+    level: "PhD",
+    year: "2010–2014"
   }
 ];
