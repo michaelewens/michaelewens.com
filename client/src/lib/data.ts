@@ -55,7 +55,7 @@ export const papers: Paper[] = [
   {
     id: "p1",
     title: "Asset Pricing in Information-Rich Markets: A Machine Learning Approach",
-    authors: ["Alex Sterling", "Sarah Chen"],
+    authors: ["Michael Ewens", "Sarah Chen"],
     journal: "Journal of Finance",
     year: 2024,
     status: "Published",
@@ -68,7 +68,7 @@ export const papers: Paper[] = [
   {
     id: "p2",
     title: "The Microstructure of Decentralized Exchanges",
-    authors: ["Alex Sterling"],
+    authors: ["Michael Ewens"],
     year: 2025,
     status: "Working Paper",
     abstract: "This paper analyzes the liquidity provision mechanisms in automated market makers (AMMs). We find that impermanent loss is systematically underpriced by retail liquidity providers.",
@@ -79,7 +79,7 @@ export const papers: Paper[] = [
   {
     id: "p3",
     title: "Global Supply Chains and Exchange Rate Pass-Through",
-    authors: ["Alex Sterling", "Michael Weber", "David Rossi"],
+    authors: ["Michael Ewens", "Michael Weber", "David Rossi"],
     journal: "American Economic Review",
     year: 2023,
     status: "Forthcoming",
@@ -90,7 +90,7 @@ export const papers: Paper[] = [
   {
     id: "p4",
     title: "High-Frequency Trading and Market Stability: New Evidence",
-    authors: ["Alex Sterling", "John Doe"],
+    authors: ["Michael Ewens", "John Doe"],
     journal: "Review of Financial Studies",
     year: 2022,
     status: "Published",

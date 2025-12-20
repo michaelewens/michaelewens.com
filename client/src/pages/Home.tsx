@@ -51,14 +51,14 @@ export default function Home() {
                <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
                <img 
                 src={headshot} 
-                alt="Prof. Alex Sterling" 
+                alt="Prof. Michael Ewens" 
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
               />
             </div>
             
             <div className="space-y-2">
               <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-                Prof. Alex Sterling
+                Prof. Michael Ewens
               </h1>
               <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
                 Academic Portfolio
@@ -260,7 +260,7 @@ export default function Home() {
       <footer className="bg-foreground text-background py-16 px-6">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <h4 className="font-heading text-2xl font-bold mb-3 tracking-wide">Alex Sterling</h4>
+            <h4 className="font-heading text-2xl font-bold mb-3 tracking-wide">Michael Ewens</h4>
             <p className="font-mono text-sm text-background/60">© 2025. All rights reserved.</p>
           </div>
           <div className="flex gap-8 font-mono text-sm font-medium text-background/80">

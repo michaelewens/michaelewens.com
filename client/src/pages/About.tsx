@@ -18,7 +18,7 @@ export default function About() {
               <div className="absolute inset-0 bg-primary/10 rounded-sm transform translate-y-2 translate-x-2 -z-10"></div>
               <img 
                 src={headshot} 
-                alt="Prof. Alex Sterling" 
+                alt="Prof. Michael Ewens" 
                 className="w-full aspect-[3/4] object-cover rounded-sm border border-border shadow-sm grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -40,10 +40,11 @@ export default function About() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-primary" />
                 <p>
-                  Room 402, Social Sciences Bldg<br />
-                  University of Economics<br />
-                  Cambridge, MA 02138
-                </p>
+                  Columbia Busiess School<br />
+                  665 W. 130th Street<br />
+                  732 Kravis Hall<br />
+                  New York, NY 10027<br />
+                 </p>
               </div>
             </div>
           </div>
@@ -72,12 +73,12 @@ export default function About() {
               </h2>
               <ul className="grid sm:grid-cols-2 gap-4">
                 {[
-                  "Asset Pricing",
-                  "Market Microstructure",
-                  "Machine Learning in Finance",
-                  "Natural Language Processing",
-                  "Fintech & DeFi",
-                  "Macro-Finance"
+                  "Private Equity",
+                  "Entrepreneurial Finance",
+                  "Venture Capital",
+                  "Corporate Hierarchy",
+                  "Innovation",
+                  "Entrepreurship"
                 ].map((interest) => (
                   <li key={interest} className="flex items-center gap-2 text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />

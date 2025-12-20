@@ -52,7 +52,7 @@ export default function Navigation() {
           className="group block"
         >
           <h1 className="font-heading text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
-            Alex Sterling
+            Michael Ewens
           </h1>
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
             Private Equity & Entrepreneurial Finance
