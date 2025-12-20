@@ -45,6 +45,17 @@ export interface Course {
 
 export const papers: Paper[] = [
   {
+    id: "p17",
+    title: "Corporate Hierarchy",
+    authors: ["Michael Ewens", "Xavier Giroud"],
+    year: 2025,
+    status: "Working Paper",
+    abstract: "We study the structure and evolution of corporate hierarchies.",
+    pdfUrl: "https://osf.io/preprints/socarxiv/yj4he_v2",
+    tags: ["Corporate Finance", "Organization", "Hierarchy"]
+  },
+  {
+    
     id: "p1",
     title: "Venture Capital and Startup Agglomeration",
     authors: ["Michael Ewens", "Jun Chen"],
@@ -230,16 +241,6 @@ export const papers: Paper[] = [
     abstract: "We estimate the price of diversifiable risk in VC and PE investments.",
     pdfUrl: "https://ewens.sites.caltech.edu/documents/3659/divRisk.pdf",
     tags: ["Venture Capital", "Private Equity", "Risk"]
-  },
-  {
-    id: "p17",
-    title: "Corporate Hierarchy",
-    authors: ["Michael Ewens", "Xavier Giroud"],
-    year: 2025,
-    status: "Working Paper",
-    abstract: "We study the structure and evolution of corporate hierarchies.",
-    pdfUrl: "https://osf.io/preprints/socarxiv/yj4he_v2",
-    tags: ["Corporate Finance", "Organization", "Hierarchy"]
   },
   {
     id: "p18",
