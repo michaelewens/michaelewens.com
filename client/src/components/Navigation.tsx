@@ -31,7 +31,7 @@ export default function Navigation() {
     { name: "About", path: "/about", icon: User },
     { name: "Research", path: "/research", icon: FileText },
     { name: "CV", path: "/cv", icon: FileText },
-    { name: "Data & Code", path: "/data-code", icon: Code },
+    { name: "Data", path: "/data-code", icon: Code },
     { name: "Projects", path: "/projects", icon: Lightbulb },
     { name: "Teaching", path: "/teaching", icon: GraduationCap },
     { name: "Contact", path: "/contact", icon: Mail },
