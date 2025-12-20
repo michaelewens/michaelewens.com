@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
@@ -61,6 +62,7 @@ export default function Contact() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { courses } from "@/lib/data";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -52,6 +53,7 @@ export default function Teaching() {
           </Table>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

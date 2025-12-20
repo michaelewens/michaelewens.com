@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import ResearchList from "@/components/ResearchList";
 import { papers } from "@/lib/data";
 
@@ -46,6 +47,7 @@ export default function Research() {
           </section>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

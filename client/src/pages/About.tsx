@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
 import headshot from "@assets/generated_images/ewens_arms.png";
@@ -262,6 +263,7 @@ export default function About() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

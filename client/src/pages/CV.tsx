@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Building2, Badge, MapPin, GraduationCap, BookOpen, FileText, Award, Edit, Users, Briefcase } from "lucide-react";
 
@@ -429,6 +430,7 @@ export default function CV() {
         </div>
 
       </main>
+      <Footer />
     </div>
   );
 }
