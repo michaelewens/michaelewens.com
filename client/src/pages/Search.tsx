@@ -12,9 +12,10 @@ export default function Search() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    // Extract query param manually since wouter doesn't have a built-in hook for it
-    const searchParams = new URLSearchParams(window.location.search);
-    const q = searchParams.get("q") || "";
+    // Extract query param from hash URL for hash-based routing
+    const hash = window.location.hash;
+    const match = hash.match(/\?q=([^&]*)/);
+    const q = match ? decodeURIComponent(match[1]) : "";
     setQuery(q);
   }, [location]);
 

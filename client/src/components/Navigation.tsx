@@ -22,7 +22,7 @@ export default function Navigation() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setLocation(`/search?q=${encodeURIComponent(searchQuery)}`);
+      window.location.hash = `#/search?q=${encodeURIComponent(searchQuery)}`;
       setIsOpen(false);
     }
   };
