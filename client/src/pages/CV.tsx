@@ -419,7 +419,11 @@ export default function CV() {
             </div>
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
               <p className="text-muted-foreground">Jeremias Huber (Columbia Business School, 2025)</p>
-              <span className="font-mono text-sm text-muted-foreground">Chair</span>
+              <span className="font-mono text-sm text-muted-foreground">Chair, initial placement IFC.</span>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+              <p className="text-muted-foreground">Jun Chen (Caltech, 2019)</p>
+              <span className="font-mono text-sm text-muted-foreground">co-Co-chair, initial placement Renmin University of China (currently University of Illinois, Chicago).</span>
             </div>
           </div>
         </div>
