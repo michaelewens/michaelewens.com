@@ -109,6 +109,80 @@ export default function About() {
               </div>
             </div>
 
+            {/* Academic Positions Held */}
+            <div className="border-t border-border pt-10">
+              <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
+                <GraduationCap className="h-6 w-6 text-primary" /> Academic Positions Held
+              </h2>
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">David L. and Elsie M. Dodd Professor of Finance</h3>
+                    <p className="text-muted-foreground">Columbia Business School</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2022 – present</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Professor of Finance and Entrepreneurship</h3>
+                    <p className="text-muted-foreground">California Institute of Technology</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2019 – 2022</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Associate Professor of Finance and Entrepreneurship</h3>
+                    <p className="text-muted-foreground">California Institute of Technology</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2014 – 2019</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Assistant Professor of Finance and Entrepreneurship</h3>
+                    <p className="text-muted-foreground">Tepper School of Business, Carnegie Mellon University</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2010 – 2014</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Affiliations */}
+            <div className="border-t border-border pt-10">
+              <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
+                <BookOpen className="h-6 w-6 text-primary" /> Affiliations
+              </h2>
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Private Equity Program</h3>
+                    <p className="text-muted-foreground">Columbia Business School · Co-director</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2023 – present</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">National Bureau of Economic Research</h3>
+                    <p className="text-muted-foreground">Research Associate</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2019 – present</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Institute for Private Capital</h3>
+                    <p className="text-muted-foreground">Private Equity Research Consortium Fellow</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2018 – present</span>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">Millstein Center</h3>
+                    <p className="text-muted-foreground">Columbia Law School · Faculty Fellow</p>
+                  </div>
+                  <span className="font-mono text-sm text-muted-foreground">2022 – present</span>
+                </div>
+              </div>
+            </div>
+
             {/* Awards Short */}
             <div className="border-t border-border pt-10">
               <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
