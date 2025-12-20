@@ -18,71 +18,80 @@ export default function Home() {
     {
       id: "wefi",
       title: "WEFI",
-      description: "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
+      description:
+        "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
-      link: "https://workshop-efi.com/"
+      link: "https://workshop-efi.com/",
     },
     {
       id: "phd-workshop",
       title: "Entrepreneurial Finance PhD Workshop",
       description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
-      link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
+      link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/",
     },
     {
       id: "afa-mentoring",
       title: "AFA Mentoring",
-      description: "I co-chair the junior faculty mentoring program for the AFA.",
+      description:
+        "I co-chair the junior faculty mentoring program for the AFA.",
       image: afaImage,
-      link: "https://www.linkedin.com/posts/michaelewens_i-am-pleased-to-announce-the-first-american-activity-7353046152700706817-FQRQ/"
-    }
+      link: "https://www.linkedin.com/posts/michaelewens_i-am-pleased-to-announce-the-first-american-activity-7353046152700706817-FQRQ/",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
-          
           <div className="flex flex-row items-center gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-             <div className="relative group shrink-0">
-               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
-               <img 
-                src={headshot} 
-                alt="Prof. Michael Ewens" 
+            <div className="relative group shrink-0">
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
+              <img
+                src={headshot}
+                alt="Prof. Michael Ewens"
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
               />
             </div>
-            
+
             <div className="space-y-2">
               <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
                 Prof. Michael Ewens
               </h1>
               <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
-                Academic Portfolio
+                Columbia Business School
               </p>
             </div>
           </div>
 
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 w-full pl-2">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light whitespace-nowrap">
-              Research at the intersection of Asset Pricing, Market Microstructure, and Machine Learning.
+              Researching Private Equity, Venture Capital, and Entrepreneurial
+              Finance.
             </p>
           </div>
 
           <div className="flex gap-4 pt-2 pl-2 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-            <Button asChild size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 bg-foreground text-background hover:bg-primary shadow-lg hover:shadow-xl transition-all">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-none font-mono text-xs tracking-wider h-12 px-8 bg-foreground text-background hover:bg-primary shadow-lg hover:shadow-xl transition-all"
+            >
               <Link href="/research">
                 VIEW RESEARCH <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            
-            <Button asChild variant="outline" size="lg" className="rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary">
-              <Link href="/contact">
-                CONTACT
-              </Link>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary"
+            >
+              <Link href="/contact">CONTACT</Link>
             </Button>
           </div>
         </div>
@@ -96,12 +105,15 @@ export default function Home() {
       <section className="border-b border-border bg-secondary/30 py-4 overflow-hidden group">
         <div className="container mx-auto px-6 flex items-center">
           <div className="shrink-0 z-20 pr-4 bg-secondary/30 relative">
-            <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shadow-sm">LATEST</span>
+            <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shadow-sm">
+              LATEST
+            </span>
           </div>
           <div className="flex-1 overflow-hidden relative">
-             <div className="flex items-center gap-8 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
+            <div className="flex items-center gap-8 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
+                [Oct 2024] New working paper "The Microstructure of
+                Decentralized Exchanges" is now available.
               </span>
               <span className="text-primary">•</span>
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
@@ -109,12 +121,14 @@ export default function Home() {
               </span>
               <span className="text-primary">•</span>
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in Information-Rich Markets".
+                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in
+                Information-Rich Markets".
               </span>
               <span className="text-primary">•</span>
               {/* Duplicate content for seamless loop */}
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Oct 2024] New working paper "The Microstructure of Decentralized Exchanges" is now available.
+                [Oct 2024] New working paper "The Microstructure of
+                Decentralized Exchanges" is now available.
               </span>
               <span className="text-primary">•</span>
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
@@ -122,7 +136,8 @@ export default function Home() {
               </span>
               <span className="text-primary">•</span>
               <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in Information-Rich Markets".
+                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in
+                Information-Rich Markets".
               </span>
             </div>
           </div>
@@ -134,22 +149,33 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl">
           <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
             <div>
-              <h2 className="font-heading text-4xl font-bold mb-2">Selected Research</h2>
-              <p className="text-muted-foreground">Recent publications and working papers.</p>
+              <h2 className="font-heading text-4xl font-bold mb-2">
+                Selected Research
+              </h2>
+              <p className="text-muted-foreground">
+                Recent publications and working papers.
+              </p>
             </div>
-            
-            <Link href="/research" className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group">
-              VIEW ALL <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+
+            <Link
+              href="/research"
+              className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group"
+            >
+              VIEW ALL{" "}
+              <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
-          
+
           <ResearchList papers={featuredPapers} />
-          
+
           <div className="mt-12 flex justify-center md:justify-start">
-            <Button asChild variant="outline" size="lg" className="w-full md:w-auto rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary">
-              <Link href="/research">
-                VIEW ALL RESEARCH
-              </Link>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full md:w-auto rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary"
+            >
+              <Link href="/research">VIEW ALL RESEARCH</Link>
             </Button>
           </div>
         </div>
@@ -160,17 +186,20 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {initiatives.map((item) => (
-              <div key={item.id} className="group relative h-64 overflow-hidden border border-border bg-background">
+              <div
+                key={item.id}
+                className="group relative h-64 overflow-hidden border border-border bg-background"
+              >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
+                  <img
+                    src={item.image}
+                    alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
                   />
                   <div className="absolute inset-0 bg-background/80 transition-opacity duration-500 group-hover:opacity-70" />
                 </div>
-                
+
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-center items-center p-6 text-center z-10">
                   <h3 className="font-heading text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -179,10 +208,12 @@ export default function Home() {
                   <p className="text-muted-foreground mb-6 max-w-xs">
                     {item.description}
                   </p>
-                  <Button asChild size="sm" className="rounded-none font-mono text-xs tracking-wider bg-foreground text-background hover:bg-primary transition-all">
-                    <a href={item.link}>
-                      LEARN MORE
-                    </a>
+                  <Button
+                    asChild
+                    size="sm"
+                    className="rounded-none font-mono text-xs tracking-wider bg-foreground text-background hover:bg-primary transition-all"
+                  >
+                    <a href={item.link}>LEARN MORE</a>
                   </Button>
                 </div>
               </div>
@@ -196,26 +227,34 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
             <div>
-              <h2 className="font-heading text-4xl font-bold mb-2">Data & Code</h2>
-              <p className="text-muted-foreground">Open source tools and datasets.</p>
+              <h2 className="font-heading text-4xl font-bold mb-2">
+                Data & Code
+              </h2>
+              <p className="text-muted-foreground">
+                Open source tools and datasets.
+              </p>
             </div>
-            
-            <Link href="/data-code" className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group">
-              VIEW ALL <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+
+            <Link
+              href="/data-code"
+              className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group"
+            >
+              VIEW ALL{" "}
+              <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="group relative aspect-[4/3] overflow-hidden border border-border bg-background"
               >
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
-                  <img 
-                    src={project.imageUrl} 
-                    alt={project.title} 
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
                   />
                   <div className="absolute inset-0 bg-background/90 transition-opacity duration-500 group-hover:opacity-90" />
@@ -237,8 +276,17 @@ export default function Home() {
                   </div>
 
                   <div className="pt-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                    <Button asChild variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:bg-primary hover:text-primary-foreground w-full">
-                      <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:bg-primary hover:text-primary-foreground w-full"
+                    >
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         VIEW PROJECT <ExternalLink className="h-3 w-3" />
                       </a>
                     </Button>
@@ -255,19 +303,43 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <footer className="bg-foreground text-background py-16 px-6">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <h4 className="font-heading text-2xl font-bold mb-3 tracking-wide">Michael Ewens</h4>
-            <p className="font-mono text-sm text-background/60">© 2025. All rights reserved.</p>
+            <h4 className="font-heading text-2xl font-bold mb-3 tracking-wide">
+              Michael Ewens
+            </h4>
+            <p className="font-mono text-sm text-background/60">
+              © 2025. All rights reserved.
+            </p>
           </div>
           <div className="flex gap-8 font-mono text-sm font-medium text-background/80">
-            <a href="#" className="hover:text-primary hover:text-white transition-colors">TWITTER</a>
-            <a href="#" className="hover:text-primary hover:text-white transition-colors">LINKEDIN</a>
-            <a href="#" className="hover:text-primary hover:text-white transition-colors">SSRN</a>
-            <a href="#" className="hover:text-primary hover:text-white transition-colors">GITHUB</a>
+            <a
+              href="#"
+              className="hover:text-primary hover:text-white transition-colors"
+            >
+              TWITTER
+            </a>
+            <a
+              href="#"
+              className="hover:text-primary hover:text-white transition-colors"
+            >
+              LINKEDIN
+            </a>
+            <a
+              href="#"
+              className="hover:text-primary hover:text-white transition-colors"
+            >
+              SSRN
+            </a>
+            <a
+              href="#"
+              className="hover:text-primary hover:text-white transition-colors"
+            >
+              GITHUB
+            </a>
           </div>
         </div>
       </footer>
