@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
+import { Download, Mail, MapPin, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
 import headshot from "@assets/generated_images/ewens_arms.png";
 import { Link } from "wouter";
 import { press } from "@/lib/data";
@@ -60,7 +60,7 @@ export default function About() {
     
                 <p className="mb-4"> My <a href="/research">research</a> investigate the interactions and differences between the public and private capital markets. It has appeared in the Journal of Finance, Journal of Financial Economics, Review of Financial Studies, and Management Science (among other). It has also appeared in the Economist, Bloomberg, and the New York Times. I am a Research Associate at the National Bureau of Economic Research and Associate Editor of the Journal of Financial Economics, Management Science and Journal of Coporate Finance. I edited the <a href="https://www.sciencedirect.com/journal/journal-of-corporate-finance/vol/81/suppl/C">JCF Special Issue on Private Equity</a> and was co-editor of the Journal of Economics & Management Strategy through 2024. </p>  
                  
-                <p className="mb-4">I received a Ph.D. in economics from the University of California, San Diego. Since 2006, I have been a quantitative advisor for Correlation Ventures, a quantitative-focused venture capital firm.  I <a href="/teaching">teach</a> private equity and entrepreneurial finance at the Columbia Business School.   Prior to joining Columbia in 2022, he was on the faculty at the California Institute of Technology and Carnegie Mellon University's Tepper School of Business.
+                <p className="mb-4">I received a Ph.D. in economics from the University of California, San Diego. Since 2006, I have been a quantitative advisor for Correlation Ventures, a quantitative-focused venture capital firm.  I <a href="/teaching">teach</a> private equity and entrepreneurial finance at the Columbia Business School.   Prior to joining Columbia in 2022, I was on the faculty at the California Institute of Technology and Carnegie Mellon University's Tepper School of Business.
                 </p>
               </div>
             </div>
@@ -180,51 +180,6 @@ export default function About() {
                     <p className="text-muted-foreground">Columbia Law School · Faculty Fellow</p>
                   </div>
                   <span className="font-mono text-sm text-muted-foreground">2022 – present</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Awards Short */}
-            <div className="border-t border-border pt-10">
-              <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
-                <Award className="h-6 w-6 text-primary" /> Selected Awards
-              </h2>
-              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Best Paper, Finance Down Under Conference, University of Melbourne</p>
-                  <span className="font-mono text-sm text-muted-foreground">2024</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Best Paper, 31st Utah Winter Finance Conference — "Regulatory Costs of Being Public"</p>
-                  <span className="font-mono text-sm text-muted-foreground">2022</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">CICF Conference Best Paper Award — "Regulatory Costs of Being Public"</p>
-                  <span className="font-mono text-sm text-muted-foreground">2021</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Distinguished Referee, Review of Financial Studies</p>
-                  <span className="font-mono text-sm text-muted-foreground">2021</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Editor's Choice (RFS) — "The Deregulation of the Private Equity Markets and the Decline in IPOs"</p>
-                  <span className="font-mono text-sm text-muted-foreground">2020</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">NSF Grant SES-1949582 — "The Impact of Securities Regulation on Financial Development"</p>
-                  <span className="font-mono text-sm text-muted-foreground">2020–2023</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Tuck Outstanding Paper in VC and PE — "Venture Capital Contracts"</p>
-                  <span className="font-mono text-sm text-muted-foreground">2019</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Best Discussant Prize, ASU Sonoran Winter Finance Conference</p>
-                  <span className="font-mono text-sm text-muted-foreground">2018</span>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-                  <p className="text-foreground font-medium">Kauffman Junior Faculty Fellowship in Entrepreneurship Research</p>
-                  <span className="font-mono text-sm text-muted-foreground">2013–2014</span>
                 </div>
               </div>
             </div>
