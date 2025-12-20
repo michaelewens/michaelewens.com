@@ -80,7 +80,7 @@ export default function Navigation() {
             <form onSubmit={handleSearch}>
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input 
-                placeholder="Search research..." 
+                placeholder="Search..." 
                 className="pl-8 h-9 bg-secondary/50 border-transparent focus:bg-background focus:border-border transition-all rounded-none font-mono text-xs"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
