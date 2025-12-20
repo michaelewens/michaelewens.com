@@ -18,23 +18,23 @@ export default function Home() {
     {
       id: "wefi",
       title: "WEFI",
-      description: "Workshop on Entrepreneurial Finance and Innovation.",
+      description: "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
-      link: "#"
+      link: "https://workshop-efi.com/"
     },
     {
       id: "phd-workshop",
-      title: "PhD Workshop",
-      description: "Annual workshop for doctoral students in finance.",
+      title: "Entrepreneurial Finance PhD Workshop",
+      description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
-      link: "#"
+      link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
     },
     {
       id: "afa-mentoring",
       title: "AFA Mentoring",
-      description: "Mentorship program for junior faculty and students.",
+      description: "I co-chair the junior faculty mentoring program for the AFA.",
       image: afaImage,
-      link: "#"
+      link: "https://www.linkedin.com/posts/michaelewens_i-am-pleased-to-announce-the-first-american-activity-7353046152700706817-FQRQ/"
     }
   ];
 
