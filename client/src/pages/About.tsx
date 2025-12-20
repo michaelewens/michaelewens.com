@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight } from "lucide-react";
+import { Download, Mail, MapPin, Award, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
 import headshot from "@assets/generated_images/ewens_arms.png";
 import { Link } from "wouter";
 import { press } from "@/lib/data";
@@ -112,7 +112,7 @@ export default function About() {
             {/* Academic Positions Held */}
             <div className="border-t border-border pt-10">
               <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
-                <GraduationCap className="h-6 w-6 text-primary" /> Academic Positions Held
+                <Building2 className="h-6 w-6 text-primary" /> Academic Positions Held
               </h2>
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
@@ -149,7 +149,7 @@ export default function About() {
             {/* Affiliations */}
             <div className="border-t border-border pt-10">
               <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
-                <BookOpen className="h-6 w-6 text-primary" /> Affiliations
+                <Badge className="h-6 w-6 text-primary" /> Affiliations
               </h2>
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
