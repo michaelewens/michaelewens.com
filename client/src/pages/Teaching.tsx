@@ -43,9 +43,13 @@ export default function Teaching() {
                   </TableCell>
                   <TableCell className="font-mono text-sm">{course.year}</TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-none hover:bg-primary hover:text-primary-foreground">
-                      <FileText className="h-4 w-4" />
-                    </Button>
+                    {course.syllabusUrl && (
+                      <Button asChild variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-none hover:bg-primary hover:text-primary-foreground">
+                        <a href={course.syllabusUrl} target="_blank" rel="noopener noreferrer">
+                          <FileText className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
