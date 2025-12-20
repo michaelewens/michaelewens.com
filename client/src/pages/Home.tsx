@@ -274,9 +274,13 @@ export default function Home() {
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-between p-6">
                   <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
-                    <span className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider mb-3">
-                      {project.language}
-                    </span>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {project.language.map((lang) => (
+                        <span key={lang} className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
                     <h3 className="font-heading text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
