@@ -20,7 +20,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  language: string;
+  language: string[];
   stars?: number;
   url: string;
   imageUrl?: string;
@@ -268,63 +268,63 @@ export const projects: Project[] = [
     id: "pr1",
     title: "Startup Board Composition Data",
     description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2025), 'Board Dynamics over the Startup Lifecycle', Journal of Finance.",
-    language: "Data",
+    language: ["Data", "Stata"],
     url: "https://github.com/michaelewens/vc_backed_boards"
   },
   {
     id: "pr2",
     title: "Intangible Valuations from Purchase Price Allocations",
     description: "Acquired intangible valuations from Ewens, Peters, and Wang (2024). When a public firm acquires a significant target, it must disclose assets and liabilities in the purchase price allocation.",
-    language: "Data",
+    language: ["Data"],
     url: "https://github.com/michaelewens/Purchased-intangibles"
   },
   {
     id: "pr3",
     title: "Intangible Capital Stocks",
     description: "Parameter estimates for intangible capital accumulation and estimated knowledge and organization capital stocks. From Ewens, Peters and Wang (2024), 'Measuring Intangible Capital with Market Prices', Management Science.",
-    language: "Stata",
+    language: ["Stata"],
     url: "https://github.com/michaelewens/Intangible-capital-stocks"
   },
   {
     id: "pr4",
     title: "Non-Compete Law Changes and Court Decisions",
     description: "State-level law changes in the U.S. from 1995-2016 to study the impact of founder replacement on startup outcomes. From Ewens and Marx (2017), 'Founder Replacement and Startup Performance', RFS.",
-    language: "Stata",
+    language: ["Stata"],
     url: "https://github.com/michaelewens/Non-compete-Law-Changes"
   },
   {
     id: "pr5",
     title: "Mapping SDC to Compustat, 1996-2023",
     description: "A mapping file between SDC's 'sdc_dealno' to 'gvkey'. Connects SDC's M&A database to Compustat using name and date matching with fuzzy string search.",
-    language: "Data",
+    language: ["Data"],
     url: "https://github.com/michaelewens/SDC-to-Compustat-Mapping"
   },
   {
     id: "pr6",
     title: "Venture Capital Revenue Reported by US Banks",
     description: "Data on U.S. bank 'venture capital revenue' used in 'Venture Capital and Startup Agglomeration' (Chen and Ewens 2023) to assess the importance of banking institutions as limited partners in VC.",
-    language: "Stata",
+    language: ["Stata"],
     url: "https://github.com/michaelewens/Banks-In-VC"
   },
   {
     id: "pr7",
     title: "Regulatory Public Float and 10-K Information",
     description: "Public float data from firms' 10-K filings disclosing the market value of outstanding common equity held by non-affiliates. From Ewens, Xiao and Xu (2023), 'Regulatory Costs of Being Public', JFE.",
-    language: "Data",
+    language: ["Data"],
     url: "https://github.com/michaelewens/public_float_regulation"
   },
   {
     id: "pr8",
     title: "10-K MD&A Sections and Parser",
     description: "Index file and code to process raw MD&A data from 10-K filings. Build your own panel database of public firm MD&A text. From Ewens, Peters and Wang (2024).",
-    language: "Python",
+    language: ["Python"],
     url: "https://github.com/michaelewens/MD-A-10-K-data"
   },
   {
     id: "pr9",
     title: "Form D Filings Events 1992-2008",
     description: "Form D filings data from a FOIA request with the SEC. Used in 'The Deregulation of the Private Equity Markets and the Decline in IPOs' by Ewens and Farre-Mensa (2020), RFS.",
-    language: "Data",
+    language: ["Data"],
     url: "https://github.com/michaelewens/Form-D-filing-events-1992-2008"
   }
 ];

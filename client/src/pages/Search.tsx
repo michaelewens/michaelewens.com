@@ -28,7 +28,7 @@ export default function Search() {
 
   // Filter projects
   const filteredProjects = projects.filter(project => {
-    const searchContent = `${project.title} ${project.description} ${project.language}`.toLowerCase();
+    const searchContent = `${project.title} ${project.description} ${project.language.join(" ")}`.toLowerCase();
     return searchContent.includes(query.toLowerCase());
   });
 
@@ -87,9 +87,13 @@ export default function Search() {
                     >
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
-                          <span className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider">
-                            {project.language}
-                          </span>
+                          <div className="flex gap-2">
+                            {project.language.map((lang) => (
+                              <span key={lang} className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider">
+                                {lang}
+                              </span>
+                            ))}
+                          </div>
                           <Button asChild variant="ghost" size="sm" className="h-8 w-8 p-0 opacity-50 group-hover:opacity-100">
                             <a href={project.url} target="_blank" rel="noopener noreferrer">
                               <ExternalLink className="h-4 w-4" />

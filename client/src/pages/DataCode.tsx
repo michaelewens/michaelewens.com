@@ -28,9 +28,13 @@ export default function DataCode() {
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                   <Database className="h-8 w-8 text-primary/80" />
-                  <Badge variant="secondary" className="font-mono rounded-none">
-                    {project.language}
-                  </Badge>
+                  <div className="flex gap-2">
+                    {project.language.map((lang) => (
+                      <Badge key={lang} variant="secondary" className="font-mono rounded-none">
+                        {lang}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
                 <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors leading-tight">
                   {project.title}
