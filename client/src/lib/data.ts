@@ -1,10 +1,3 @@
-import textProcessingImg from "@assets/generated_images/abstract_visualization_of_financial_text_processing.png";
-import orderBookImg from "@assets/generated_images/limit_order_book_heatmap_visualization.png";
-import macroDataImg from "@assets/generated_images/global_macroeconomic_data_connection_map.png";
-import defiImg from "@assets/generated_images/defi_network_nodes_and_links.png";
-import supplyChainImg from "@assets/generated_images/supply_chain_logistics_abstract.png";
-import hftImg from "@assets/generated_images/high_frequency_trading_algorithmic_lines.png";
-
 // Number of papers to feature on the homepage
 export const FEATURED_COUNT = 2;
 
@@ -273,57 +266,66 @@ export const papers: Paper[] = [
 export const projects: Project[] = [
   {
     id: "pr1",
-    title: "FinText-Embeddings",
-    description: "Pre-trained NLP models optimized for financial texts and earnings call transcripts.",
-    language: "Python",
-    stars: 1240,
-    url: "#",
-    imageUrl: textProcessingImg
+    title: "Startup Board Composition Data",
+    description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2025), 'Board Dynamics over the Startup Lifecycle', Journal of Finance.",
+    language: "Data",
+    url: "https://github.com/michaelewens/vc_backed_boards"
   },
   {
     id: "pr2",
-    title: "OrderBookSim",
-    description: "High-fidelity limit order book simulator for backtesting market making strategies.",
-    language: "Rust",
-    stars: 856,
-    url: "#",
-    imageUrl: orderBookImg
+    title: "Intangible Valuations from Purchase Price Allocations",
+    description: "Acquired intangible valuations from Ewens, Peters, and Wang (2024). When a public firm acquires a significant target, it must disclose assets and liabilities in the purchase price allocation.",
+    language: "Data",
+    url: "https://github.com/michaelewens/Purchased-intangibles"
   },
   {
     id: "pr3",
-    title: "MacroDataClean",
-    description: "R package for harmonizing historical macroeconomic time series across different sources.",
-    language: "R",
-    stars: 342,
-    url: "#",
-    imageUrl: macroDataImg
+    title: "Intangible Capital Stocks",
+    description: "Parameter estimates for intangible capital accumulation and estimated knowledge and organization capital stocks. From Ewens, Peters and Wang (2024), 'Measuring Intangible Capital with Market Prices', Management Science.",
+    language: "Stata",
+    url: "https://github.com/michaelewens/Intangible-capital-stocks"
   },
   {
     id: "pr4",
-    title: "DeFi-Network-Graph",
-    description: "Graph neural network tools for analyzing transaction flows in decentralized finance protocols.",
-    language: "Python",
-    stars: 620,
-    url: "#",
-    imageUrl: defiImg
+    title: "Non-Compete Law Changes and Court Decisions",
+    description: "State-level law changes in the U.S. from 1995-2016 to study the impact of founder replacement on startup outcomes. From Ewens and Marx (2017), 'Founder Replacement and Startup Performance', RFS.",
+    language: "Stata",
+    url: "https://github.com/michaelewens/Non-compete-Law-Changes"
   },
   {
     id: "pr5",
-    title: "SupplyChain-Viz",
-    description: "Interactive visualization dashboard for global supply chain disruptions and shock propagation.",
-    language: "JavaScript",
-    stars: 415,
-    url: "#",
-    imageUrl: supplyChainImg
+    title: "Mapping SDC to Compustat, 1996-2023",
+    description: "A mapping file between SDC's 'sdc_dealno' to 'gvkey'. Connects SDC's M&A database to Compustat using name and date matching with fuzzy string search.",
+    language: "Data",
+    url: "https://github.com/michaelewens/SDC-to-Compustat-Mapping"
   },
   {
     id: "pr6",
-    title: "HFT-Algo-Lab",
-    description: "Educational environment for simulating and visualizing high-frequency trading algorithms.",
-    language: "C++",
-    stars: 890,
-    url: "#",
-    imageUrl: hftImg
+    title: "Venture Capital Revenue Reported by US Banks",
+    description: "Data on U.S. bank 'venture capital revenue' used in 'Venture Capital and Startup Agglomeration' (Chen and Ewens 2023) to assess the importance of banking institutions as limited partners in VC.",
+    language: "Stata",
+    url: "https://github.com/michaelewens/Banks-In-VC"
+  },
+  {
+    id: "pr7",
+    title: "Regulatory Public Float and 10-K Information",
+    description: "Public float data from firms' 10-K filings disclosing the market value of outstanding common equity held by non-affiliates. From Ewens, Xiao and Xu (2023), 'Regulatory Costs of Being Public', JFE.",
+    language: "Data",
+    url: "https://github.com/michaelewens/public_float_regulation"
+  },
+  {
+    id: "pr8",
+    title: "10-K MD&A Sections and Parser",
+    description: "Index file and code to process raw MD&A data from 10-K filings. Build your own panel database of public firm MD&A text. From Ewens, Peters and Wang (2024).",
+    language: "Python",
+    url: "https://github.com/michaelewens/MD-A-10-K-data"
+  },
+  {
+    id: "pr9",
+    title: "Form D Filings Events 1992-2008",
+    description: "Form D filings data from a FOIA request with the SEC. Used in 'The Deregulation of the Private Equity Markets and the Decline in IPOs' by Ewens and Farre-Mensa (2020), RFS.",
+    language: "Data",
+    url: "https://github.com/michaelewens/Form-D-filing-events-1992-2008"
   }
 ];
 

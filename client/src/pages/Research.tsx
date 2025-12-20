@@ -15,7 +15,7 @@ export default function Research() {
         <header className="mb-16">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Research</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            My research focuses on understanding how information is incorporated into asset prices, with a focus on machine learning methods and non-traditional data sources.
+            My research examines how venture capital and private equity shape the growth and governance of entrepreneurial firms. Specifically, I investigate the trade-offs between private and public equity markets, analyzing how regulation and financing costs influence firm behavior and success. Beyond individual firms, I explore the broader impacts of these financial systems on organizational structure, innovation, and diversity in entrepreneurship.
           </p>
         </header>
 
