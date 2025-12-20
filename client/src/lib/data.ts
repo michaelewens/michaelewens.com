@@ -46,7 +46,7 @@ export interface Course {
   code: string;
   title: string;
   institution: string;
-  level: "Undergraduate" | "Graduate" | "PhD";
+  level: "Undergraduate" | "MBA" | "PhD";
   year: string;
   syllabusUrl?: string;
 }
@@ -188,7 +188,7 @@ export const courses: Course[] = [
     code: "PE-VC",
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2025–"
   },
   {
@@ -196,7 +196,7 @@ export const courses: Course[] = [
     code: "PE-FS",
     title: "Private Equity Field Study",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2024–"
   },
   {
@@ -204,7 +204,7 @@ export const courses: Course[] = [
     code: "PE-FIN",
     title: "Private Equity Finance",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2024–"
   },
   {
@@ -212,7 +212,7 @@ export const courses: Course[] = [
     code: "PE-ALL",
     title: "Private Equity Allocation",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2024"
   },
   {
@@ -220,7 +220,7 @@ export const courses: Course[] = [
     code: "PE-TOP",
     title: "Current Topics in Private Equity",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2023–2024"
   },
   {
@@ -236,7 +236,7 @@ export const courses: Course[] = [
     code: "ENT-FIN",
     title: "Entrepreneurial Finance",
     institution: "Columbia Business School",
-    level: "Graduate",
+    level: "MBA",
     year: "2021, 2023, 2024"
   },
   {
@@ -284,7 +284,7 @@ export const courses: Course[] = [
     code: "NVF",
     title: "New Venture Finance",
     institution: "UCSD Rady School of Management",
-    level: "Graduate",
+    level: "MBA",
     year: "2015"
   },
   {
@@ -292,7 +292,7 @@ export const courses: Course[] = [
     code: "PE-FIN",
     title: "Private Equity Finance",
     institution: "Carnegie Mellon Tepper",
-    level: "Graduate",
+    level: "MBA",
     year: "2010–2014"
   },
   {
@@ -300,7 +300,7 @@ export const courses: Course[] = [
     code: "VC-FIN",
     title: "Venture Capital Finance",
     institution: "Carnegie Mellon Tepper",
-    level: "Graduate",
+    level: "MBA",
     year: "2010–2014"
   },
   {
