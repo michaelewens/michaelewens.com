@@ -282,14 +282,14 @@ export const projects: Project[] = [
     id: "pr3",
     title: "Intangible Capital Stocks",
     description: "Parameter estimates for intangible capital accumulation and estimated knowledge and organization capital stocks. From Ewens, Peters and Wang (2024), 'Measuring Intangible Capital with Market Prices', Management Science.",
-    language: ["Stata"],
+    language: ["Stata", "Code"],
     url: "https://github.com/michaelewens/Intangible-capital-stocks"
   },
   {
     id: "pr4",
     title: "Non-Compete Law Changes and Court Decisions",
     description: "State-level law changes in the U.S. from 1995-2016 to study the impact of founder replacement on startup outcomes. From Ewens and Marx (2017), 'Founder Replacement and Startup Performance', RFS.",
-    language: ["Stata"],
+    language: ["Data", "Code"],
     url: "https://github.com/michaelewens/Non-compete-Law-Changes"
   },
   {
@@ -303,7 +303,7 @@ export const projects: Project[] = [
     id: "pr6",
     title: "Venture Capital Revenue Reported by US Banks",
     description: "Data on U.S. bank 'venture capital revenue' used in 'Venture Capital and Startup Agglomeration' (Chen and Ewens 2023) to assess the importance of banking institutions as limited partners in VC.",
-    language: ["Stata"],
+    language: ["Data"],
     url: "https://github.com/michaelewens/Banks-In-VC"
   },
   {
@@ -317,7 +317,7 @@ export const projects: Project[] = [
     id: "pr8",
     title: "10-K MD&A Sections and Parser",
     description: "Index file and code to process raw MD&A data from 10-K filings. Build your own panel database of public firm MD&A text. From Ewens, Peters and Wang (2024).",
-    language: ["Python"],
+    language: ["Python", "Data"],
     url: "https://github.com/michaelewens/MD-A-10-K-data"
   },
   {
