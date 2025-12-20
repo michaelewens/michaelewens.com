@@ -13,6 +13,7 @@ export interface Paper {
   title: string;
   authors: string[];
   journal?: string;
+  journalUrl?: string;
   year: number;
   status: "Working Paper" | "Published" | "Forthcoming";
   abstract: string;
