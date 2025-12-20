@@ -43,7 +43,6 @@ export interface PressItem {
 
 export interface Course {
   id: string;
-  code: string;
   title: string;
   institution: string;
   level: "Undergraduate" | "MBA" | "PhD";
@@ -185,7 +184,6 @@ export const press: PressItem[] = [
 export const courses: Course[] = [
   {
     id: "c1",
-    code: "PE-VC",
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
     level: "MBA",
@@ -193,7 +191,6 @@ export const courses: Course[] = [
   },
   {
     id: "c2",
-    code: "PE-FS",
     title: "Private Equity Field Study",
     institution: "Columbia Business School",
     level: "MBA",
@@ -201,7 +198,6 @@ export const courses: Course[] = [
   },
   {
     id: "c3",
-    code: "PE-FIN",
     title: "Private Equity Finance",
     institution: "Columbia Business School",
     level: "MBA",
@@ -209,7 +205,6 @@ export const courses: Course[] = [
   },
   {
     id: "c4",
-    code: "PE-ALL",
     title: "Private Equity Allocation",
     institution: "Columbia Business School",
     level: "MBA",
@@ -217,7 +212,6 @@ export const courses: Course[] = [
   },
   {
     id: "c5",
-    code: "PE-TOP",
     title: "Current Topics in Private Equity",
     institution: "Columbia Business School",
     level: "MBA",
@@ -225,7 +219,6 @@ export const courses: Course[] = [
   },
   {
     id: "c6",
-    code: "REF",
     title: "Research in Entrepreneurial Finance",
     institution: "Columbia Business School",
     level: "PhD",
@@ -233,7 +226,6 @@ export const courses: Course[] = [
   },
   {
     id: "c7",
-    code: "ENT-FIN",
     title: "Entrepreneurial Finance",
     institution: "Columbia Business School",
     level: "MBA",
@@ -241,7 +233,6 @@ export const courses: Course[] = [
   },
   {
     id: "c8",
-    code: "NBER",
     title: "Race and Gender in Entrepreneurial Finance",
     institution: "NBER Entrepreneurship Bootcamp",
     level: "PhD",
@@ -249,7 +240,6 @@ export const courses: Course[] = [
   },
   {
     id: "c9",
-    code: "CORP-FIN",
     title: "Corporate Finance",
     institution: "Caltech",
     level: "Undergraduate",
@@ -257,7 +247,6 @@ export const courses: Course[] = [
   },
   {
     id: "c10",
-    code: "VC",
     title: "Venture Capital",
     institution: "Caltech",
     level: "Undergraduate",
@@ -265,7 +254,6 @@ export const courses: Course[] = [
   },
   {
     id: "c11",
-    code: "METHODS",
     title: "Applied Methods for the Social Sciences",
     institution: "Caltech",
     level: "PhD",
@@ -273,7 +261,6 @@ export const courses: Course[] = [
   },
   {
     id: "c12",
-    code: "ACCT",
     title: "Introduction to Financial Accounting",
     institution: "Caltech",
     level: "Undergraduate",
@@ -281,7 +268,6 @@ export const courses: Course[] = [
   },
   {
     id: "c13",
-    code: "NVF",
     title: "New Venture Finance",
     institution: "UCSD Rady School of Management",
     level: "MBA",
@@ -289,7 +275,6 @@ export const courses: Course[] = [
   },
   {
     id: "c14",
-    code: "PE-FIN",
     title: "Private Equity Finance",
     institution: "Carnegie Mellon Tepper",
     level: "MBA",
@@ -297,7 +282,6 @@ export const courses: Course[] = [
   },
   {
     id: "c15",
-    code: "VC-FIN",
     title: "Venture Capital Finance",
     institution: "Carnegie Mellon Tepper",
     level: "MBA",
@@ -305,7 +289,6 @@ export const courses: Course[] = [
   },
   {
     id: "c16",
-    code: "ENT-FIN",
     title: "Entrepreneurial Finance",
     institution: "Carnegie Mellon Tepper",
     level: "Undergraduate",
@@ -313,7 +296,6 @@ export const courses: Course[] = [
   },
   {
     id: "c17",
-    code: "EMP-METH",
     title: "Empirical Methods for Corporate Finance and Accounting",
     institution: "Carnegie Mellon Tepper",
     level: "PhD",

@@ -21,7 +21,6 @@ export default function Teaching() {
           <Table>
             <TableHeader className="bg-secondary/30">
               <TableRow className="hover:bg-transparent border-border">
-                <TableHead className="font-mono font-bold uppercase text-foreground w-[120px]">Code</TableHead>
                 <TableHead className="font-mono font-bold uppercase text-foreground">Course Title</TableHead>
                 <TableHead className="font-mono font-bold uppercase text-foreground hidden md:table-cell">Institution</TableHead>
                 <TableHead className="font-mono font-bold uppercase text-foreground hidden md:table-cell">Level</TableHead>
@@ -32,7 +31,6 @@ export default function Teaching() {
             <TableBody>
               {courses.map((course) => (
                 <TableRow key={course.id} className="border-border hover:bg-secondary/10 group">
-                  <TableCell className="font-mono font-medium">{course.code}</TableCell>
                   <TableCell className="font-heading text-lg font-semibold group-hover:text-primary transition-colors">
                     {course.title}
                   </TableCell>
