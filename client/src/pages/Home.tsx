@@ -15,6 +15,24 @@ import afaImage from "@assets/generated_images/mentorship_and_guidance_abstract.
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
 
+  const updates = [
+    {
+      id: "u1",
+      text: "[Nov 2025] New working paper \"Corporate Hierarchy\" is now available.",
+      url: "/research"
+    },
+    {
+      id: "u2",
+      text: "[July 2025] Gender Equity in Private Equity report released",
+      url: "/research"
+    },
+    {
+      id: "u3",
+      text: "[Sept 2025] Forthcoming to Journal of Finance: \"Board Dynamics over the Startup Lifecycle\".",
+      url: "/research"
+    }
+  ];
+
   const initiatives = [
     {
       id: "wefi",
@@ -112,34 +130,25 @@ export default function Home() {
           </div>
           <div className="flex-1 overflow-hidden relative">
             <div className="flex items-center gap-8 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Oct 2024] New working paper "The Microstructure of
-                Decentralized Exchanges" is now available.
-              </span>
+              {updates.map((update) => (
+                <a
+                  key={update.id}
+                  href={`#${update.url}`}
+                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
+                >
+                  {update.text}
+                </a>
+              ))}
               <span className="text-primary">•</span>
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Sep 2024] Presenting at NBER Asset Pricing meeting.
-              </span>
-              <span className="text-primary">•</span>
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in
-                Information-Rich Markets".
-              </span>
-              <span className="text-primary">•</span>
-              {/* Duplicate content for seamless loop */}
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Oct 2024] New working paper "The Microstructure of
-                Decentralized Exchanges" is now available.
-              </span>
-              <span className="text-primary">•</span>
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Sep 2024] Presenting at NBER Asset Pricing meeting.
-              </span>
-              <span className="text-primary">•</span>
-              <span className="font-mono text-sm text-muted-foreground inline-flex items-center">
-                [Aug 2024] Accepted to Journal of Finance: "Asset Pricing in
-                Information-Rich Markets".
-              </span>
+              {updates.map((update) => (
+                <a
+                  key={`${update.id}-dupe`}
+                  href={`#${update.url}`}
+                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
+                >
+                  {update.text}
+                </a>
+              ))}
             </div>
           </div>
         </div>
