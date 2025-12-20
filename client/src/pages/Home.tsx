@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import heroImage from "@assets/generated_images/abstract_geometric_financial_network_visualization.png";
-import headshot from "@assets/generated_images/professional_academic_headshot_of_economics_professor.png";
+import headshot from "@assets/generated_images/michael_ewens_headshot.png";
 
 import wefiImage from "@assets/generated_images/abstract_finance_innovation_network.png";
 import phdWorkshopImage from "@assets/generated_images/academic_workshop_abstract.png";
