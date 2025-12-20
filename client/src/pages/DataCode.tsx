@@ -63,7 +63,7 @@ export default function DataCode() {
             <div className="flex-1">
               <h3 className="font-heading text-2xl font-bold mb-4">Replication Policy</h3>
               <p className="text-muted-foreground">
-                I am committed to research transparency. Replication packages for all published papers are available on my GitHub repositories. If you encounter any issues running the code, please open an issue.
+                I am committed to research transparency. Replication packages for many of my published papers are available on the journal websites, and when possible, the main datasets in my GitHub repositories. If you encounter any issues running the code, please open an issue on Github or email me.
               </p>
             </div>
             <Button asChild className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
