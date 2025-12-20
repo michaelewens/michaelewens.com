@@ -23,7 +23,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Email</h3>
-                  <p className="text-muted-foreground">alex.sterling@university.edu</p>
+                  <p className="text-muted-foreground">michael.ewens@columbia.edu</p>
                 </div>
               </div>
               
@@ -34,10 +34,10 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Office</h3>
                   <p className="text-muted-foreground">
-                    Department of Economics<br/>
-                    Room 402, Social Sciences Building<br/>
-                    123 University Ave<br/>
-                    Cambridge, MA 02138
+                    Columbia Business School<br/>
+                    665 W. 130th Street <br/>
+                    Room 732, Kravis Hall<br/>
+                    New York, NY 10027
                   </p>
                 </div>
               </div>
@@ -48,14 +48,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Phone</h3>
-                  <p className="text-muted-foreground">+1 (617) 555-0123</p>
+                  <p className="text-muted-foreground">+1 (610) 512-3820</p>
                 </div>
               </div>
             </div>
             
             <div className="mt-12 p-6 border border-border bg-secondary/20">
                <p className="text-sm text-muted-foreground italic">
-                 For media inquiries, please contact the University Press Office directly at press@university.edu.
+                 For media inquiries, please contact the Press Office directly at jroach@skdknick.com.
                </p>
             </div>
           </div>
