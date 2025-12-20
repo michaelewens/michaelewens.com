@@ -184,6 +184,7 @@ export default function Home() {
       {/* Initiatives Section */}
       <section className="bg-secondary/5 py-20 border-t border-border">
         <div className="container mx-auto max-w-6xl px-6">
+          <h2 className="font-heading text-4xl font-bold mb-12">Projects</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {initiatives.map((item) => (
               <div
