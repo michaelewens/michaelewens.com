@@ -12,12 +12,6 @@ export default function Footer() {
         </div>
         <div className="flex gap-8 font-mono text-sm font-medium text-background/80">
           <a
-            href="#"
-            className="hover:text-primary hover:text-white transition-colors"
-          >
-            TWITTER
-          </a>
-          <a
             href="https://www.linkedin.com/in/michaelewens/"
             target="_blank"
             rel="noopener noreferrer"
