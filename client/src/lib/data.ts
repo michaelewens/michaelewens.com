@@ -249,7 +249,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We use a large-scale field experiment to distinguish between statistical discrimination and prejudice.",
     pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=1816702",
-    dataUrl: "http://thedata.harvard.edu/dvn/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/26410&studyListingIndex=0_bb1bba6601d1f75d6c9119a4be7d"
+    dataUrl: "http://thedata.harvard.edu/dvn/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/26410&studyListingIndex=0_bb1bba6601d1f75d6c9119a4be7d",
     tags: ["Discrimination", "Field Experiment", "Labor"]
   },
   {
