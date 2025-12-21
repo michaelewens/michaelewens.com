@@ -96,7 +96,7 @@ export const papers: Paper[] = [
     title: "Regulatory Costs of Being Public: Evidence from Bunching Estimation",
     authors: ["Michael Ewens", "Kairong Xiao", "Ting Xu"],
     journal: "Journal of Financial Economics",
-    journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155"
+    journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155",
     year: 2023,
   codeUrl: "https://github.com/michaelewens/public_float_regulation",
     status: "Published",
@@ -222,7 +222,7 @@ export const papers: Paper[] = [
     year: 2017,
     status: "Published",
     abstract: "We study how venture capitalists strategically time fundraising to manage performance signals.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3656/vc-delay.pdf",
+    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2494677",
     tags: ["Venture Capital", "Signaling", "Fundraising"]
   },
   {
@@ -234,7 +234,7 @@ export const papers: Paper[] = [
     year: 2015,
     status: "Published",
     abstract: "We decompose VC performance into partner skill and firm effects.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3657/vc-partners.pdf",
+    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2024209",
     tags: ["Venture Capital", "Performance", "Human Capital"],
       appendixUrl:"@assets/vc-partners-appendix.pdf"
 
