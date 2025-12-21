@@ -12,6 +12,7 @@ import raceGenderImage from "@assets/Screenshot_2025-12-21_at_11.58.04_AM_176631
 import genderRaceLectureImage from "@assets/Screenshot_2025-12-21_at_12.11.19_PM_1766315836431.png";
 import workshopEFIImage from "@assets/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.png";
 import entrepreneurialFinanceImage from "@assets/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.png";
+import phdWebsiteImage from "@assets/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.png";
 
 const projectImages: Record<string, string> = {
   "proj1": genderEquityImage,
@@ -23,6 +24,7 @@ const projectImages: Record<string, string> = {
   "proj7": raceGenderImage,
   "proj8": columbiaPEImage,
   "proj9": publicPrivateEquityImage,
+  "proj10": phdWebsiteImage,
 };
 
 export default function Projects() {
