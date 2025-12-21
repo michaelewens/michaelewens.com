@@ -87,9 +87,9 @@ export const papers: Paper[] = [
     abstract: "We examine how startup boards evolve from founding through exit, documenting the changing composition and roles of board members.",
     pdfUrl: "https://osf.io/preprints/socarxiv/t96yq/",
     codeUrl: "https://github.com/michaelewens/vc_backed_boards",
-    slidesUrl: "@assets/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
+    slidesUrl: "/attached_assets/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
     tags: ["Corporate Governance", "Startups", "Venture Capital"], 
-    appendixUrl:"@assets/internet_appendix.pdf"
+    appendixUrl:"/attached_assets/internet_appendix.pdf"
   },
   {
     id: "p3",
@@ -115,7 +115,7 @@ export const papers: Paper[] = [
     abstract: "We study how founder-CEO compensation evolves and its role in selection into venture capital-backed entrepreneurship.",
     pdfUrl: "https://osf.io/preprints/socarxiv/rku3m",
     tags: ["Entrepreneurship", "Compensation", "Venture Capital"],
-    slidesUrl:"@assets/short_present_ENS.pdf"
+    slidesUrl:"/attached_assets/short_present_ENS.pdf"
   },
   {
     id: "p5",
@@ -128,7 +128,7 @@ export const papers: Paper[] = [
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
     codeUrl: "https://github.com/michaelewens/intangible_capital",
     tags: ["Intangible Capital", "Valuation", "Corporate Finance"],
-    slidesUrl:"@assets/intangibles_short.pdf"
+    slidesUrl:"/attached_assets/intangibles_short.pdf"
   },
   {
     id: "p6",
@@ -164,7 +164,7 @@ export const papers: Paper[] = [
     abstract: "We study the structure and evolution of venture capital contracts.",
     pdfUrl: "https://osf.io/preprints/socarxiv/hk38u/",
     tags: ["Venture Capital", "Contracts", "Corporate Finance"],
-    slidesUrl:"@assets/VCContr-general.pdf"
+    slidesUrl:"/attached_assets/VCContr-general.pdf"
   },
   {
     id: "p9",
@@ -177,7 +177,7 @@ export const papers: Paper[] = [
     abstract: "We show how deregulation of private markets contributed to the decline in IPOs. Editor's Choice.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
     tags: ["Regulation", "IPO", "Private Equity"], 
-      appendixUrl:"@assets/IA_122519.pdf"
+      appendixUrl:"attached_assets/IA_122519.pdf"
   },
   {
     id: "p10",
@@ -213,7 +213,7 @@ export const papers: Paper[] = [
     abstract: "We show how declining experimentation costs have transformed the venture capital industry.",
     pdfUrl: "https://ewens.sites.caltech.edu/documents/3654/vc_evolve-1.pdf",
     tags: ["Venture Capital", "Innovation", "Experimentation"],
-      appendixUrl:"@assets/vc_evolveIA.pdf"
+      appendixUrl:"/attached_assets/vc_evolveIA.pdf"
 
   },
   {
@@ -239,7 +239,7 @@ export const papers: Paper[] = [
     abstract: "We decompose VC performance into partner skill and firm effects.",
     pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2024209",
     tags: ["Venture Capital", "Performance", "Human Capital"],
-      appendixUrl:"@assets/vc-partners-appendix.pdf"
+      appendixUrl:"attached_assets/vc-partners-appendix.pdf"
 
   },
   {
@@ -275,7 +275,7 @@ export const papers: Paper[] = [
     abstract: "We examine the impacts of private equity ownership on local journalism.",
     pdfUrl: "https://osf.io/preprints/socarxiv/6ynf4",
     tags: ["Private Equity", "Media", "Journalism"],
-    slidesUrl:"@assets/Newspapers_and_PE_posted.pdf"
+    slidesUrl:"/attached_assets/Newspapers_and_PE_posted.pdf"
   },
   {
     id: "p19",
