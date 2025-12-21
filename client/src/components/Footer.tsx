@@ -24,10 +24,12 @@ export default function Footer() {
             LINKEDIN
           </a>
           <a
-            href="#"
+            href="https://scholar.google.com/citations?user=5OqolPMAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-primary hover:text-white transition-colors"
           >
-            SSRN
+            GOOGLE SCHOLAR
           </a>
           <a
             href="#"
