@@ -35,6 +35,14 @@ export default function Footer() {
           >
             GITHUB
           </a>
+          <a
+            href="https://business.columbia.edu/faculty/people/michael-ewens"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary hover:text-white transition-colors"
+          >
+            COLUMBIA PROFILE
+          </a>
         </div>
       </div>
     </footer>
