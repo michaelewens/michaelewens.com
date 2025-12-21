@@ -13,6 +13,7 @@ import Teaching from "@/pages/Teaching";
 import CV from "@/pages/CV";
 import Search from "@/pages/Search";
 import Projects from "@/pages/Projects";
+import Media from "@/pages/Media";
 import { useState, useEffect } from "react";
 
 // Manual implementation of useHashLocation to ensure compatibility with GitHub Pages
@@ -51,6 +52,7 @@ function Router() {
         <Route path="/cv" component={CV} />
         <Route path="/projects" component={Projects} />
         <Route path="/search" component={Search} />
+        <Route path="/media" component={Media} />
         <Route component={NotFound} />
       </Switch>
     </WouterRouter>

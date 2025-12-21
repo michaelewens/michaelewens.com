@@ -217,6 +217,13 @@ export default function About() {
                   </a>
                 ))}
               </div>
+              <Link 
+                href="/media" 
+                className="inline-flex items-center gap-2 mt-6 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
+                data-testid="link-all-media"
+              >
+                All media <ArrowUpRight className="h-3 w-3" />
+              </Link>
             </div>
 
           </div>
