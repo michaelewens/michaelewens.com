@@ -6,11 +6,13 @@ import { ExternalLink } from "lucide-react";
 import genderEquityImage from "@assets/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.png";
 import blueSkyImage from "@assets/Screenshot_2025-12-21_at_10.49.33_AM_1766310595420.png";
 import summerPhDImage from "@assets/Screenshot_2025-12-21_at_11.10.53_AM_1766313842713.png";
+import publicPrivateEquityImage from "@assets/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.png";
 
 const projectImages: Record<string, string> = {
   "proj1": genderEquityImage,
   "proj2": blueSkyImage,
   "proj3": summerPhDImage,
+  "proj9": publicPrivateEquityImage,
 };
 
 export default function Projects() {
