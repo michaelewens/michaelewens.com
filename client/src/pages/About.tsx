@@ -191,8 +191,8 @@ export default function About() {
                 <Newspaper className="h-6 w-6 text-primary" /> Press Coverage
               </h2>
               <div className="space-y-0">
-                {press
-                  .sort((a, b) => b.id.localeCompare(a.id))
+                {[...press]
+                  .sort((a, b) => parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', '')))
                   .slice(0, 4)
                   .map((item) => (
                   <a 
