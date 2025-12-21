@@ -61,20 +61,26 @@ export default function ResearchList({ papers, showAbstract = true, className }:
             </div>
 
             <div className="flex md:flex-col gap-2 shrink-0">
-              <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5">
-                <FileDown className="h-3 w-3" />
-                PDF
+              <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5" asChild>
+                <a href={paper.pdfUrl} target="_blank" rel="noopener noreferrer">
+                  <FileDown className="h-3 w-3" />
+                  PDF
+                </a>
               </Button>
               {paper.codeUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
-                  <Github className="h-3 w-3" />
-                  Code
+                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                  <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="h-3 w-3" />
+                    Code
+                  </a>
                 </Button>
               )}
               {paper.slidesUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">
-                  <Presentation className="h-3 w-3" />
-                  Slides
+                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                  <a href={paper.slidesUrl} target="_blank" rel="noopener noreferrer">
+                    <Presentation className="h-3 w-3" />
+                    Slides
+                  </a>
                 </Button>
               )}
               {paper.appendixUrl && (
