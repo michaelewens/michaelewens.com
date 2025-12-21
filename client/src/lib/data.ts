@@ -87,8 +87,9 @@ export const papers: Paper[] = [
     abstract: "We examine how startup boards evolve from founding through exit, documenting the changing composition and roles of board members.",
     pdfUrl: "https://osf.io/preprints/socarxiv/t96yq/",
     codeUrl: "https://github.com/michaelewens/vc_backed_boards",
-    slidesUrl: "https://michaelewens.com/wp-content/uploads/2025/02/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
-    tags: ["Corporate Governance", "Startups", "Venture Capital"]
+    slidesUrl: "@assets/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
+    tags: ["Corporate Governance", "Startups", "Venture Capital"], 
+    appendixUrl:"@assets/internet_appendix.pdf"
   },
   {
     id: "p3",
@@ -97,7 +98,7 @@ export const papers: Paper[] = [
     journal: "Journal of Financial Economics",
     journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155"
     year: 2023,
-  dataURL: "https://github.com/michaelewens/public_float_regulation",
+  codeUrl: "https://github.com/michaelewens/public_float_regulation",
     status: "Published",
     abstract: "We estimate the regulatory costs of being a public company using bunching estimation techniques.",
     pdfUrl: "https://osf.io/preprints/socarxiv/pdv8n/",
@@ -133,9 +134,11 @@ export const papers: Paper[] = [
     authors: ["Michael Ewens"],
     year: 2024,
     status: "Published",
+    journal: "Handbook of the Economics of Corporate Finance",
     abstract: "A comprehensive review of research on race and gender in entrepreneurial finance for the Handbook of the Economics of Corporate Finance.",
     pdfUrl: "https://osf.io/preprints/socarxiv/djf8z/",
-    tags: ["Diversity", "Entrepreneurship", "Venture Capital"]
+    tags: ["Diversity", "Entrepreneurship", "Venture Capital"],
+      dataUrl: "https://foundinggaps.com/"
   },
   {
     id: "p7",
@@ -146,6 +149,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We document and explain the dramatic shift in entrepreneurial finance from public to private markets.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
+    codeUrl:"https://privatepublicmkts.com/",
     tags: ["Private Equity", "IPO", "Entrepreneurship"]
   },
   {
@@ -169,7 +173,8 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We show how deregulation of private markets contributed to the decline in IPOs. Editor's Choice.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
-    tags: ["Regulation", "IPO", "Private Equity"]
+    tags: ["Regulation", "IPO", "Private Equity"], 
+      appendixUrl:"@assets/IA_122519.pdf"
   },
   {
     id: "p10",
@@ -191,7 +196,7 @@ export const papers: Paper[] = [
     year: 2018,
     status: "Published",
     abstract: "We examine the causes and consequences of founder-CEO replacement in venture-backed startups.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3660/exec-replace-vc.pdf",
+    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2717124",
     codeUrl: "https://github.com/michaelewens/noncompete_laws",
     tags: ["Founders", "Startups", "Corporate Governance"]
   },
@@ -204,7 +209,9 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We show how declining experimentation costs have transformed the venture capital industry.",
     pdfUrl: "https://ewens.sites.caltech.edu/documents/3654/vc_evolve-1.pdf",
-    tags: ["Venture Capital", "Innovation", "Experimentation"]
+    tags: ["Venture Capital", "Innovation", "Experimentation"],
+      appendixUrl:"@assets/vc_evolveIA.pdf"
+
   },
   {
     id: "p13",
@@ -228,7 +235,9 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We decompose VC performance into partner skill and firm effects.",
     pdfUrl: "https://ewens.sites.caltech.edu/documents/3657/vc-partners.pdf",
-    tags: ["Venture Capital", "Performance", "Human Capital"]
+    tags: ["Venture Capital", "Performance", "Human Capital"],
+      appendixUrl:"@assets/vc-partners-appendix.pdf"
+
   },
   {
     id: "p15",
@@ -253,9 +262,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We ask whether idiosyncratic risk is priced in VC and PE investments.",
     pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=342841",
-    tags: ["Venture Capital", "Private Equity", "Asset Pricing"],
-      appendixUrl:"https://ewens.sites.caltech.edu/documents/3658/vc-partners-appendix.pdf"
-  },
+    tags: ["Venture Capital", "Private Equity", "Asset Pricing"]  },
   {
     id: "p18",
     title: "Local Journalism Under Private Equity Ownership",
