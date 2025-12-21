@@ -66,8 +66,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
-          <div className="flex flex-row items-center gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="relative group shrink-0">
+          <div className="flex flex-col md:flex-row items-center gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="relative group shrink-0 mx-auto md:mx-0">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
               <img
                 src={headshot}
