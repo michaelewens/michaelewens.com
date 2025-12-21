@@ -28,7 +28,11 @@ const useHashLocation = () => {
   const [loc, setLoc] = useState(currentLocation());
 
   useEffect(() => {
-    const handler = () => setLoc(currentLocation());
+    const handler = () => {
+      setLoc(currentLocation());
+      // Scroll to top on route change
+      window.scrollTo(0, 0);
+    };
 
     // Subscribe to hash changes
     window.addEventListener("hashchange", handler);
