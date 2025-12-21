@@ -191,7 +191,10 @@ export default function About() {
                 <Newspaper className="h-6 w-6 text-primary" /> Press Coverage
               </h2>
               <div className="space-y-0">
-                {press.map((item) => (
+                {press
+                  .sort((a, b) => b.id.localeCompare(a.id))
+                  .slice(0, 4)
+                  .map((item) => (
                   <a 
                     key={item.id} 
                     href={item.url}
