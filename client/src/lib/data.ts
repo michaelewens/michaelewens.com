@@ -360,7 +360,7 @@ export const press: PressItem[] = [
   {
     id: "n1",
     outlet: "CLS Blue Sky Blog",
-    title: "Why AI Won't Replace Your Financial Advisor Just Yet",
+    title: "Regulatory Costs of Being Public: Evidence from Bunching Estimation",
     date: "January 8, 2021",
     url: "https://clsbluesky.law.columbia.edu/2021/01/08/regulatory-costs-of-being-public-evidence-from-bunching-estimation/"
   },
