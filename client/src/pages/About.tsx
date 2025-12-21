@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
-import headshot from "@assets/generated_images/ewens_arms.png";
+import headshot from "@assets/optimized/ewens_arms.webp";
 import { Link } from "wouter";
 import { press } from "@/lib/data";
 
@@ -20,6 +20,7 @@ export default function About() {
               <img 
                 src={headshot} 
                 alt="Prof. Michael Ewens" 
+                loading="lazy"
                 className="w-full aspect-[3/4] object-cover rounded-sm border border-border shadow-sm grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </div>

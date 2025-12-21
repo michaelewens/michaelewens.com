@@ -5,12 +5,12 @@ import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
-import heroImage from "@assets/generated_images/abstract_geometric_financial_network_visualization.png";
-import headshot from "@assets/generated_images/michael_ewens_headshot.png";
+import heroImage from "@assets/optimized/abstract_geometric_financial_network_visualization.webp";
+import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 
-import wefiImage from "@assets/generated_images/abstract_finance_innovation_network.png";
-import phdWorkshopImage from "@assets/generated_images/academic_workshop_abstract.png";
-import afaImage from "@assets/generated_images/mentorship_and_guidance_abstract.png";
+import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
+import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
+import afaImage from "@assets/optimized/mentorship_and_guidance_abstract.webp";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
@@ -205,6 +205,7 @@ export default function Home() {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
                   />
                   <div className="absolute inset-0 bg-background/80 transition-opacity duration-500 group-hover:opacity-70" />
@@ -265,6 +266,7 @@ export default function Home() {
                   <img
                     src={project.imageUrl}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
                   />
                   <div className="absolute inset-0 bg-background/90 transition-opacity duration-500 group-hover:opacity-90" />

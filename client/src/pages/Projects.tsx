@@ -3,16 +3,16 @@ import Footer from "@/components/Footer";
 import { projectItems } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
-import genderEquityImage from "@assets/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.png";
-import blueSkyImage from "@assets/Screenshot_2025-12-21_at_10.49.33_AM_1766310595420.png";
-import summerPhDImage from "@assets/Screenshot_2025-12-21_at_11.10.53_AM_1766313842713.png";
-import publicPrivateEquityImage from "@assets/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.png";
-import columbiaPEImage from "@assets/Screenshot_2025-12-21_at_11.54.43_AM_1766314506064.png";
-import raceGenderImage from "@assets/Screenshot_2025-12-21_at_11.58.04_AM_1766314701128.png";
-import genderRaceLectureImage from "@assets/Screenshot_2025-12-21_at_12.11.19_PM_1766315836431.png";
-import workshopEFIImage from "@assets/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.png";
-import entrepreneurialFinanceImage from "@assets/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.png";
-import phdWebsiteImage from "@assets/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.png";
+import genderEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.webp";
+import blueSkyImage from "@assets/optimized/Screenshot_2025-12-21_at_10.49.33_AM_1766310595420.webp";
+import summerPhDImage from "@assets/optimized/Screenshot_2025-12-21_at_11.10.53_AM_1766313842713.webp";
+import publicPrivateEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.webp";
+import columbiaPEImage from "@assets/optimized/Screenshot_2025-12-21_at_11.54.43_AM_1766314506064.webp";
+import raceGenderImage from "@assets/optimized/Screenshot_2025-12-21_at_11.58.04_AM_1766314701128.webp";
+import genderRaceLectureImage from "@assets/optimized/Screenshot_2025-12-21_at_12.11.19_PM_1766315836431.webp";
+import workshopEFIImage from "@assets/optimized/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.webp";
+import entrepreneurialFinanceImage from "@assets/optimized/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.webp";
+import phdWebsiteImage from "@assets/optimized/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.webp";
 
 const projectImages: Record<string, string> = {
   "proj1": genderEquityImage,
@@ -52,6 +52,7 @@ export default function Projects() {
                     <img 
                       src={projectImages[project.id]} 
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover aspect-video md:aspect-square"
                     />
                   ) : (
