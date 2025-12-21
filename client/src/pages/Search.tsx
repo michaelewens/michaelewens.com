@@ -1,4 +1,3 @@
-import { useLocation } from "wouter";
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -6,19 +5,25 @@ import ResearchList from "@/components/ResearchList";
 import { papers, projects } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Search as SearchIcon } from "lucide-react";
-import { Link } from "wouter";
 
 export default function Search() {
-  const [location] = useLocation();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    // Extract query param from hash URL for hash-based routing
-    const hash = window.location.hash;
-    const match = hash.match(/\?q=([^&]*)/);
-    const q = match ? decodeURIComponent(match[1]) : "";
-    setQuery(q);
-  }, [location]);
+    const extractQuery = () => {
+      const hash = window.location.hash;
+      const match = hash.match(/\?q=([^&]*)/);
+      const q = match ? decodeURIComponent(match[1]) : "";
+      setQuery(q);
+    };
+
+    // Extract on mount
+    extractQuery();
+
+    // Listen for hash changes to update when search query changes
+    window.addEventListener("hashchange", extractQuery);
+    return () => window.removeEventListener("hashchange", extractQuery);
+  }, []);
 
   // Filter papers
   const filteredPapers = papers.filter(paper => {
