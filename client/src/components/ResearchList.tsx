@@ -61,12 +61,28 @@ export default function ResearchList({ papers, showAbstract = true, className }:
             </div>
 
             <div className="flex md:flex-col gap-2 shrink-0">
+              {paper.journalUrl && (
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
+                  <a href={paper.journalUrl} target="_blank" rel="noopener noreferrer">
+                    <BookOpen className="h-3 w-3" />
+                    Journal
+                  </a>
+                </Button>
+              )}
               <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                 <a href={paper.pdfUrl} target="_blank" rel="noopener noreferrer">
                   <FileDown className="h-3 w-3" />
                   PDF
                 </a>
               </Button>
+              {paper.appendixUrl && (
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
+                  <a href={paper.appendixUrl} target="_blank" rel="noopener noreferrer">
+                    <FileText className="h-3 w-3" />
+                    Appendix
+                  </a>
+                </Button>
+              )}
               {paper.codeUrl && (
                 <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                   <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">
@@ -80,22 +96,6 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                   <a href={paper.slidesUrl} target="_blank" rel="noopener noreferrer">
                     <Presentation className="h-3 w-3" />
                     Slides
-                  </a>
-                </Button>
-              )}
-              {paper.appendixUrl && (
-                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
-                  <a href={paper.appendixUrl} target="_blank" rel="noopener noreferrer">
-                    <FileText className="h-3 w-3" />
-                    Appendix
-                  </a>
-                </Button>
-              )}
-              {paper.journalUrl && (
-                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
-                  <a href={paper.journalUrl} target="_blank" rel="noopener noreferrer">
-                    <BookOpen className="h-3 w-3" />
-                    Journal
                   </a>
                 </Button>
               )}
