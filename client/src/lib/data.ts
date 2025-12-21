@@ -573,7 +573,8 @@ export const courses: Course[] = [
     title: "Private Equity Deals",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2025"
+    year: "2025",
+    syllabusUrl:"https://courses.business.columbia.edu/B8417"
   }
 ];
 
