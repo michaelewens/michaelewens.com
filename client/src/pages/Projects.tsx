@@ -3,6 +3,11 @@ import Footer from "@/components/Footer";
 import { projectItems } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import genderEquityImage from "@assets/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.png";
+
+const projectImages: Record<string, string> = {
+  "proj1": genderEquityImage,
+};
 
 export default function Projects() {
   return (
@@ -25,9 +30,9 @@ export default function Projects() {
             >
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/3 bg-secondary/30 flex items-center justify-center overflow-hidden">
-                  {project.imageUrl ? (
+                  {projectImages[project.id] ? (
                     <img 
-                      src={project.imageUrl} 
+                      src={projectImages[project.id]} 
                       alt={project.title}
                       className="w-full h-full object-cover aspect-video md:aspect-square"
                     />
