@@ -18,7 +18,9 @@ export default function Footer() {
             TWITTER
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/michaelewens/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-primary hover:text-white transition-colors"
           >
             LINKEDIN
@@ -32,7 +34,9 @@ export default function Footer() {
             GOOGLE SCHOLAR
           </a>
           <a
-            href="#"
+            href="https://github.com/michaelewens"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-primary hover:text-white transition-colors"
           >
             GITHUB
