@@ -27,9 +27,16 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                 <span className="text-sm font-mono text-muted-foreground">{paper.year}</span>
               </div>
               
-              <h3 className="font-heading text-xl md:text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
-                {paper.title}
-              </h3>
+              <a 
+                href={paper.journalUrl || paper.pdfUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <h3 className="font-heading text-xl md:text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                  {paper.title}
+                </h3>
+              </a>
               
               <p className="text-sm text-muted-foreground italic">
                 {paper.authors.map((author, i) => (
