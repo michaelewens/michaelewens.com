@@ -541,7 +541,7 @@ export const projectItems: ProjectItem[] = [
     id: "proj6",
     title: "Gender, Race and Entrepreneurship Lecture",
     description: "A review of the economics of discrimination with a focus on the unique ways it manifests itself in firm formation and financing decisions. The presentation covers recent advances in testing alternative explanations for differential treatment by race and proposes a framework for future research.",
-    url: "https://www.workshop-efi.com/lecture-series/gender-race-and-entrepreneurship"
+    url: "https://workshop-efi.com/lecture-series/gender-race-entreprenership/"
   },
   {
     id: "proj7",

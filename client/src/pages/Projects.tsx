@@ -9,11 +9,13 @@ import summerPhDImage from "@assets/Screenshot_2025-12-21_at_11.10.53_AM_1766313
 import publicPrivateEquityImage from "@assets/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.png";
 import columbiaPEImage from "@assets/Screenshot_2025-12-21_at_11.54.43_AM_1766314506064.png";
 import raceGenderImage from "@assets/Screenshot_2025-12-21_at_11.58.04_AM_1766314701128.png";
+import genderRaceLectureImage from "@assets/Screenshot_2025-12-21_at_12.11.19_PM_1766315548336.png";
 
 const projectImages: Record<string, string> = {
   "proj1": genderEquityImage,
   "proj2": blueSkyImage,
   "proj3": summerPhDImage,
+  "proj6": genderRaceLectureImage,
   "proj7": raceGenderImage,
   "proj8": columbiaPEImage,
   "proj9": publicPrivateEquityImage,
