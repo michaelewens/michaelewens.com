@@ -61,14 +61,14 @@ export default function ResearchList({ papers, showAbstract = true, className }:
             </div>
 
             <div className="flex md:flex-col gap-2 shrink-0">
-              <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5" asChild>
+              <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                 <a href={paper.pdfUrl} target="_blank" rel="noopener noreferrer">
                   <FileDown className="h-3 w-3" />
                   PDF
                 </a>
               </Button>
               {paper.codeUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                   <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="h-3 w-3" />
                     Code
@@ -76,7 +76,7 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                 </Button>
               )}
               {paper.slidesUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                   <a href={paper.slidesUrl} target="_blank" rel="noopener noreferrer">
                     <Presentation className="h-3 w-3" />
                     Slides
@@ -84,7 +84,7 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                 </Button>
               )}
               {paper.appendixUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                   <a href={paper.appendixUrl} target="_blank" rel="noopener noreferrer">
                     <FileText className="h-3 w-3" />
                     Appendix
@@ -92,7 +92,7 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                 </Button>
               )}
               {paper.journalUrl && (
-                <Button variant="ghost" size="sm" className="rounded-none gap-2 font-mono text-xs text-muted-foreground hover:text-foreground" asChild>
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
                   <a href={paper.journalUrl} target="_blank" rel="noopener noreferrer">
                     <BookOpen className="h-3 w-3" />
                     Journal
