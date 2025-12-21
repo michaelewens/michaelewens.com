@@ -445,7 +445,7 @@ export const press: PressItem[] = [
 
 export const courses: Course[] = [
   {
-    id: "c1",
+    id: "c2",
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
     level: "MBA",
@@ -453,7 +453,7 @@ export const courses: Course[] = [
     syllabusUrl:"https://courses.business.columbia.edu/B8329"
   },
   {
-    id: "c2",
+    id: "c3",
     title: "Private Equity Field Study",
     institution: "Columbia Business School",
     level: "MBA",
@@ -461,7 +461,7 @@ export const courses: Course[] = [
     syllabusUrl:"https://business.columbia.edu/privateequity/private-equity-field-study"
   },
   {
-    id: "c3",
+    id: "c5",
     title: "Private Equity Finance",
     institution: "Columbia Business School",
     level: "MBA",
@@ -476,14 +476,14 @@ export const courses: Course[] = [
     syllabusUrl: "https://courses.business.columbia.edu/B8335"
   },
   {
-    id: "c5",
+    id: "c6",
     title: "Current Topics in Private Equity",
     institution: "Columbia Business School",
     level: "MBA",
     year: "2023–2024"
   },
   {
-    id: "c6",
+    id: "c7",
     title: "Research in Entrepreneurial Finance",
     institution: "Columbia Business School",
     level: "PhD",
@@ -491,14 +491,14 @@ export const courses: Course[] = [
     syllabusUrl: "https://entrepreneurial.finance/"
   },
   {
-    id: "c7",
+    id: "c8",
     title: "Entrepreneurial Finance",
     institution: "Columbia Business School",
     level: "MBA",
     year: "2021, 2023, 2024"
   },
   {
-    id: "c8",
+    id: "c9",
     title: "Race and Gender in Entrepreneurial Finance",
     institution: "NBER Entrepreneurship Bootcamp",
     level: "PhD",
@@ -506,67 +506,74 @@ export const courses: Course[] = [
     syllabusUrl: "https://www.nber.org/conferences/entrepreneurship-research-boot-camp-summer-2024"
   },
   {
-    id: "c9",
+    id: "c10",
     title: "Corporate Finance",
     institution: "Caltech",
     level: "Undergraduate",
     year: "2014–2019"
   },
   {
-    id: "c10",
+    id: "c11",
     title: "Venture Capital",
     institution: "Caltech",
     level: "Undergraduate",
     year: "2014–2019"
   },
   {
-    id: "c11",
+    id: "c12",
     title: "Applied Methods for the Social Sciences",
     institution: "Caltech",
     level: "PhD",
     year: "2014–2019"
   },
   {
-    id: "c12",
+    id: "c13",
     title: "Introduction to Financial Accounting",
     institution: "Caltech",
     level: "Undergraduate",
     year: "2016–2019"
   },
   {
-    id: "c13",
+    id: "c14",
     title: "New Venture Finance",
     institution: "UCSD Rady School of Management",
     level: "MBA",
     year: "2015"
   },
   {
-    id: "c14",
+    id: "c15",
     title: "Private Equity Finance",
     institution: "Carnegie Mellon Tepper",
     level: "MBA",
     year: "2014"
   },
   {
-    id: "c15",
+    id: "c16",
     title: "Venture Capital Finance",
     institution: "Carnegie Mellon Tepper",
     level: "MBA",
     year: "2010–2014"
   },
   {
-    id: "c16",
+    id: "c17",
     title: "Entrepreneurial Finance",
     institution: "Carnegie Mellon Tepper",
     level: "Undergraduate",
     year: "2010–2014"
   },
   {
-    id: "c17",
+    id: "c18",
     title: "Empirical Methods for Corporate Finance and Accounting",
     institution: "Carnegie Mellon Tepper",
     level: "PhD",
     year: "2011–2014"
+  },
+  {
+    id: "c1",
+    title: "Private Equity Deals",
+    institution: "Columbia Business School",
+    level: "MBA",
+    year: "2025"
   }
 ];
 
