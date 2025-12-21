@@ -33,6 +33,7 @@ export interface PressItem {
   title: string;
   date: string;
   url: string;
+  paperId?: string;
 }
 
 export interface Course {
