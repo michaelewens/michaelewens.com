@@ -13,6 +13,7 @@ export interface Paper {
   pdfUrl: string;
   codeUrl?: string;
   slidesUrl?: string;
+  appendixUrl?: string;
   tags: string[];
 }
 
