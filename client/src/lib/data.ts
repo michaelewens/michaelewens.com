@@ -445,6 +445,14 @@ export const press: PressItem[] = [
 
 export const courses: Course[] = [
   {
+    id: "c1",
+    title: "Private Equity Deals",
+    institution: "Columbia Business School",
+    level: "MBA",
+    year: "2025",
+    syllabusUrl:"https://courses.business.columbia.edu/B8417"
+  },
+  {
     id: "c2",
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
@@ -567,15 +575,8 @@ export const courses: Course[] = [
     institution: "Carnegie Mellon Tepper",
     level: "PhD",
     year: "2011–2014"
-  },
-  {
-    id: "c1",
-    title: "Private Equity Deals",
-    institution: "Columbia Business School",
-    level: "MBA",
-    year: "2025",
-    syllabusUrl:"https://courses.business.columbia.edu/B8417"
   }
+  
 ];
 
 export const projectItems: ProjectItem[] = [
