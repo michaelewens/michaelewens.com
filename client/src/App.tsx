@@ -19,7 +19,9 @@ import { useState, useEffect } from "react";
 // Manual implementation of useHashLocation to ensure compatibility with GitHub Pages
 // and avoid potential issues with wouter's submodule exports in some environments
 const currentLocation = () => {
-  return window.location.hash.replace(/^#/, "") || "/";
+  const hash = window.location.hash.replace(/^#/, "") || "/";
+  // Strip query parameters for route matching, but keep them in URL for pages to read
+  return hash.split("?")[0];
 };
 
 const useHashLocation = () => {
