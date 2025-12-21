@@ -24,12 +24,20 @@ export default function Projects() {
               className="group border border-border hover:border-primary transition-colors bg-card"
             >
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/3 bg-secondary/30 flex items-center justify-center p-8 md:p-12">
-                  <div className="w-full aspect-video md:aspect-square bg-primary/10 flex items-center justify-center">
-                    <span className="font-heading text-6xl font-bold text-primary/30">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
+                <div className="md:w-1/3 bg-secondary/30 flex items-center justify-center overflow-hidden">
+                  {project.imageUrl ? (
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="w-full h-full object-cover aspect-video md:aspect-square"
+                    />
+                  ) : (
+                    <div className="w-full aspect-video md:aspect-square bg-primary/10 flex items-center justify-center">
+                      <span className="font-heading text-6xl font-bold text-primary/30">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="md:w-2/3 p-8 flex flex-col justify-center">

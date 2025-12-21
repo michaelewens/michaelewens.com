@@ -511,7 +511,8 @@ export const projectItems: ProjectItem[] = [
     id: "proj1",
     title: "Gender Equity in Private Equity",
     description: "We are building a comprehensive database of private equity professionals, their demographics and career trajectories. The goal: to describe gender representation and understand the constraints faced by under-represented workers in the industry. The draft report was released in September 2024.",
-    url: "https://genderequityinpe.com/"
+    url: "https://genderequityinpe.com/",
+    imageUrl: "/attached_assets/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.png"
   },
   {
     id: "proj2",
