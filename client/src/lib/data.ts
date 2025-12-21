@@ -253,7 +253,8 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We ask whether idiosyncratic risk is priced in VC and PE investments.",
     pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=342841",
-    tags: ["Venture Capital", "Private Equity", "Asset Pricing"]
+    tags: ["Venture Capital", "Private Equity", "Asset Pricing"],
+      appendixUrl:"https://ewens.sites.caltech.edu/documents/3658/vc-partners-appendix.pdf"
   },
   {
     id: "p18",
