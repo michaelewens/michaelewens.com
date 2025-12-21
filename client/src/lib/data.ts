@@ -358,24 +358,24 @@ export const projects: Project[] = [
 export const press: PressItem[] = [
   {
     id: "n1",
-    outlet: "The Wall Street Journal",
+    outlet: "CLS Blue Sky Blog",
     title: "Why AI Won't Replace Your Financial Advisor Just Yet",
-    date: "October 12, 2024",
-    url: "#"
+    date: "January 8, 2021",
+    url: "https://clsbluesky.law.columbia.edu/2021/01/08/regulatory-costs-of-being-public-evidence-from-bunching-estimation/"
   },
   {
     id: "n2",
-    outlet: "Bloomberg",
-    title: "DeFi Markets Show Signs of Maturing, Says New Study",
-    date: "August 5, 2024",
-    url: "#"
+    outlet: "VOX",
+    title: "Board dynamics over the startup life cycle",
+    date: "August 7, 2020",
+    url: "https://cepr.org/voxeu/columns/board-dynamics-over-startup-life-cycle"
   },
   {
     id: "n3",
-    outlet: "Financial Times",
+    outlet: "Inequality.gov",
     title: "The Hidden Risks of Passive Investing",
-    date: "March 22, 2023",
-    url: "#"
+    date: "February 17, 2022",
+    url: "https://inequality.org/article/from-the-kingpins-of-private-equity-a-new-dagger-to-democracy"
   }
 ];
 
