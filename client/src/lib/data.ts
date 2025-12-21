@@ -73,7 +73,8 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We study how venture capital investment and startup activity cluster geographically and the implications for entrepreneurial finance.",
     pdfUrl: "https://osf.io/download/607362fc51f7ae0483f50a1b/",
-    tags: ["Venture Capital", "Entrepreneurship", "Geography"]
+    tags: ["Venture Capital", "Entrepreneurship", "Geography"],
+    codeUrl: "https://github.com/michaelewens/Banks-In-VC"
   },
   {
     id: "p2",
@@ -93,7 +94,9 @@ export const papers: Paper[] = [
     title: "Regulatory Costs of Being Public: Evidence from Bunching Estimation",
     authors: ["Michael Ewens", "Kairong Xiao", "Ting Xu"],
     journal: "Journal of Financial Economics",
+    journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155"
     year: 2023,
+  dataURL: "https://github.com/michaelewens/public_float_regulation",
     status: "Published",
     abstract: "We estimate the regulatory costs of being a public company using bunching estimation techniques.",
     pdfUrl: "https://osf.io/preprints/socarxiv/pdv8n/",
@@ -235,7 +238,8 @@ export const papers: Paper[] = [
     year: 2014,
     status: "Published",
     abstract: "We use a large-scale field experiment to distinguish between statistical discrimination and prejudice.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3653/stat-disc.pdf",
+    pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=1816702",
+    dataUrl: "http://thedata.harvard.edu/dvn/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/26410&studyListingIndex=0_bb1bba6601d1f75d6c9119a4be7d"
     tags: ["Discrimination", "Field Experiment", "Labor"]
   },
   {
@@ -246,17 +250,17 @@ export const papers: Paper[] = [
     journalUrl: "http://rfs.oxfordjournals.org/content/26/8/1854.abstract",
     year: 2013,
     status: "Published",
-    abstract: "We estimate the price of diversifiable risk in VC and PE investments.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3659/divRisk.pdf",
-    tags: ["Venture Capital", "Private Equity", "Risk"]
+    abstract: "We ask whether idiosyncratic risk is priced in VC and PE investments.",
+    pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=342841",
+    tags: ["Venture Capital", "Private Equity", "Asset Pricing"]
   },
   {
     id: "p18",
     title: "Local Journalism Under Private Equity Ownership",
     authors: ["Michael Ewens", "Arpit Gupta", "Sabrina Howell"],
-    year: 2023,
+    year: 2025,
     status: "Working Paper",
-    abstract: "We examine the effects of private equity ownership on local journalism.",
+    abstract: "We examine the impacts of private equity ownership on local journalism.",
     pdfUrl: "https://osf.io/preprints/socarxiv/6ynf4",
     tags: ["Private Equity", "Media", "Journalism"]
   },
@@ -267,7 +271,7 @@ export const papers: Paper[] = [
     year: 2016,
     status: "Working Paper",
     abstract: "We study the role of insider financing in venture capital returns.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3661/inside_rounds-1.pdf",
+    pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2849681",
     tags: ["Venture Capital", "Returns", "Insider Financing"]
   }
 ];
