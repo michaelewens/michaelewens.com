@@ -114,7 +114,8 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We study how founder-CEO compensation evolves and its role in selection into venture capital-backed entrepreneurship.",
     pdfUrl: "https://osf.io/preprints/socarxiv/rku3m",
-    tags: ["Entrepreneurship", "Compensation", "Venture Capital"]
+    tags: ["Entrepreneurship", "Compensation", "Venture Capital"],
+    slidesUrl:"@assets/short_present_ENS.pdf"
   },
   {
     id: "p5",
@@ -126,7 +127,8 @@ export const papers: Paper[] = [
     abstract: "We develop new measures of intangible capital using market prices and provide code to construct knowledge and organization capital stocks.",
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
     codeUrl: "https://github.com/michaelewens/intangible_capital",
-    tags: ["Intangible Capital", "Valuation", "Corporate Finance"]
+    tags: ["Intangible Capital", "Valuation", "Corporate Finance"],
+    slidesUrl:"@assets/intangibles_short.pdf"
   },
   {
     id: "p6",
@@ -161,7 +163,8 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We study the structure and evolution of venture capital contracts.",
     pdfUrl: "https://osf.io/preprints/socarxiv/hk38u/",
-    tags: ["Venture Capital", "Contracts", "Corporate Finance"]
+    tags: ["Venture Capital", "Contracts", "Corporate Finance"],
+    slidesUrl:"@assets/VCContr-general.pdf"
   },
   {
     id: "p9",
@@ -271,7 +274,8 @@ export const papers: Paper[] = [
     status: "Working Paper",
     abstract: "We examine the impacts of private equity ownership on local journalism.",
     pdfUrl: "https://osf.io/preprints/socarxiv/6ynf4",
-    tags: ["Private Equity", "Media", "Journalism"]
+    tags: ["Private Equity", "Media", "Journalism"],
+    slidesUrl:"@assets/Newspapers_and_PE_posted.pdf"
   },
   {
     id: "p19",
