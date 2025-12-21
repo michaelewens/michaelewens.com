@@ -87,9 +87,8 @@ export default function Home() {
           </div>
 
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 w-full pl-2">
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light whitespace-nowrap">
-              Researching Private Equity, Venture Capital, and Entrepreneurial
-              Finance.
+            <p className="text-lg md:text-2xl text-muted-foreground leading-relaxed font-light">
+              Researching Private Equity, Venture Capital, and Entrepreneurial Finance.
             </p>
           </div>
 
