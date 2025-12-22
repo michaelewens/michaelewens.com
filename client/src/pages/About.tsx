@@ -13,8 +13,8 @@ export default function About() {
 
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
-          {/* Sidebar / Photo Column */}
-          <div className="space-y-8 sticky top-32">
+          {/* Sidebar / Photo Column - Hidden on mobile */}
+          <div className="hidden md:block space-y-8 sticky top-32">
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/10 rounded-sm transform translate-y-2 translate-x-2 -z-10"></div>
               <img 
