@@ -198,6 +198,25 @@ export default function Home() {
       {/* Initiatives Section */}
       <section className="bg-secondary/5 py-20 border-t border-border">
         <div className="container mx-auto max-w-6xl px-6">
+          <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
+            <div>
+              <h2 className="font-heading text-4xl font-bold mb-2">
+                Projects
+              </h2>
+              <p className="text-muted-foreground">
+                Ongoing initiatives and research collaborations.
+              </p>
+            </div>
+
+            <Link
+              href="/projects"
+              className="hidden md:flex items-center text-sm font-mono text-primary hover:text-foreground transition-colors group"
+            >
+              VIEW ALL{" "}
+              <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-6">
             {initiatives.map((item) => (
               <div
