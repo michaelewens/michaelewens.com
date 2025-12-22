@@ -1,4 +1,4 @@
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { Search, Menu, X, FileText, Code, GraduationCap, Mail, Newspaper, User, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -48,8 +48,8 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Brand */}
-        <Link 
-          href="/" 
+        <a 
+          href="#/" 
           className="group block"
         >
           <h1 className="font-heading text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
@@ -58,14 +58,14 @@ export default function Navigation() {
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
             Private Equity & Entrepreneurial Finance
           </p>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link 
+            <a 
               key={item.path} 
-              href={item.path}
+              href={`#${item.path}`}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[1px] after:bg-primary after:transition-all after:duration-300",
                 location === item.path 
@@ -74,7 +74,7 @@ export default function Navigation() {
               )}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
           
           <div className="relative w-64 ml-4">
@@ -113,9 +113,9 @@ export default function Navigation() {
               />
             </form>
             {navItems.map((item) => (
-              <Link 
+              <a 
                 key={item.path} 
-                href={item.path}
+                href={`#${item.path}`}
                 className={cn(
                   "flex items-center space-x-3 text-lg font-medium py-2 border-l-2 pl-4 transition-colors",
                   location === item.path 
@@ -126,7 +126,7 @@ export default function Navigation() {
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.name}</span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
