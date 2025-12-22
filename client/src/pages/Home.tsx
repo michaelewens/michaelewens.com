@@ -17,6 +17,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u0",
+      text: "[Nov 2025] Apply for the Summer PhD Entrepreneurial Finance Workshop",
+      url: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
+    }
+    {
       id: "u1",
       text: "[Nov 2025] New working paper \"Corporate Hierarchy\" is now available.",
       url: "https://osf.io/preprints/socarxiv/yj4he_v2"
