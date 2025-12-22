@@ -19,17 +19,17 @@ export default function Home() {
     {
       id: "u1",
       text: "[Nov 2025] New working paper \"Corporate Hierarchy\" is now available.",
-      url: "/research"
+      url: "https://osf.io/preprints/socarxiv/yj4he_v2"
     },
     {
       id: "u2",
       text: "[July 2025] Gender Equity in Private Equity report released",
-      url: "/research"
+      url: "https://genderequityinpe.com/"
     },
     {
       id: "u3",
       text: "[Sept 2025] Forthcoming to Journal of Finance: \"Board Dynamics over the Startup Lifecycle\".",
-      url: "/research"
+      url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3640898"
     }
   ];
 
