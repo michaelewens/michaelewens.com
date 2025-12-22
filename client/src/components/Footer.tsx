@@ -1,16 +1,16 @@
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16 px-6">
-      <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-foreground text-background py-10 px-6">
+      <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <h4 className="font-heading text-2xl font-bold mb-3 tracking-wide">
+          <h4 className="font-heading text-xl font-bold mb-2 tracking-wide">
             Michael Ewens
           </h4>
-          <p className="font-mono text-sm text-background/60">
+          <p className="font-mono text-xs text-background/60">
             © 2025. All rights reserved.
           </p>
         </div>
-        <div className="flex gap-8 font-mono text-sm font-medium text-background/80">
+        <div className="flex gap-6 font-mono text-xs font-medium text-background/80">
           <a
             href="https://www.linkedin.com/in/michaelewens/"
             target="_blank"
