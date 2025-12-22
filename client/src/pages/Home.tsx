@@ -137,9 +137,7 @@ export default function Home() {
               {updates.map((update) => (
                 <a
                   key={update.id}
-                  href={update.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`#${update.url}`}
                   className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
                 >
                   {update.text}
@@ -149,9 +147,7 @@ export default function Home() {
               {updates.map((update) => (
                 <a
                   key={`${update.id}-dupe`}
-                  href={update.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`#${update.url}`}
                   className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
                 >
                   {update.text}
