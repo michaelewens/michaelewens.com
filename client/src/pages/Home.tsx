@@ -83,7 +83,7 @@ export default function Home() {
 
             <div className="space-y-2">
               <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-                Prof. Michael Ewens
+                Michael Ewens
               </h1>
               <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
                 David L. and Elsie M. Dodd Professor of Finance, Columbia Business School
