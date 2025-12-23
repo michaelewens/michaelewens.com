@@ -204,7 +204,7 @@ export default function Home() {
                 Projects
               </h2>
               <p className="text-muted-foreground">
-                Ongoing initiatives and research collaborations.
+                Ongoing initiatives supporting PhD students and junior faculty.
               </p>
             </div>
 
