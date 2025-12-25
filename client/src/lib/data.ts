@@ -378,7 +378,7 @@ export const press: PressItem[] = [
     outlet: "Inequality.gov",
     title: "The Hidden Risks of Passive Investing",
     date: "February 17, 2022",
-    url: "https://inequality.org/article/from-the-kingpins-of-private-equity-a-new-dagger-to-democracy"
+    url: "https://inequality.org/article/from-the-kingpins-of-private-equity-a-new-dagger-to-democracy",
     paperId: "p18"
   },
   {
