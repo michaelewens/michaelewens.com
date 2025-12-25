@@ -362,14 +362,16 @@ export const press: PressItem[] = [
     outlet: "CLS Blue Sky Blog",
     title: "Regulatory Costs of Being Public: Evidence from Bunching Estimation",
     date: "January 8, 2021",
-    url: "https://clsbluesky.law.columbia.edu/2021/01/08/regulatory-costs-of-being-public-evidence-from-bunching-estimation/"
+    url: "https://clsbluesky.law.columbia.edu/2021/01/08/regulatory-costs-of-being-public-evidence-from-bunching-estimation/",
+    paperId: "p3"
   },
   {
     id: "n2",
     outlet: "VOX",
     title: "Board dynamics over the startup life cycle",
     date: "August 7, 2020",
-    url: "https://cepr.org/voxeu/columns/board-dynamics-over-startup-life-cycle"
+    url: "https://cepr.org/voxeu/columns/board-dynamics-over-startup-life-cycle",
+    paperId: "p2"
   },
   {
     id: "n3",
@@ -377,69 +379,79 @@ export const press: PressItem[] = [
     title: "The Hidden Risks of Passive Investing",
     date: "February 17, 2022",
     url: "https://inequality.org/article/from-the-kingpins-of-private-equity-a-new-dagger-to-democracy"
+    paperId: "p18"
   },
   {
     id: "n4",
     outlet: "Columbia Business School",
     title: "Regulations, Costs of Public Companies, IPO Decline",
     date: "August 13, 2025",
-    url: "https://business.columbia.edu/research-brief/regulations-costs-public-companies-ipo-decline"
+    url: "https://business.columbia.edu/research-brief/regulations-costs-public-companies-ipo-decline",
+      paperId: "p9"
   },
   {
     id: "n5",
     outlet: "Bloomberg",
     title: "After Latest IPO Setbacks, There's Unicorn Blood in the Streets",
     date: "October 19, 2023",
-    url: "https://www.bloomberg.com/news/articles/2019-10-03/after-latest-ipo-setbacks-there-s-unicorn-blood-in-the-streets"
+    url: "https://www.bloomberg.com/news/articles/2019-10-03/after-latest-ipo-setbacks-there-s-unicorn-blood-in-the-streets",
+      paperId: "p9"
   },
   {
     id: "n6",
     outlet: "The Economist",
     title: "American Startups Have Less Need to List on the Stockmarket",
     date: "September 29, 2018",
-    url: "https://www.economist.com/finance-and-economics/2018/09/29/american-startups-have-less-need-to-list-on-the-stockmarket"
+    url: "https://www.economist.com/finance-and-economics/2018/09/29/american-startups-have-less-need-to-list-on-the-stockmarket",
+      paperId: "p9"
   },
   {
     id: "n7",
     outlet: "NBER",
     title: "The Rise of Private Financing for Entrepreneurs",
     date: "March 22, 2022",
-    url: "https://www.nber.org/be-20221/rise-private-financing-entrepreneurs?page=1&perPage=50"
+    url: "https://www.nber.org/be-20221/rise-private-financing-entrepreneurs?page=1&perPage=50",
+      paperId: "p7"
   },
   {
     id: "n8",
     outlet: "Harvard Law School Forum on Corporate Governance",
     title: "Private or Public Equity? The Evolving Entrepreneurial Finance Landscape",
     date: "March 3, 2022",
-    url: "https://corpgov.law.harvard.edu/2022/03/03/private-or-public-equity-the-evolving-entrepreneurial-finance-landscape/"
+    url: "https://corpgov.law.harvard.edu/2022/03/03/private-or-public-equity-the-evolving-entrepreneurial-finance-landscape/",
+      paperId: "p7"
   },
   {
     id: "n9",
     outlet: "Harvard Law School Forum on Corporate Governance",
     title: "The Evolution of CEO Compensation in Venture Capital Backed Startups",
     date: "August 21, 2020",
-    url: "https://corpgov.law.harvard.edu/2020/08/21/the-evolution-of-ceo-compensation-in-venture-capital-backed-startups/"
+    url: "https://corpgov.law.harvard.edu/2020/08/21/the-evolution-of-ceo-compensation-in-venture-capital-backed-startups/",
+      paperId: "p4"
   },
   {
     id: "n10",
     outlet: "SEC",
     title: "Office of the Advocate for Small Business Capital Formation",
     date: "September 1, 2024",
-    url: "https://www.sec.gov/files/2024-oasb-annual-report.pdf"
+    url: "https://www.sec.gov/files/2024-oasb-annual-report.pdf",
+      paperId: "p3"
   },
   {
     id: "n11",
     outlet: "FINRA",
     title: "FINRA Seeks Comment on Concept Proposal for a Liquidity Risk Management Rule",
     date: "June 12, 2023",
-    url: "https://www.finra.org/rules-guidance/notices/23-11"
+    url: "https://www.finra.org/rules-guidance/notices/23-11",
+      paperId: "p3"
   },
   {
     id: "n12",
     outlet: "IFRS",
     title: "General Requirements for Disclosure of Sustainability-related Financial Information",
     date: "June 2023",
-    url: "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/"
+    url: "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/",
+      paperId: "p3"
   }
 ];
 
