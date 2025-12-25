@@ -1,12 +1,18 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
-import { press } from "@/lib/data";
+import { press, papers } from "@/lib/data";
 
 export default function Media() {
   const sortedPress = [...press].sort(
     (a, b) => parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''))
   );
+
+  const getPaperTitle = (paperId?: string) => {
+    if (!paperId) return null;
+    const paper = papers.find(p => p.id === paperId);
+    return paper?.title;
+  };
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
@@ -38,6 +44,11 @@ export default function Media() {
                   <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
+                  {item.paperId && getPaperTitle(item.paperId) && (
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Paper mentioned: {getPaperTitle(item.paperId)}
+                    </p>
+                  )}
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground shrink-0 mt-1 sm:mt-0">
                   <span className="font-mono text-sm">{item.date}</span>
