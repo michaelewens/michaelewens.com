@@ -129,7 +129,8 @@ export const papers: Paper[] = [
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
     codeUrl: "https://github.com/michaelewens/intangible_capital",
     tags: ["Intangible Capital", "Valuation", "Corporate Finance"],
-    slidesUrl:"/attached_assets/intangibles_short.pdf"
+    slidesUrl:"/attached_assets/intangibles_short.pdf", 
+    journalUrl: "https://pubsonline.informs.org/doi/10.1287/mnsc.2021.02058"
   },
   {
     id: "p6",
@@ -141,7 +142,7 @@ export const papers: Paper[] = [
     abstract: "A comprehensive review of research on race and gender in entrepreneurial finance for the Handbook of the Economics of Corporate Finance.",
     pdfUrl: "https://osf.io/preprints/socarxiv/djf8z/",
     tags: ["Diversity", "Entrepreneurship", "Venture Capital"],
-      dataUrl: "https://foundinggaps.com/"
+      codeUrl: "https://foundinggaps.com/"
   },
   {
     id: "p7",
@@ -153,7 +154,8 @@ export const papers: Paper[] = [
     abstract: "We document and explain the dramatic shift in entrepreneurial finance from public to private markets.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
     codeUrl:"https://privatepublicmkts.com/",
-    tags: ["Private Equity", "IPO", "Entrepreneurship"]
+    tags: ["Private Equity", "IPO", "Entrepreneurship"], 
+    journalUrl: "https://www.annualreviews.org/content/journals/10.1146/annurev-financial-101821-121115"
   },
   {
     id: "p8",
@@ -165,7 +167,8 @@ export const papers: Paper[] = [
     abstract: "We study the structure and evolution of venture capital contracts.",
     pdfUrl: "https://osf.io/preprints/socarxiv/hk38u/",
     tags: ["Venture Capital", "Contracts", "Corporate Finance"],
-    slidesUrl:"/attached_assets/VCContr-general.pdf"
+    slidesUrl:"/attached_assets/VCContr-general.pdf",
+    journalUrl:"https://www.sciencedirect.com/science/article/abs/pii/S0304405X21003123?via%3Dihub"
   },
   {
     id: "p9",
@@ -202,7 +205,8 @@ export const papers: Paper[] = [
     abstract: "We examine the causes and consequences of founder-CEO replacement in venture-backed startups.",
     pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2717124",
     codeUrl: "https://github.com/michaelewens/noncompete_laws",
-    tags: ["Founders", "Startups", "Corporate Governance"]
+    tags: ["Founders", "Startups", "Corporate Governance"],
+    journalUrl: "https://academic.oup.com/rfs/article-abstract/31/4/1532/4604800"
   },
   {
     id: "p12",
@@ -214,7 +218,8 @@ export const papers: Paper[] = [
     abstract: "We show how declining experimentation costs have transformed the venture capital industry.",
     pdfUrl: "https://ewens.sites.caltech.edu/documents/3654/vc_evolve-1.pdf",
     tags: ["Venture Capital", "Innovation", "Experimentation"],
-      appendixUrl:"/attached_assets/vc_evolveIA.pdf"
+      appendixUrl:"/attached_assets/vc_evolveIA.pdf",
+    journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X18300631"
 
   },
   {
@@ -253,7 +258,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We use a large-scale field experiment to distinguish between statistical discrimination and prejudice.",
     pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=1816702",
-    dataUrl: "http://thedata.harvard.edu/dvn/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/26410&studyListingIndex=0_bb1bba6601d1f75d6c9119a4be7d",
+    codeUrl: "http://thedata.harvard.edu/dvn/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/26410&studyListingIndex=0_bb1bba6601d1f75d6c9119a4be7d",
     tags: ["Discrimination", "Field Experiment", "Labor"]
   },
   {
