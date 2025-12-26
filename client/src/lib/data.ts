@@ -134,7 +134,7 @@ export const papers: Paper[] = [
   },
   {
     id: "p6",
-    title: "Race and Gender in Entrepreneurial Finance",
+    title: "Gender and Race in Entrepreneurial Finance",
     authors: ["Michael Ewens"],
     year: 2024,
     status: "Published",
@@ -142,7 +142,8 @@ export const papers: Paper[] = [
     abstract: "A comprehensive review of research on race and gender in entrepreneurial finance for the Handbook of the Economics of Corporate Finance.",
     pdfUrl: "https://osf.io/preprints/socarxiv/djf8z/",
     tags: ["Diversity", "Entrepreneurship", "Venture Capital"],
-      codeUrl: "https://foundinggaps.com/"
+      codeUrl: "https://foundinggaps.com/", 
+    journalUrl: "https://www.sciencedirect.com/science/chapter/handbook/abs/pii/S2949964X23000061"
   },
   {
     id: "p7",
