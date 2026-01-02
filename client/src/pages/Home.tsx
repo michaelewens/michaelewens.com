@@ -9,9 +9,13 @@ import heroImage from "@assets/optimized/abstract_geometric_financial_network_vi
 import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 
 import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
+import wefiImageSm from "@assets/optimized/abstract_finance_innovation_network_sm.webp";
 import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
+import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.webp";
 import afaImage from "@assets/optimized/mentorship_and_guidance_abstract.webp";
 import foundingPatentsImage from "@assets/optimized/high_frequency_trading_algorithmic_lines.webp";
+import foundingPatentsImageSm from "@assets/optimized/high_frequency_trading_algorithmic_lines_sm.webp";
+import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
@@ -45,6 +49,7 @@ export default function Home() {
       title: "Founding Patents",
       description: "Explore startup innovation through a unique connection between firm formation and patent data.",
       image: foundingPatentsImage,
+      imageSm: foundingPatentsImageSm,
       link: "https://foundingpatents.com/",
     },
     {
@@ -53,6 +58,7 @@ export default function Home() {
       description:
         "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
+      imageSm: wefiImageSm,
       link: "https://workshop-efi.com/",
     },
     {
@@ -60,6 +66,7 @@ export default function Home() {
       title: "Entrepreneurial Finance PhD Workshop",
       description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
+      imageSm: phdWorkshopImageSm,
       link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/",
     },
   ];
@@ -75,7 +82,9 @@ export default function Home() {
             <div className="relative group shrink-0 mx-auto md:mx-0">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
               <img
-                src={headshot}
+                src={headshotSm}
+                srcSet={`${headshotSm} 320w, ${headshot} 773w`}
+                sizes="(max-width: 768px) 128px, 160px"
                 alt="Prof. Michael Ewens"
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
               />
@@ -226,7 +235,9 @@ export default function Home() {
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <img
-                    src={item.image}
+                    src={item.imageSm}
+                    srcSet={`${item.imageSm} 640w, ${item.image} 1024w`}
+                    sizes="(max-width: 768px) 100vw, 400px"
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
