@@ -657,5 +657,11 @@ export const projectItems: ProjectItem[] = [
     title: "Website Advice for Ph.D. Job Candidates",
     description: "Recruiting season for econ and finance PhDs is about preparing your job market paper, writing your research statement, and practicing your job talk. You should also have a website, but not just any website. Email me for slides that I made for my students that job market candidates may find helpful.",
     url: "mailto:michael.ewens@columbia.edu"
+  },
+  {
+    id: "proj11",
+    title: "Founding Patents",
+    description: "Data connection new firm formation and patents that allows researchers to explore startup innovation. It is a database.",
+    url: "https://foundingpatents.com/"
   }
 ];
