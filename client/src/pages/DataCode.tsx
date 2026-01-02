@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { projects } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, Database } from "lucide-react";
+import { Github, Database, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function DataCode() {
@@ -48,8 +48,17 @@ export default function DataCode() {
               <CardFooter className="border-t border-border/50 pt-4">
                 <Button asChild variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs w-full">
                   <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4" />
-                    View on GitHub
+                    {project.url.includes("github.com") ? (
+                      <>
+                        <Github className="h-4 w-4" />
+                        View on GitHub
+                      </>
+                    ) : (
+                      <>
+                        <ExternalLink className="h-4 w-4" />
+                        View Dataset
+                      </>
+                    )}
                   </a>
                 </Button>
               </CardFooter>
