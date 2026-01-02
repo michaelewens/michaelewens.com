@@ -40,6 +40,13 @@ export default function Home() {
 
   const initiatives = [
     {
+      id: "proj11",
+      title: "Founding Patents",
+      description: "Explore startup innovation through a unique connection between firm formation and patent data.",
+      image: "/attached_assets/Screenshot_2026-01-02_at_9.45.58_AM_1767365173500.png",
+      link: "https://foundingpatents.com/",
+    },
+    {
       id: "wefi",
       title: "WEFI",
       description:
@@ -53,14 +60,6 @@ export default function Home() {
       description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
       link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/",
-    },
-    {
-      id: "afa-mentoring",
-      title: "AFA Mentoring",
-      description:
-        "I co-chair the junior faculty mentoring program for the AFA.",
-      image: afaImage,
-      link: "https://www.linkedin.com/posts/michaelewens_i-am-pleased-to-announce-the-first-american-activity-7353046152700706817-FQRQ/",
     },
   ];
 
