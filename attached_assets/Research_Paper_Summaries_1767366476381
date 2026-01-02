@@ -1,0 +1,118 @@
+# Research Paper Summaries
+
+Brief descriptions for each research paper based on reading the first 5 pages.
+
+---
+
+## **Board Dynamics over the Startup Life Cycle**
+
+This paper examines how the composition and control of venture capital (VC)-backed startup boards evolve over the company's life cycle. Using novel data, we find that boards transition from being entrepreneur-controlled to VC-controlled, with independent directors playing a key role in mediating conflicts and later providing advice. The findings align with financial contracting theories and highlight the unique, evolving function of independent directors in startups.
+
+---
+
+## **Corporate Hierarchy**
+
+This paper examines how to measure corporate hierarchy and its economic consequences for firms. We introduce a novel measure of hierarchical layers, derived from 7 million online employee resumes and a network estimation technique, and use it to document several facts about organizational structure, performance, and adjustment to shocks. The findings show that more hierarchical firms exhibit higher operating performance but also higher administrative costs, and they adjust their structure in response to external factors such as the COVID-19 pandemic and the adoption of AI.
+
+---
+
+## **Local Journalism Under Private Equity Ownership**
+
+This paper investigates the impact of private equity (PE) ownership on local daily newspapers, a struggling but democratically important industry. Using a comprehensive dataset of U.S. newspapers, we find nuanced effects: PE ownership leads to higher digital circulation and lower chances of newspaper exit, but also results in fewer reporters and editors, and a shift in content away from local governance toward national news. These findings highlight the trade-offs of PE ownership, suggesting a decline in local policy knowledge and civic engagement.
+
+---
+
+## **Insider Financing and Venture Capital Returns**
+
+This paper investigates the outcomes of "insider financings" in venture capital, in which only existing investors participate, to test the hold-up theory. We find that, contrary to hold-up predictions, these rounds are associated with a higher likelihood of failure and lower returns than rounds with new investors, suggesting that investors make inefficient continuation decisions. The study proposes an alternative explanation, arguing that the findings are consistent with an agency problem driven by changing opportunity costs over the VC fund life cycle.
+
+---
+
+## **Venture Capital and Startup Agglomeration**
+
+This paper investigates the causal role of venture capital supply in the geographic clustering of high-growth startups in the U.S. We exploit the 2013 Volcker Rule, which restricted bank investment in VC funds, as a quasi-natural experiment, noting its disproportionate impact on non-hub states that relied more heavily on bank capital. The difference-in-differences analysis finds that this restriction led to a decline in fund size and startup financing in affected regions, thereby exacerbating existing geographic disparities.
+
+---
+
+## **Regulatory Costs of Being Public: Evidence from Bunching Estimation**
+
+This research quantifies the regulatory costs of being a public firm by exploiting a discontinuity in regulatory thresholds based on a firm's public float. Using a bunching estimation methodology, we document that firms cluster just below these thresholds to avoid costly disclosure and governance regulations. The study estimates that the compliance costs of the three examined rules range from 1.2% to 1.8% of market capitalization for firms near the thresholds.
+
+---
+
+## **Founder-CEO Compensation and Selection into Venture Capital-Backed Entrepreneurship**
+
+This paper investigates how founder-CEO compensation and the non-diversifiable risk faced by founders influence the selection of high-earning individuals into venture capital-backed entrepreneurship. Using a theoretical model and proprietary data, we find that cash compensation substantially increases after a startup's first product milestone, thereby alleviating risk and serving as a critical determinant of entrepreneurial talent supply.
+
+---
+
+## **Measuring Intangible Capital with Market Prices**
+
+This paper addresses the challenge of accurately measuring off-balance-sheet intangible capital, such as knowledge and organizational capital, which are typically expensed under current accounting standards. We propose a novel methodology to estimate the necessary capitalization parameters, specifically the R&D depreciation rate and the fraction of SG&A to be capitalized, by utilizing market prices from firm exits. The resulting intangible capital stocks are validated to outperform existing measures in explaining market enterprise values and attenuating biases in key financial ratios.
+
+---
+
+## **Gender and Race in Entrepreneurial Finance**
+
+This chapter addresses the research question of how gender and race contribute to discrimination and economic friction in entrepreneurial finance. It reviews an extensive empirical literature, detailing major discrimination theories and the methods used to test them, to synthesize the nuanced evidence on bias and differential treatment of underrepresented founders. The work aims to provide a framework for understanding the participation and financing gaps experienced by female and Black entrepreneurs.
+
+---
+
+## **Private or Public Equity? The Evolving Entrepreneurial Finance Landscape**
+
+This paper investigates whether the decline in Initial Public Offerings (IPOs) is linked to the deregulation of private equity markets, specifically the National Securities Markets Improvement Act (NSMIA) of 1996. We use a difference-in-differences analysis to show that NSMIA increased the supply of private capital to late-stage startups, enabling them to stay private longer and reach a larger size before going public. The findings suggest that the decline in IPOs is not a market failure but a new equilibrium driven by founders' increased bargaining power.
+
+---
+
+## **Venture Capital Contracts**
+
+This paper investigates how venture capital contract terms affect startup success and the division of value between founders and investors. We develop a novel dynamic search and matching model, estimated using a large dataset of over 8,100 first-round VC financings. The results show that VCs use their bargaining power to secure investor-friendly terms that reduce the value of startups.
+
+---
+
+## **The Deregulation of the Private Equity Markets and the Decline in IPOs**
+
+This paper investigates whether the decline in U.S. Initial Public Offerings (IPOs) is due to a failure in the public market or a shift in the going-public versus staying-private trade-off. We hypothesize that the deregulation of securities laws, specifically the National Securities Markets Improvement Act (NSMIA) of 1996, increased the supply of private capital. Using difference-in-differences and triple-difference analyses, the study finds that NSMIA facilitated late-stage startups' ability to raise large funding rounds and remain private longer, suggesting the decline in IPOs reflects a new equilibrium where founders choose to stay private.
+
+---
+
+## **Are Early Stage Investors Biased Against Women?**
+
+This paper investigates whether early-stage investors exhibit gender bias by analyzing private interactions between investors and fundraising startups using a proprietary AngelList dataset. We find that male investors show less interest in female entrepreneurs compared to observably similar male counterparts, while female investors show more interest. The evidence, which is not driven by screening advantages or risk differences, suggests a gender bias consistent with male investors underperforming on male-led startups they favor.
+
+---
+
+## **Founder Replacement and Startup Performance**
+
+This paper investigates whether venture capitalists' decision to replace a founder causally improves startup performance. We use a database of VC-backed startups and exploit state-level changes in non-compete agreement enforceability as an instrument for the supply of outside executives. The instrumented regression analysis suggests that founder replacement, contrary to naive regressions, is a specific mechanism by which VCs add value.
+
+---
+
+## **Cost of Experimentation and the Evolution of Venture Capital**
+
+This paper investigates how a technological shock that lowered the cost of starting new businesses has fundamentally altered the venture capital (VC) investment model over the last decade. We document an increased prevalence of a "spray and pray" approach, where VCs provide smaller initial funding and limited governance to a larger number of startups, which they are more likely to abandon early. This adaptation, driven by the higher value of abandonment options, has led to a disproportionate rise in innovations where initial prospects are revealed quickly and cheaply.
+
+---
+
+## **Managing Performance Signals Through Delay: Evidence from Venture Capital**
+
+This paper investigates whether agency conflicts during venture capital (VC) fundraising lead to strategic investment behavior. We use novel investment-level data to show that VCs delay revealing negative fund performance information until after a new fund is successfully raised. This strategic delay, which is costly for limited partners, demonstrates that fundraising incentives significantly impact VC fund investment decisions.
+
+---
+
+## **Is the VC Partnership Greater than the Sum of its Partners?**
+
+This paper investigates whether a venture capital firm's success is driven by its organizational capital or the human capital of its individual partners. Using a unique dataset of VC investments, we find that a partner's individual skill is two to five times more important than the firm's organizational structure in explaining performance. The results suggest that the partnership's value is not greater than the sum of its skilled members.
+
+---
+
+## **Statistical Discrimination or Prejudice? A Large Sample Field Experiment**
+
+This paper investigates whether racial discrimination in the U.S. rental market is due to statistical discrimination or taste-based prejudice. We conduct a large-scale field experiment, sending over 14,000 rental inquiries with varying signals of applicant quality and race-associated names to landlords across 34 U.S. cities. The findings, which show differential treatment of signals by race and neighborhood composition, are consistent with a model of statistical discrimination rather than one of simple taste-based prejudice.
+
+---
+
+## **The Price of Diversifiable Risk in Venture Capital and Private Equity**
+
+This research explores why diversifiable risk is priced in venture capital, a puzzle given the diversified nature of limited partners. We propose a novel theory based on a three-way principal-agent interaction between investors, VCs, and entrepreneurs that links contract design to asset prices. Empirical tests on a unique dataset of fund returns confirm the model's prediction: a strong correlation between total risk and net-of-fee investor returns.
+
