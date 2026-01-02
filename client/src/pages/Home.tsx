@@ -11,6 +11,7 @@ import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
 import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
 import afaImage from "@assets/optimized/mentorship_and_guidance_abstract.webp";
+import foundingPatentsImage from "@assets/optimized/high_frequency_trading_algorithmic_lines.webp";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
@@ -43,7 +44,7 @@ export default function Home() {
       id: "proj11",
       title: "Founding Patents",
       description: "Explore startup innovation through a unique connection between firm formation and patent data.",
-      image: "/attached_assets/Screenshot_2026-01-02_at_9.45.58_AM_1767365173500.png",
+      image: foundingPatentsImage,
       link: "https://foundingpatents.com/",
     },
     {
