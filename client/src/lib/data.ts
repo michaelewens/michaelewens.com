@@ -1,4 +1,5 @@
-// Number of papers to feature on the homepage
+// Project state: Static academic website for Prof. Michael Ewens.
+// Updated: January 02, 2026.
 export const FEATURED_COUNT = 2;
 
 export interface Paper {
