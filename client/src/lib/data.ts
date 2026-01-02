@@ -359,6 +359,13 @@ export const projects: Project[] = [
     description: "Form D filings data from a FOIA request with the SEC. Used in 'The Deregulation of the Private Equity Markets and the Decline in IPOs' by Ewens and Farre-Mensa (2020), RFS.",
     language: ["Data"],
     url: "https://github.com/michaelewens/Form-D-filing-events-1992-2008"
+  },
+  {
+    id: "pr10",
+    title: "Founding Patents Data",
+    description: "The complete dataset connecting new firm formation and patents, allowing researchers to explore startup innovation. Includes mapping and novelty measures.",
+    language: ["Data"],
+    url: "https://zenodo.org/records/12706672"
   }
 ];
 
