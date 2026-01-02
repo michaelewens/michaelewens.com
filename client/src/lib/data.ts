@@ -662,6 +662,7 @@ export const projectItems: ProjectItem[] = [
     id: "proj11",
     title: "Founding Patents",
     description: "Data connection new firm formation and patents that allows researchers to explore startup innovation. It is a database.",
-    url: "https://foundingpatents.com/"
+    url: "https://foundingpatents.com/",
+    imageUrl: "/attached_assets/Screenshot_2026-01-02_at_9.45.58_AM_1767365173500.png"
   }
 ];
