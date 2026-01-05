@@ -12,6 +12,7 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath, {
     maxAge: '1y',
+    immutable: true,
     setHeaders: (res, path) => {
       if (path.endsWith('.html')) {
         res.setHeader('Cache-Control', 'no-cache');
