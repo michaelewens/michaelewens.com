@@ -40,7 +40,7 @@ export default function ResearchList({ papers, showAbstract = true, className }:
               
               <p className="text-sm text-muted-foreground italic">
                 {paper.authors.map((author, i) => (
-                  <span key={i} className={author === "Michael Ewens" ? "font-semibold text-foreground" : ""}>
+                  <span key={i}>
                     {author}{i < paper.authors.length - 1 ? ", " : ""}
                   </span>
                 ))}
