@@ -668,7 +668,7 @@ export const projectItems: ProjectItem[] = [
   {
     id: "proj11",
     title: "Founding Patents",
-    description: "Data connection new firm formation and patents that allows researchers to explore startup innovation. It is a database.",
+    description: "This project provides data on the founding year for U.S.-based firms to whom patents were assigned from 1976-2021 (co-created with Matt Marx).",
     url: "https://foundingpatents.com/"
   }
 ];
