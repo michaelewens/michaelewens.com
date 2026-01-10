@@ -25,6 +25,7 @@ const projectImages: Record<string, string> = {
   "proj8": columbiaPEImage,
   "proj9": publicPrivateEquityImage,
   "proj10": phdWebsiteImage,
+  "proj11": "/attached_assets/founding_patents_chart.png",
 };
 
 export default function Projects() {
