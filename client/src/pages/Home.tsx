@@ -94,7 +94,7 @@ export default function Home() {
               <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
                 Michael Ewens
               </h1>
-              <p className="font-mono text-sm tracking-widest uppercase font-bold pl-1" style={{ color: '#66ff00' }}>
+              <p className="font-mono text-sm tracking-widest uppercase text-primary font-bold pl-1">
                 David L. and Elsie M. Dodd Professor of Finance, Columbia Business School
               </p>
             </div>
