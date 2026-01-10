@@ -649,8 +649,8 @@ export const projectItems: ProjectItem[] = [
   },
   {
     id: "proj8",
-    title: "Columbia Private Equity Conference",
-    description: "This two-day conference (formerly the 'Southern California Private Equity Conference') brings together leading academics studying private equity, venture capital and entrepreneurial finance. Co-organizers are Tabina Babina (Columbia), Song Ma (Yale), and Emmanuel Yimfor (Columbia).",
+    title: "Columbia PE Research Conference",
+    description: "This two-day conference brings together leading academics studying private equity, venture capital and entrepreneurial finance. Co-organized with Emmanuel Yimfor (Columbia).",
     url: "https://columbiapeconference.com/"
   },
   {
