@@ -368,18 +368,87 @@
             gap: 8px;
             padding: 10px 12px;
         }
-        .bucket-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 2px 6px;
-            border-radius: 3px;
+        .slot-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
             background: var(--primary);
             color: white;
+            flex-shrink: 0;
         }
-        .bucket-label.margin { background: #059669; }
-        .bucket-label.cash { background: #7c3aed; }
-        .bucket-label.growth { background: #db2777; }
+        
+        /* Improvement slot styles for Column 1 */
+        .improvement-slot {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .improvement-slot .slot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .improvement-slot .slot-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        .improvement-slot .form-group {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .improvement-slot .form-group:last-child {
+            margin-bottom: 0;
+        }
+        .improvement-slot label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 4px;
+        }
+        .improvement-slot input,
+        .improvement-slot textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: inherit;
+        }
+        .improvement-slot input:focus,
+        .improvement-slot textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .improvement-slot input.saved,
+        .improvement-slot textarea.saved {
+            border-color: var(--success);
+        }
+        .improvement-slot textarea {
+            resize: vertical;
+            min-height: 50px;
+        }
+        .improvement-slot .saved-indicator {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            font-size: 0.7rem;
+            color: var(--success);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .improvement-slot .saved-indicator.show {
+            opacity: 1;
+        }
         .filter-idea-title {
             flex: 1;
             min-width: 100px;
@@ -789,50 +858,23 @@
         <div class="worksheet-column">
             <div class="column-header">
                 <h2>Part A — Management Team</h2>
-                <p>Pick two improvements. Add as many candidate ideas as you want.</p>
+                <p>Fill in three improvement ideas.</p>
             </div>
 
             <!-- Progress Counter -->
             <div class="progress-counter" id="progressCounter">
                 <div class="progress-line">
-                    <span>Ideas created:</span>
-                    <span class="count" id="ideasCreatedCount">0</span>
+                    <span>Ideas filled:</span>
+                    <span class="count" id="ideasCreatedCount">0 / 3</span>
                 </div>
                 <div class="progress-line">
                     <span>Ideas fully diagnosed:</span>
-                    <span class="count" id="ideasDiagnosedCount">0 / 0</span>
+                    <span class="count" id="ideasDiagnosedCount">0 / 3</span>
                 </div>
             </div>
 
-            <!-- EBITDA / Margin Bucket -->
-            <div class="bucket-section" id="marginSection">
-                <div class="bucket-title">
-                    <span>EBITDA / Margin</span>
-                    <button class="btn btn-add" onclick="showAddForm('margin')">+ Add improvement</button>
-                </div>
-                <div id="marginForm"></div>
-                <ul class="idea-list" id="marginList"></ul>
-            </div>
-
-            <!-- Cash (Working Capital) Bucket -->
-            <div class="bucket-section" id="cashSection">
-                <div class="bucket-title">
-                    <span>Cash (Working Capital)</span>
-                    <button class="btn btn-add" onclick="showAddForm('cash')">+ Add improvement</button>
-                </div>
-                <div id="cashForm"></div>
-                <ul class="idea-list" id="cashList"></ul>
-            </div>
-
-            <!-- Growth Bucket -->
-            <div class="bucket-section" id="growthSection">
-                <div class="bucket-title">
-                    <span>Growth</span>
-                    <button class="btn btn-add" onclick="showAddForm('growth')">+ Add improvement</button>
-                </div>
-                <div id="growthForm"></div>
-                <ul class="idea-list" id="growthList"></ul>
-            </div>
+            <!-- Three fixed improvement slots -->
+            <div id="improvementSlots"></div>
         </div>
 
         <!-- Column 2: Filter/Diagnose -->
@@ -855,11 +897,6 @@
                     <li>Main risk: ______</li>
                     <li>Key dependency: ______</li>
                 </ul>
-            </div>
-
-            <div class="sort-toggle">
-                <input type="checkbox" id="sortByBucket" onchange="renderFilterList()">
-                <label for="sortByBucket">Sort by bucket</label>
             </div>
 
             <div id="filterList"></div>
@@ -927,6 +964,7 @@
     <script>
         // localStorage keys
         const STORAGE_KEY = 'micIdeasV1';
+        const ARCHIVE_KEY = 'micIdeasArchiveV1';
         const STEP3_UNLOCKED_KEY = 'micStep3UnlockedV1';
 
         // Generate unique ID
@@ -938,19 +976,62 @@
         }
 
         // Load ideas from localStorage with migration
+        // Create an empty idea object for a slot
+        function createEmptyIdea() {
+            return {
+                id: generateId(),
+                title: '',
+                changeDetail: '',
+                whyNotDone: '',
+                tags: [],
+                mainRisk: '',
+                keyDependency: '',
+                createdAt: Date.now(),
+                selectedForPlan: false,
+                planAction: '',
+                rescopeText: '',
+                replacementTitle: '',
+                replacementRationale: ''
+            };
+        }
+
         function loadIdeas() {
             const stored = localStorage.getItem(STORAGE_KEY);
-            if (!stored) return [];
+            let ideas = stored ? JSON.parse(stored) : [];
             
-            let ideas = JSON.parse(stored);
+            // Check if already migrated to 3-slot format (exactly 3 ideas, no bucket field)
+            const isNewFormat = ideas.length === 3 && ideas.every(i => !i.bucket);
             
-            // Migration: handle old formats and add new fields including Column 3
+            if (!isNewFormat && ideas.length > 0) {
+                // Migration: sort by bucket order (margin, cash, growth), then take first 3
+                const bucketOrder = ['margin', 'cash', 'growth'];
+                ideas.sort((a, b) => {
+                    const aIdx = bucketOrder.indexOf(a.bucket);
+                    const bIdx = bucketOrder.indexOf(b.bucket);
+                    return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+                });
+                
+                // Archive extras if more than 3
+                if (ideas.length > 3) {
+                    const extras = ideas.slice(3);
+                    localStorage.setItem(ARCHIVE_KEY, JSON.stringify(extras));
+                    console.log(`Archived ${extras.length} extra ideas to ${ARCHIVE_KEY}`);
+                }
+                
+                // Take first 3
+                ideas = ideas.slice(0, 3);
+            }
+            
+            // Ensure we always have exactly 3 slots
+            while (ideas.length < 3) {
+                ideas.push(createEmptyIdea());
+            }
+            
+            // Normalize each idea: ensure all required fields exist, remove bucket
             ideas = ideas.map(idea => {
                 const title = idea.title || idea.text || '';
-                
-                return {
+                const normalized = {
                     id: idea.id || generateId(),
-                    bucket: idea.bucket || 'margin',
                     title: title,
                     changeDetail: idea.changeDetail || '',
                     whyNotDone: idea.whyNotDone || '',
@@ -958,13 +1039,13 @@
                     mainRisk: idea.mainRisk || '',
                     keyDependency: idea.keyDependency || '',
                     createdAt: idea.createdAt || Date.now(),
-                    // Column 3 fields (migration: default to empty/false)
                     selectedForPlan: idea.selectedForPlan || false,
                     planAction: idea.planAction || '',
                     rescopeText: idea.rescopeText || '',
                     replacementTitle: idea.replacementTitle || '',
                     replacementRationale: idea.replacementRationale || ''
                 };
+                return normalized;
             });
             
             return ideas;
@@ -989,110 +1070,42 @@
         let ideas = loadIdeas();
         saveIdeas(ideas);
 
-        // Track form state
-        let openFormBucket = null;
-        let editingIdeaId = null;
+        // Debounce timers for auto-save
+        const slotSaveTimers = {};
 
-        // Show add/edit form for a bucket
-        function showAddForm(bucket, ideaId = null) {
-            hideAllForms();
-            
-            openFormBucket = bucket;
-            editingIdeaId = ideaId;
-            
-            const formContainer = document.getElementById(bucket + 'Form');
-            const idea = ideaId ? ideas.find(i => i.id === ideaId) : null;
-            
-            formContainer.innerHTML = `
-                <div class="idea-form">
-                    <div class="form-group">
-                        <label>Title (short)</label>
-                        <input type="text" id="formTitle" placeholder="e.g., Raise Prices" value="${escapeHtml(idea?.title || '')}">
-                    </div>
-                    <div class="form-group">
-                        <label>What would you change?</label>
-                        <textarea id="formChange" rows="3" placeholder="Describe the improvement...">${escapeHtml(idea?.changeDetail || '')}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Why hasn't the company done this already?</label>
-                        <textarea id="formWhyNot" rows="3" placeholder="Explain the barriers...">${escapeHtml(idea?.whyNotDone || '')}</textarea>
-                    </div>
-                    <div class="form-error" id="formError">Please fill in all fields.</div>
-                    <div class="form-actions">
-                        <button class="btn btn-primary" onclick="saveIdeaForm('${bucket}', ${ideaId ? `'${ideaId}'` : 'null'})">Save</button>
-                        <button class="btn btn-secondary" onclick="hideAllForms()">Cancel</button>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('formTitle').focus();
-        }
-
-        // Hide all forms
-        function hideAllForms() {
-            ['margin', 'cash', 'growth'].forEach(bucket => {
-                document.getElementById(bucket + 'Form').innerHTML = '';
-            });
-            openFormBucket = null;
-            editingIdeaId = null;
-        }
-
-        // Save idea from form
-        function saveIdeaForm(bucket, ideaId) {
-            const title = document.getElementById('formTitle').value.trim();
-            const changeDetail = document.getElementById('formChange').value.trim();
-            const whyNotDone = document.getElementById('formWhyNot').value.trim();
-            const errorEl = document.getElementById('formError');
-            
-            if (!title || !changeDetail || !whyNotDone) {
-                errorEl.classList.add('show');
-                return;
-            }
-            errorEl.classList.remove('show');
-            
-            if (ideaId) {
-                const idea = ideas.find(i => i.id === ideaId);
-                if (idea) {
-                    idea.title = title;
-                    idea.changeDetail = changeDetail;
-                    idea.whyNotDone = whyNotDone;
-                }
-            } else {
-                ideas.push({
-                    id: generateId(),
-                    bucket: bucket,
-                    title: title,
-                    changeDetail: changeDetail,
-                    whyNotDone: whyNotDone,
-                    tags: [],
-                    mainRisk: '',
-                    keyDependency: '',
-                    createdAt: Date.now(),
-                    selectedForPlan: false,
-                    planAction: '',
-                    rescopeText: '',
-                    replacementTitle: '',
-                    replacementRationale: ''
-                });
-            }
-            
+        // Update a slot field with auto-save
+        function updateSlotField(slotIndex, field, value, inputEl) {
+            ideas[slotIndex][field] = value;
             saveIdeas(ideas);
-            hideAllForms();
-            renderAll();
+            renderFilterList();
+            updateProgressCounter();
+            updateMoveOnButton();
+            
+            // Show saved indicator
+            const indicatorId = `saved-slot-${slotIndex}-${field}`;
+            const indicator = document.getElementById(indicatorId);
+            if (indicator) {
+                indicator.classList.add('show');
+                if (inputEl) inputEl.classList.add('saved');
+                
+                const timerKey = `slot-${slotIndex}-${field}`;
+                if (slotSaveTimers[timerKey]) clearTimeout(slotSaveTimers[timerKey]);
+                
+                slotSaveTimers[timerKey] = setTimeout(() => {
+                    indicator.classList.remove('show');
+                    if (inputEl) inputEl.classList.remove('saved');
+                }, 1500);
+            }
         }
 
-        // Delete an idea
-        function deleteIdea(id) {
-            ideas = ideas.filter(i => i.id !== id);
-            saveIdeas(ideas);
-            renderAll();
+        // Check if a slot has content (title filled)
+        function isSlotFilled(idea) {
+            return idea.title.trim() !== '';
         }
 
-        // Start editing an idea
-        function startEdit(id) {
-            const idea = ideas.find(i => i.id === id);
-            if (!idea) return;
-            showAddForm(idea.bucket, id);
+        // Count filled slots
+        function countFilledSlots() {
+            return ideas.filter(isSlotFilled).length;
         }
 
         // Toggle a tag
@@ -1168,10 +1181,9 @@
             return text.length > maxLen ? text.substring(0, maxLen) + '...' : text;
         }
 
-        // Get bucket display name
-        function getBucketName(bucket) {
-            const names = { margin: 'Margin', cash: 'Cash', growth: 'Growth' };
-            return names[bucket] || bucket;
+        // Get slot label for an index
+        function getSlotLabel(index) {
+            return `Improvement ${index + 1}`;
         }
 
         // Check if idea has completed Column 2 (at least 1 tag + risk + dependency)
@@ -1222,66 +1234,79 @@
 
         // Update progress counter
         function updateProgressCounter() {
-            const total = ideas.length;
+            const filled = countFilledSlots();
             const diagnosed = countCompletedColumn2();
             
-            document.getElementById('ideasCreatedCount').textContent = total;
-            document.getElementById('ideasDiagnosedCount').textContent = `${diagnosed} / ${total}`;
+            document.getElementById('ideasCreatedCount').textContent = `${filled} / 3`;
+            document.getElementById('ideasDiagnosedCount').textContent = `${diagnosed} / 3`;
             
             const counter = document.getElementById('progressCounter');
-            if (total > 0 && diagnosed === total) {
+            if (filled === 3 && diagnosed === 3) {
                 counter.classList.add('complete');
             } else {
                 counter.classList.remove('complete');
             }
         }
 
-        // Render Column 1 lists
-        function renderBucketList(bucket) {
-            const list = document.getElementById(bucket + 'List');
-            const bucketIdeas = ideas.filter(i => i.bucket === bucket);
-
-            if (bucketIdeas.length === 0) {
-                list.innerHTML = '<li class="empty-state">No improvements yet</li>';
-                return;
-            }
-
-            list.innerHTML = bucketIdeas.map(idea => `
-                <li class="idea-item" data-id="${idea.id}">
-                    <div class="idea-item-header">
-                        <div class="idea-content">
-                            <div class="idea-title">${escapeHtml(idea.title)}</div>
-                            <div class="idea-preview">${escapeHtml(truncate(idea.changeDetail))}</div>
-                        </div>
-                        <span class="idea-actions">
-                            <button onclick="startEdit('${idea.id}')" title="Edit">✏️</button>
-                            <button onclick="deleteIdea('${idea.id}')" title="Delete">🗑️</button>
-                        </span>
+        // Render Column 1 - three fixed improvement slots
+        function renderImprovementSlots() {
+            const container = document.getElementById('improvementSlots');
+            
+            container.innerHTML = ideas.map((idea, index) => `
+                <div class="improvement-slot" data-index="${index}">
+                    <div class="slot-header">
+                        <span class="slot-label">Improvement ${index + 1}</span>
+                        <span class="saved-indicator" id="saved-slot-${index}-title">Saved</span>
                     </div>
-                </li>
+                    <div class="form-group">
+                        <label>Title (short)</label>
+                        <input type="text" 
+                               id="slot-title-${index}"
+                               value="${escapeHtml(idea.title)}" 
+                               placeholder="e.g., Raise Prices"
+                               oninput="updateSlotField(${index}, 'title', this.value, this)">
+                    </div>
+                    <div class="form-group">
+                        <label>What would you change?</label>
+                        <textarea 
+                            id="slot-change-${index}"
+                            rows="2" 
+                            placeholder="Describe the improvement..."
+                            oninput="updateSlotField(${index}, 'changeDetail', this.value, this)">${escapeHtml(idea.changeDetail)}</textarea>
+                        <span class="saved-indicator" id="saved-slot-${index}-changeDetail">Saved</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Why hasn't the company done this already?</label>
+                        <textarea 
+                            id="slot-why-${index}"
+                            rows="2" 
+                            placeholder="Explain the barriers..."
+                            oninput="updateSlotField(${index}, 'whyNotDone', this.value, this)">${escapeHtml(idea.whyNotDone)}</textarea>
+                        <span class="saved-indicator" id="saved-slot-${index}-whyNotDone">Saved</span>
+                    </div>
+                </div>
             `).join('');
         }
 
-        // Render Column 2 filter list
+        // Render Column 2 filter list - only show filled slots
         function renderFilterList() {
             const container = document.getElementById('filterList');
-            const sortByBucket = document.getElementById('sortByBucket').checked;
+            
+            // Only show ideas that have a title (filled slots)
+            const filledIdeas = ideas.filter(isSlotFilled);
 
-            let sortedIdeas = [...ideas];
-            if (sortByBucket) {
-                const order = ['margin', 'cash', 'growth'];
-                sortedIdeas.sort((a, b) => order.indexOf(a.bucket) - order.indexOf(b.bucket));
-            }
-
-            if (sortedIdeas.length === 0) {
-                container.innerHTML = '<div class="empty-state">Add improvements in Column 1 to see them here</div>';
+            if (filledIdeas.length === 0) {
+                container.innerHTML = '<div class="empty-state">Fill in improvements in Column 1 to see them here</div>';
                 return;
             }
 
-            container.innerHTML = sortedIdeas.map(idea => `
+            container.innerHTML = ideas.map((idea, index) => {
+                if (!isSlotFilled(idea)) return '';
+                
+                return `
                 <div class="filter-idea-item">
                     <div class="filter-idea-header">
-                        <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
+                        <span class="slot-badge">${index + 1}</span>
                         <span class="filter-idea-title">${escapeHtml(idea.title)}</span>
                         <button class="details-toggle" onclick="toggleDetails('${idea.id}')">Details</button>
                         <div class="tag-buttons">
@@ -1309,7 +1334,7 @@
                                    value="${escapeHtml(idea.mainRisk)}" 
                                    placeholder="What could go wrong?"
                                    oninput="updateDiagnostic('${idea.id}', 'mainRisk', this.value, this)">
-                            <span class="saved-indicator" id="saved-risk-${idea.id}">Saved ✓</span>
+                            <span class="saved-indicator" id="saved-risk-${idea.id}">Saved</span>
                         </div>
                         <div class="diagnostic-row">
                             <label>Key dependency:</label>
@@ -1318,11 +1343,11 @@
                                    value="${escapeHtml(idea.keyDependency)}" 
                                    placeholder="What must happen first?"
                                    oninput="updateDiagnostic('${idea.id}', 'keyDependency', this.value, this)">
-                            <span class="saved-indicator" id="saved-dep-${idea.id}">Saved ✓</span>
+                            <span class="saved-indicator" id="saved-dep-${idea.id}">Saved</span>
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         // Column 3: Toggle selection for an idea
@@ -1374,13 +1399,14 @@
             saveIdeas(ideas);
         }
 
-        // Render Column 3
+        // Render Column 3 - only show filled slots
         function renderColumn3() {
             const container = document.getElementById('col3List');
-            const selectedCount = ideas.filter(i => i.selectedForPlan).length;
+            const filledIdeas = ideas.filter(isSlotFilled);
+            const selectedCount = ideas.filter(i => i.selectedForPlan && isSlotFilled(i)).length;
 
-            // Update counter - max is dynamic based on number of ideas (2 or 3)
-            const maxSelectable = Math.min(ideas.length, 3);
+            // Update counter - max is dynamic based on number of filled ideas (up to 3)
+            const maxSelectable = Math.min(filledIdeas.length, 3);
             const counter = document.getElementById('col3Counter');
             counter.textContent = `Selected for revised plan: ${selectedCount} / ${maxSelectable}`;
             if (selectedCount >= 1) {
@@ -1389,12 +1415,14 @@
                 counter.classList.remove('complete');
             }
 
-            if (ideas.length === 0) {
+            if (filledIdeas.length === 0) {
                 container.innerHTML = '<div class="empty-state">No ideas to review</div>';
                 return;
             }
 
-            container.innerHTML = ideas.map(idea => {
+            container.innerHTML = ideas.map((idea, index) => {
+                if (!isSlotFilled(idea)) return '';
+                
                 const isSelected = idea.selectedForPlan;
                 const actionButtons = isSelected ? `
                     <div class="col3-action-section">
@@ -1438,7 +1466,7 @@
                     <div class="col3-idea-item ${isSelected ? 'selected' : ''}">
                         <div class="col3-idea-header">
                             <input type="checkbox" ${isSelected ? 'checked' : ''} onchange="toggleCol3Selection('${idea.id}')">
-                            <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
+                            <span class="slot-badge">${index + 1}</span>
                             <span class="col3-idea-title">${escapeHtml(idea.title)}</span>
                         </div>
                         ${actionButtons}
@@ -1464,9 +1492,7 @@
 
         // Render all lists
         function renderAll() {
-            renderBucketList('margin');
-            renderBucketList('cash');
-            renderBucketList('growth');
+            renderImprovementSlots();
             renderFilterList();
             updateProgressCounter();
             updateMoveOnButton();
@@ -1478,23 +1504,25 @@
 
         // Export summary to clipboard
         function exportSummary() {
-            function formatIdeaPartA(idea) {
-                let str = `- (${getBucketName(idea.bucket)}) Title: ${idea.title}\n`;
+            function formatIdeaPartA(idea, index) {
+                if (!isSlotFilled(idea)) return '';
+                let str = `- Improvement ${index + 1}: ${idea.title}\n`;
                 str += `  Change: ${idea.changeDetail || '(not filled)'}\n`;
                 str += `  Why not done: ${idea.whyNotDone || '(not filled)'}\n`;
                 return str;
             }
 
-            function formatIdeaCol2(idea) {
-                let str = `- (${getBucketName(idea.bucket)}) ${idea.title}\n`;
+            function formatIdeaCol2(idea, index) {
+                if (!isSlotFilled(idea)) return '';
+                let str = `- Improvement ${index + 1}: ${idea.title}\n`;
                 str += `  Tags: ${idea.tags.length ? idea.tags.join(', ') : '(none)'}\n`;
                 str += `  Main risk: ${idea.mainRisk || '(not filled)'}\n`;
                 str += `  Key dependency: ${idea.keyDependency || '(not filled)'}\n`;
                 return str;
             }
 
-            function formatIdeaPartB(idea) {
-                let str = `- (${getBucketName(idea.bucket)}) ${idea.title}\n`;
+            function formatIdeaPartB(idea, index) {
+                let str = `- Improvement ${index + 1}: ${idea.title}\n`;
                 str += `  Action: ${idea.planAction || '(not selected)'}\n`;
                 if (idea.planAction === 'rescope') {
                     str += `  Re-scope notes: ${idea.rescopeText || '(not filled)'}\n`;
@@ -1506,17 +1534,19 @@
                 return str;
             }
 
-            let summary = 'Part A Ideas (raw):\n\n';
-            if (ideas.length) {
-                ideas.forEach(i => { summary += formatIdeaPartA(i); });
+            const filledIdeas = ideas.filter(isSlotFilled);
+            
+            let summary = 'Part A Ideas:\n\n';
+            if (filledIdeas.length) {
+                ideas.forEach((idea, i) => { summary += formatIdeaPartA(idea, i); });
             } else {
                 summary += '(none)\n';
             }
             summary += '\n';
 
             summary += 'Column 2 (diagnosis):\n\n';
-            if (ideas.length) {
-                ideas.forEach(i => { summary += formatIdeaCol2(i); });
+            if (filledIdeas.length) {
+                ideas.forEach((idea, i) => { summary += formatIdeaCol2(idea, i); });
             } else {
                 summary += '(none)\n';
             }
@@ -1526,9 +1556,13 @@
             if (!isColumn3Unlocked()) {
                 summary += 'Part B not started.\n';
             } else {
-                const selectedIdeas = ideas.filter(i => i.selectedForPlan);
+                const selectedIdeas = ideas.filter(i => i.selectedForPlan && isSlotFilled(i));
                 if (selectedIdeas.length) {
-                    selectedIdeas.forEach(i => { summary += formatIdeaPartB(i); });
+                    ideas.forEach((idea, i) => {
+                        if (idea.selectedForPlan && isSlotFilled(idea)) {
+                            summary += formatIdeaPartB(idea, i);
+                        }
+                    });
                 } else {
                     summary += '(no initiatives selected)\n';
                 }
@@ -1544,10 +1578,9 @@
         // Clear all data
         function clearAll() {
             if (confirm('Are you sure you want to clear all ideas? This cannot be undone.')) {
-                ideas = [];
+                ideas = [createEmptyIdea(), createEmptyIdea(), createEmptyIdea()];
                 saveIdeas(ideas);
                 localStorage.removeItem(STEP3_UNLOCKED_KEY);
-                hideAllForms();
                 document.getElementById('column3').classList.add('hidden');
                 document.getElementById('worksheetContainer').classList.remove('three-columns');
                 renderAll();

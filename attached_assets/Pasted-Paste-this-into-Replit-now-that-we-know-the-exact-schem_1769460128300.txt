@@ -1,0 +1,91 @@
+Paste this into Replit—now that we know the exact schema (array of idea objects with `bucket`), the change can be very explicit and easy to implement.
+
+---
+
+### Replit prompt (exact schema: `bucket: margin|cash|growth`)
+
+Modify `mic_exercise.html` (vanilla HTML/CSS/JS) so **Part A → Column 1** no longer uses the three buckets (`margin`, `cash`, `growth`). Column 1 should instead be **exactly three “Improvement” slots** with no category labels.
+
+## 1) UI: Column 1 (Part A)
+**Replace** the current Column 1 UI that groups ideas by bucket (**EBITDA/Margin**, **Cash**, **Growth**) with **three identical idea entry cards**:
+
+- Labels: **Improvement 1**, **Improvement 2**, **Improvement 3**
+- Each card keeps the same input fields currently used in Column 1:
+  - `title`
+  - `changeDetail`
+  - `whyNotDone`
+- Do **not** display or ask for `bucket` anywhere in Column 1.
+- There should be no “EBITDA / Cash / Growth” headings in Column 1.
+
+## 2) Data model (localStorage key: `micIdeasV1`)
+Currently `micIdeasV1` is an **array** of idea objects like:
+```js
+[{ id, bucket, title, changeDetail, whyNotDone, tags, mainRisk, keyDependency, ...column3Fields }]
+```
+
+### New requirement
+- Keep storing `micIdeasV1` as an **array** (to minimize refactor), but Column 1 should always operate on **exactly three** ideas with fixed positions:
+  - Slot 0 = Improvement 1
+  - Slot 1 = Improvement 2
+  - Slot 2 = Improvement 3
+- For these three “slot ideas”, set `bucket` to `null` or remove it entirely (either is fine), and **do not use it for rendering**.
+
+## 3) Migration / backward compatibility
+On load, migrate old saved data (bucketed list) into the new three-slot format:
+
+1. Load `ideas = JSON.parse(localStorage.getItem("micIdeasV1") || "[]")`
+2. If `ideas` already looks like the new format (length === 3 AND none of the three are being rendered by bucket), just use it.
+3. Otherwise migrate:
+   - Take all existing ideas and sort/flatten by bucket order:
+     1) `bucket === "margin"`
+     2) `bucket === "cash"`
+     3) `bucket === "growth"`
+     4) any remaining/unknown bucket last
+   - Create `slots = []` with length 3:
+     - For i=0..2: `slots[i] = sorted[i]` if present else a new empty idea object
+   - For each slot idea:
+     - preserve **all fields** (including Column 2 tags, risk/dependency, and Column 3 plan fields)
+     - remove `bucket` or set `bucket = null`
+   - Save back: `localStorage.setItem("micIdeasV1", JSON.stringify(slots))`
+
+Also: if the old array had more than 3 ideas, do not delete them silently without warning in code comments—either drop extras (fine) but do so explicitly, or optionally store extras under a new key like `micIdeasArchiveV1` (optional; only do if easy).
+
+## 4) Column 2 / Column 3 mapping
+Update Column 2 and Column 3 to reference these three slot ideas by index (0–2) rather than filtering by `bucket`. The user should still be able to:
+- apply tags `["$$","C","R","!"]`
+- fill `mainRisk`, `keyDependency`
+- select plan options in Column 3 (keep/rescope/replace)
+…for each of the three improvements.
+
+## 5) Acceptance checks
+- Column 1 shows only Improvement 1/2/3 with title/change/why inputs.
+- No EBITDA/Cash/Growth text appears in Column 1 (or anywhere unless it’s part of slide instructions).
+- Existing saved ideas load into the three slots in order margin → cash → growth.
+- Refresh persists via `micIdeasV1`.
+- `micStep3UnlockedV1` remains unchanged.
+
+---
+
+### (Optional but recommended) empty idea object shape
+When creating a blank slot, use:
+```js
+{
+  id: crypto.randomUUID?.() ?? String(Date.now() + Math.random()),
+  title: "",
+  changeDetail: "",
+  whyNotDone: "",
+  tags: [],
+  mainRisk: "",
+  keyDependency: "",
+  createdAt: Date.now(),
+  selectedForPlan: false,
+  planAction: "",
+  rescopeText: "",
+  replacementTitle: "",
+  replacementRationale: ""
+}
+```
+
+---
+
+If you want, I can also suggest a tiny UI improvement: disable Column 2/3 inputs until the corresponding Improvement has at least a `title` (prevents students tagging blank ideas).
