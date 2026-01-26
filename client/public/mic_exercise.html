@@ -459,6 +459,61 @@
         .improvement-slot .saved-indicator.show {
             opacity: 1;
         }
+        /* Specificity section styles */
+        .specificity-section {
+            background: #f0fdf4;
+            border-top: 1px solid #bbf7d0;
+            padding: 10px 12px;
+        }
+        .specificity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .specificity-label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--gray-700);
+        }
+        .specificity-counter {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--gray-300);
+            color: var(--gray-700);
+        }
+        .specificity-counter.complete {
+            background: var(--success);
+            color: white;
+        }
+        .specificity-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: var(--gray-200);
+            color: var(--gray-600);
+            margin-left: auto;
+        }
+        .specificity-badge.complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .col3-message {
+            display: none;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 8px 0;
+        }
+        .col3-message.show {
+            display: block;
+        }
         .filter-idea-title {
             flex: 1;
             min-width: 100px;
@@ -999,6 +1054,9 @@
                 tags: [],
                 mainRisk: '',
                 keyDependency: '',
+                timebox: '',
+                targetMetric: '',
+                proofPoint: '',
                 createdAt: Date.now(),
                 selectedForPlan: false,
                 planAction: '',
@@ -1051,6 +1109,9 @@
                     tags: idea.tags || [],
                     mainRisk: idea.mainRisk || '',
                     keyDependency: idea.keyDependency || '',
+                    timebox: idea.timebox || '',
+                    targetMetric: idea.targetMetric || '',
+                    proofPoint: idea.proofPoint || '',
                     createdAt: idea.createdAt || Date.now(),
                     selectedForPlan: idea.selectedForPlan || false,
                     planAction: idea.planAction || '',
@@ -1121,6 +1182,20 @@
             return ideas.filter(isSlotFilled).length;
         }
 
+        // Count specificity fields filled (timebox, targetMetric, proofPoint)
+        function getSpecificityCount(idea) {
+            let count = 0;
+            if (idea.timebox && idea.timebox.trim() !== '') count++;
+            if (idea.targetMetric && idea.targetMetric.trim() !== '') count++;
+            if (idea.proofPoint && idea.proofPoint.trim() !== '') count++;
+            return count;
+        }
+
+        // Check if idea has full specificity
+        function hasFullSpecificity(idea) {
+            return getSpecificityCount(idea) === 3;
+        }
+
         // Toggle a tag
         function toggleTag(id, tag) {
             const idea = ideas.find(i => i.id === id);
@@ -1148,9 +1223,17 @@
             saveIdeas(ideas);
             updateProgressCounter();
             updateMoveOnButton();
+            renderFilterList();
 
             // Show saved indicator
-            const indicatorId = field === 'mainRisk' ? `saved-risk-${id}` : `saved-dep-${id}`;
+            const indicatorMap = {
+                mainRisk: `saved-risk-${id}`,
+                keyDependency: `saved-dep-${id}`,
+                timebox: `saved-timebox-${id}`,
+                targetMetric: `saved-metric-${id}`,
+                proofPoint: `saved-proof-${id}`
+            };
+            const indicatorId = indicatorMap[field];
             const indicator = document.getElementById(indicatorId);
             if (indicator) {
                 indicator.classList.add('show');
@@ -1359,6 +1442,39 @@
                             <span class="saved-indicator" id="saved-dep-${idea.id}">Saved</span>
                         </div>
                     </div>
+                    <div class="specificity-section">
+                        <div class="specificity-header">
+                            <span class="specificity-label">Specificity</span>
+                            <span class="specificity-counter ${getSpecificityCount(idea) === 3 ? 'complete' : ''}">${getSpecificityCount(idea)}/3</span>
+                        </div>
+                        <div class="diagnostic-row">
+                            <label>Timebox:</label>
+                            <input type="text" 
+                                   id="timebox-${idea.id}"
+                                   value="${escapeHtml(idea.timebox)}" 
+                                   placeholder="e.g., 6 months, Q2 2026"
+                                   oninput="updateDiagnostic('${idea.id}', 'timebox', this.value, this)">
+                            <span class="saved-indicator" id="saved-timebox-${idea.id}">Saved</span>
+                        </div>
+                        <div class="diagnostic-row">
+                            <label>Target metric:</label>
+                            <input type="text" 
+                                   id="metric-${idea.id}"
+                                   value="${escapeHtml(idea.targetMetric)}" 
+                                   placeholder="e.g., +$2M EBITDA, 5% margin"
+                                   oninput="updateDiagnostic('${idea.id}', 'targetMetric', this.value, this)">
+                            <span class="saved-indicator" id="saved-metric-${idea.id}">Saved</span>
+                        </div>
+                        <div class="diagnostic-row">
+                            <label>Proof point:</label>
+                            <input type="text" 
+                                   id="proof-${idea.id}"
+                                   value="${escapeHtml(idea.proofPoint)}" 
+                                   placeholder="e.g., Comp X did this, pilot results"
+                                   oninput="updateDiagnostic('${idea.id}', 'proofPoint', this.value, this)">
+                            <span class="saved-indicator" id="saved-proof-${idea.id}">Saved</span>
+                        </div>
+                    </div>
                 </div>
             `}).join('');
         }
@@ -1394,14 +1510,56 @@
         function setCol3Action(id, action) {
             const idea = ideas.find(i => i.id === id);
             if (!idea) return;
+            
+            // Enforce "keep" restrictions
+            if (action === 'keep') {
+                // Check if another idea already has "keep"
+                const otherKeep = ideas.find(i => i.id !== id && i.planAction === 'keep');
+                if (otherKeep) {
+                    showCol3Message(id, 'Only one idea can be marked "Keep". Another idea already has this action.');
+                    return;
+                }
+                
+                // Check if this idea has full specificity
+                if (!hasFullSpecificity(idea)) {
+                    const missing = [];
+                    if (!idea.timebox || idea.timebox.trim() === '') missing.push('Timebox');
+                    if (!idea.targetMetric || idea.targetMetric.trim() === '') missing.push('Target metric');
+                    if (!idea.proofPoint || idea.proofPoint.trim() === '') missing.push('Proof point');
+                    showCol3Message(id, `To mark "Keep", fill in: ${missing.join(', ')} (in Column 2).`);
+                    return;
+                }
+            }
+            
             idea.planAction = action;
             if (action !== 'rescope') idea.rescopeText = '';
             if (action !== 'replace') {
                 idea.replacementTitle = '';
                 idea.replacementRationale = '';
             }
+            clearCol3Message(id);
             saveIdeas(ideas);
             renderColumn3();
+        }
+        
+        // Show inline message in Column 3
+        function showCol3Message(id, message) {
+            const msgEl = document.getElementById(`col3-msg-${id}`);
+            if (msgEl) {
+                msgEl.textContent = message;
+                msgEl.classList.add('show');
+                setTimeout(() => {
+                    msgEl.classList.remove('show');
+                }, 4000);
+            }
+        }
+        
+        // Clear inline message in Column 3
+        function clearCol3Message(id) {
+            const msgEl = document.getElementById(`col3-msg-${id}`);
+            if (msgEl) {
+                msgEl.classList.remove('show');
+            }
         }
 
         // Column 3: Update text fields
@@ -1475,13 +1633,17 @@
                     </div>
                 ` : '';
 
+                const specificityCount = getSpecificityCount(idea);
+                
                 return `
                     <div class="col3-idea-item ${isSelected ? 'selected' : ''}">
                         <div class="col3-idea-header">
                             <input type="checkbox" ${isSelected ? 'checked' : ''} onchange="toggleCol3Selection('${idea.id}')">
                             <span class="slot-badge">${index + 1}</span>
                             <span class="col3-idea-title">${escapeHtml(idea.title)}</span>
+                            <span class="specificity-badge ${specificityCount === 3 ? 'complete' : ''}">${specificityCount}/3</span>
                         </div>
+                        <div class="col3-message" id="col3-msg-${idea.id}"></div>
                         ${actionButtons}
                     </div>
                 `;
@@ -1531,6 +1693,9 @@
                 str += `  Tags: ${idea.tags.length ? idea.tags.join(', ') : '(none)'}\n`;
                 str += `  Main risk: ${idea.mainRisk || '(not filled)'}\n`;
                 str += `  Key dependency: ${idea.keyDependency || '(not filled)'}\n`;
+                str += `  Timebox: ${idea.timebox || '(not filled)'}\n`;
+                str += `  Target metric: ${idea.targetMetric || '(not filled)'}\n`;
+                str += `  Proof point: ${idea.proofPoint || '(not filled)'}\n`;
                 return str;
             }
 
