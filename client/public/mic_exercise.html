@@ -958,8 +958,6 @@
             <!-- Ideas List for Column 3 -->
             <div id="col3List"></div>
             <p class="col3-max-warning" id="col3MaxWarning">Select up to 3 initiatives.</p>
-            <p class="col3-max-warning" id="col3KeepWarning">You can KEEP at most one initiative. Choose RE-SCOPE or REPLACE for others.</p>
-            <p class="col3-max-warning" id="col3HiddenCostWarning">To select KEEP, you must first fill in "Hidden cost / disruption" in Column 2.</p>
 
             <!-- Reset Button -->
             <button class="btn btn-secondary" onclick="resetColumn3()" style="margin-top: 16px; width: 100%;">Reset Column 3 selections</button>
@@ -1001,7 +999,6 @@
                 tags: [],
                 mainRisk: '',
                 keyDependency: '',
-                hiddenCost: '',
                 createdAt: Date.now(),
                 selectedForPlan: false,
                 planAction: '',
@@ -1054,7 +1051,6 @@
                     tags: idea.tags || [],
                     mainRisk: idea.mainRisk || '',
                     keyDependency: idea.keyDependency || '',
-                    hiddenCost: idea.hiddenCost || '',
                     createdAt: idea.createdAt || Date.now(),
                     selectedForPlan: idea.selectedForPlan || false,
                     planAction: idea.planAction || '',
@@ -1063,18 +1059,6 @@
                     replacementRationale: idea.replacementRationale || ''
                 };
                 return normalized;
-            });
-            
-            // Migration: fix multiple KEEPs - keep only the first one
-            let foundKeep = false;
-            ideas.forEach(idea => {
-                if (idea.planAction === 'keep') {
-                    if (foundKeep) {
-                        idea.planAction = '';
-                    } else {
-                        foundKeep = true;
-                    }
-                }
             });
             
             return ideas;
@@ -1166,10 +1150,7 @@
             updateMoveOnButton();
 
             // Show saved indicator
-            let indicatorId;
-            if (field === 'mainRisk') indicatorId = `saved-risk-${id}`;
-            else if (field === 'keyDependency') indicatorId = `saved-dep-${id}`;
-            else if (field === 'hiddenCost') indicatorId = `saved-cost-${id}`;
+            const indicatorId = field === 'mainRisk' ? `saved-risk-${id}` : `saved-dep-${id}`;
             const indicator = document.getElementById(indicatorId);
             if (indicator) {
                 indicator.classList.add('show');
@@ -1377,15 +1358,6 @@
                                    oninput="updateDiagnostic('${idea.id}', 'keyDependency', this.value, this)">
                             <span class="saved-indicator" id="saved-dep-${idea.id}">Saved</span>
                         </div>
-                        <div class="diagnostic-row">
-                            <label>Hidden cost / disruption:</label>
-                            <input type="text" 
-                                   id="cost-${idea.id}"
-                                   value="${escapeHtml(idea.hiddenCost || '')}" 
-                                   placeholder="What's the hidden cost or disruption?"
-                                   oninput="updateDiagnostic('${idea.id}', 'hiddenCost', this.value, this)">
-                            <span class="saved-indicator" id="saved-cost-${idea.id}">Saved</span>
-                        </div>
                     </div>
                 </div>
             `}).join('');
@@ -1422,21 +1394,6 @@
         function setCol3Action(id, action) {
             const idea = ideas.find(i => i.id === id);
             if (!idea) return;
-            
-            // Enforce "at most one KEEP" rule
-            if (action === 'keep') {
-                const existingKeep = ideas.find(i => i.id !== id && i.planAction === 'keep');
-                if (existingKeep) {
-                    showKeepWarning();
-                    return;
-                }
-                // Require hiddenCost to be filled for KEEP
-                if (!idea.hiddenCost || idea.hiddenCost.trim() === '') {
-                    showKeepRequiresHiddenCostWarning();
-                    return;
-                }
-            }
-            
             idea.planAction = action;
             if (action !== 'rescope') idea.rescopeText = '';
             if (action !== 'replace') {
@@ -1445,20 +1402,6 @@
             }
             saveIdeas(ideas);
             renderColumn3();
-        }
-
-        // Show warning when trying to set multiple KEEPs
-        function showKeepWarning() {
-            const warning = document.getElementById('col3KeepWarning');
-            warning.classList.add('show');
-            setTimeout(() => warning.classList.remove('show'), 3000);
-        }
-
-        // Show warning when hiddenCost is required for KEEP
-        function showKeepRequiresHiddenCostWarning() {
-            const warning = document.getElementById('col3HiddenCostWarning');
-            warning.classList.add('show');
-            setTimeout(() => warning.classList.remove('show'), 3000);
         }
 
         // Column 3: Update text fields
