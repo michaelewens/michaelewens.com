@@ -1,0 +1,87 @@
+
+Please update my existing `mic_exercise.html` single-file app. It currently has a two-column worksheet:
+
+- Column 1 (“Part A — Management Team”): students add improvements in buckets (EBITDA/Margin, Cash, Growth), with an “Add improvement” form and persistence in localStorage (currently `micIdeasV1`).
+- Column 2 (“Column 2 — Filter”): shows all ideas and allows tagging with `$$ / C / R / !` and currently includes “Top Picks 0/2” plus a “pick your TOP 2 for the next 12 months” step.
+
+### Goal of this change (simplify & remove confusion)
+We are changing the workflow to:
+
+- **Column 1:** Students ultimately choose **two** improvements (keep as-is language: “Pick two improvements.”)
+- **Column 2:** NOT PE yet. Column 2 is only a **diagnostic/classification** step:
+  - Keep tag toggles (`$$`, `C`, `R`, `!`)
+  - For each idea, students must write:
+    1) **Main risk** (short text)
+    2) **Key dependency** (short text)
+  - **Remove all “Top Picks / Top 2” functionality** from the UI and the data model.
+
+### Specific UI edits
+
+#### Column 2 header text
+Change the subtitle from “Tag and prioritize your ideas” to:
+**“Tag and diagnose your ideas (no ownership change yet)”**
+
+Update the yellow instruction box text to:
+
+Tag each idea:
+- $$ = fast EBITDA  
+- C = releases cash  
+- R = reduces risk / improves exit multiple  
+- ! = high disruption / volatility  
+
+Then for each idea, add:
+- Main risk: ______  
+- Key dependency: ______
+
+(REMOVE the sentence: “Then re-rank: pick your TOP 2 for the next 12 months.”)
+
+#### Remove Top Picks UI
+Remove the “Selected Top Picks: 0/2” display in Column 1 (the yellow banner) **if it exists only to support Column 2 prioritization**.
+Also remove any “Top Pick” checkboxes/stars in Column 2 rows.
+
+(If you want to preserve a “Progress” indicator, replace it with: “Ideas created: X” and “Ideas fully diagnosed: Y/X” where “fully diagnosed” means the idea has at least one tag + both risk and dependency filled in.)
+
+#### Per-idea diagnostic inputs in Column 2
+For each idea row in Column 2, add two inputs (small text fields or short textareas):
+- Label: **Main risk**
+- Label: **Key dependency**
+
+Requirements:
+- Persist these values in localStorage with the idea.
+- Render them on load.
+- Use event delegation to update the correct idea as the student types.
+
+### Data model changes
+Each idea object should now include:
+- `id`
+- `bucket`
+- `title` (or `text`, depending on what exists now)
+- `changeDetail` (if already implemented)
+- `whyNotDone` (if already implemented)
+- `tags` (array of `["$$","C","R","!"]`)
+- **NEW:** `mainRisk` (string)
+- **NEW:** `keyDependency` (string)
+
+Remove `topPick` entirely if it exists.
+
+### Migration
+Students may have existing saved data:
+- If an idea is missing `mainRisk` or `keyDependency`, default them to empty strings.
+- If there is an old `topPick` field, ignore it and remove it from saved data on next save.
+
+Keep the same localStorage key unless you need to bump it; if you bump to `micIdeasV2`, migrate V1 to V2 automatically.
+
+### Export changes
+Update the “Export / Copy summary” output to include tags + the two diagnostic lines for each idea:
+
+- Title: …
+  Tags: $$, C
+  Main risk: …
+  Key dependency: …
+
+### Constraints
+- Keep everything vanilla JS in the same HTML file.
+- Maintain responsive layout.
+- Do not break existing add/edit/delete in Column 1.
+- Keep “Sort by bucket” if it already exists.
+

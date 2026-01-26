@@ -324,13 +324,9 @@
         .filter-idea-item {
             background: var(--gray-100);
             border-radius: 4px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 0.85rem;
             overflow: hidden;
-        }
-        .filter-idea-item.top-pick {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
         }
         .filter-idea-header {
             display: flex;
@@ -378,24 +374,6 @@
         .tag-btn:hover:not(.active) {
             background: var(--gray-200);
         }
-        .top-pick-btn {
-            padding: 4px 10px;
-            border: 2px solid #f59e0b;
-            border-radius: 4px;
-            background: white;
-            cursor: pointer;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #f59e0b;
-            transition: all 0.2s;
-        }
-        .top-pick-btn.active {
-            background: #f59e0b;
-            color: white;
-        }
-        .top-pick-btn:hover:not(.active) {
-            background: #fffbeb;
-        }
         .details-toggle {
             background: none;
             border: none;
@@ -427,14 +405,38 @@
             color: var(--gray-700);
             margin-top: 2px;
         }
-        .warning-msg {
-            color: var(--danger);
-            font-size: 0.8rem;
-            margin-top: 8px;
-            display: none;
+
+        /* Diagnostic inputs in Column 2 */
+        .diagnostic-section {
+            padding: 10px 12px;
+            background: var(--gray-200);
+            border-top: 1px solid var(--gray-300);
         }
-        .warning-msg.show {
-            display: block;
+        .diagnostic-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .diagnostic-row:last-child {
+            margin-bottom: 0;
+        }
+        .diagnostic-row label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            min-width: 100px;
+        }
+        .diagnostic-row input {
+            flex: 1;
+            padding: 6px 8px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .diagnostic-row input:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         /* Timer */
@@ -461,33 +463,31 @@
             color: var(--danger);
         }
 
-        /* Top Picks Counter */
-        .top-picks-counter {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
+        /* Progress Counter */
+        .progress-counter {
+            background: var(--primary-light);
+            border: 1px solid var(--accent);
             border-radius: 6px;
             padding: 10px 14px;
             margin-bottom: 16px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #92400e;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+        .progress-counter .progress-line {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            margin-bottom: 4px;
         }
-        .top-picks-counter .count {
-            background: #f59e0b;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .progress-counter .progress-line:last-child {
+            margin-bottom: 0;
         }
-        .top-picks-counter.complete {
+        .progress-counter .count {
+            font-weight: 600;
+        }
+        .progress-counter.complete {
             background: #d1fae5;
             border-color: var(--success);
             color: #065f46;
-        }
-        .top-picks-counter.complete .count {
-            background: var(--success);
         }
 
         /* Toolbar */
@@ -618,9 +618,16 @@
                 <button class="btn btn-secondary" id="timerResetBtn">Reset</button>
             </div>
 
-            <!-- Top Picks Counter -->
-            <div class="top-picks-counter" id="topPicksCounter">
-                Selected Top Picks: <span class="count" id="topPicksCount">0 / 2</span>
+            <!-- Progress Counter -->
+            <div class="progress-counter" id="progressCounter">
+                <div class="progress-line">
+                    <span>Ideas created:</span>
+                    <span class="count" id="ideasCreatedCount">0</span>
+                </div>
+                <div class="progress-line">
+                    <span>Ideas fully diagnosed:</span>
+                    <span class="count" id="ideasDiagnosedCount">0 / 0</span>
+                </div>
             </div>
 
             <!-- EBITDA / Margin Bucket -->
@@ -654,11 +661,11 @@
             </div>
         </div>
 
-        <!-- Column 2: Filter -->
+        <!-- Column 2: Filter/Diagnose -->
         <div class="worksheet-column">
             <div class="column-header">
                 <h2>Column 2 — Filter</h2>
-                <p>Tag and prioritize your ideas</p>
+                <p>Tag and diagnose your ideas (no ownership change yet)</p>
             </div>
 
             <div class="filter-prompt">
@@ -669,7 +676,11 @@
                     <li><strong>R</strong> = reduces risk / improves exit multiple</li>
                     <li><strong>!</strong> = high disruption / volatility</li>
                 </ul>
-                <p style="margin-top: 12px; margin-bottom: 0;"><strong>Then re-rank: pick your TOP 2 for the next 12 months.</strong></p>
+                <p style="margin-top: 12px; margin-bottom: 0;"><strong>Then for each idea, add:</strong></p>
+                <ul style="margin-top: 4px;">
+                    <li>Main risk: ______</li>
+                    <li>Key dependency: ______</li>
+                </ul>
             </div>
 
             <div class="sort-toggle">
@@ -678,7 +689,6 @@
             </div>
 
             <div id="filterList"></div>
-            <p class="warning-msg" id="topPickWarning">You can only select 2 top picks!</p>
         </div>
     </div>
 
@@ -693,7 +703,7 @@
     </footer>
 
     <script>
-        // localStorage key - keeping V1 with migration support
+        // localStorage key
         const STORAGE_KEY = 'micIdeasV1';
 
         // Generate unique ID
@@ -711,28 +721,23 @@
             
             let ideas = JSON.parse(stored);
             
-            // Migration: Convert old format (text only) to new format (title, changeDetail, whyNotDone)
+            // Migration: handle old formats and add new fields
             ideas = ideas.map(idea => {
-                // If idea has old 'text' field but no 'title', migrate it
-                if (idea.text && !idea.title) {
-                    return {
-                        ...idea,
-                        title: idea.text,           // Use old text as title
-                        changeDetail: '',           // Empty - user can fill in
-                        whyNotDone: '',             // Empty - user can fill in
-                        createdAt: idea.createdAt || Date.now()
-                    };
-                }
-                // Ensure all new fields exist
+                // Base migration for old 'text' field
+                const title = idea.title || idea.text || '';
+                
                 return {
                     id: idea.id || generateId(),
                     bucket: idea.bucket || 'margin',
-                    title: idea.title || idea.text || '',
+                    title: title,
                     changeDetail: idea.changeDetail || '',
                     whyNotDone: idea.whyNotDone || '',
                     tags: idea.tags || [],
-                    topPick: idea.topPick || false,
+                    // NEW fields for diagnostic step
+                    mainRisk: idea.mainRisk || '',
+                    keyDependency: idea.keyDependency || '',
                     createdAt: idea.createdAt || Date.now()
+                    // NOTE: 'topPick' is intentionally removed/ignored
                 };
             });
             
@@ -746,7 +751,7 @@
 
         // Get all ideas
         let ideas = loadIdeas();
-        // Save migrated data
+        // Save migrated data (removes topPick, adds new fields)
         saveIdeas(ideas);
 
         // Track which bucket has an open form and which idea is being edited
@@ -755,7 +760,6 @@
 
         // Show add/edit form for a bucket
         function showAddForm(bucket, ideaId = null) {
-            // Close any open form first
             hideAllForms();
             
             openFormBucket = bucket;
@@ -805,7 +809,6 @@
             const whyNotDone = document.getElementById('formWhyNot').value.trim();
             const errorEl = document.getElementById('formError');
             
-            // Validation: all fields required
             if (!title || !changeDetail || !whyNotDone) {
                 errorEl.classList.add('show');
                 return;
@@ -813,7 +816,6 @@
             errorEl.classList.remove('show');
             
             if (ideaId) {
-                // Editing existing idea
                 const idea = ideas.find(i => i.id === ideaId);
                 if (idea) {
                     idea.title = title;
@@ -821,7 +823,6 @@
                     idea.whyNotDone = whyNotDone;
                 }
             } else {
-                // Adding new idea
                 ideas.push({
                     id: generateId(),
                     bucket: bucket,
@@ -829,7 +830,8 @@
                     changeDetail: changeDetail,
                     whyNotDone: whyNotDone,
                     tags: [],
-                    topPick: false,
+                    mainRisk: '',
+                    keyDependency: '',
                     createdAt: Date.now()
                 });
             }
@@ -866,26 +868,16 @@
             }
             saveIdeas(ideas);
             renderFilterList();
+            updateProgressCounter();
         }
 
-        // Toggle top pick
-        function toggleTopPick(id) {
+        // Update diagnostic field (mainRisk or keyDependency)
+        function updateDiagnostic(id, field, value) {
             const idea = ideas.find(i => i.id === id);
             if (!idea) return;
-
-            const currentTopPicks = ideas.filter(i => i.topPick).length;
-            const warning = document.getElementById('topPickWarning');
-
-            if (!idea.topPick && currentTopPicks >= 2) {
-                warning.classList.add('show');
-                setTimeout(() => warning.classList.remove('show'), 2000);
-                return;
-            }
-
-            idea.topPick = !idea.topPick;
+            idea[field] = value;
             saveIdeas(ideas);
-            renderFilterList();
-            updateTopPicksCounter();
+            updateProgressCounter();
         }
 
         // Toggle details in Column 2
@@ -916,18 +908,26 @@
             return names[bucket] || bucket;
         }
 
-        // Update top picks counter
-        function updateTopPicksCounter() {
-            const count = ideas.filter(i => i.topPick).length;
-            const counterEl = document.getElementById('topPicksCounter');
-            const countEl = document.getElementById('topPicksCount');
+        // Check if idea is fully diagnosed (has at least 1 tag + both risk and dependency)
+        function isFullyDiagnosed(idea) {
+            return idea.tags.length > 0 && 
+                   idea.mainRisk.trim() !== '' && 
+                   idea.keyDependency.trim() !== '';
+        }
+
+        // Update progress counter
+        function updateProgressCounter() {
+            const total = ideas.length;
+            const diagnosed = ideas.filter(isFullyDiagnosed).length;
             
-            countEl.textContent = `${count} / 2`;
+            document.getElementById('ideasCreatedCount').textContent = total;
+            document.getElementById('ideasDiagnosedCount').textContent = `${diagnosed} / ${total}`;
             
-            if (count >= 2) {
-                counterEl.classList.add('complete');
+            const counter = document.getElementById('progressCounter');
+            if (total > 0 && diagnosed === total) {
+                counter.classList.add('complete');
             } else {
-                counterEl.classList.remove('complete');
+                counter.classList.remove('complete');
             }
         }
 
@@ -974,7 +974,7 @@
             }
 
             container.innerHTML = sortedIdeas.map(idea => `
-                <div class="filter-idea-item ${idea.topPick ? 'top-pick' : ''}">
+                <div class="filter-idea-item">
                     <div class="filter-idea-header">
                         <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
                         <span class="filter-idea-title">${escapeHtml(idea.title)}</span>
@@ -985,7 +985,6 @@
                             <button class="tag-btn ${idea.tags.includes('R') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'R')">R</button>
                             <button class="tag-btn ${idea.tags.includes('!') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '!')">!</button>
                         </div>
-                        <button class="top-pick-btn ${idea.topPick ? 'active' : ''}" onclick="toggleTopPick('${idea.id}')">${idea.topPick ? '★ Top 2' : '☆ Top 2'}</button>
                     </div>
                     <div class="filter-idea-details" id="details-${idea.id}">
                         <div class="detail-section">
@@ -995,6 +994,24 @@
                         <div class="detail-section">
                             <div class="detail-label">Why hasn't it been done?</div>
                             <div class="detail-text">${escapeHtml(idea.whyNotDone) || '<em>Not filled in</em>'}</div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-section">
+                        <div class="diagnostic-row">
+                            <label>Main risk:</label>
+                            <input type="text" 
+                                   value="${escapeHtml(idea.mainRisk)}" 
+                                   placeholder="What could go wrong?"
+                                   onchange="updateDiagnostic('${idea.id}', 'mainRisk', this.value)"
+                                   oninput="updateDiagnostic('${idea.id}', 'mainRisk', this.value)">
+                        </div>
+                        <div class="diagnostic-row">
+                            <label>Key dependency:</label>
+                            <input type="text" 
+                                   value="${escapeHtml(idea.keyDependency)}" 
+                                   placeholder="What must happen first?"
+                                   onchange="updateDiagnostic('${idea.id}', 'keyDependency', this.value)"
+                                   oninput="updateDiagnostic('${idea.id}', 'keyDependency', this.value)">
                         </div>
                     </div>
                 </div>
@@ -1007,7 +1024,7 @@
             renderBucketList('cash');
             renderBucketList('growth');
             renderFilterList();
-            updateTopPicksCounter();
+            updateProgressCounter();
         }
 
         // Export summary to clipboard
@@ -1016,56 +1033,40 @@
             const cashIdeas = ideas.filter(i => i.bucket === 'cash');
             const growthIdeas = ideas.filter(i => i.bucket === 'growth');
 
+            function formatIdea(idea) {
+                let str = `- Title: ${idea.title}\n`;
+                str += `  Change: ${idea.changeDetail || '(not filled)'}\n`;
+                str += `  Why not done: ${idea.whyNotDone || '(not filled)'}\n`;
+                str += `  Tags: ${idea.tags.length ? idea.tags.join(', ') : '(none)'}\n`;
+                str += `  Main risk: ${idea.mainRisk || '(not filled)'}\n`;
+                str += `  Key dependency: ${idea.keyDependency || '(not filled)'}\n`;
+                return str;
+            }
+
             let summary = 'Part A Ideas:\n\n';
             
-            // Margin bucket
             summary += 'Margin:\n';
             if (marginIdeas.length) {
-                marginIdeas.forEach(i => {
-                    summary += `- Title: ${i.title}\n`;
-                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
-                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
-                });
+                marginIdeas.forEach(i => { summary += formatIdea(i); });
             } else {
                 summary += '(none)\n';
             }
             summary += '\n';
             
-            // Cash bucket
             summary += 'Cash:\n';
             if (cashIdeas.length) {
-                cashIdeas.forEach(i => {
-                    summary += `- Title: ${i.title}\n`;
-                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
-                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
-                });
+                cashIdeas.forEach(i => { summary += formatIdea(i); });
             } else {
                 summary += '(none)\n';
             }
             summary += '\n';
             
-            // Growth bucket
             summary += 'Growth:\n';
             if (growthIdeas.length) {
-                growthIdeas.forEach(i => {
-                    summary += `- Title: ${i.title}\n`;
-                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
-                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
-                });
+                growthIdeas.forEach(i => { summary += formatIdea(i); });
             } else {
                 summary += '(none)\n';
             }
-            summary += '\n';
-
-            // Tagged + Top Picks
-            summary += 'Tagged + Top Picks:\n';
-            ideas.forEach(idea => {
-                const topLabel = idea.topPick ? '[Top Pick] ' : '';
-                const tagStr = idea.tags.length ? ' — tags: ' + idea.tags.join(', ') : '';
-                summary += `${topLabel}(${getBucketName(idea.bucket)}) ${idea.title}${tagStr}\n`;
-                summary += `  Change: ${idea.changeDetail || '(not filled)'}\n`;
-                summary += `  Why not done: ${idea.whyNotDone || '(not filled)'}\n`;
-            });
 
             navigator.clipboard.writeText(summary).then(() => {
                 alert('Summary copied to clipboard!');
@@ -1086,7 +1087,7 @@
 
         // Timer functionality
         let timerInterval = null;
-        let timerSeconds = 180; // 3 minutes
+        let timerSeconds = 180;
 
         function updateTimerDisplay() {
             const minutes = Math.floor(timerSeconds / 60);
