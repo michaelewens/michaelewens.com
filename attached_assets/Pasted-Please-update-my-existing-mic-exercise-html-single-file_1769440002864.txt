@@ -1,0 +1,138 @@
+Please update my existing `mic_exercise.html` single-file app (vanilla HTML/CSS/JS, localStorage persistence). The app currently has:
+
+- Column 1: students add improvements (at least two; can add more) organized by buckets (EBITDA/Margin, Cash, Growth).
+- Column 2: students tag each idea with `$$ / C / R / !` and enter “Main risk” + “Key dependency”.
+- Export + Clear all already exist.
+
+### New requirement: Add a hidden Column 3 step, revealed only when students click “I’m done, move on.”
+I want a **third panel** (Column 3) that stays **hidden/collapsed** until the student is finished with Column 2.
+
+#### Important UI constraint
+The reveal button must NOT mention private equity.
+- Button label: **“I’m done, move on.”**
+- Column 3 should initially be collapsed with a neutral heading like:
+  - “Next step (hidden until you’re ready)”
+- After reveal, Column 3 heading can be: **“Part B — New Owner Reality”** (or “Part B — Ownership Shift”) but avoid the term “PE” in the UI until the content is shown.
+
+### Behavior / gating
+- The “I’m done, move on.” button should be placed at the bottom of Column 2.
+- The button should be **enabled** only when the student has completed Column 2 for **at least two ideas**.
+
+Define “completed Column 2 for an idea” as:
+- At least one tag selected (one of `$$`, `C`, `R`, `!`)
+- `mainRisk` is non-empty
+- `keyDependency` is non-empty
+
+Define “eligible to move on” as: at least **2** ideas are completed by the above rule.
+
+If the student clicks while disabled (or tries early), show a small inline message:
+- “Complete Column 2 for at least 2 ideas to move on.”
+
+Persist a boolean flag in localStorage, e.g. `micStep3UnlockedV1 = true`, so if they refresh, Column 3 remains visible.
+
+### Column 3 content (after reveal)
+Column 3 should appear as a third column on desktop (3-column layout), and stack below on mobile.
+
+**Column 3 title:** “Part B — Ownership Shift (2 minutes)”
+
+**Deal context box (static text)**
+Show a small card with these bullet points (this is the “twist” content that only appears after reveal):
+- Purchase price: $200M (8× EBITDA)
+- Debt at close: $120M (4.8×)
+- Equity invested: $80M
+- Annual debt service: ~$15M
+- Target exit: 5 years
+- Target IRR: 20%+
+
+Below that, add instructions:
+
+“Review your Column 1 ideas. Choose **1–3 initiatives** you would pursue under this new reality.  
+For each selected initiative, decide whether you would:
+- **Keep** (same idea)
+- **Re-scope** (same idea, but modify it)
+- **Replace** (swap it for a different idea)”
+
+### Column 3 UI requirements (minimal but functional)
+1) Display a list of the student’s ideas (pull from existing ideas array).
+2) For each idea, include:
+   - A checkbox: **“Select for revised plan”**
+   - A dropdown (or radio buttons) visible only when selected:
+     - Keep
+     - Re-scope
+     - Replace
+   - If Keep: no extra fields required
+   - If Re-scope: show a textarea labeled “How would you modify it under the new reality?”
+   - If Replace: show:
+     - “Replacement idea title” (input)
+     - optional textarea “Why this fits better now” (short)
+
+3) Limit selection to **max 3** initiatives.
+   - If they try to select a 4th, prevent it and show an inline message:
+     - “Select up to 3 initiatives.”
+
+4) Provide a small counter at top of Column 3:
+   - “Selected for revised plan: X / 3”
+
+5) Provide a “Reset Column 3 selections” button (does NOT erase Columns 1/2), just clears Column 3 fields.
+
+### Data model changes
+Extend each idea object (or create a separate structure) to store Column 3 decisions.
+
+Preferred approach: store Column 3 fields on each idea object:
+- `selectedForPlan` (boolean)
+- `planAction` ("keep" | "rescope" | "replace" | "")
+- `rescopeText` (string)
+- `replacementTitle` (string)
+- `replacementRationale` (string)
+
+Persist these in the same localStorage key as the ideas, and migrate safely:
+- If fields missing, default to empty/false.
+- Do not break existing saved data.
+
+### Export updates
+Update the Export / Copy Summary output to include a “Part B — Revised Plan (1–3 initiatives)” section.
+
+Example export formatting:
+
+Part A Ideas (raw):
+- (Bucket) Title …
+  Change: …
+  Why not done: …
+
+Column 2 (diagnosis):
+- (Bucket) Title …
+  Tags: $$, R
+  Main risk: …
+  Key dependency: …
+
+Part B — Revised Plan (after “move on”):
+- (Selected) (Bucket) Title …
+  Action: Keep / Re-scope / Replace
+  If Re-scope: …
+  If Replace: Replacement title: … ; Why: …
+
+Also include a note if Column 3 is not unlocked yet:
+- “Part B not started.”
+
+### Styling / layout
+- Update layout from 2 columns to **3 columns** on desktop with consistent spacing and matching visual style.
+- On mobile, stack Column 1 then Column 2 then Column 3.
+- Keep the existing design language (cards, borders, headers).
+
+### Non-functional constraints
+- Vanilla JS only, no external frameworks.
+- Keep everything in `mic_exercise.html`.
+- Don’t remove existing features (timer, sort toggle, clear all) unless they conflict.
+
+### Deliverable
+Return the updated `mic_exercise.html` with:
+- Column 3 added and initially hidden
+- “I’m done, move on.” gating logic (requires 2 completed ideas)
+- 1–3 initiative selection with Keep/Re-scope/Replace actions
+- localStorage persistence and migration
+- Export updated to include Column 3
+
+After implementing, briefly summarize:
+- What localStorage keys are used
+- What constitutes “completed Column 2”
+- How the 3-initiative max is enforced

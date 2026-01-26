@@ -24,7 +24,7 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 24px;
             background: #f8f9fa;
@@ -119,16 +119,31 @@
             border-top: 1px solid var(--gray-300);
         }
 
-        /* Worksheet Styles */
+        /* Worksheet Styles - 3 column layout */
         .worksheet-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
             margin-top: 32px;
         }
+        .worksheet-container.three-columns {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: 1100px) {
+            .worksheet-container.three-columns {
+                grid-template-columns: 1fr 1fr;
+            }
+            .worksheet-container.three-columns .worksheet-column:nth-child(3) {
+                grid-column: 1 / -1;
+            }
+        }
         @media (max-width: 768px) {
-            .worksheet-container {
+            .worksheet-container,
+            .worksheet-container.three-columns {
                 grid-template-columns: 1fr;
+            }
+            .worksheet-container.three-columns .worksheet-column:nth-child(3) {
+                grid-column: auto;
             }
         }
         .worksheet-column {
@@ -136,6 +151,9 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .worksheet-column.hidden {
+            display: none;
         }
         .column-header {
             border-bottom: 2px solid var(--primary);
@@ -205,6 +223,21 @@
         }
         .btn-add:hover {
             background: #38a169;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-move-on {
+            background: var(--warning);
+            color: white;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            margin-top: 16px;
+        }
+        .btn-move-on:hover:not(:disabled) {
+            background: #dd6b20;
         }
         .idea-list {
             list-style: none;
@@ -454,6 +487,23 @@
             opacity: 1;
         }
 
+        /* Move on button area */
+        .move-on-section {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--gray-300);
+        }
+        .move-on-message {
+            color: var(--danger);
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 8px;
+            display: none;
+        }
+        .move-on-message.show {
+            display: block;
+        }
+
         /* Timer */
         .timer-widget {
             display: flex;
@@ -503,6 +553,145 @@
             background: #d1fae5;
             border-color: var(--success);
             color: #065f46;
+        }
+
+        /* Column 3 Styles */
+        .deal-context {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+        .deal-context h3 {
+            margin: 0 0 10px 0;
+            color: #92400e;
+            font-size: 0.95rem;
+        }
+        .deal-context ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .deal-context li {
+            margin-bottom: 4px;
+        }
+        .col3-instructions {
+            background: var(--primary-light);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+        .col3-counter {
+            background: var(--warning);
+            color: white;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .col3-counter.complete {
+            background: var(--success);
+        }
+        .col3-idea-item {
+            background: var(--gray-100);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+        }
+        .col3-idea-item.selected {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+        }
+        .col3-idea-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .col3-idea-header input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .col3-idea-title {
+            font-weight: 600;
+            flex: 1;
+        }
+        .col3-action-section {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--gray-300);
+        }
+        .col3-action-section label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 6px;
+            display: block;
+        }
+        .col3-action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .col3-action-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        .col3-action-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .col3-action-btn:hover:not(.active) {
+            background: var(--gray-200);
+        }
+        .col3-extra-fields {
+            margin-top: 10px;
+        }
+        .col3-extra-fields .form-group {
+            margin-bottom: 8px;
+        }
+        .col3-extra-fields label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .col3-extra-fields input,
+        .col3-extra-fields textarea {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: inherit;
+        }
+        .col3-extra-fields textarea {
+            resize: vertical;
+            min-height: 50px;
+        }
+        .col3-max-warning {
+            color: var(--danger);
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 8px;
+            display: none;
+        }
+        .col3-max-warning.show {
+            display: block;
         }
 
         /* Toolbar */
@@ -618,7 +807,7 @@
     </div>
 
     <!-- Interactive Worksheet -->
-    <div class="worksheet-container">
+    <div class="worksheet-container" id="worksheetContainer">
         <!-- Column 1: Part A -->
         <div class="worksheet-column">
             <div class="column-header">
@@ -704,6 +893,54 @@
             </div>
 
             <div id="filterList"></div>
+
+            <!-- Move On Section -->
+            <div class="move-on-section">
+                <button class="btn btn-move-on" id="moveOnBtn" onclick="handleMoveOn()">I'm done, move on.</button>
+                <p class="move-on-message" id="moveOnMessage">Complete Column 2 for at least 2 ideas to move on.</p>
+            </div>
+        </div>
+
+        <!-- Column 3: Part B (initially hidden) -->
+        <div class="worksheet-column hidden" id="column3">
+            <div class="column-header">
+                <h2>Part B — Ownership Shift (2 minutes)</h2>
+                <p>Revise your plan under new constraints</p>
+            </div>
+
+            <!-- Deal Context -->
+            <div class="deal-context">
+                <h3>Deal Context</h3>
+                <ul>
+                    <li>Purchase price: $200M (8× EBITDA)</li>
+                    <li>Debt at close: $120M (4.8×)</li>
+                    <li>Equity invested: $80M</li>
+                    <li>Annual debt service: ~$15M</li>
+                    <li>Target exit: 5 years</li>
+                    <li>Target IRR: 20%+</li>
+                </ul>
+            </div>
+
+            <!-- Instructions -->
+            <div class="col3-instructions">
+                <p><strong>Review your Column 1 ideas.</strong> Choose <strong>1–3 initiatives</strong> you would pursue under this new reality.</p>
+                <p style="margin-bottom: 0;">For each selected initiative, decide whether you would:</p>
+                <ul style="margin-top: 4px; margin-bottom: 0;">
+                    <li><strong>Keep</strong> (same idea)</li>
+                    <li><strong>Re-scope</strong> (same idea, but modify it)</li>
+                    <li><strong>Replace</strong> (swap it for a different idea)</li>
+                </ul>
+            </div>
+
+            <!-- Counter -->
+            <div class="col3-counter" id="col3Counter">Selected for revised plan: 0 / 3</div>
+
+            <!-- Ideas List for Column 3 -->
+            <div id="col3List"></div>
+            <p class="col3-max-warning" id="col3MaxWarning">Select up to 3 initiatives.</p>
+
+            <!-- Reset Button -->
+            <button class="btn btn-secondary" onclick="resetColumn3()" style="margin-top: 16px; width: 100%;">Reset Column 3 selections</button>
         </div>
     </div>
 
@@ -718,8 +955,9 @@
     </footer>
 
     <script>
-        // localStorage key
+        // localStorage keys
         const STORAGE_KEY = 'micIdeasV1';
+        const STEP3_UNLOCKED_KEY = 'micStep3UnlockedV1';
 
         // Generate unique ID
         function generateId() {
@@ -736,9 +974,8 @@
             
             let ideas = JSON.parse(stored);
             
-            // Migration: handle old formats and add new fields
+            // Migration: handle old formats and add new fields including Column 3
             ideas = ideas.map(idea => {
-                // Base migration for old 'text' field
                 const title = idea.title || idea.text || '';
                 
                 return {
@@ -748,11 +985,15 @@
                     changeDetail: idea.changeDetail || '',
                     whyNotDone: idea.whyNotDone || '',
                     tags: idea.tags || [],
-                    // NEW fields for diagnostic step
                     mainRisk: idea.mainRisk || '',
                     keyDependency: idea.keyDependency || '',
-                    createdAt: idea.createdAt || Date.now()
-                    // NOTE: 'topPick' is intentionally removed/ignored
+                    createdAt: idea.createdAt || Date.now(),
+                    // Column 3 fields (migration: default to empty/false)
+                    selectedForPlan: idea.selectedForPlan || false,
+                    planAction: idea.planAction || '',
+                    rescopeText: idea.rescopeText || '',
+                    replacementTitle: idea.replacementTitle || '',
+                    replacementRationale: idea.replacementRationale || ''
                 };
             });
             
@@ -764,12 +1005,21 @@
             localStorage.setItem(STORAGE_KEY, JSON.stringify(ideasToSave));
         }
 
+        // Check if Column 3 is unlocked
+        function isColumn3Unlocked() {
+            return localStorage.getItem(STEP3_UNLOCKED_KEY) === 'true';
+        }
+
+        // Unlock Column 3
+        function unlockColumn3() {
+            localStorage.setItem(STEP3_UNLOCKED_KEY, 'true');
+        }
+
         // Get all ideas
         let ideas = loadIdeas();
-        // Save migrated data (removes topPick, adds new fields)
         saveIdeas(ideas);
 
-        // Track which bucket has an open form and which idea is being edited
+        // Track form state
         let openFormBucket = null;
         let editingIdeaId = null;
 
@@ -847,7 +1097,12 @@
                     tags: [],
                     mainRisk: '',
                     keyDependency: '',
-                    createdAt: Date.now()
+                    createdAt: Date.now(),
+                    selectedForPlan: false,
+                    planAction: '',
+                    rescopeText: '',
+                    replacementTitle: '',
+                    replacementRationale: ''
                 });
             }
             
@@ -884,9 +1139,9 @@
             saveIdeas(ideas);
             renderFilterList();
             updateProgressCounter();
+            updateMoveOnButton();
         }
 
-        // Update diagnostic field (mainRisk or keyDependency)
         // Debounce timers for save indicators
         const saveTimers = {};
 
@@ -896,6 +1151,7 @@
             idea[field] = value;
             saveIdeas(ideas);
             updateProgressCounter();
+            updateMoveOnButton();
 
             // Show saved indicator
             const indicatorId = field === 'mainRisk' ? `saved-risk-${id}` : `saved-dep-${id}`;
@@ -906,13 +1162,11 @@
                     inputEl.classList.add('saved');
                 }
                 
-                // Clear previous timer
                 const timerKey = `${id}-${field}`;
                 if (saveTimers[timerKey]) {
                     clearTimeout(saveTimers[timerKey]);
                 }
                 
-                // Hide indicator after 1.5 seconds
                 saveTimers[timerKey] = setTimeout(() => {
                     indicator.classList.remove('show');
                     if (inputEl) {
@@ -950,17 +1204,56 @@
             return names[bucket] || bucket;
         }
 
-        // Check if idea is fully diagnosed (has at least 1 tag + both risk and dependency)
-        function isFullyDiagnosed(idea) {
+        // Check if idea has completed Column 2 (at least 1 tag + risk + dependency)
+        function isColumn2Complete(idea) {
             return idea.tags.length > 0 && 
                    idea.mainRisk.trim() !== '' && 
                    idea.keyDependency.trim() !== '';
         }
 
+        // Count ideas that completed Column 2
+        function countCompletedColumn2() {
+            return ideas.filter(isColumn2Complete).length;
+        }
+
+        // Check if eligible to move on (at least 2 ideas completed Column 2)
+        function canMoveOn() {
+            return countCompletedColumn2() >= 2;
+        }
+
+        // Update move on button state
+        function updateMoveOnButton() {
+            const btn = document.getElementById('moveOnBtn');
+            const enabled = canMoveOn();
+            btn.disabled = !enabled;
+            btn.style.opacity = enabled ? '1' : '0.5';
+        }
+
+        // Handle move on button click
+        function handleMoveOn() {
+            if (!canMoveOn()) {
+                document.getElementById('moveOnMessage').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('moveOnMessage').classList.remove('show');
+                }, 3000);
+                return;
+            }
+            
+            unlockColumn3();
+            showColumn3();
+        }
+
+        // Show Column 3
+        function showColumn3() {
+            document.getElementById('column3').classList.remove('hidden');
+            document.getElementById('worksheetContainer').classList.add('three-columns');
+            renderColumn3();
+        }
+
         // Update progress counter
         function updateProgressCounter() {
             const total = ideas.length;
-            const diagnosed = ideas.filter(isFullyDiagnosed).length;
+            const diagnosed = countCompletedColumn2();
             
             document.getElementById('ideasCreatedCount').textContent = total;
             document.getElementById('ideasDiagnosedCount').textContent = `${diagnosed} / ${total}`;
@@ -1062,6 +1355,141 @@
             `).join('');
         }
 
+        // Column 3: Toggle selection for an idea
+        function toggleCol3Selection(id) {
+            const idea = ideas.find(i => i.id === id);
+            if (!idea) return;
+
+            const currentSelected = ideas.filter(i => i.selectedForPlan).length;
+
+            if (!idea.selectedForPlan && currentSelected >= 3) {
+                document.getElementById('col3MaxWarning').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('col3MaxWarning').classList.remove('show');
+                }, 2000);
+                return;
+            }
+
+            idea.selectedForPlan = !idea.selectedForPlan;
+            if (!idea.selectedForPlan) {
+                idea.planAction = '';
+                idea.rescopeText = '';
+                idea.replacementTitle = '';
+                idea.replacementRationale = '';
+            }
+            saveIdeas(ideas);
+            renderColumn3();
+        }
+
+        // Column 3: Set action for an idea
+        function setCol3Action(id, action) {
+            const idea = ideas.find(i => i.id === id);
+            if (!idea) return;
+            idea.planAction = action;
+            if (action !== 'rescope') idea.rescopeText = '';
+            if (action !== 'replace') {
+                idea.replacementTitle = '';
+                idea.replacementRationale = '';
+            }
+            saveIdeas(ideas);
+            renderColumn3();
+        }
+
+        // Column 3: Update text fields
+        function updateCol3Field(id, field, value) {
+            const idea = ideas.find(i => i.id === id);
+            if (!idea) return;
+            idea[field] = value;
+            saveIdeas(ideas);
+        }
+
+        // Render Column 3
+        function renderColumn3() {
+            const container = document.getElementById('col3List');
+            const selectedCount = ideas.filter(i => i.selectedForPlan).length;
+
+            // Update counter
+            const counter = document.getElementById('col3Counter');
+            counter.textContent = `Selected for revised plan: ${selectedCount} / 3`;
+            if (selectedCount >= 1) {
+                counter.classList.add('complete');
+            } else {
+                counter.classList.remove('complete');
+            }
+
+            if (ideas.length === 0) {
+                container.innerHTML = '<div class="empty-state">No ideas to review</div>';
+                return;
+            }
+
+            container.innerHTML = ideas.map(idea => {
+                const isSelected = idea.selectedForPlan;
+                const actionButtons = isSelected ? `
+                    <div class="col3-action-section">
+                        <label>What will you do with this initiative?</label>
+                        <div class="col3-action-buttons">
+                            <button class="col3-action-btn ${idea.planAction === 'keep' ? 'active' : ''}" onclick="setCol3Action('${idea.id}', 'keep')">Keep</button>
+                            <button class="col3-action-btn ${idea.planAction === 'rescope' ? 'active' : ''}" onclick="setCol3Action('${idea.id}', 'rescope')">Re-scope</button>
+                            <button class="col3-action-btn ${idea.planAction === 'replace' ? 'active' : ''}" onclick="setCol3Action('${idea.id}', 'replace')">Replace</button>
+                        </div>
+                        ${idea.planAction === 'rescope' ? `
+                            <div class="col3-extra-fields">
+                                <div class="form-group">
+                                    <label>How would you modify it under the new reality?</label>
+                                    <textarea 
+                                        placeholder="Describe modifications..."
+                                        oninput="updateCol3Field('${idea.id}', 'rescopeText', this.value)">${escapeHtml(idea.rescopeText)}</textarea>
+                                </div>
+                            </div>
+                        ` : ''}
+                        ${idea.planAction === 'replace' ? `
+                            <div class="col3-extra-fields">
+                                <div class="form-group">
+                                    <label>Replacement idea title</label>
+                                    <input type="text" 
+                                        placeholder="New idea title"
+                                        value="${escapeHtml(idea.replacementTitle)}"
+                                        oninput="updateCol3Field('${idea.id}', 'replacementTitle', this.value)">
+                                </div>
+                                <div class="form-group">
+                                    <label>Why this fits better now (optional)</label>
+                                    <textarea 
+                                        placeholder="Explain why..."
+                                        oninput="updateCol3Field('${idea.id}', 'replacementRationale', this.value)">${escapeHtml(idea.replacementRationale)}</textarea>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="col3-idea-item ${isSelected ? 'selected' : ''}">
+                        <div class="col3-idea-header">
+                            <input type="checkbox" ${isSelected ? 'checked' : ''} onchange="toggleCol3Selection('${idea.id}')">
+                            <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
+                            <span class="col3-idea-title">${escapeHtml(idea.title)}</span>
+                        </div>
+                        ${actionButtons}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Reset Column 3 selections only
+        function resetColumn3() {
+            if (!confirm('Reset Column 3 selections? This will not affect Columns 1 and 2.')) return;
+            
+            ideas.forEach(idea => {
+                idea.selectedForPlan = false;
+                idea.planAction = '';
+                idea.rescopeText = '';
+                idea.replacementTitle = '';
+                idea.replacementRationale = '';
+            });
+            saveIdeas(ideas);
+            renderColumn3();
+        }
+
         // Render all lists
         function renderAll() {
             renderBucketList('margin');
@@ -1069,47 +1497,69 @@
             renderBucketList('growth');
             renderFilterList();
             updateProgressCounter();
+            updateMoveOnButton();
+            
+            if (isColumn3Unlocked()) {
+                showColumn3();
+            }
         }
 
         // Export summary to clipboard
         function exportSummary() {
-            const marginIdeas = ideas.filter(i => i.bucket === 'margin');
-            const cashIdeas = ideas.filter(i => i.bucket === 'cash');
-            const growthIdeas = ideas.filter(i => i.bucket === 'growth');
-
-            function formatIdea(idea) {
-                let str = `- Title: ${idea.title}\n`;
+            function formatIdeaPartA(idea) {
+                let str = `- (${getBucketName(idea.bucket)}) Title: ${idea.title}\n`;
                 str += `  Change: ${idea.changeDetail || '(not filled)'}\n`;
                 str += `  Why not done: ${idea.whyNotDone || '(not filled)'}\n`;
+                return str;
+            }
+
+            function formatIdeaCol2(idea) {
+                let str = `- (${getBucketName(idea.bucket)}) ${idea.title}\n`;
                 str += `  Tags: ${idea.tags.length ? idea.tags.join(', ') : '(none)'}\n`;
                 str += `  Main risk: ${idea.mainRisk || '(not filled)'}\n`;
                 str += `  Key dependency: ${idea.keyDependency || '(not filled)'}\n`;
                 return str;
             }
 
-            let summary = 'Part A Ideas:\n\n';
-            
-            summary += 'Margin:\n';
-            if (marginIdeas.length) {
-                marginIdeas.forEach(i => { summary += formatIdea(i); });
+            function formatIdeaPartB(idea) {
+                let str = `- (${getBucketName(idea.bucket)}) ${idea.title}\n`;
+                str += `  Action: ${idea.planAction || '(not selected)'}\n`;
+                if (idea.planAction === 'rescope') {
+                    str += `  Re-scope notes: ${idea.rescopeText || '(not filled)'}\n`;
+                }
+                if (idea.planAction === 'replace') {
+                    str += `  Replacement title: ${idea.replacementTitle || '(not filled)'}\n`;
+                    str += `  Why: ${idea.replacementRationale || '(not filled)'}\n`;
+                }
+                return str;
+            }
+
+            let summary = 'Part A Ideas (raw):\n\n';
+            if (ideas.length) {
+                ideas.forEach(i => { summary += formatIdeaPartA(i); });
             } else {
                 summary += '(none)\n';
             }
             summary += '\n';
-            
-            summary += 'Cash:\n';
-            if (cashIdeas.length) {
-                cashIdeas.forEach(i => { summary += formatIdea(i); });
+
+            summary += 'Column 2 (diagnosis):\n\n';
+            if (ideas.length) {
+                ideas.forEach(i => { summary += formatIdeaCol2(i); });
             } else {
                 summary += '(none)\n';
             }
             summary += '\n';
-            
-            summary += 'Growth:\n';
-            if (growthIdeas.length) {
-                growthIdeas.forEach(i => { summary += formatIdea(i); });
+
+            summary += 'Part B — Revised Plan (after "move on"):\n\n';
+            if (!isColumn3Unlocked()) {
+                summary += 'Part B not started.\n';
             } else {
-                summary += '(none)\n';
+                const selectedIdeas = ideas.filter(i => i.selectedForPlan);
+                if (selectedIdeas.length) {
+                    selectedIdeas.forEach(i => { summary += formatIdeaPartB(i); });
+                } else {
+                    summary += '(no initiatives selected)\n';
+                }
             }
 
             navigator.clipboard.writeText(summary).then(() => {
@@ -1124,7 +1574,10 @@
             if (confirm('Are you sure you want to clear all ideas? This cannot be undone.')) {
                 ideas = [];
                 saveIdeas(ideas);
+                localStorage.removeItem(STEP3_UNLOCKED_KEY);
                 hideAllForms();
+                document.getElementById('column3').classList.add('hidden');
+                document.getElementById('worksheetContainer').classList.remove('three-columns');
                 renderAll();
             }
         }
