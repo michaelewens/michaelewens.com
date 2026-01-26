@@ -438,6 +438,21 @@
             outline: none;
             border-color: var(--accent);
         }
+        .diagnostic-row input.saved {
+            border-color: var(--success);
+            background: #f0fff4;
+        }
+        .saved-indicator {
+            font-size: 0.7rem;
+            color: var(--success);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .saved-indicator.show {
+            opacity: 1;
+        }
 
         /* Timer */
         .timer-widget {
@@ -872,12 +887,39 @@
         }
 
         // Update diagnostic field (mainRisk or keyDependency)
-        function updateDiagnostic(id, field, value) {
+        // Debounce timers for save indicators
+        const saveTimers = {};
+
+        function updateDiagnostic(id, field, value, inputEl) {
             const idea = ideas.find(i => i.id === id);
             if (!idea) return;
             idea[field] = value;
             saveIdeas(ideas);
             updateProgressCounter();
+
+            // Show saved indicator
+            const indicatorId = field === 'mainRisk' ? `saved-risk-${id}` : `saved-dep-${id}`;
+            const indicator = document.getElementById(indicatorId);
+            if (indicator) {
+                indicator.classList.add('show');
+                if (inputEl) {
+                    inputEl.classList.add('saved');
+                }
+                
+                // Clear previous timer
+                const timerKey = `${id}-${field}`;
+                if (saveTimers[timerKey]) {
+                    clearTimeout(saveTimers[timerKey]);
+                }
+                
+                // Hide indicator after 1.5 seconds
+                saveTimers[timerKey] = setTimeout(() => {
+                    indicator.classList.remove('show');
+                    if (inputEl) {
+                        inputEl.classList.remove('saved');
+                    }
+                }, 1500);
+            }
         }
 
         // Toggle details in Column 2
@@ -1000,18 +1042,20 @@
                         <div class="diagnostic-row">
                             <label>Main risk:</label>
                             <input type="text" 
+                                   id="risk-${idea.id}"
                                    value="${escapeHtml(idea.mainRisk)}" 
                                    placeholder="What could go wrong?"
-                                   onchange="updateDiagnostic('${idea.id}', 'mainRisk', this.value)"
-                                   oninput="updateDiagnostic('${idea.id}', 'mainRisk', this.value)">
+                                   oninput="updateDiagnostic('${idea.id}', 'mainRisk', this.value, this)">
+                            <span class="saved-indicator" id="saved-risk-${idea.id}">Saved ✓</span>
                         </div>
                         <div class="diagnostic-row">
                             <label>Key dependency:</label>
                             <input type="text" 
+                                   id="dep-${idea.id}"
                                    value="${escapeHtml(idea.keyDependency)}" 
                                    placeholder="What must happen first?"
-                                   onchange="updateDiagnostic('${idea.id}', 'keyDependency', this.value)"
-                                   oninput="updateDiagnostic('${idea.id}', 'keyDependency', this.value)">
+                                   oninput="updateDiagnostic('${idea.id}', 'keyDependency', this.value, this)">
+                            <span class="saved-indicator" id="saved-dep-${idea.id}">Saved ✓</span>
                         </div>
                     </div>
                 </div>
