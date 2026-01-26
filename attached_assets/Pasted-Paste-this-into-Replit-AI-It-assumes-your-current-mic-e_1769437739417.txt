@@ -1,0 +1,109 @@
+Paste this into Replit AI. It assumes your current `mic_exercise.html` already has the two-column UI with ideas as single-line text items and Column 2 tagging/top-picks.
+
+---
+
+## Prompt to Replit: update Column 1 to support “What would you change?” + “Why hasn’t it been done?”
+Please update my existing `mic_exercise.html` (single-file HTML/CSS/JS). The page already includes a two-column worksheet:
+
+- Column 1: students add “ideas” into buckets (Margin / Cash / Growth)
+- Column 2: shows all ideas, allows tagging with `$$ / C / R / !` and selecting Top 2 (limit = 2)
+- State persists with `localStorage` key `micIdeasV1`
+- Export copies a summary to clipboard
+
+### Goal of this change
+Column 1 needs to match the classroom prompt: students pick **TWO improvements**, and for each improvement they must answer:
+1) **What would you change?**
+2) **Why hasn’t the company done this already?**
+
+So each “idea” must become a richer object (still stored locally) with:
+- `title` (short label; required)
+- `changeDetail` (longer text; required)
+- `whyNotDone` (longer text; required)
+- keep existing fields: `id`, `bucket`, `tags`, `topPick`, and also optionally `createdAt`
+
+### UI changes required
+
+#### Column 1: Add/Edit form
+Replace the single-line input with an “Add Improvement” workflow:
+
+**A. Add button**
+At the top of each bucket section (Margin/Cash/Growth), show a button:  
+**“+ Add improvement”**
+
+When clicked, open an inline form (or modal—inline is fine) with:
+- **Title (short)** input (single-line, required)
+- **What would you change?** textarea (required, 2–5 rows)
+- **Why hasn’t the company done this already?** textarea (required, 2–5 rows)
+- Buttons: **Save**, **Cancel**
+
+Validation:
+- Don’t allow Save unless all three fields are non-empty (trim whitespace).
+- If invalid, show a small inline message.
+
+**B. List display**
+In the list of ideas in Column 1, each item should display:
+- Title (bold)
+- A one-line preview of “What would you change?” (truncate ~80 chars with ellipsis)
+- Edit/Delete controls
+
+**C. Edit flow**
+Clicking Edit should open the same form pre-filled with the item’s fields.
+Saving updates the existing object in the array and re-renders.
+
+#### Column 2: Display & tagging
+Column 2 should continue to show one row per idea, but:
+- Display **Title** prominently.
+- Add a small “View details” expand/collapse (or a “Details” link) that reveals:
+  - “What would you change?” full text
+  - “Why hasn’t it been done?” full text
+This keeps Column 2 readable even if text is long.
+
+Tagging buttons and Top 2 selection should continue to work exactly as before.
+
+### Export changes
+Update the exported text format to include the two new fields under each idea. Example:
+
+Part A Ideas:
+Margin:
+- Title: …
+  Change: …
+  Why not done: …
+
+Tagged + Top Picks:
+- [Top Pick] (Margin) Title — tags: $$, R
+  Change: …
+  Why not done: …
+
+### Data migration (important)
+Existing users may have old saved data in `localStorage` where each idea only had `text`.
+Implement a migration step on load:
+- If an idea has `text` but no `title`, set:
+  - `title = text`
+  - `changeDetail = ""`
+  - `whyNotDone = ""`
+- Keep it editable so they can fill missing fields.
+Do NOT crash if fields are missing.
+
+Keep using the same storage key `micIdeasV1` unless changing is necessary. If you change the schema significantly, you may bump to `micIdeasV2`—but only do this if you also include a migration from V1 to V2.
+
+### Constraints
+- Vanilla JS only (no frameworks)
+- Keep everything in this one HTML file
+- Preserve existing styling as much as possible; just extend it for the new form/details UI
+- Maintain responsiveness (columns stack on mobile)
+- Keep the “Top 2 max” rule intact
+- Don’t break existing “Clear all” behavior
+
+### Deliverable
+Return the updated `mic_exercise.html` content with:
+- Updated HTML structure for the new add/edit form
+- Updated JS data model, render functions, event handlers
+- Migration logic on load
+- Updated export formatting
+
+Also add brief comments in code explaining the new fields and migration.
+
+---
+
+If you want one optional enhancement, also add a small counter at the top of Column 1:  
+“Selected Top Picks: X / 2” (reads from current state), so students know when they’ve completed the task.

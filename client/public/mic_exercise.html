@@ -159,22 +159,9 @@
             color: var(--primary);
             margin-bottom: 8px;
             font-size: 0.95rem;
-        }
-        .add-idea-form {
             display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        .add-idea-form input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid var(--gray-300);
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        .add-idea-form input:focus {
-            outline: none;
-            border-color: var(--accent);
+            justify-content: space-between;
+            align-items: center;
         }
         .btn {
             padding: 8px 16px;
@@ -210,23 +197,47 @@
             padding: 4px 8px;
             font-size: 0.75rem;
         }
+        .btn-add {
+            background: var(--success);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+        }
+        .btn-add:hover {
+            background: #38a169;
+        }
         .idea-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
         .idea-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
+            padding: 10px 12px;
             background: var(--gray-100);
             border-radius: 4px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-size: 0.9rem;
         }
-        .idea-item .idea-text {
+        .idea-item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .idea-item .idea-content {
             flex: 1;
+        }
+        .idea-item .idea-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+        .idea-item .idea-preview {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 280px;
         }
         .idea-item .idea-actions {
             display: flex;
@@ -243,11 +254,55 @@
         .idea-item .idea-actions button:hover {
             color: var(--gray-700);
         }
-        .idea-item.editing input {
-            flex: 1;
-            padding: 4px 8px;
+
+        /* Add/Edit Form Styles */
+        .idea-form {
+            background: var(--primary-light);
             border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .idea-form .form-group {
+            margin-bottom: 12px;
+        }
+        .idea-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 4px;
+        }
+        .idea-form input,
+        .idea-form textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--gray-300);
             border-radius: 4px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+        .idea-form input:focus,
+        .idea-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .idea-form textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+        .idea-form .form-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .idea-form .form-error {
+            color: var(--danger);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .idea-form .form-error.show {
+            display: block;
         }
 
         /* Column 2 Styles */
@@ -267,19 +322,22 @@
             margin-bottom: 4px;
         }
         .filter-idea-item {
+            background: var(--gray-100);
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            overflow: hidden;
+        }
+        .filter-idea-item.top-pick {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+        }
+        .filter-idea-header {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 8px;
             padding: 10px 12px;
-            background: var(--gray-100);
-            border-radius: 4px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-        }
-        .filter-idea-item.top-pick {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
         }
         .bucket-label {
             font-size: 0.7rem;
@@ -293,9 +351,10 @@
         .bucket-label.margin { background: #059669; }
         .bucket-label.cash { background: #7c3aed; }
         .bucket-label.growth { background: #db2777; }
-        .filter-idea-text {
+        .filter-idea-title {
             flex: 1;
-            min-width: 120px;
+            min-width: 100px;
+            font-weight: 600;
         }
         .tag-buttons {
             display: flex;
@@ -337,6 +396,37 @@
         .top-pick-btn:hover:not(.active) {
             background: #fffbeb;
         }
+        .details-toggle {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            text-decoration: underline;
+        }
+        .filter-idea-details {
+            display: none;
+            padding: 0 12px 12px 12px;
+            font-size: 0.8rem;
+            border-top: 1px dashed var(--gray-300);
+            margin-top: 8px;
+        }
+        .filter-idea-details.show {
+            display: block;
+        }
+        .filter-idea-details .detail-section {
+            margin-top: 8px;
+        }
+        .filter-idea-details .detail-label {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.75rem;
+        }
+        .filter-idea-details .detail-text {
+            color: var(--gray-700);
+            margin-top: 2px;
+        }
         .warning-msg {
             color: var(--danger);
             font-size: 0.8rem;
@@ -371,6 +461,35 @@
             color: var(--danger);
         }
 
+        /* Top Picks Counter */
+        .top-picks-counter {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-picks-counter .count {
+            background: #f59e0b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .top-picks-counter.complete {
+            background: #d1fae5;
+            border-color: var(--success);
+            color: #065f46;
+        }
+        .top-picks-counter.complete .count {
+            background: var(--success);
+        }
+
         /* Toolbar */
         .worksheet-toolbar {
             display: flex;
@@ -386,6 +505,7 @@
             gap: 8px;
             font-size: 0.85rem;
             color: var(--gray-500);
+            margin-bottom: 12px;
         }
         .sort-toggle input {
             cursor: pointer;
@@ -498,33 +618,38 @@
                 <button class="btn btn-secondary" id="timerResetBtn">Reset</button>
             </div>
 
+            <!-- Top Picks Counter -->
+            <div class="top-picks-counter" id="topPicksCounter">
+                Selected Top Picks: <span class="count" id="topPicksCount">0 / 2</span>
+            </div>
+
             <!-- EBITDA / Margin Bucket -->
-            <div class="bucket-section">
-                <div class="bucket-title">EBITDA / Margin</div>
-                <div class="add-idea-form">
-                    <input type="text" id="marginInput" placeholder="Add an idea...">
-                    <button class="btn btn-primary btn-small" onclick="addIdea('margin')">Add</button>
+            <div class="bucket-section" id="marginSection">
+                <div class="bucket-title">
+                    <span>EBITDA / Margin</span>
+                    <button class="btn btn-add" onclick="showAddForm('margin')">+ Add improvement</button>
                 </div>
+                <div id="marginForm"></div>
                 <ul class="idea-list" id="marginList"></ul>
             </div>
 
             <!-- Cash (Working Capital) Bucket -->
-            <div class="bucket-section">
-                <div class="bucket-title">Cash (Working Capital)</div>
-                <div class="add-idea-form">
-                    <input type="text" id="cashInput" placeholder="Add an idea...">
-                    <button class="btn btn-primary btn-small" onclick="addIdea('cash')">Add</button>
+            <div class="bucket-section" id="cashSection">
+                <div class="bucket-title">
+                    <span>Cash (Working Capital)</span>
+                    <button class="btn btn-add" onclick="showAddForm('cash')">+ Add improvement</button>
                 </div>
+                <div id="cashForm"></div>
                 <ul class="idea-list" id="cashList"></ul>
             </div>
 
             <!-- Growth Bucket -->
-            <div class="bucket-section">
-                <div class="bucket-title">Growth</div>
-                <div class="add-idea-form">
-                    <input type="text" id="growthInput" placeholder="Add an idea...">
-                    <button class="btn btn-primary btn-small" onclick="addIdea('growth')">Add</button>
+            <div class="bucket-section" id="growthSection">
+                <div class="bucket-title">
+                    <span>Growth</span>
+                    <button class="btn btn-add" onclick="showAddForm('growth')">+ Add improvement</button>
                 </div>
+                <div id="growthForm"></div>
                 <ul class="idea-list" id="growthList"></ul>
             </div>
         </div>
@@ -568,7 +693,7 @@
     </footer>
 
     <script>
-        // localStorage key
+        // localStorage key - keeping V1 with migration support
         const STORAGE_KEY = 'micIdeasV1';
 
         // Generate unique ID
@@ -579,35 +704,138 @@
             return Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
 
-        // Load ideas from localStorage
+        // Load ideas from localStorage with migration
         function loadIdeas() {
             const stored = localStorage.getItem(STORAGE_KEY);
-            return stored ? JSON.parse(stored) : [];
+            if (!stored) return [];
+            
+            let ideas = JSON.parse(stored);
+            
+            // Migration: Convert old format (text only) to new format (title, changeDetail, whyNotDone)
+            ideas = ideas.map(idea => {
+                // If idea has old 'text' field but no 'title', migrate it
+                if (idea.text && !idea.title) {
+                    return {
+                        ...idea,
+                        title: idea.text,           // Use old text as title
+                        changeDetail: '',           // Empty - user can fill in
+                        whyNotDone: '',             // Empty - user can fill in
+                        createdAt: idea.createdAt || Date.now()
+                    };
+                }
+                // Ensure all new fields exist
+                return {
+                    id: idea.id || generateId(),
+                    bucket: idea.bucket || 'margin',
+                    title: idea.title || idea.text || '',
+                    changeDetail: idea.changeDetail || '',
+                    whyNotDone: idea.whyNotDone || '',
+                    tags: idea.tags || [],
+                    topPick: idea.topPick || false,
+                    createdAt: idea.createdAt || Date.now()
+                };
+            });
+            
+            return ideas;
         }
 
         // Save ideas to localStorage
-        function saveIdeas(ideas) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas));
+        function saveIdeas(ideasToSave) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(ideasToSave));
         }
 
         // Get all ideas
         let ideas = loadIdeas();
+        // Save migrated data
+        saveIdeas(ideas);
 
-        // Add a new idea
-        function addIdea(bucket) {
-            const input = document.getElementById(bucket + 'Input');
-            const text = input.value.trim();
-            if (!text) return;
+        // Track which bucket has an open form and which idea is being edited
+        let openFormBucket = null;
+        let editingIdeaId = null;
 
-            ideas.push({
-                id: generateId(),
-                bucket: bucket,
-                text: text,
-                tags: [],
-                topPick: false
+        // Show add/edit form for a bucket
+        function showAddForm(bucket, ideaId = null) {
+            // Close any open form first
+            hideAllForms();
+            
+            openFormBucket = bucket;
+            editingIdeaId = ideaId;
+            
+            const formContainer = document.getElementById(bucket + 'Form');
+            const idea = ideaId ? ideas.find(i => i.id === ideaId) : null;
+            
+            formContainer.innerHTML = `
+                <div class="idea-form">
+                    <div class="form-group">
+                        <label>Title (short)</label>
+                        <input type="text" id="formTitle" placeholder="e.g., Raise Prices" value="${escapeHtml(idea?.title || '')}">
+                    </div>
+                    <div class="form-group">
+                        <label>What would you change?</label>
+                        <textarea id="formChange" rows="3" placeholder="Describe the improvement...">${escapeHtml(idea?.changeDetail || '')}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Why hasn't the company done this already?</label>
+                        <textarea id="formWhyNot" rows="3" placeholder="Explain the barriers...">${escapeHtml(idea?.whyNotDone || '')}</textarea>
+                    </div>
+                    <div class="form-error" id="formError">Please fill in all fields.</div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" onclick="saveIdeaForm('${bucket}', ${ideaId ? `'${ideaId}'` : 'null'})">Save</button>
+                        <button class="btn btn-secondary" onclick="hideAllForms()">Cancel</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('formTitle').focus();
+        }
+
+        // Hide all forms
+        function hideAllForms() {
+            ['margin', 'cash', 'growth'].forEach(bucket => {
+                document.getElementById(bucket + 'Form').innerHTML = '';
             });
+            openFormBucket = null;
+            editingIdeaId = null;
+        }
+
+        // Save idea from form
+        function saveIdeaForm(bucket, ideaId) {
+            const title = document.getElementById('formTitle').value.trim();
+            const changeDetail = document.getElementById('formChange').value.trim();
+            const whyNotDone = document.getElementById('formWhyNot').value.trim();
+            const errorEl = document.getElementById('formError');
+            
+            // Validation: all fields required
+            if (!title || !changeDetail || !whyNotDone) {
+                errorEl.classList.add('show');
+                return;
+            }
+            errorEl.classList.remove('show');
+            
+            if (ideaId) {
+                // Editing existing idea
+                const idea = ideas.find(i => i.id === ideaId);
+                if (idea) {
+                    idea.title = title;
+                    idea.changeDetail = changeDetail;
+                    idea.whyNotDone = whyNotDone;
+                }
+            } else {
+                // Adding new idea
+                ideas.push({
+                    id: generateId(),
+                    bucket: bucket,
+                    title: title,
+                    changeDetail: changeDetail,
+                    whyNotDone: whyNotDone,
+                    tags: [],
+                    topPick: false,
+                    createdAt: Date.now()
+                });
+            }
+            
             saveIdeas(ideas);
-            input.value = '';
+            hideAllForms();
             renderAll();
         }
 
@@ -620,31 +848,9 @@
 
         // Start editing an idea
         function startEdit(id) {
-            const item = document.querySelector(`[data-id="${id}"]`);
             const idea = ideas.find(i => i.id === id);
-            if (!item || !idea) return;
-
-            item.classList.add('editing');
-            item.innerHTML = `
-                <input type="text" value="${escapeHtml(idea.text)}" id="edit-${id}">
-                <button class="btn btn-primary btn-small" onclick="saveEdit('${id}')">Save</button>
-                <button class="btn btn-secondary btn-small" onclick="renderAll()">Cancel</button>
-            `;
-            document.getElementById('edit-' + id).focus();
-        }
-
-        // Save edited idea
-        function saveEdit(id) {
-            const input = document.getElementById('edit-' + id);
-            const text = input.value.trim();
-            if (!text) return;
-
-            const idea = ideas.find(i => i.id === id);
-            if (idea) {
-                idea.text = text;
-                saveIdeas(ideas);
-            }
-            renderAll();
+            if (!idea) return;
+            showAddForm(idea.bucket, id);
         }
 
         // Toggle a tag
@@ -679,13 +885,29 @@
             idea.topPick = !idea.topPick;
             saveIdeas(ideas);
             renderFilterList();
+            updateTopPicksCounter();
+        }
+
+        // Toggle details in Column 2
+        function toggleDetails(id) {
+            const detailsEl = document.getElementById('details-' + id);
+            if (detailsEl) {
+                detailsEl.classList.toggle('show');
+            }
         }
 
         // Escape HTML
         function escapeHtml(text) {
+            if (!text) return '';
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        // Truncate text
+        function truncate(text, maxLen = 80) {
+            if (!text) return '';
+            return text.length > maxLen ? text.substring(0, maxLen) + '...' : text;
         }
 
         // Get bucket display name
@@ -694,23 +916,43 @@
             return names[bucket] || bucket;
         }
 
+        // Update top picks counter
+        function updateTopPicksCounter() {
+            const count = ideas.filter(i => i.topPick).length;
+            const counterEl = document.getElementById('topPicksCounter');
+            const countEl = document.getElementById('topPicksCount');
+            
+            countEl.textContent = `${count} / 2`;
+            
+            if (count >= 2) {
+                counterEl.classList.add('complete');
+            } else {
+                counterEl.classList.remove('complete');
+            }
+        }
+
         // Render Column 1 lists
         function renderBucketList(bucket) {
             const list = document.getElementById(bucket + 'List');
             const bucketIdeas = ideas.filter(i => i.bucket === bucket);
 
             if (bucketIdeas.length === 0) {
-                list.innerHTML = '<li class="empty-state">No ideas yet</li>';
+                list.innerHTML = '<li class="empty-state">No improvements yet</li>';
                 return;
             }
 
             list.innerHTML = bucketIdeas.map(idea => `
                 <li class="idea-item" data-id="${idea.id}">
-                    <span class="idea-text">${escapeHtml(idea.text)}</span>
-                    <span class="idea-actions">
-                        <button onclick="startEdit('${idea.id}')" title="Edit">✏️</button>
-                        <button onclick="deleteIdea('${idea.id}')" title="Delete">🗑️</button>
-                    </span>
+                    <div class="idea-item-header">
+                        <div class="idea-content">
+                            <div class="idea-title">${escapeHtml(idea.title)}</div>
+                            <div class="idea-preview">${escapeHtml(truncate(idea.changeDetail))}</div>
+                        </div>
+                        <span class="idea-actions">
+                            <button onclick="startEdit('${idea.id}')" title="Edit">✏️</button>
+                            <button onclick="deleteIdea('${idea.id}')" title="Delete">🗑️</button>
+                        </span>
+                    </div>
                 </li>
             `).join('');
         }
@@ -727,21 +969,34 @@
             }
 
             if (sortedIdeas.length === 0) {
-                container.innerHTML = '<div class="empty-state">Add ideas in Column 1 to see them here</div>';
+                container.innerHTML = '<div class="empty-state">Add improvements in Column 1 to see them here</div>';
                 return;
             }
 
             container.innerHTML = sortedIdeas.map(idea => `
                 <div class="filter-idea-item ${idea.topPick ? 'top-pick' : ''}">
-                    <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
-                    <span class="filter-idea-text">${escapeHtml(idea.text)}</span>
-                    <div class="tag-buttons">
-                        <button class="tag-btn ${idea.tags.includes('$$') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '$$')">$$</button>
-                        <button class="tag-btn ${idea.tags.includes('C') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'C')">C</button>
-                        <button class="tag-btn ${idea.tags.includes('R') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'R')">R</button>
-                        <button class="tag-btn ${idea.tags.includes('!') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '!')">!</button>
+                    <div class="filter-idea-header">
+                        <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
+                        <span class="filter-idea-title">${escapeHtml(idea.title)}</span>
+                        <button class="details-toggle" onclick="toggleDetails('${idea.id}')">Details</button>
+                        <div class="tag-buttons">
+                            <button class="tag-btn ${idea.tags.includes('$$') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '$$')">$$</button>
+                            <button class="tag-btn ${idea.tags.includes('C') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'C')">C</button>
+                            <button class="tag-btn ${idea.tags.includes('R') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'R')">R</button>
+                            <button class="tag-btn ${idea.tags.includes('!') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '!')">!</button>
+                        </div>
+                        <button class="top-pick-btn ${idea.topPick ? 'active' : ''}" onclick="toggleTopPick('${idea.id}')">${idea.topPick ? '★ Top 2' : '☆ Top 2'}</button>
                     </div>
-                    <button class="top-pick-btn ${idea.topPick ? 'active' : ''}" onclick="toggleTopPick('${idea.id}')">${idea.topPick ? '★ Top 2' : '☆ Top 2'}</button>
+                    <div class="filter-idea-details" id="details-${idea.id}">
+                        <div class="detail-section">
+                            <div class="detail-label">What would you change?</div>
+                            <div class="detail-text">${escapeHtml(idea.changeDetail) || '<em>Not filled in</em>'}</div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">Why hasn't it been done?</div>
+                            <div class="detail-text">${escapeHtml(idea.whyNotDone) || '<em>Not filled in</em>'}</div>
+                        </div>
+                    </div>
                 </div>
             `).join('');
         }
@@ -752,6 +1007,7 @@
             renderBucketList('cash');
             renderBucketList('growth');
             renderFilterList();
+            updateTopPicksCounter();
         }
 
         // Export summary to clipboard
@@ -761,15 +1017,54 @@
             const growthIdeas = ideas.filter(i => i.bucket === 'growth');
 
             let summary = 'Part A Ideas:\n\n';
-            summary += 'Margin:\n' + (marginIdeas.length ? marginIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
-            summary += 'Cash:\n' + (cashIdeas.length ? cashIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
-            summary += 'Growth:\n' + (growthIdeas.length ? growthIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
+            
+            // Margin bucket
+            summary += 'Margin:\n';
+            if (marginIdeas.length) {
+                marginIdeas.forEach(i => {
+                    summary += `- Title: ${i.title}\n`;
+                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
+                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
+                });
+            } else {
+                summary += '(none)\n';
+            }
+            summary += '\n';
+            
+            // Cash bucket
+            summary += 'Cash:\n';
+            if (cashIdeas.length) {
+                cashIdeas.forEach(i => {
+                    summary += `- Title: ${i.title}\n`;
+                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
+                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
+                });
+            } else {
+                summary += '(none)\n';
+            }
+            summary += '\n';
+            
+            // Growth bucket
+            summary += 'Growth:\n';
+            if (growthIdeas.length) {
+                growthIdeas.forEach(i => {
+                    summary += `- Title: ${i.title}\n`;
+                    summary += `  Change: ${i.changeDetail || '(not filled)'}\n`;
+                    summary += `  Why not done: ${i.whyNotDone || '(not filled)'}\n`;
+                });
+            } else {
+                summary += '(none)\n';
+            }
+            summary += '\n';
 
+            // Tagged + Top Picks
             summary += 'Tagged + Top Picks:\n';
             ideas.forEach(idea => {
                 const topLabel = idea.topPick ? '[Top Pick] ' : '';
                 const tagStr = idea.tags.length ? ' — tags: ' + idea.tags.join(', ') : '';
-                summary += `${topLabel}(${getBucketName(idea.bucket)}) ${idea.text}${tagStr}\n`;
+                summary += `${topLabel}(${getBucketName(idea.bucket)}) ${idea.title}${tagStr}\n`;
+                summary += `  Change: ${idea.changeDetail || '(not filled)'}\n`;
+                summary += `  Why not done: ${idea.whyNotDone || '(not filled)'}\n`;
             });
 
             navigator.clipboard.writeText(summary).then(() => {
@@ -784,6 +1079,7 @@
             if (confirm('Are you sure you want to clear all ideas? This cannot be undone.')) {
                 ideas = [];
                 saveIdeas(ideas);
+                hideAllForms();
                 renderAll();
             }
         }
@@ -841,11 +1137,6 @@
             startBtn.textContent = 'Start';
             startBtn.onclick = startTimer;
         }
-
-        // Event listeners for Enter key on inputs
-        document.getElementById('marginInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('margin'); });
-        document.getElementById('cashInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('cash'); });
-        document.getElementById('growthInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('growth'); });
 
         // Initialize timer buttons
         document.getElementById('timerStartBtn').onclick = startTimer;
