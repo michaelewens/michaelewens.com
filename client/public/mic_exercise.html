@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIC Exercise | PE Value Creation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #1a365d;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        h2 {
+            color: #2c5282;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #edf2f7;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        tr:hover {
+            background: #f7fafc;
+        }
+        .metric {
+            font-weight: 600;
+            color: #2c5282;
+        }
+        .benchmark {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .question-box {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 20px 24px;
+            margin-top: 32px;
+            border-radius: 0 8px 8px 0;
+        }
+        .question-box h2 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .question-box ol {
+            margin-bottom: 0;
+        }
+        footer {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Midwest Industrial Components (MIC)</h1>
+    <p class="subtitle">You just inherited this business from a retiring family member.</p>
+
+    <div class="card">
+        <h2>Company Profile</h2>
+        <table>
+            <tr><td class="metric">Revenue</td><td>$150M</td></tr>
+            <tr><td class="metric">EBITDA</td><td>$25M (16.7% margin)</td></tr>
+            <tr><td class="metric">Employees</td><td>450 (350 manufacturing, 100 SG&A)</td></tr>
+            <tr><td class="metric">Facilities</td><td>3 plants in Ohio, Indiana, Michigan</td></tr>
+            <tr><td class="metric">Debt</td><td>Minimal — paid off years ago</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>What They Do</h2>
+        <ul>
+            <li>Manufactures <strong>precision metal components</strong> for industrial equipment</li>
+            <li><strong>Primary customers:</strong> Heavy equipment OEMs, automotive Tier 1 suppliers</li>
+            <li><strong>Top 5 customers</strong> = 60% of revenue</li>
+            <li>Founded 1985, profitable every year since 1990</li>
+            <li>Previous owner: <em>"If it ain't broke, don't fix it"</em></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Operational Snapshot</h2>
+        <table>
+            <thead>
+                <tr><th>Area</th><th>Current State</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="metric">Gross Margin</td>
+                    <td>32% <span class="benchmark">(industry avg: 38%)</span></td>
+                </tr>
+                <tr>
+                    <td class="metric">Days Sales Outstanding (DSO)</td>
+                    <td>58 days <span class="benchmark">(industry: 42 days)</span></td>
+                </tr>
+                <tr>
+                    <td class="metric">Inventory Turns</td>
+                    <td>4.2x/year <span class="benchmark">(industry: 6.0x)</span></td>
+                </tr>
+                <tr>
+                    <td class="metric">Capacity Utilization</td>
+                    <td>68% across 3 plants</td>
+                </tr>
+                <tr>
+                    <td class="metric">Sales Team</td>
+                    <td>8 reps, no CRM system, compensation = salary only</td>
+                </tr>
+                <tr>
+                    <td class="metric">Pricing</td>
+                    <td>Last increase was 2019; "relationship-based"</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Market Context</h2>
+        <ul>
+            <li><strong>Fragmented industry:</strong> Top 10 players have only 25% market share</li>
+            <li><strong>Nearby competitors:</strong> 3 smaller regional players ($20-40M revenue each)</li>
+            <li><strong>Customer feedback:</strong> "Great quality, but slow quotes and inconsistent delivery"</li>
+            <li><strong>Recent loss:</strong> <span class="highlight">Lost a $5M/year contract due to 12-week lead times</span></li>
+        </ul>
+    </div>
+
+    <div class="question-box">
+        <h2>Your Task (3 minutes)</h2>
+        <p>You want to grow the value of this business. Working with your neighbor:</p>
+        <p><strong>Identify two improvements you would make.</strong></p>
+        <p>For each one:</p>
+        <ol>
+            <li>What would you change?</li>
+            <li>Why hasn't the company done this already?</li>
+        </ol>
+    </div>
+
+    <footer>
+        PE Value Creation | Columbia Business School | Spring 2026
+    </footer>
+</body>
+</html>
