@@ -933,7 +933,7 @@
             </div>
 
             <!-- Counter -->
-            <div class="col3-counter" id="col3Counter">Selected for revised plan: 0 / 3</div>
+            <div class="col3-counter" id="col3Counter">Selected for revised plan: 0 / 0</div>
 
             <!-- Ideas List for Column 3 -->
             <div id="col3List"></div>
@@ -1361,8 +1361,9 @@
             if (!idea) return;
 
             const currentSelected = ideas.filter(i => i.selectedForPlan).length;
+            const maxSelectable = Math.min(ideas.length, 3);
 
-            if (!idea.selectedForPlan && currentSelected >= 3) {
+            if (!idea.selectedForPlan && currentSelected >= maxSelectable) {
                 document.getElementById('col3MaxWarning').classList.add('show');
                 setTimeout(() => {
                     document.getElementById('col3MaxWarning').classList.remove('show');
@@ -1408,9 +1409,10 @@
             const container = document.getElementById('col3List');
             const selectedCount = ideas.filter(i => i.selectedForPlan).length;
 
-            // Update counter
+            // Update counter - max is dynamic based on number of ideas (2 or 3)
+            const maxSelectable = Math.min(ideas.length, 3);
             const counter = document.getElementById('col3Counter');
-            counter.textContent = `Selected for revised plan: ${selectedCount} / 3`;
+            counter.textContent = `Selected for revised plan: ${selectedCount} / ${maxSelectable}`;
             if (selectedCount >= 1) {
                 counter.classList.add('complete');
             } else {
