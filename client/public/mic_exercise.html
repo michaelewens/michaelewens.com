@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIC Exercise | PE Value Creation</title>
     <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #ebf8ff;
+            --accent: #3182ce;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --gray-100: #f7fafc;
+            --gray-200: #edf2f7;
+            --gray-300: #e2e8f0;
+            --gray-500: #718096;
+            --gray-700: #2d3748;
+            --gray-900: #1a202c;
+        }
         * {
             box-sizing: border-box;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 24px;
             background: #f8f9fa;
@@ -19,7 +33,7 @@
         }
         h1 {
             color: #1a365d;
-            border-bottom: 3px solid #2c5282;
+            border-bottom: 3px solid var(--primary);
             padding-bottom: 12px;
             margin-bottom: 8px;
         }
@@ -29,9 +43,14 @@
             margin-bottom: 24px;
         }
         h2 {
-            color: #2c5282;
+            color: var(--primary);
             margin-top: 32px;
             margin-bottom: 16px;
+        }
+        h3 {
+            color: var(--gray-700);
+            margin: 0 0 8px 0;
+            font-size: 1rem;
         }
         .card {
             background: white;
@@ -48,22 +67,22 @@
         th, td {
             text-align: left;
             padding: 12px 16px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--gray-300);
         }
         th {
-            background: #edf2f7;
+            background: var(--gray-200);
             font-weight: 600;
-            color: #2d3748;
+            color: var(--gray-700);
         }
         tr:hover {
-            background: #f7fafc;
+            background: var(--gray-100);
         }
         .metric {
             font-weight: 600;
-            color: #2c5282;
+            color: var(--primary);
         }
         .benchmark {
-            color: #718096;
+            color: var(--gray-500);
             font-size: 0.9em;
         }
         ul {
@@ -78,8 +97,8 @@
             border-radius: 4px;
         }
         .question-box {
-            background: #ebf8ff;
-            border-left: 4px solid #3182ce;
+            background: var(--primary-light);
+            border-left: 4px solid var(--accent);
             padding: 20px 24px;
             margin-top: 32px;
             border-radius: 0 8px 8px 0;
@@ -97,7 +116,287 @@
             font-size: 0.85rem;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        /* Worksheet Styles */
+        .worksheet-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        @media (max-width: 768px) {
+            .worksheet-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .worksheet-column {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .column-header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .column-header h2 {
+            margin: 0 0 4px 0;
+            font-size: 1.2rem;
+        }
+        .column-header p {
+            margin: 0;
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        .bucket-section {
+            margin-bottom: 20px;
+        }
+        .bucket-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .add-idea-form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .add-idea-form input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .add-idea-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1e4976;
+        }
+        .btn-secondary {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+        .btn-secondary:hover {
+            background: var(--gray-300);
+        }
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #c53030;
+        }
+        .btn-small {
+            padding: 4px 8px;
+            font-size: 0.75rem;
+        }
+        .idea-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .idea-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .idea-item .idea-text {
+            flex: 1;
+        }
+        .idea-item .idea-actions {
+            display: flex;
+            gap: 4px;
+        }
+        .idea-item .idea-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+        .idea-item .idea-actions button:hover {
+            color: var(--gray-700);
+        }
+        .idea-item.editing input {
+            flex: 1;
+            padding: 4px 8px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Column 2 Styles */
+        .filter-prompt {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+        .filter-prompt ul {
+            margin: 8px 0 0 0;
+            padding-left: 16px;
+        }
+        .filter-prompt li {
+            margin-bottom: 4px;
+        }
+        .filter-idea-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .filter-idea-item.top-pick {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+        }
+        .bucket-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: var(--primary);
+            color: white;
+        }
+        .bucket-label.margin { background: #059669; }
+        .bucket-label.cash { background: #7c3aed; }
+        .bucket-label.growth { background: #db2777; }
+        .filter-idea-text {
+            flex: 1;
+            min-width: 120px;
+        }
+        .tag-buttons {
+            display: flex;
+            gap: 4px;
+        }
+        .tag-btn {
+            padding: 4px 8px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .tag-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .tag-btn:hover:not(.active) {
+            background: var(--gray-200);
+        }
+        .top-pick-btn {
+            padding: 4px 10px;
+            border: 2px solid #f59e0b;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #f59e0b;
+            transition: all 0.2s;
+        }
+        .top-pick-btn.active {
+            background: #f59e0b;
+            color: white;
+        }
+        .top-pick-btn:hover:not(.active) {
+            background: #fffbeb;
+        }
+        .warning-msg {
+            color: var(--danger);
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+        }
+        .warning-msg.show {
+            display: block;
+        }
+
+        /* Timer */
+        .timer-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gray-100);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        .timer-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: monospace;
+            color: var(--gray-900);
+            min-width: 60px;
+        }
+        .timer-display.warning {
+            color: var(--warning);
+        }
+        .timer-display.danger {
+            color: var(--danger);
+        }
+
+        /* Toolbar */
+        .worksheet-toolbar {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* Sort toggle */
+        .sort-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+        .sort-toggle input {
+            cursor: pointer;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            color: var(--gray-500);
+            padding: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -183,8 +482,378 @@
         </ol>
     </div>
 
+    <!-- Interactive Worksheet -->
+    <div class="worksheet-container">
+        <!-- Column 1: Part A -->
+        <div class="worksheet-column">
+            <div class="column-header">
+                <h2>Part A — Management Team</h2>
+                <p>Pick two improvements. Add as many candidate ideas as you want.</p>
+            </div>
+
+            <!-- Timer Widget -->
+            <div class="timer-widget">
+                <span class="timer-display" id="timerDisplay">3:00</span>
+                <button class="btn btn-primary" id="timerStartBtn">Start</button>
+                <button class="btn btn-secondary" id="timerResetBtn">Reset</button>
+            </div>
+
+            <!-- EBITDA / Margin Bucket -->
+            <div class="bucket-section">
+                <div class="bucket-title">EBITDA / Margin</div>
+                <div class="add-idea-form">
+                    <input type="text" id="marginInput" placeholder="Add an idea...">
+                    <button class="btn btn-primary btn-small" onclick="addIdea('margin')">Add</button>
+                </div>
+                <ul class="idea-list" id="marginList"></ul>
+            </div>
+
+            <!-- Cash (Working Capital) Bucket -->
+            <div class="bucket-section">
+                <div class="bucket-title">Cash (Working Capital)</div>
+                <div class="add-idea-form">
+                    <input type="text" id="cashInput" placeholder="Add an idea...">
+                    <button class="btn btn-primary btn-small" onclick="addIdea('cash')">Add</button>
+                </div>
+                <ul class="idea-list" id="cashList"></ul>
+            </div>
+
+            <!-- Growth Bucket -->
+            <div class="bucket-section">
+                <div class="bucket-title">Growth</div>
+                <div class="add-idea-form">
+                    <input type="text" id="growthInput" placeholder="Add an idea...">
+                    <button class="btn btn-primary btn-small" onclick="addIdea('growth')">Add</button>
+                </div>
+                <ul class="idea-list" id="growthList"></ul>
+            </div>
+        </div>
+
+        <!-- Column 2: Filter -->
+        <div class="worksheet-column">
+            <div class="column-header">
+                <h2>Column 2 — Filter</h2>
+                <p>Tag and prioritize your ideas</p>
+            </div>
+
+            <div class="filter-prompt">
+                <strong>Tag each idea:</strong>
+                <ul>
+                    <li><strong>$$</strong> = fast EBITDA</li>
+                    <li><strong>C</strong> = releases cash</li>
+                    <li><strong>R</strong> = reduces risk / improves exit multiple</li>
+                    <li><strong>!</strong> = high disruption / volatility</li>
+                </ul>
+                <p style="margin-top: 12px; margin-bottom: 0;"><strong>Then re-rank: pick your TOP 2 for the next 12 months.</strong></p>
+            </div>
+
+            <div class="sort-toggle">
+                <input type="checkbox" id="sortByBucket" onchange="renderFilterList()">
+                <label for="sortByBucket">Sort by bucket</label>
+            </div>
+
+            <div id="filterList"></div>
+            <p class="warning-msg" id="topPickWarning">You can only select 2 top picks!</p>
+        </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="worksheet-toolbar">
+        <button class="btn btn-primary" onclick="exportSummary()">📋 Export / Copy Summary</button>
+        <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+    </div>
+
     <footer>
         PE Value Creation | Columbia Business School | Spring 2026
     </footer>
+
+    <script>
+        // localStorage key
+        const STORAGE_KEY = 'micIdeasV1';
+
+        // Generate unique ID
+        function generateId() {
+            if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+                return crypto.randomUUID();
+            }
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Load ideas from localStorage
+        function loadIdeas() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        // Save ideas to localStorage
+        function saveIdeas(ideas) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas));
+        }
+
+        // Get all ideas
+        let ideas = loadIdeas();
+
+        // Add a new idea
+        function addIdea(bucket) {
+            const input = document.getElementById(bucket + 'Input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            ideas.push({
+                id: generateId(),
+                bucket: bucket,
+                text: text,
+                tags: [],
+                topPick: false
+            });
+            saveIdeas(ideas);
+            input.value = '';
+            renderAll();
+        }
+
+        // Delete an idea
+        function deleteIdea(id) {
+            ideas = ideas.filter(i => i.id !== id);
+            saveIdeas(ideas);
+            renderAll();
+        }
+
+        // Start editing an idea
+        function startEdit(id) {
+            const item = document.querySelector(`[data-id="${id}"]`);
+            const idea = ideas.find(i => i.id === id);
+            if (!item || !idea) return;
+
+            item.classList.add('editing');
+            item.innerHTML = `
+                <input type="text" value="${escapeHtml(idea.text)}" id="edit-${id}">
+                <button class="btn btn-primary btn-small" onclick="saveEdit('${id}')">Save</button>
+                <button class="btn btn-secondary btn-small" onclick="renderAll()">Cancel</button>
+            `;
+            document.getElementById('edit-' + id).focus();
+        }
+
+        // Save edited idea
+        function saveEdit(id) {
+            const input = document.getElementById('edit-' + id);
+            const text = input.value.trim();
+            if (!text) return;
+
+            const idea = ideas.find(i => i.id === id);
+            if (idea) {
+                idea.text = text;
+                saveIdeas(ideas);
+            }
+            renderAll();
+        }
+
+        // Toggle a tag
+        function toggleTag(id, tag) {
+            const idea = ideas.find(i => i.id === id);
+            if (!idea) return;
+
+            const idx = idea.tags.indexOf(tag);
+            if (idx === -1) {
+                idea.tags.push(tag);
+            } else {
+                idea.tags.splice(idx, 1);
+            }
+            saveIdeas(ideas);
+            renderFilterList();
+        }
+
+        // Toggle top pick
+        function toggleTopPick(id) {
+            const idea = ideas.find(i => i.id === id);
+            if (!idea) return;
+
+            const currentTopPicks = ideas.filter(i => i.topPick).length;
+            const warning = document.getElementById('topPickWarning');
+
+            if (!idea.topPick && currentTopPicks >= 2) {
+                warning.classList.add('show');
+                setTimeout(() => warning.classList.remove('show'), 2000);
+                return;
+            }
+
+            idea.topPick = !idea.topPick;
+            saveIdeas(ideas);
+            renderFilterList();
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Get bucket display name
+        function getBucketName(bucket) {
+            const names = { margin: 'Margin', cash: 'Cash', growth: 'Growth' };
+            return names[bucket] || bucket;
+        }
+
+        // Render Column 1 lists
+        function renderBucketList(bucket) {
+            const list = document.getElementById(bucket + 'List');
+            const bucketIdeas = ideas.filter(i => i.bucket === bucket);
+
+            if (bucketIdeas.length === 0) {
+                list.innerHTML = '<li class="empty-state">No ideas yet</li>';
+                return;
+            }
+
+            list.innerHTML = bucketIdeas.map(idea => `
+                <li class="idea-item" data-id="${idea.id}">
+                    <span class="idea-text">${escapeHtml(idea.text)}</span>
+                    <span class="idea-actions">
+                        <button onclick="startEdit('${idea.id}')" title="Edit">✏️</button>
+                        <button onclick="deleteIdea('${idea.id}')" title="Delete">🗑️</button>
+                    </span>
+                </li>
+            `).join('');
+        }
+
+        // Render Column 2 filter list
+        function renderFilterList() {
+            const container = document.getElementById('filterList');
+            const sortByBucket = document.getElementById('sortByBucket').checked;
+
+            let sortedIdeas = [...ideas];
+            if (sortByBucket) {
+                const order = ['margin', 'cash', 'growth'];
+                sortedIdeas.sort((a, b) => order.indexOf(a.bucket) - order.indexOf(b.bucket));
+            }
+
+            if (sortedIdeas.length === 0) {
+                container.innerHTML = '<div class="empty-state">Add ideas in Column 1 to see them here</div>';
+                return;
+            }
+
+            container.innerHTML = sortedIdeas.map(idea => `
+                <div class="filter-idea-item ${idea.topPick ? 'top-pick' : ''}">
+                    <span class="bucket-label ${idea.bucket}">${getBucketName(idea.bucket)}</span>
+                    <span class="filter-idea-text">${escapeHtml(idea.text)}</span>
+                    <div class="tag-buttons">
+                        <button class="tag-btn ${idea.tags.includes('$$') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '$$')">$$</button>
+                        <button class="tag-btn ${idea.tags.includes('C') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'C')">C</button>
+                        <button class="tag-btn ${idea.tags.includes('R') ? 'active' : ''}" onclick="toggleTag('${idea.id}', 'R')">R</button>
+                        <button class="tag-btn ${idea.tags.includes('!') ? 'active' : ''}" onclick="toggleTag('${idea.id}', '!')">!</button>
+                    </div>
+                    <button class="top-pick-btn ${idea.topPick ? 'active' : ''}" onclick="toggleTopPick('${idea.id}')">${idea.topPick ? '★ Top 2' : '☆ Top 2'}</button>
+                </div>
+            `).join('');
+        }
+
+        // Render all lists
+        function renderAll() {
+            renderBucketList('margin');
+            renderBucketList('cash');
+            renderBucketList('growth');
+            renderFilterList();
+        }
+
+        // Export summary to clipboard
+        function exportSummary() {
+            const marginIdeas = ideas.filter(i => i.bucket === 'margin');
+            const cashIdeas = ideas.filter(i => i.bucket === 'cash');
+            const growthIdeas = ideas.filter(i => i.bucket === 'growth');
+
+            let summary = 'Part A Ideas:\n\n';
+            summary += 'Margin:\n' + (marginIdeas.length ? marginIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
+            summary += 'Cash:\n' + (cashIdeas.length ? cashIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
+            summary += 'Growth:\n' + (growthIdeas.length ? growthIdeas.map(i => '- ' + i.text).join('\n') : '(none)') + '\n\n';
+
+            summary += 'Tagged + Top Picks:\n';
+            ideas.forEach(idea => {
+                const topLabel = idea.topPick ? '[Top Pick] ' : '';
+                const tagStr = idea.tags.length ? ' — tags: ' + idea.tags.join(', ') : '';
+                summary += `${topLabel}(${getBucketName(idea.bucket)}) ${idea.text}${tagStr}\n`;
+            });
+
+            navigator.clipboard.writeText(summary).then(() => {
+                alert('Summary copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy. Please try again.');
+            });
+        }
+
+        // Clear all data
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all ideas? This cannot be undone.')) {
+                ideas = [];
+                saveIdeas(ideas);
+                renderAll();
+            }
+        }
+
+        // Timer functionality
+        let timerInterval = null;
+        let timerSeconds = 180; // 3 minutes
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            const display = document.getElementById('timerDisplay');
+            display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+            display.classList.remove('warning', 'danger');
+            if (timerSeconds <= 30) {
+                display.classList.add('danger');
+            } else if (timerSeconds <= 60) {
+                display.classList.add('warning');
+            }
+        }
+
+        function startTimer() {
+            if (timerInterval) return;
+            const startBtn = document.getElementById('timerStartBtn');
+            startBtn.textContent = 'Pause';
+            startBtn.onclick = pauseTimer;
+
+            timerInterval = setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    alert('Time is up!');
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            const startBtn = document.getElementById('timerStartBtn');
+            startBtn.textContent = 'Resume';
+            startBtn.onclick = startTimer;
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 180;
+            updateTimerDisplay();
+            const startBtn = document.getElementById('timerStartBtn');
+            startBtn.textContent = 'Start';
+            startBtn.onclick = startTimer;
+        }
+
+        // Event listeners for Enter key on inputs
+        document.getElementById('marginInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('margin'); });
+        document.getElementById('cashInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('cash'); });
+        document.getElementById('growthInput').addEventListener('keypress', e => { if (e.key === 'Enter') addIdea('growth'); });
+
+        // Initialize timer buttons
+        document.getElementById('timerStartBtn').onclick = startTimer;
+        document.getElementById('timerResetBtn').onclick = resetTimer;
+
+        // Initial render
+        renderAll();
+        updateTimerDisplay();
+    </script>
 </body>
 </html>
