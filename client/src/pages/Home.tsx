@@ -23,8 +23,8 @@ export default function Home() {
   const updates = [
     {
       id: "u0",
-      text: "[Nov 2025] Apply for the Summer PhD Entrepreneurial Finance Workshop",
-      url: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
+      text: "[Jan 2026] Michael Ewens joined AIF Global's Board of Academic Advisors",
+      url: "https://www.businesswire.com/news/home/20260128606780/en/AIF-Global-Enters-Third-Decade-of-Investor-Programming-Launches-New-Private-Wealth-Center-APAC-Expansion-Rapid-Global-Growth-of-Future-Leaders-Program"
     },
     {
       id: "u1",
