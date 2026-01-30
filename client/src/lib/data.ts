@@ -403,6 +403,13 @@ export const press: PressItem[] = [
       paperId: "p9"
   },
   {
+    id: "n6",
+    outlet: "BusinessWire",
+    title: "Michael Ewens joined AIF Global's Board of Academic Advisors",
+    date: "January 28, 2026",
+    url: "https://www.businesswire.com/news/home/20260128606780/en/AIF-Global-Enters-Third-Decade-of-Investor-Programming-Launches-New-Private-Wealth-Center-APAC-Expansion-Rapid-Global-Growth-of-Future-Leaders-Program"
+  },
+  {
     id: "n5",
     outlet: "Bloomberg",
     title: "After Latest IPO Setbacks, There's Unicorn Blood in the Streets",
