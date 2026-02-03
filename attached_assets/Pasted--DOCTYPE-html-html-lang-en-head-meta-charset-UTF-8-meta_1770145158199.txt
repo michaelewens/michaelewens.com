@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Speaker Q&A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 60px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .url {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #4fc3f7;
+            letter-spacing: 1px;
+        }
+        .main-content {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .left-panel {
+            flex: 1;
+        }
+        .right-panel {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .qr-code {
+            width: 280px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .scan-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4fc3f7;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #4fc3f7;
+        }
+        .step-number {
+            font-size: 1.2rem;
+            color: #4fc3f7;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .step-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .step-desc {
+            font-size: 1.4rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        .requirement-box {
+            background: rgba(79, 195, 247, 0.15);
+            border: 2px solid #4fc3f7;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-top: 30px;
+        }
+        .requirement-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #4fc3f7;
+            margin-bottom: 12px;
+        }
+        .requirement-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .sheet-link {
+            display: inline-block;
+            background: #4fc3f7;
+            color: #1a1a2e;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .sheet-link:hover {
+            background: #81d4fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="url">PE Field Study Alumni Presentation</div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="step">
+                    <div class="step-number">Step 1</div>
+                    <div class="step-title">Listen to the Presentation</div>
+                    <div class="step-desc">Laptops closed. Note methods, frameworks, or challenges the speaker mentions.</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">Step 2</div>
+                    <div class="step-title">After the Talk</div>
+                    <div class="step-desc">Open your laptop and scan the QR code or visit the link above.</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">Step 3</div>
+                    <div class="step-title">Submit Your Question</div>
+                    <div class="step-desc">The speaker will select up to 3 questions to answer.</div>
+                </div>
+
+                <div class="requirement-box">
+                    <div class="requirement-title">Thoughtful Question Requirement</div>
+                    <div class="requirement-text">
+                        Connect the speaker's experience to <strong>your own internship</strong>.
+                        Start with "In my internship, I'm working on..." and seek actionable advice.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <img src="frame.png" alt="QR Code" class="qr-code">
+                <div class="scan-label">Scan to Submit</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://docs.google.com/spreadsheets/d/1OytSAzI-81YxiXSsERF0HsUFmldmZUg8HhrPH7CddIc?resourcekey=&usp=forms_web_b#gid=1031782145"
+               target="_blank"
+               class="sheet-link">
+                Open Responses Sheet (Instructor)
+            </a>
+        </div>
+    </div>
+</body>
+</html>
