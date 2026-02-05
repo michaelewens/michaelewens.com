@@ -403,6 +403,14 @@ export const press: PressItem[] = [
       paperId: "p9"
   },
   {
+    id: "n7",
+    outlet: "Apple Podcasts",
+    title: "Michael Ewens (Columbia Business School) - What the Data?",
+    date: "February 3, 2026",
+    url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227",
+    paperId: "p2"
+  },
+  {
     id: "n6",
     outlet: "BusinessWire",
     title: "Michael Ewens joined AIF Global's Board of Academic Advisors",

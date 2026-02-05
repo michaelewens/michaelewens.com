@@ -22,6 +22,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u4",
+      text: "[Feb 2026] Michael Ewens on board dynamics and the startup life cycle",
+      url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227"
+    },
+    {
       id: "u0",
       text: "[Jan 2026] Michael Ewens joined AIF Global's Board of Academic Advisors",
       url: "https://www.businesswire.com/news/home/20260128606780/en/AIF-Global-Enters-Third-Decade-of-Investor-Programming-Launches-New-Private-Wealth-Center-APAC-Expansion-Rapid-Global-Growth-of-Future-Leaders-Program"
@@ -35,11 +40,6 @@ export default function Home() {
       id: "u2",
       text: "[July 2025] Gender Equity in Private Equity report released",
       url: "https://genderequityinpe.com/"
-    },
-    {
-      id: "u3",
-      text: "[Sept 2025] Forthcoming to Journal of Finance: \"Board Dynamics over the Startup Lifecycle\".",
-      url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3640898"
     }
   ];
 
