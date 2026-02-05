@@ -23,7 +23,7 @@ export default function Home() {
   const updates = [
     {
       id: "u4",
-      text: "[Feb 2026] Michael Ewens on board dynamics and the startup life cycle",
+      text: "[Feb 2026] What the Data Reveals About Startup Boards and Private Equity (Boardroom Governance with Evan Epstein)",
       url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227"
     },
     {

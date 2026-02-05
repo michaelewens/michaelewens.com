@@ -405,7 +405,7 @@ export const press: PressItem[] = [
   {
     id: "n7",
     outlet: "Apple Podcasts",
-    title: "Michael Ewens (Columbia Business School) - What the Data?",
+    title: "What the Data Reveals About Startup Boards and Private Equity (Boardroom Governance with Evan Epstein)",
     date: "February 3, 2026",
     url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227",
     paperId: "p2"
