@@ -62,7 +62,7 @@ export const papers: Paper[] = [
     year: 2026,
     status: "Working Paper",
     abstract: "This paper examines the economics of providing retail investors access to private markets, analyzing how liquid fund structures interact with illiquid underlying assets. We study the trade-offs between democratized access to private equity and venture capital investments and the costs imposed by liquidity transformation, including potential return dilution and structural risks.",
-    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5131498",
+    pdfUrl: "https://osf.io/preprints/socarxiv/5897u_v1",
     tags: ["Private Equity", "Retail Investors", "Liquidity"]
   },
   {
