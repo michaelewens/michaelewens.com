@@ -56,6 +56,16 @@ export interface ProjectItem {
 
 export const papers: Paper[] = [
   {
+    id: "p18",
+    title: "Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets",
+    authors: ["Michael Ewens", "James Farrell"],
+    year: 2026,
+    status: "Working Paper",
+    abstract: "This paper examines the economics of providing retail investors access to private markets, analyzing how liquid fund structures interact with illiquid underlying assets. We study the trade-offs between democratized access to private equity and venture capital investments and the costs imposed by liquidity transformation, including potential return dilution and structural risks.",
+    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5131498",
+    tags: ["Private Equity", "Retail Investors", "Liquidity"]
+  },
+  {
     id: "p17",
     title: "Corporate Hierarchy",
     authors: ["Michael Ewens", "Xavier Giroud"],
