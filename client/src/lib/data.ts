@@ -58,7 +58,7 @@ export const papers: Paper[] = [
   {
     id: "p18",
     title: "Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets",
-    authors: ["Michael Ewens", "James Farrell"],
+    authors: ["Michael Ewens", "Jacob Faber"],
     year: 2026,
     status: "Working Paper",
     abstract: "This paper examines the economics of providing retail investors access to private markets, analyzing how liquid fund structures interact with illiquid underlying assets. We study the trade-offs between democratized access to private equity and venture capital investments and the costs imposed by liquidity transformation, including potential return dilution and structural risks.",
