@@ -14,7 +14,7 @@ export default function CV() {
             <h1 className="font-heading text-5xl md:text-6xl font-bold mb-2 text-foreground">Curriculum Vitae</h1>
             <p className="text-xl text-muted-foreground">Michael Ewens</p>
           </div>
-          <a href="/attached_assets/ewens_cv2025.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/ewens_cv.pdf" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="rounded-none gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-mono uppercase tracking-wider">
               <Download className="h-4 w-4" /> Download PDF
             </Button>
@@ -413,6 +413,7 @@ export default function CV() {
             <p>Private Equity Research Consortium Fellow, 2018–present.</p>
             <p>Associate Program Chair, Western Finance Association 2019–</p>
             <p>European Finance Association, PhD lecture "Private Equity", 2026</p>
+            <p>Session Chair: European Finance Association 2026, SFS Cavalcade (Venture Capital and Private Equity) 2026.</p>
             <p>Program Committee member: UNSW Corporate Finance Workshop 2025–, HKUST Finance Symposium 2025–, UIC Finance Conference 2024–, SFS Asia Pacific 2022–, Midwest Finance Association 2016–, European Finance Association 2018–, Washington University Corporate Finance and Financial Intermediation 2019–, SFS Cavalcade 2021–, UK Finance Conference 2021–, FOM Conference 2020–, Mitsui Finance Symposium 2023–, UIC Finance Conference 2023–, FIRS 2024–, European FMA 2025–, 2025 GSU-MS AI and FinTech conference, RCFS/RAPS Europe Conference.</p>
             <p className="pt-2">Ad-hoc referee: Journal of Finance, Journal of Financial Economics, Review of Financial Studies, American Economic Review, Journal of Political Economy, Quarterly Journal of Economics, Review of Economic Studies, Review of Economics and Statistics, Management Science, Review of Finance, Journal of Banking and Finance, Journal of Corporate Finance, Journal of Urban Economics, Economic Journal, European Economic Review, Journal of Labor Economics, Journal of Economics & Management Strategy, Journal of Finance and Quantitative Analysis, Journal of Human Resources, Science Advances, Review of Accounting Studies, The Accounting Review.</p>
           </div>
