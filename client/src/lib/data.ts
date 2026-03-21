@@ -502,6 +502,20 @@ export const press: PressItem[] = [
 
 export const courses: Course[] = [
   {
+    id: "c7",
+    title: "Private Equity Capstone",
+    institution: "Columbia Business School",
+    level: "MBA",
+    year: "2026"
+  },
+  {
+    id: "c6",
+    title: "Advanced Private Equity",
+    institution: "Columbia Business School",
+    level: "MBA",
+    year: "2026"
+  },
+  {
     id: "c1",
     title: "Private Equity Deals",
     institution: "Columbia Business School",
