@@ -381,6 +381,13 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n13",
+    outlet: "Super Return",
+    title: "Private Markets Coverage",
+    date: "March 21, 2026",
+    url: "https://www.linkedin.com/posts/superreturn_srna-privatemarkets-activity-7440035416411410432-0i-Y/?utm_medium=ios_app&rcm=ACoAAACmHVkBCXK8-Ls9NlgfKFcSBStQB56UoN8&utm_source=social_share_send&utm_campaign=share_via"
+  },
+  {
     id: "n1",
     outlet: "CLS Blue Sky Blog",
     title: "Regulatory Costs of Being Public: Evidence from Bunching Estimation",
