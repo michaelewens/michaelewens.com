@@ -383,7 +383,7 @@ export const press: PressItem[] = [
   {
     id: "n14",
     outlet: "New York Times DealBook",
-    title: "Markets: Tehran, Trump",
+    title: "Quoted in NYT Dealbook",
     date: "March 24, 2026",
     url: "https://www.nytimes.com/2026/03/24/business/dealbook/markets-tehran-trump.html"
   },
