@@ -381,6 +381,13 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n14",
+    outlet: "New York Times DealBook",
+    title: "Markets: Tehran, Trump",
+    date: "March 24, 2026",
+    url: "https://www.nytimes.com/2026/03/24/business/dealbook/markets-tehran-trump.html"
+  },
+  {
     id: "n13",
     outlet: "Super Return",
     title: "Panel discussion about economic uncertainty and private equity",
