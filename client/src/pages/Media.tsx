@@ -44,6 +44,11 @@ export default function Media() {
                   <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
+                  {item.description && (
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {item.description}
+                    </p>
+                  )}
                   {item.paperId && getPaperTitle(item.paperId) && (
                     <p className="text-sm text-muted-foreground mt-1">
                       Paper mentioned: {getPaperTitle(item.paperId)}

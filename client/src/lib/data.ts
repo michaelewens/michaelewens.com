@@ -35,6 +35,7 @@ export interface PressItem {
   date: string;
   url: string;
   paperId?: string;
+  description?: string;
 }
 
 export interface Course {
@@ -385,21 +386,24 @@ export const press: PressItem[] = [
     outlet: "PitchBook",
     title: "Quoted in PitchBook's Market Insights newsletter",
     date: "March 24, 2026",
-    url: "https://pitchbook.com/news/articles/the-ultra-mega-fund-is-back-in-style-can-it-be-deployed-effectively?utm_medium=newsletter&utm_source=daily_pitch&sourceType=NEWSLETTER"
+    url: "https://pitchbook.com/news/articles/the-ultra-mega-fund-is-back-in-style-can-it-be-deployed-effectively?utm_medium=newsletter&utm_source=daily_pitch&sourceType=NEWSLETTER",
+    description: "What is the impact of mega funds in VC and how do they deploy capital quickly?"
   },
   {
     id: "n14",
     outlet: "New York Times DealBook",
     title: "Quoted in NYT Dealbook",
     date: "March 24, 2026",
-    url: "https://www.nytimes.com/2026/03/24/business/dealbook/markets-tehran-trump.html"
+    url: "https://www.nytimes.com/2026/03/24/business/dealbook/markets-tehran-trump.html",
+    description: "Discussed a complicated private equity transaction in a VC industry."
   },
   {
     id: "n13",
     outlet: "Super Return",
     title: "Panel discussion about economic uncertainty and private equity",
     date: "March 21, 2026",
-    url: "https://www.linkedin.com/posts/superreturn_srna-privatemarkets-activity-7440035416411410432-0i-Y/?utm_medium=ios_app&rcm=ACoAAACmHVkBCXK8-Ls9NlgfKFcSBStQB56UoN8&utm_source=social_share_send&utm_campaign=share_via"
+    url: "https://www.linkedin.com/posts/superreturn_srna-privatemarkets-activity-7440035416411410432-0i-Y/?utm_medium=ios_app&rcm=ACoAAACmHVkBCXK8-Ls9NlgfKFcSBStQB56UoN8&utm_source=social_share_send&utm_campaign=share_via",
+    description: "Discussed tariffs, geopolitics, and monetary policy."
   },
   {
     id: "n1",
