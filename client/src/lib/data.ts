@@ -381,6 +381,13 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n15",
+    outlet: "PitchBook",
+    title: "Quoted in PitchBook's Market Insights newsletter",
+    date: "March 24, 2026",
+    url: "https://pitchbook.com/news/articles/the-ultra-mega-fund-is-back-in-style-can-it-be-deployed-effectively?utm_medium=newsletter&utm_source=daily_pitch&sourceType=NEWSLETTER"
+  },
+  {
     id: "n14",
     outlet: "New York Times DealBook",
     title: "Quoted in NYT Dealbook",
