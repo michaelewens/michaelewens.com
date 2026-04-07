@@ -1,4 +1,4 @@
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { Search, Menu, X, FileText, Code, GraduationCap, Mail, Newspaper, User, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -49,7 +49,7 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Brand */}
-        <a 
+        <Link
           href="/"
           className="group block"
         >
@@ -59,12 +59,12 @@ export default function Navigation() {
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
             Private Equity & Entrepreneurial Finance
           </p>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.path}
               href={item.path}
               aria-current={location === item.path ? "page" : undefined}
@@ -76,7 +76,7 @@ export default function Navigation() {
               )}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           
           <div className="relative w-64 ml-4">
@@ -120,7 +120,7 @@ export default function Navigation() {
               />
             </form>
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.path}
                 href={item.path}
                 aria-current={location === item.path ? "page" : undefined}
@@ -134,7 +134,7 @@ export default function Navigation() {
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
