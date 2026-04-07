@@ -7,9 +7,11 @@ import { FileText } from "lucide-react";
 
 export default function Teaching() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <title>Teaching | Michael Ewens</title>
+      <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <header className="mb-16">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Teaching</h1>
@@ -59,5 +61,6 @@ export default function Teaching() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }

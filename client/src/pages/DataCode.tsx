@@ -8,9 +8,11 @@ import { Badge } from "@/components/ui/badge";
 
 export default function DataCode() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <title>Data &amp; Code | Michael Ewens</title>
+      <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-6xl">
         <header className="mb-16 border-b border-border pb-12">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Data & Code</h1>
@@ -85,5 +87,6 @@ export default function DataCode() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
