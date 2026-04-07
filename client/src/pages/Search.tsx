@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import ResearchList from "@/components/ResearchList";
 import { papers, projects } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -42,8 +40,6 @@ export default function Search() {
     <>
       <title>Search | Michael Ewens</title>
       <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <header className="mb-12">
           <h1 className="font-heading text-5xl font-bold mb-6 flex items-center gap-4">
@@ -128,7 +124,6 @@ export default function Search() {
           </div>
         )}
       </main>
-      <Footer />
     </div>
     </>
   );

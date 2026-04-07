@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
@@ -7,8 +5,6 @@ export default function Contact() {
     <>
       <title>Contact | Michael Ewens</title>
       <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <div className="grid gap-12">
           <div>
@@ -64,7 +60,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
     </>
   );

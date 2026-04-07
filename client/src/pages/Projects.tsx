@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { projectItems } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
@@ -33,8 +31,6 @@ export default function Projects() {
     <>
       <title>Projects | Michael Ewens</title>
       <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <header className="mb-16 border-b border-border pb-12">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Projects</h1>
@@ -87,7 +83,6 @@ export default function Projects() {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
     </>
   );

@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
 import { press, papers } from "@/lib/data";
 
@@ -18,8 +16,6 @@ export default function Media() {
     <>
       <title>Media | Michael Ewens</title>
       <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4 text-foreground">
           Media Coverage
@@ -67,7 +63,6 @@ export default function Media() {
         </div>
       </main>
 
-      <Footer />
     </div>
     </>
   );

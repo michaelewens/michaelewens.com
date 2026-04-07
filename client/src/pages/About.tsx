@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
 import headshot from "@assets/optimized/ewens_arms.webp";
@@ -11,8 +9,6 @@ export default function About() {
     <>
       <title>About | Michael Ewens</title>
       <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
           {/* Sidebar / Photo Column - Hidden on mobile */}
@@ -231,7 +227,6 @@ export default function About() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
     </>
   );

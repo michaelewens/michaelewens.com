@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import ResearchList from "@/components/ResearchList";
 import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -75,8 +73,6 @@ export default function Home() {
     <>
       <title>Michael Ewens | Professor of Finance, Columbia Business School</title>
       <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      <Navigation />
-
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
@@ -360,7 +356,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
     </div>
     </>
   );

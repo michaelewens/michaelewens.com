@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { courses } from "@/lib/data";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -10,8 +8,6 @@ export default function Teaching() {
     <>
       <title>Teaching | Michael Ewens</title>
       <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <header className="mb-16">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Teaching</h1>
@@ -59,7 +55,6 @@ export default function Teaching() {
           </Table>
         </div>
       </main>
-      <Footer />
     </div>
     </>
   );

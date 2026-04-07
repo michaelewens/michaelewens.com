@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Building2, Badge, MapPin, GraduationCap, BookOpen, FileText, Award, Edit, Users, Briefcase } from "lucide-react";
 
@@ -8,8 +6,6 @@ export default function CV() {
     <>
       <title>CV | Michael Ewens</title>
       <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      <Navigation />
-
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-border pb-8">
           <div>
@@ -447,7 +443,6 @@ export default function CV() {
         </div>
 
       </main>
-      <Footer />
     </div>
     </>
   );
