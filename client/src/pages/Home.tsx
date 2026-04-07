@@ -9,9 +9,11 @@ import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
 import wefiImageSm from "@assets/optimized/abstract_finance_innovation_network_sm.webp";
 import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
+import phdWorkshopImageMd from "@assets/optimized/academic_workshop_abstract_md.webp";
 import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.webp";
 import afaImage from "@assets/optimized/mentorship_and_guidance_abstract.webp";
 import foundingPatentsImage from "@assets/optimized/high_frequency_trading_algorithmic_lines.webp";
+import foundingPatentsImageMd from "@assets/optimized/high_frequency_trading_algorithmic_lines_md.webp";
 import foundingPatentsImageSm from "@assets/optimized/high_frequency_trading_algorithmic_lines_sm.webp";
 import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
 
@@ -47,6 +49,7 @@ export default function Home() {
       title: "Founding Patents",
       description: "Explore startup innovation through a unique connection between firm formation and patent data.",
       image: foundingPatentsImage,
+      imageMd: foundingPatentsImageMd,
       imageSm: foundingPatentsImageSm,
       link: "https://foundingpatents.com/",
     },
@@ -56,6 +59,7 @@ export default function Home() {
       description:
         "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
+      imageMd: wefiImage,
       imageSm: wefiImageSm,
       link: "https://workshop-efi.com/",
     },
@@ -64,6 +68,7 @@ export default function Home() {
       title: "Entrepreneurial Finance PhD Workshop",
       description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
+      imageMd: phdWorkshopImageMd,
       imageSm: phdWorkshopImageSm,
       link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/",
     },
@@ -238,7 +243,7 @@ export default function Home() {
                 <div className="absolute inset-0">
                   <img
                     src={item.imageSm}
-                    srcSet={`${item.imageSm} 640w, ${item.image} 1024w`}
+                    srcSet={`${item.imageSm} 640w, ${item.imageMd} 800w, ${item.image} 1024w`}
                     sizes="(max-width: 768px) 100vw, 400px"
                     alt={item.title}
                     loading="lazy"
