@@ -5,6 +5,19 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
+// Injects <link rel="preload"> for CSS to break the critical request chain
+function cssPreloadPlugin() {
+  return {
+    name: 'css-preload',
+    transformIndexHtml(html: string) {
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
+        '<link rel="preload" as="style" crossorigin href="$1"><link rel="stylesheet" crossorigin href="$1">'
+      );
+    },
+  };
+}
+
 export default defineConfig({
   base: '/',
   plugins: [
@@ -12,6 +25,7 @@ export default defineConfig({
     runtimeErrorOverlay(),
     tailwindcss(),
     metaImagesPlugin(),
+    cssPreloadPlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
