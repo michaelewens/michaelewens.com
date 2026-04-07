@@ -53,6 +53,12 @@
   --animate-marquee: marquee 30s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
 :root {
   /* Warm Academic Paper Theme */
   --background: 36 20% 98%; /* Warm Off-white */

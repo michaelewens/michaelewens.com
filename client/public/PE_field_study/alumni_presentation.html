@@ -114,6 +114,16 @@
         .sheet-link:hover {
             background: #01579b;
         }
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            .url { font-size: 2rem; }
+            .main-content { flex-direction: column; }
+            .right-panel { order: -1; }
+            .qr-code { width: 200px; }
+            .step-title { font-size: 1.5rem; }
+            .step-desc, .requirement-text { font-size: 1.1rem; }
+            .sheet-link { font-size: 1.1rem; padding: 12px 24px; }
+        }
     </style>
 </head>
 <body>
@@ -160,6 +170,7 @@
         <div class="footer">
             <a href="https://docs.google.com/spreadsheets/d/1OytSAzI-81YxiXSsERF0HsUFmldmZUg8HhrPH7CddIc?resourcekey=&usp=forms_web_b#gid=1031782145"
                target="_blank"
+               rel="noopener noreferrer"
                class="sheet-link">
                 Open Responses Sheet (Instructor)
             </a>

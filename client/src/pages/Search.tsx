@@ -11,18 +11,17 @@ export default function Search() {
 
   useEffect(() => {
     const extractQuery = () => {
-      const hash = window.location.hash;
-      const match = hash.match(/\?q=([^&]*)/);
-      const q = match ? decodeURIComponent(match[1]) : "";
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("q") || "";
       setQuery(q);
     };
 
     // Extract on mount
     extractQuery();
 
-    // Listen for hash changes to update when search query changes
-    window.addEventListener("hashchange", extractQuery);
-    return () => window.removeEventListener("hashchange", extractQuery);
+    // Listen for navigation changes to update when search query changes
+    window.addEventListener("popstate", extractQuery);
+    return () => window.removeEventListener("popstate", extractQuery);
   }, []);
 
   // Filter papers
@@ -40,9 +39,11 @@ export default function Search() {
   const hasResults = filteredPapers.length > 0 || filteredProjects.length > 0;
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <title>Search | Michael Ewens</title>
+      <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <header className="mb-12">
           <h1 className="font-heading text-5xl font-bold mb-6 flex items-center gap-4">
@@ -129,5 +130,6 @@ export default function Search() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }

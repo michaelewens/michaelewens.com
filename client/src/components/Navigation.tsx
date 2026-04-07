@@ -22,7 +22,7 @@ export default function Navigation() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.hash = `#/search?q=${encodeURIComponent(searchQuery)}`;
+      setLocation(`/search?q=${encodeURIComponent(searchQuery)}`);
       setIsOpen(false);
     }
   };
@@ -38,10 +38,11 @@ export default function Navigation() {
   ];
 
   return (
-    <nav 
+    <nav
+      aria-label="Main navigation"
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-        isScrolled 
+        isScrolled
           ? "bg-background/95 backdrop-blur-md border-border py-4" 
           : "bg-background border-transparent py-6"
       )}
@@ -49,7 +50,7 @@ export default function Navigation() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Brand */}
         <a 
-          href="#/" 
+          href="/"
           className="group block"
         >
           <h1 className="font-heading text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
@@ -63,13 +64,14 @@ export default function Navigation() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <a 
-              key={item.path} 
-              href={`#${item.path}`}
+            <a
+              key={item.path}
+              href={item.path}
+              aria-current={location === item.path ? "page" : undefined}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[1px] after:bg-primary after:transition-all after:duration-300",
-                location === item.path 
-                  ? "text-primary after:w-full" 
+                location === item.path
+                  ? "text-primary after:w-full"
                   : "text-muted-foreground after:w-0 hover:after:w-full"
               )}
             >
@@ -80,8 +82,9 @@ export default function Navigation() {
           <div className="relative w-64 ml-4">
             <form onSubmit={handleSearch}>
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search..." 
+              <Input
+                placeholder="Search..."
+                aria-label="Search site"
                 className="pl-8 h-9 bg-secondary/50 border-transparent focus:bg-background focus:border-border transition-all rounded-none font-mono text-xs"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -91,9 +94,12 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
         >
           {isOpen ? <X /> : <Menu />}
         </button>
@@ -101,25 +107,27 @@ export default function Navigation() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">
+        <div id="mobile-nav" className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">
           <div className="flex flex-col space-y-4">
              <form onSubmit={handleSearch} className="relative w-full mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search..." 
+              <Input
+                placeholder="Search..."
+                aria-label="Search site"
                 className="pl-9 h-10 bg-secondary/50 rounded-none font-mono"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </form>
             {navItems.map((item) => (
-              <a 
-                key={item.path} 
-                href={`#${item.path}`}
+              <a
+                key={item.path}
+                href={item.path}
+                aria-current={location === item.path ? "page" : undefined}
                 className={cn(
                   "flex items-center space-x-3 text-lg font-medium py-2 border-l-2 pl-4 transition-colors",
-                  location === item.path 
-                    ? "border-primary text-primary" 
+                  location === item.path
+                    ? "border-primary text-primary"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 )}
                 onClick={() => setIsOpen(false)}

@@ -57,7 +57,7 @@ export interface ProjectItem {
 
 export const papers: Paper[] = [
   {
-    id: "p18",
+    id: "p20",
     title: "Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets",
     authors: ["Michael Ewens", "Jacob Faber"],
     year: 2026,
@@ -438,7 +438,7 @@ export const press: PressItem[] = [
       paperId: "p9"
   },
   {
-    id: "n7",
+    id: "n16",
     outlet: "Apple Podcasts",
     title: "What the Data Reveals About Startup Boards and Private Equity (Boardroom Governance with Evan Epstein)",
     date: "February 3, 2026",
@@ -446,7 +446,7 @@ export const press: PressItem[] = [
     paperId: "p2"
   },
   {
-    id: "n6",
+    id: "n17",
     outlet: "BusinessWire",
     title: "Michael Ewens joined AIF Global's Board of Academic Advisors",
     date: "January 28, 2026",
@@ -520,14 +520,14 @@ export const press: PressItem[] = [
 
 export const courses: Course[] = [
   {
-    id: "c7",
+    id: "c19",
     title: "Private Equity Capstone",
     institution: "Columbia Business School",
     level: "MBA",
     year: "2026"
   },
   {
-    id: "c6",
+    id: "c20",
     title: "Advanced Private Equity",
     institution: "Columbia Business School",
     level: "MBA",

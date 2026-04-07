@@ -8,7 +8,9 @@ import { press } from "@/lib/data";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
+    <>
+      <title>About | Michael Ewens</title>
+      <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
       <Navigation />
 
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
@@ -231,5 +233,6 @@ export default function About() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }

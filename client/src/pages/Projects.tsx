@@ -30,9 +30,11 @@ const projectImages: Record<string, string> = {
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <title>Projects | Michael Ewens</title>
+      <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-5xl">
         <header className="mb-16 border-b border-border pb-12">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Projects</h1>
@@ -87,5 +89,6 @@ export default function Projects() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }

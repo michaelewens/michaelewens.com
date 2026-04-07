@@ -9,9 +9,11 @@ export default function Research() {
   const forthcoming = papers.filter(p => p.status === "Forthcoming");
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <title>Research | Michael Ewens</title>
+      <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20 px-6 container mx-auto max-w-4xl">
         <header className="mb-16">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Research</h1>
@@ -49,5 +51,6 @@ export default function Research() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
