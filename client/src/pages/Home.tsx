@@ -136,40 +136,30 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-primary/5 rounded-full blur-3xl -z-0 translate-y-1/4 -translate-x-1/4" />
       </section>
 
-      {/* Latest Updates / News Ticker vibe */}
-      <section className="border-b border-border bg-secondary/30 py-4 overflow-hidden group">
-        <div className="container mx-auto px-6 flex items-center">
-          <div className="shrink-0 z-20 pr-4 bg-secondary/30 relative">
-            <span className="font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shadow-sm">
+      {/* Latest Updates */}
+      <section className="border-b border-border bg-secondary/30 py-4">
+        <div className="container mx-auto px-6">
+          <div className="flex items-start gap-4">
+            <span className="shrink-0 font-mono text-xs font-bold bg-primary text-primary-foreground px-2 py-1 shadow-sm mt-0.5">
               LATEST
             </span>
-          </div>
-          <div className="flex-1 overflow-hidden relative">
-            <div className="flex items-center gap-8 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
-              {updates.map((update) => (
-                <a
-                  key={update.id}
-                  href={update.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
-                >
-                  {update.text}
-                </a>
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-1" role="list">
+              {updates.map((update, i) => (
+                <li key={update.id} className="flex items-center gap-x-6">
+                  <a
+                    href={update.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {update.text}
+                  </a>
+                  {i < updates.length - 1 && (
+                    <span className="text-border hidden sm:inline" aria-hidden="true">|</span>
+                  )}
+                </li>
               ))}
-              <span className="text-primary">•</span>
-              {updates.map((update) => (
-                <a
-                  key={`${update.id}-dupe`}
-                  href={update.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
-                >
-                  {update.text}
-                </a>
-              ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
