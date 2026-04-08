@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ResearchList from "@/components/ResearchList";
 import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,11 @@ import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const allTags = Array.from(new Set(projects.flatMap((p) => p.language))).sort();
+  const filteredProjects = activeTag
+    ? projects.filter((p) => p.language.includes(activeTag))
+    : projects;
 
   const updates = [
     {
@@ -286,8 +292,34 @@ export default function Home() {
             </Link>
           </div>
 
+          <div className="flex flex-wrap gap-2 mb-8">
+            <button
+              onClick={() => setActiveTag(null)}
+              className={`px-3 py-1.5 text-xs font-mono font-bold uppercase tracking-wider border transition-colors ${
+                activeTag === null
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-transparent text-muted-foreground border-border hover:border-foreground hover:text-foreground"
+              }`}
+            >
+              All
+            </button>
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                className={`px-3 py-1.5 text-xs font-mono font-bold uppercase tracking-wider border transition-colors ${
+                  activeTag === tag
+                    ? "bg-foreground text-background border-foreground"
+                    : "bg-transparent text-muted-foreground border-border hover:border-foreground hover:text-foreground"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className="group relative aspect-[4/3] overflow-hidden border border-border bg-background"
