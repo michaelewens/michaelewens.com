@@ -7,7 +7,7 @@ export default function Footer() {
             Michael Ewens
           </h4>
           <p className="font-mono text-xs text-background/60">
-            © Michael Ewens 2025. All rights reserved.
+            © Michael Ewens {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
         <div className="flex gap-6 font-mono text-xs font-medium text-background/80">

@@ -201,7 +201,7 @@ export default function Home() {
               size="lg"
               className="w-full md:w-auto rounded-none font-mono text-xs tracking-wider h-12 px-8 border-foreground/20 hover:bg-secondary"
             >
-              <Link href="/research">VIEW ALL RESEARCH</Link>
+              <Link href="/research">VIEW ALL</Link>
             </Button>
           </div>
         </div>
@@ -377,7 +377,7 @@ export default function Home() {
 
           <div className="mt-12 md:hidden">
             <Button asChild variant="outline" className="w-full rounded-none">
-              <Link href="/data-code">View All Projects</Link>
+              <Link href="/data-code">VIEW ALL</Link>
             </Button>
           </div>
         </div>

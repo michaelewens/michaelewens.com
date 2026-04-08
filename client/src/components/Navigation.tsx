@@ -10,6 +10,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,8 +53,12 @@ export default function Navigation() {
         <Link
           href="/"
           className="group block"
+          aria-current={location === "/" ? "page" : undefined}
         >
-          <h1 className="font-heading text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
+          <h1 className={cn(
+            "font-heading text-2xl font-bold tracking-tight transition-colors",
+            location === "/" ? "text-primary" : "group-hover:text-primary"
+          )}>
             Michael Ewens
           </h1>
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
@@ -93,17 +98,44 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          aria-controls="mobile-nav"
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-1">
+          <button
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => { setMobileSearchOpen(!mobileSearchOpen); setIsOpen(false); }}
+            aria-label="Search"
+            aria-expanded={mobileSearchOpen}
+          >
+            <Search className="h-5 w-5" />
+          </button>
+          <button
+            className="p-2 text-foreground"
+            onClick={() => { setIsOpen(!isOpen); setMobileSearchOpen(false); }}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav"
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Search Bar */}
+      {mobileSearchOpen && (
+        <div className="md:hidden border-b border-border bg-background px-6 py-3 animate-in slide-in-from-top-2">
+          <form onSubmit={(e) => { handleSearch(e); setMobileSearchOpen(false); }} className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search..."
+              aria-label="Search site"
+              autoFocus
+              className="pl-9 h-10 bg-secondary/50 rounded-none font-mono"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </form>
+        </div>
+      )}
 
       {/* Mobile Nav */}
       {isOpen && (
