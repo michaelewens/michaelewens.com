@@ -224,7 +224,7 @@ export default function CV() {
             <p className="text-muted-foreground leading-relaxed">"Race and Gender in Entrepreneurial Finance" (prepared for the <span className="italic">Handbook of the Economics of Corporate Finance, Private Equity and Entrepreneurial Finance</span> (Vol. 1), Editors Espen Eckbo, Gordon Phillips and Morten Sorensen)</p>
             <p className="text-muted-foreground leading-relaxed">"Private or Public Equity? The Evolving Entrepreneurial Finance Landscape" (with Joan Farre-Mensa) <span className="italic">Annual Review of Financial Economics</span> 2022 14:1, 271-293.</p>
             <p className="text-muted-foreground leading-relaxed">"Venture Capital Contracts" (with Alexander Gorbenko and Arthur Korteweg) <span className="italic">Journal of Financial Economics</span> 143.1 (2022):131–158.</p>
-            <p className="text-muted-foreground leading-relaxed">"The Deregulation of the Private Equity Markets and the Decline in IPOs" (with Joan Farre-Mensa), <span className="italic">Review of Financial Studies</span> 33(12): 5463–5509. [Editor's Choice]</p>
+            <p className="text-muted-foreground leading-relaxed">"The Deregulation of the Private Equity Markets and the Decline in IPOs" (with Joan Farre-Mensa), <span className="italic">Review of Financial Studies</span> 33(12): 5463–5509. [Editor’s Choice]</p>
             <p className="text-muted-foreground leading-relaxed">"Are Early Stage Investors Biased Against Women?" (with Richard Townsend) <span className="italic">Journal of Financial Economics</span> 135.3 (2020):653–677.</p>
             <p className="text-muted-foreground leading-relaxed">"Cost of Experimentation and the Evolution of Venture Capital" (with Ramana Nanda and Matthew Rhodes-Kropf) <span className="italic">Journal of Financial Economics</span> 128.3 (2018): 422-442.</p>
             <p className="text-muted-foreground leading-relaxed">"Founder Replacement and Startup Performance" (with Matt Marx) <span className="italic">Review of Financial Studies</span> 31.4 (2018): 1532–1565.</p>
@@ -245,6 +245,7 @@ export default function CV() {
             <p className="text-muted-foreground leading-relaxed">"Local Journalism Under Private Equity Ownership", 2023 Revise & resubmit, <span className="italic">Review of Financial Studies</span> (with Arpit Gupta and Sabrina Howell)</p>
             <p className="text-muted-foreground leading-relaxed">"Irreplaceable Venture Capitalists", 2023, (with Denis Sosyura)</p>
             <p className="text-muted-foreground leading-relaxed">"Firm Age and Invention: A New Public-Access Dataset", 2024 (with Matt Marx)</p>
+            <p className="text-muted-foreground leading-relaxed">"Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets", 2026 (with Jacob Faber)</p>
           </div>
         </div>
 
@@ -294,7 +295,7 @@ export default function CV() {
               <span className="font-mono text-sm text-muted-foreground">2021</span>
             </div>
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
-              <p className="text-foreground font-medium">Editor's Choice (Review of Financial Studies)</p>
+              <p className="text-foreground font-medium">Editor’s Choice (Review of Financial Studies)</p>
               <span className="font-mono text-sm text-muted-foreground">2020</span>
             </div>
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
@@ -374,7 +375,7 @@ export default function CV() {
             <div>
               <h3 className="font-bold text-lg text-foreground mb-3">National Bureau of Economic Research Entrepreneurship Bootcamp</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>PhD lecture "Race and Gender in Entrepreneurial Finance", 2023–2024.</li>
+                <li>PhD lecture “Race and Gender in Entrepreneurial Finance”, 2023–2024.</li>
               </ul>
             </div>
             <div>
@@ -404,14 +405,14 @@ export default function CV() {
             <Users className="h-6 w-6 text-primary" /> Service and Activities
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>Organizer: Summer PhD Workshop on Entrepreneurial Finance (Imperial College, 2024; Dauphine, 2025).</p>
+            <p>Organizer: Summer PhD Workshop on Entrepreneurial Finance (Imperial College, 2024; Dauphine, 2025; Nova SBE, 2026).</p>
             <p>Co-organizer (with Emmanuel Yimfor): Columbia Private Equity Conference, 2023–present.</p>
             <p>Co-organizer (with Camille Hebert, Song Ma and Melanie Wallskog): Workshop on Entrepreneurial Finance and Innovation (virtual), 2020–present.</p>
             <p>Co-organizer (with Arthur Korteweg, Rick Townsend and Xinxin Wang): Southern California Private Equity Finance Conference, 2015–2022.</p>
             <p>Private Equity Research Consortium Fellow, 2018–present.</p>
             <p>Associate Program Chair, Western Finance Association 2019–</p>
-            <p>European Finance Association, PhD lecture "Private Equity", 2026</p>
-            <p>Session Chair: European Finance Association 2026, SFS Cavalcade (Venture Capital and Private Equity) 2026.</p>
+            <p>European Finance Association, PhD lecture “Private Equity”, 2026</p>
+            <p>Session Chair: AFA (Financial Intermediation: Entrepreneurial Finance/Venture Capital) 2027, European Finance Association 2026, SFS Cavalcade (Venture Capital and Private Equity) 2026.</p>
             <p>Carlyle/Alpinvest PERC Panel on Retail in PE, April 8, 2026.</p>
             <p>Program Committee member: UNSW Corporate Finance Workshop 2025–, HKUST Finance Symposium 2025–, UIC Finance Conference 2024–, SFS Asia Pacific 2022–, Midwest Finance Association 2016–, European Finance Association 2018–, Washington University Corporate Finance and Financial Intermediation 2019–, SFS Cavalcade 2021–, UK Finance Conference 2021–, FOM Conference 2020–, Mitsui Finance Symposium 2023–, UIC Finance Conference 2023–, FIRS 2024–, European FMA 2025–, 2025 GSU-MS AI and FinTech conference, RCFS/RAPS Europe Conference.</p>
             <p className="pt-2">Ad-hoc referee: Journal of Finance, Journal of Financial Economics, Review of Financial Studies, American Economic Review, Journal of Political Economy, Quarterly Journal of Economics, Review of Economic Studies, Review of Economics and Statistics, Management Science, Review of Finance, Journal of Banking and Finance, Journal of Corporate Finance, Journal of Urban Economics, Economic Journal, European Economic Review, Journal of Labor Economics, Journal of Economics & Management Strategy, Journal of Finance and Quantitative Analysis, Journal of Human Resources, Science Advances, Review of Accounting Studies, The Accounting Review.</p>
@@ -443,6 +444,7 @@ export default function CV() {
           </div>
         </div>
 
+        <footer className="pt-10 text-sm text-muted-foreground">April 2026</footer>
       </main>
     </div>
     </>
