@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Github, Database, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+function isGitHubUrl(url: string): boolean {
+  try {
+    const host = new URL(url).hostname;
+    return host === "github.com" || host.endsWith(".github.com");
+  } catch {
+    return false;
+  }
+}
+
 export default function DataCode() {
   return (
     <>
@@ -46,7 +55,7 @@ export default function DataCode() {
               <CardFooter className="border-t border-border/50 pt-4">
                 <Button asChild variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs w-full">
                   <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    {project.url.includes("github.com") ? (
+                    {isGitHubUrl(project.url) ? (
                       <>
                         <Github className="h-4 w-4" />
                         View on GitHub
