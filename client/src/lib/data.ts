@@ -382,7 +382,7 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
-    id: "n16",
+    id: "n18",
     outlet: "MarketWatch",
     title: "Quoted in MarketWatch on Google's SpaceX and Anthropic stakes",
     date: "May 2, 2026",
@@ -751,3 +751,19 @@ export const projectItems: ProjectItem[] = [
     url: "https://foundingpatents.com/"
   }
 ];
+
+function assertUniqueIds<T extends { id: string }>(label: string, items: T[]) {
+  const seen = new Set<string>();
+  for (const item of items) {
+    if (seen.has(item.id)) {
+      throw new Error(`Duplicate id "${item.id}" in ${label} array. Pick a new id.`);
+    }
+    seen.add(item.id);
+  }
+}
+
+assertUniqueIds("papers", papers);
+assertUniqueIds("press", press);
+assertUniqueIds("courses", courses);
+assertUniqueIds("projects", projects);
+assertUniqueIds("projectItems", projectItems);

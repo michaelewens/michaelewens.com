@@ -2,9 +2,11 @@ import { ArrowUpRight } from "lucide-react";
 import { press, papers } from "@/lib/data";
 
 export default function Media() {
-  const sortedPress = [...press].sort(
-    (a, b) => parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''))
-  );
+  const sortedPress = [...press].sort((a, b) => {
+    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateDiff !== 0) return dateDiff;
+    return parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''));
+  });
 
   const getPaperTitle = (paperId?: string) => {
     if (!paperId) return null;

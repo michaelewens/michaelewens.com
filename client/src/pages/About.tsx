@@ -190,7 +190,11 @@ export default function About() {
               </h2>
               <div className="space-y-0">
                 {[...press]
-                  .sort((a, b) => parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', '')))
+                  .sort((a, b) => {
+                    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+                    if (dateDiff !== 0) return dateDiff;
+                    return parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''));
+                  })
                   .slice(0, 4)
                   .map((item) => (
                   <a 
