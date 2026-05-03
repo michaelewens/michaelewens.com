@@ -382,6 +382,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n16",
+    outlet: "MarketWatch",
+    title: "Quoted in MarketWatch on Google's SpaceX and Anthropic stakes",
+    date: "May 2, 2026",
+    url: "https://www.marketwatch.com/story/google-is-now-a-glorified-venture-capital-fund-thanks-to-its-spacex-and-anthropic-stakes-b13f3d56",
+    description: "Discussed Google's early-stage stakes in SpaceX and Anthropic, the strategic value of the Anthropic-TPU relationship, and the relative financial risks for Google."
+  },
+  {
     id: "n15",
     outlet: "PitchBook",
     title: "Quoted in PitchBook's Market Insights newsletter",
