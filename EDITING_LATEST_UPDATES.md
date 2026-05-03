@@ -1,6 +1,6 @@
-# How to Edit the Latest Updates Scrolling Links
+# How to Edit the Latest Updates
 
-The scrolling "LATEST" updates appear at the top of the home page in a marquee (scrolling) format. Each update is **clickable and links to a page** you specify.
+The "LATEST" updates appear at the top of the home page as a static list. Each update is **clickable and links to a page** you specify.
 
 ## File Location
 Edit in: **`client/src/pages/Home.tsx`** (lines 21-37)
@@ -11,7 +11,7 @@ Each update is an object with three fields:
 ```javascript
 {
   id: "u1",                    // Unique identifier (u1, u2, u3, etc.)
-  text: "[Month Year] Text",  // The text displayed in the ticker
+  text: "[Month Year] Text",  // The text displayed in the list
   url: "/research"            // Where to navigate when clicked
 }
 ```
@@ -114,8 +114,8 @@ const updates = [
 ```
 
 ## Important Notes
-- The ticker **automatically creates a loop** - the updates will repeat infinitely as the user scrolls
-- Updates are **clickable links** that change color on hover
+- Updates are listed in array order (newest first by convention) and rendered as a static list
+- Each update is a **clickable link** that changes color on hover
 - Each update needs a **unique `id`** (u1, u2, u3, etc.)
 - Use **escaped quotes** in the text field: `\"` instead of `"` if your text contains quotes
 - The `url` field should start with `/` for internal pages

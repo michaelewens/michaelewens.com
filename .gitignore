@@ -6,3 +6,8 @@ vite.config.ts.*
 *.tar.gz
 *.bin
 .local/
+
+# Local-only Claude Code instructions (this repo is public)
+CLAUDE.md
+CLAUDE.local.md
+.claude/
