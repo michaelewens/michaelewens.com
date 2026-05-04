@@ -12,3 +12,7 @@ CLAUDE.md
 CLAUDE.local.md
 .claude/
 _Log.md
+
+# Local CV working files (LaTeX source, build artifacts, drafts).
+# The published PDF at client/public/ewens_cv.pdf IS tracked.
+/cv/

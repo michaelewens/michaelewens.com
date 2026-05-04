@@ -135,6 +135,13 @@ export default function CV() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
               <div>
+                <h3 className="font-bold text-lg text-foreground">Polsky Center Entrepreneurship Visitor</h3>
+                <p className="text-muted-foreground">University of Chicago Booth School of Business</p>
+              </div>
+              <span className="font-mono text-sm text-muted-foreground shrink-0">May 2026</span>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+              <div>
                 <h3 className="font-bold text-lg text-foreground">Visiting Professor</h3>
                 <p className="text-muted-foreground">Yale University School of Management</p>
               </div>
@@ -444,7 +451,7 @@ export default function CV() {
           </div>
         </div>
 
-        <footer className="pt-10 text-sm text-muted-foreground">April 2026</footer>
+        <footer className="pt-10 text-sm text-muted-foreground">May 2026</footer>
       </main>
     </div>
     </>
