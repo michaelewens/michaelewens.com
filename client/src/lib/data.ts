@@ -382,6 +382,15 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n19",
+    outlet: "U.S. Securities and Exchange Commission",
+    title: "Cited in SEC proposed rule on Semiannual Reporting (Release No. 33-11414)",
+    date: "May 7, 2026",
+    url: "https://www.sec.gov/files/rules/proposed/2026/33-11414.pdf",
+    paperId: "p3",
+    description: "Proposed rule on semiannual reporting (File No. S7-2026-15; RIN 3235-AN58) cites our paper's estimates of the regulatory costs of being public."
+  },
+  {
     id: "n18",
     outlet: "MarketWatch",
     title: "Quoted in MarketWatch on Google's SpaceX and Anthropic stakes",

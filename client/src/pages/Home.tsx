@@ -28,6 +28,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u6",
+      text: "[May 2026] The Regulatory Costs of Being Public cited in SEC proposed rule on Semiannual Reporting (Release No. 33-11414)",
+      url: "https://www.sec.gov/files/rules/proposed/2026/33-11414.pdf"
+    },
+    {
       id: "u5",
       text: "[May 2026] Quoted in MarketWatch on Google's SpaceX and Anthropic stakes",
       url: "https://www.marketwatch.com/story/google-is-now-a-glorified-venture-capital-fund-thanks-to-its-spacex-and-anthropic-stakes-b13f3d56"
