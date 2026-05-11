@@ -41,21 +41,6 @@ export default function Home() {
       id: "u4",
       text: "[Feb 2026] What the Data Reveals About Startup Boards and Private Equity (Boardroom Governance with Evan Epstein)",
       url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227"
-    },
-    {
-      id: "u0",
-      text: "[Jan 2026] Michael Ewens joined AIF Global's Board of Academic Advisors",
-      url: "https://www.businesswire.com/news/home/20260128606780/en/AIF-Global-Enters-Third-Decade-of-Investor-Programming-Launches-New-Private-Wealth-Center-APAC-Expansion-Rapid-Global-Growth-of-Future-Leaders-Program"
-    },
-    {
-      id: "u1",
-      text: "[Nov 2025] New working paper \"Corporate Hierarchy\" is now available.",
-      url: "https://osf.io/preprints/socarxiv/yj4he_v2"
-    },
-    {
-      id: "u2",
-      text: "[July 2025] Gender Equity in Private Equity report released",
-      url: "https://genderequityinpe.com/"
     }
   ];
 
