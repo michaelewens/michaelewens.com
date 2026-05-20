@@ -16,3 +16,6 @@ _Log.md
 # Local CV working files (LaTeX source, build artifacts, drafts).
 # The published PDF at client/public/ewens_cv.pdf IS tracked.
 /cv/
+
+# Local archive of media-mention PDFs (not published).
+/media_mentions/

@@ -382,6 +382,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n20",
+    outlet: "Axios Pro Deals",
+    title: "Quoted in Axios Pro on rising yields and PE dealmaking",
+    date: "May 19, 2026",
+    url: "https://www.axios.com/pro/all-deals/2026/05/19/yield-surge-private-equity-deals",
+    description: "Commented on how higher rates and slower exits constrain fund size, deal volume, and the recycling of capital that PE fundraising depends on."
+  },
+  {
     id: "n19",
     outlet: "U.S. Securities and Exchange Commission",
     title: "Cited in SEC proposed rule on Semiannual Reporting (Release No. 33-11414)",
