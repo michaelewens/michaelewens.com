@@ -382,6 +382,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n21",
+    outlet: "Yahoo Finance",
+    title: "Quoted in Yahoo Finance on a potential SpaceX-Tesla merger",
+    date: "May 29, 2026",
+    url: "https://finance.yahoo.com/sectors/technology/article/why-a-merger-with-spacex-could-be-bad-for-tesla-shareholders-134417184.html",
+    description: "Explained why a stock-for-stock SpaceX-Tesla merger would expose Tesla shareholders to greater Musk control, related-party risk, weaker minority protections, and post-IPO lockup risk."
+  },
+  {
     id: "n20",
     outlet: "Axios Pro Deals",
     title: "Quoted in Axios Pro on rising yields and PE dealmaking",
