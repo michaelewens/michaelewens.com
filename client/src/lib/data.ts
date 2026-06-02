@@ -382,6 +382,15 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n22",
+    outlet: "Pensions & Investments",
+    title: "Quoted in Pensions & Investments on SEC Chair Atkins's IPO reform proposals",
+    date: "June 1, 2026",
+    url: "https://www.pionline.com/rules-regulations/government-politics/pi-sec-atkins-ipos-proposed-changes/",
+    paperId: "p3",
+    description: "Argued that regulation explains only a small share of the IPO decline and that the SEC is effectively trying to compensate for years of private-market deregulation that encouraged companies to stay private longer."
+  },
+  {
     id: "n21",
     outlet: "Yahoo Finance",
     title: "Quoted in Yahoo Finance on a potential SpaceX-Tesla merger",
