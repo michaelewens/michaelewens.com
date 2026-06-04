@@ -274,8 +274,7 @@ export default function CV() {
           </h2>
           <div className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">"SkinnyPop: Just Hot Air or a Great Investment?", Columbia Caseworks, May 2025 (Case 250315).</p>
-            <p className="text-muted-foreground leading-relaxed">"Symeres, The Pharmaceutical Industry, and The Case for (and Against) a Growth Buyout", Columbia Caseworks, October 2025 (Case TBD).</p>
-            <p className="text-muted-foreground leading-relaxed">"Private Equity's New Frontier: The Individual Investor Market", Columbia Caseworks, September 2025 (Case TBD).</p>
+            <p className="text-muted-foreground leading-relaxed">"<a href="https://caseworks.business.columbia.edu/caseworks/private-equitys-new-frontier-individual-investor-market" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Private Equity's New Frontier: The Individual Investor Market</a>", Columbia Caseworks, June 2026 (Case 260308).</p>
           </div>
         </div>
 
