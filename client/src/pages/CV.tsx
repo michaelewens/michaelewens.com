@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, Building2, Badge, MapPin, GraduationCap, BookOpen, FileText, Award, Edit, Users, Briefcase } from "lucide-react";
+import { Download, Building2, Badge, MapPin, GraduationCap, BookOpen, FileText, Award, Edit, Users, Briefcase, Presentation } from "lucide-react";
 
 export default function CV() {
   return (
@@ -422,6 +422,37 @@ export default function CV() {
             <p>Carlyle/Alpinvest PERC Panel on Retail in PE, April 8, 2026.</p>
             <p>Program Committee member: UNSW Corporate Finance Workshop 2025–, HKUST Finance Symposium 2025–, UIC Finance Conference 2024–, SFS Asia Pacific 2022–, Midwest Finance Association 2016–, European Finance Association 2018–, Washington University Corporate Finance and Financial Intermediation 2019–, SFS Cavalcade 2021–, UK Finance Conference 2021–, FOM Conference 2020–, Mitsui Finance Symposium 2023–, UIC Finance Conference 2023–, FIRS 2024–, European FMA 2025–, 2025 GSU-MS AI and FinTech conference, RCFS/RAPS Europe Conference, JCF/Renmin University "Finance at a Time of Change and Uncertainty" Conference 2026.</p>
             <p className="pt-2">Ad-hoc referee: Journal of Finance, Journal of Financial Economics, Review of Financial Studies, American Economic Review, Journal of Political Economy, Quarterly Journal of Economics, Review of Economic Studies, Review of Economics and Statistics, Management Science, Review of Finance, Journal of Banking and Finance, Journal of Corporate Finance, Journal of Urban Economics, Economic Journal, European Economic Review, Journal of Labor Economics, Journal of Economics & Management Strategy, Journal of Finance and Quantitative Analysis, Journal of Human Resources, Science Advances, Review of Accounting Studies, The Accounting Review.</p>
+          </div>
+        </div>
+
+        {/* Conferences and Invited Talks */}
+        <div className="border-t border-border pt-10 mb-10">
+          <h2 className="font-heading text-3xl font-bold mb-6 flex items-center gap-3">
+            <Presentation className="h-6 w-6 text-primary" /> Conferences and Invited Talks
+          </h2>
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 className="font-bold text-lg text-foreground mb-2">2026–2027</h3>
+              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>UBC Finance Conference, EFA, UC Berkeley Law School, USC, NHH, BI Norwegian Business School (Oslo), AFA 2027, University of Kentucky, ESADE Conference</p>
+              <p className="mt-2"><span className="italic text-foreground">Discussions/keynotes (inc. scheduled): </span>AFA 2027</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-foreground mb-2">2025–2026</h3>
+              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>Monash, ANU, UNSW, Univ. of Sydney, UTS, University of Porto, UNC Kenan-Flagler, Copenhagen Business School, AEA 2026</p>
+              <p className="mt-2"><span className="italic text-foreground">Discussions/keynotes (inc. scheduled): </span>NBER Big Data in Finance (Summer Institute), 2025 Conference on Auditing and Capital Market, PCAOB Conference, NBER Corporate Finance (Winter), FRA Conference, AFA 2026</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-foreground mb-2">2024–2025</h3>
+              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>Private Capital Markets Conference (LBS), UW Summer Finance Conference, INSEAD, HEC, SKEMA, University of Houston, EFA, Rice University, NOVA SBE, University of Georgia, University of Alberta, University of Oxford (Said), Warwick, LSE, Purdue, University of Michigan, NBER Organizational Economics</p>
+              <p className="mt-2"><span className="italic text-foreground">Discussions/keynotes (inc. scheduled): </span>NBER Entrepreneurship (Summer Institute), Journal of Corporate Finance Summer Conference (Keynote)</p>
+            </div>
+            {/* Older years retained for reference (hidden on site):
+            <div>
+              <h3 className="font-bold text-lg text-foreground mb-2">2023–2024</h3>
+              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>Georgetown University, Temple University, HKUST, CUHK, CKGSB, SEC DERA, HKU, Wharton School (Penn), University of Florida, University of Exeter, University of Bristol, University of Toronto, 6th Annual Private Markets Conference (Lausanne), NBER Summer Institute (Corporate Finance), Vanderbilt, NHH</p>
+              <p className="mt-2"><span className="italic text-foreground">Discussions/keynotes (inc. scheduled): </span>Distinguished Guest at the California Corporate Finance Conference at Loyola Marymount University, Keynote (2) at Institute for Private Capital's spring 2024 event, NBER Corporate Finance (Spring), NYU/Penn Law & Finance Conference</p>
+            </div>
+            */}
           </div>
         </div>
 
