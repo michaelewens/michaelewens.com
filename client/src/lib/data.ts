@@ -382,6 +382,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n24",
+    outlet: "NPR",
+    title: "Quoted on NPR on the SpaceX IPO and investing in Elon Musk",
+    date: "June 12, 2026",
+    url: "https://www.northcountrypublicradio.org/news/npr/nx-s1-5853199/spacex-blasts-off-with-a-record-breaking-75-billion-ipo",
+    description: "Said that anyone buying into SpaceX is effectively investing in Elon Musk: his decision-making and where he chooses to direct resources, given his control of the board and voting power after the IPO."
+  },
+  {
     id: "n23",
     outlet: "PitchBook",
     title: "Quoted in PitchBook on what Wall Street will be watching at the SpaceX IPO",
