@@ -1,12 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
-import { press, papers } from "@/lib/data";
+import { press, papers, sortPressByDate } from "@/lib/data";
 
 export default function Media() {
-  const sortedPress = [...press].sort((a, b) => {
-    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
-    if (dateDiff !== 0) return dateDiff;
-    return parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''));
-  });
+  const sortedPress = sortPressByDate(press);
 
   const getPaperTitle = (paperId?: string) => {
     if (!paperId) return null;
@@ -27,7 +23,9 @@ export default function Media() {
         </p>
 
         <div className="space-y-0">
-          {sortedPress.map((item) => (
+          {sortedPress.map((item) => {
+            const paperTitle = getPaperTitle(item.paperId);
+            return (
             <a
               key={item.id}
               href={item.url}
@@ -49,9 +47,9 @@ export default function Media() {
                       {item.description}
                     </p>
                   )}
-                  {item.paperId && getPaperTitle(item.paperId) && (
+                  {paperTitle && (
                     <p className="text-sm text-muted-foreground mt-1">
-                      Paper mentioned: {getPaperTitle(item.paperId)}
+                      Paper mentioned: {paperTitle}
                     </p>
                   )}
                 </div>
@@ -61,7 +59,8 @@ export default function Media() {
                 </div>
               </div>
             </a>
-          ))}
+            );
+          })}
         </div>
       </main>
 

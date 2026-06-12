@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
 import headshot from "@assets/optimized/ewens_arms.webp";
 import { Link } from "wouter";
-import { press } from "@/lib/data";
+import { press, sortPressByDate } from "@/lib/data";
 
 export default function About() {
   return (
@@ -30,9 +30,9 @@ export default function About() {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="w-full rounded-none font-mono uppercase tracking-wider gap-2">
-                <Link href="/cv">
+                <a href="/ewens_cv.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4" /> Download CV
-                </Link>
+                </a>
               </Button>
             </div>
 
@@ -40,7 +40,7 @@ export default function About() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-primary" />
                 <p>
-                  Columbia Busiess School<br />
+                  Columbia Business School<br />
                   665 W. 130th Street<br />
                   732 Kravis Hall<br />
                   New York, NY 10027<br />
@@ -57,7 +57,7 @@ export default function About() {
                 <p className="text-xl text-foreground font-light mb-6">
                 I am the David L. and Elsie M. Dodd Professor of Finance at the Columbia Business School and co-director of the school's <a href="https://business.columbia.edu/privateequity">Private Equity Program</a>. My <a href="/research">research</a> studies private equity, venture capital, and the financing of high-growth entrepreneurial firms. </p>
     
-                <p className="mb-4"> I investigate the interactions and differences between the public and private capital markets. It has appeared in the Journal of Finance, Journal of Financial Economics, Review of Financial Studies, and Management Science (among other). It has also appeared in the Economist, Bloomberg, and the New York Times. I am a Research Associate at the National Bureau of Economic Research and Associate Editor of the Journal of Financial Economics, Management Science and Journal of Coporate Finance. I edited the <a href="https://www.sciencedirect.com/journal/journal-of-corporate-finance/vol/81/suppl/C">JCF Special Issue on Private Equity</a> and was co-editor of the Journal of Economics & Management Strategy through 2024. </p>  
+                <p className="mb-4"> I investigate the interactions and differences between the public and private capital markets. It has appeared in the Journal of Finance, Journal of Financial Economics, Review of Financial Studies, and Management Science (among other). It has also appeared in the Economist, Bloomberg, and the New York Times. I am a Research Associate at the National Bureau of Economic Research and Associate Editor of the Journal of Financial Economics, Management Science and Journal of Corporate Finance. I edited the <a href="https://www.sciencedirect.com/journal/journal-of-corporate-finance/vol/81/suppl/C">JCF Special Issue on Private Equity</a> and was co-editor of the Journal of Economics & Management Strategy through 2024. </p>  
                  
                 <p className="mb-4">I received a Ph.D. in economics from the University of California, San Diego. Since 2006, I have been a quantitative advisor for Correlation Ventures, a quantitative-focused venture capital firm.  I <a href="/teaching">teach</a> private equity and entrepreneurial finance at the Columbia Business School.   Prior to joining Columbia in 2022, I was on the faculty at the California Institute of Technology and Carnegie Mellon University's Tepper School of Business.
                 </p>
@@ -189,12 +189,7 @@ export default function About() {
                 <Newspaper className="h-6 w-6 text-primary" /> Press Coverage
               </h2>
               <div className="space-y-0">
-                {[...press]
-                  .sort((a, b) => {
-                    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
-                    if (dateDiff !== 0) return dateDiff;
-                    return parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''));
-                  })
+                {sortPressByDate(press)
                   .slice(0, 4)
                   .map((item) => (
                   <a 

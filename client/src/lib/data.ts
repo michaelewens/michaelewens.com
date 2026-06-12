@@ -1,5 +1,5 @@
 // Project state: Static academic website for Prof. Michael Ewens.
-// Updated: January 02, 2026.
+// Updated: June 10, 2026.
 export const FEATURED_COUNT = 2;
 
 export interface Paper {
@@ -110,7 +110,7 @@ export const papers: Paper[] = [
     authors: ["Michael Ewens", "Kairong Xiao", "Ting Xu"],
     journal: "Journal of Financial Economics",
     journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155",
-    year: 2023,
+    year: 2024,
   codeUrl: "https://github.com/michaelewens/public_float_regulation",
     status: "Published",
     abstract: "We estimate the regulatory costs of being a public company using bunching estimation techniques.",
@@ -135,7 +135,7 @@ export const papers: Paper[] = [
     title: "Measuring Intangible Capital with Market Prices",
     authors: ["Michael Ewens", "Ryan Peters", "Sean Wang"],
     journal: "Management Science",
-    year: 2023,
+    year: 2024,
     status: "Published",
     abstract: "This paper addresses the challenge of accurately measuring off-balance-sheet intangible capital, such as knowledge and organizational capital, which are typically expensed under current accounting standards. We propose a novel methodology to estimate the necessary capitalization parameters, specifically the R&D depreciation rate and the fraction of SG&A to be capitalized, by utilizing market prices from firm exits. The resulting intangible capital stocks are validated to outperform standard measures in explaining firm value.",
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
@@ -193,7 +193,7 @@ export const papers: Paper[] = [
     abstract: "This paper investigates whether the decline in U.S. Initial Public Offerings (IPOs) is due to a failure in the public market or a shift in the going-public versus staying-private trade-off. We hypothesize that the deregulation of securities laws, specifically the National Securities Markets Improvement Act (NSMIA) of 1996, increased the supply of private capital. Using difference-in-differences and triple-difference analyses, the study finds that NSMIA facilitated late-stage startups remaining private, thereby explaining a significant portion of the IPO decline.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
     tags: ["Regulation", "IPO", "Private Equity"], 
-      appendixUrl:"attached_assets/IA_122519.pdf"
+      appendixUrl:"/attached_assets/IA_122519.pdf"
   },
   {
     id: "p10",
@@ -248,7 +248,7 @@ export const papers: Paper[] = [
   },
   {
     id: "p14",
-    title: "Is the VC Partnership Greater than the Sum of its Partners?",
+    title: "Is a VC Partnership Greater than the Sum of its Partners?",
     authors: ["Michael Ewens", "Matthew Rhodes-Kropf"],
     journal: "Journal of Finance",
     journalUrl: "http://onlinelibrary.wiley.com/doi/10.1111/jofi.12249/abstract",
@@ -257,7 +257,7 @@ export const papers: Paper[] = [
     abstract: "This paper investigates whether a venture capital firm's success is driven by its organizational capital or the human capital of its individual partners. Using a unique dataset of VC investments, we find that a partner's individual skill is two to five times more important than the firm's organizational structure in explaining performance. The results suggest that the partnership's value is not greater than the sum of its skilled members.",
     pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2024209",
     tags: ["Venture Capital", "Performance", "Human Capital"],
-      appendixUrl:"attached_assets/vc-partners-appendix.pdf"
+      appendixUrl:"/attached_assets/vc-partners-appendix.pdf"
 
   },
   {
@@ -311,7 +311,7 @@ export const projects: Project[] = [
   {
     id: "pr1",
     title: "Startup Board Composition Data",
-    description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2025), 'Board Dynamics over the Startup Lifecycle', Journal of Finance.",
+    description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2025), 'Board Dynamics over the Startup Life Cycle', Journal of Finance.",
     language: ["Data", "Stata"],
     url: "https://github.com/michaelewens/vc_backed_boards"
   },
@@ -346,7 +346,7 @@ export const projects: Project[] = [
   {
     id: "pr6",
     title: "Venture Capital Revenue Reported by US Banks",
-    description: "Data on U.S. bank 'venture capital revenue' used in 'Venture Capital and Startup Agglomeration' (Chen and Ewens 2023) to assess the importance of banking institutions as limited partners in VC.",
+    description: "Data on U.S. bank 'venture capital revenue' used in 'Venture Capital and Startup Agglomeration' (Chen and Ewens 2025) to assess the importance of banking institutions as limited partners in VC.",
     language: ["Data"],
     url: "https://github.com/michaelewens/Banks-In-VC"
   },
@@ -381,6 +381,14 @@ export const projects: Project[] = [
 ];
 
 export const press: PressItem[] = [
+  {
+    id: "n23",
+    outlet: "PitchBook",
+    title: "Quoted in PitchBook on what Wall Street will be watching at the SpaceX IPO",
+    date: "June 12, 2026",
+    url: "https://pitchbook.com/news/articles/heres-what-wall-street-will-be-watching-when-spacex-goes-public-friday",
+    description: "Said the markets signal that returns to investing in the \"picks and shovels\" of AI are a promising opportunity, and that firms with existing AI-infrastructure expertise like SpaceX make sense as investments."
+  },
   {
     id: "n22",
     outlet: "Pensions & Investments",
@@ -554,11 +562,19 @@ export const press: PressItem[] = [
     id: "n12",
     outlet: "IFRS",
     title: "General Requirements for Disclosure of Sustainability-related Financial Information",
-    date: "June 2023",
+    date: "June 15, 2023",
     url: "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/",
       paperId: "p3"
   }
 ];
+
+export function sortPressByDate(items: PressItem[]): PressItem[] {
+  return [...items].sort((a, b) => {
+    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateDiff !== 0) return dateDiff;
+    return parseInt(b.id.replace('n', '')) - parseInt(a.id.replace('n', ''));
+  });
+}
 
 export const courses: Course[] = [
   {

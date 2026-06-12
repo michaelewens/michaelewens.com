@@ -4,7 +4,6 @@ import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
-import heroImage from "@assets/optimized/abstract_geometric_financial_network_visualization.webp";
 import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 
 import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
@@ -12,7 +11,6 @@ import wefiImageSm from "@assets/optimized/abstract_finance_innovation_network_s
 import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
 import phdWorkshopImageMd from "@assets/optimized/academic_workshop_abstract_md.webp";
 import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.webp";
-import afaImage from "@assets/optimized/mentorship_and_guidance_abstract.webp";
 import foundingPatentsImage from "@assets/optimized/high_frequency_trading_algorithmic_lines.webp";
 import foundingPatentsImageMd from "@assets/optimized/high_frequency_trading_algorithmic_lines_md.webp";
 import foundingPatentsImageSm from "@assets/optimized/high_frequency_trading_algorithmic_lines_sm.webp";

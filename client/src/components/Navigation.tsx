@@ -1,9 +1,8 @@
 import { useLocation, Link } from "wouter";
-import { Search, Menu, X, FileText, Code, GraduationCap, Mail, Newspaper, User, Lightbulb } from "lucide-react";
+import { Search, Menu, X, FileText, Code, GraduationCap, Mail, User, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
   const [location, setLocation] = useLocation();

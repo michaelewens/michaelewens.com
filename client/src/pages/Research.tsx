@@ -1,10 +1,11 @@
 import ResearchList from "@/components/ResearchList";
-import { papers } from "@/lib/data";
+import { papers, type Paper } from "@/lib/data";
 
 export default function Research() {
-  const published = papers.filter(p => p.status === "Published");
-  const working = papers.filter(p => p.status === "Working Paper");
-  const forthcoming = papers.filter(p => p.status === "Forthcoming");
+  const byYearDesc = (a: Paper, b: Paper) => b.year - a.year;
+  const published = papers.filter(p => p.status === "Published").sort(byYearDesc);
+  const working = papers.filter(p => p.status === "Working Paper").sort(byYearDesc);
+  const forthcoming = papers.filter(p => p.status === "Forthcoming").sort(byYearDesc);
 
   return (
     <>
