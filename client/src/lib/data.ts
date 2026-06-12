@@ -228,7 +228,7 @@ export const papers: Paper[] = [
     year: 2018,
     status: "Published",
     abstract: "This paper investigates how a technological shock that lowered the cost of starting new businesses has fundamentally altered the venture capital (VC) investment model over the last decade. We document an increased prevalence of a \"spray and pray\" approach, where VCs provide smaller initial funding and limited governance to a larger number of startups, which they are more likely to abandon early. This adaptation, driven by the higher value of abandonment options, has led to a disproportionate increase in early-stage seed funding.",
-    pdfUrl: "https://ewens.sites.caltech.edu/documents/3654/vc_evolve-1.pdf",
+    pdfUrl: "/attached_assets/vc_evolve.pdf",
     tags: ["Venture Capital", "Innovation", "Experimentation"],
       appendixUrl:"/attached_assets/vc_evolveIA.pdf",
     journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X18300631"
@@ -750,7 +750,7 @@ export const projectItems: ProjectItem[] = [
     id: "proj3",
     title: "Summer PhD Workshop on Entrepreneurial Finance",
     description: "This week-long workshop follows the structure of the Entrepreneurial Finance Ph.D. course with modifications. We cover major topics from the 6-week in-person course and highlight key institutional details required for successful entrepreneurial finance research. Students have ample opportunities to interact with peers and participating faculty.",
-    url: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/"
+    url: "https://entrepreneurial.finance/summer-phd-workshop/"
   },
   {
     id: "proj4",

@@ -69,7 +69,7 @@ export default function Home() {
       image: phdWorkshopImage,
       imageMd: phdWorkshopImageMd,
       imageSm: phdWorkshopImageSm,
-      link: "https://entrepreneurial.finance/summer-phd-workshop-on-entrepreneurial-finance/",
+      link: "https://entrepreneurial.finance/summer-phd-workshop/",
     },
   ];
 
