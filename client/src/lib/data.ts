@@ -382,11 +382,35 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n27",
+    outlet: "HR Brew",
+    title: "Quoted in HR Brew on employee retention after the SpaceX IPO",
+    date: "June 22, 2026",
+    url: "https://www.hr-brew.com/stories/financial-benefits-mega-ipo-spacex",
+    description: "Said that going public typically makes companies more bureaucratic and slower-moving, and that SpaceX should commit to continued innovation and risk-taking to retain the early employees drawn to its culture and speed."
+  },
+  {
+    id: "n26",
+    outlet: "CNBC",
+    title: "Quoted on CNBC on the SpaceX IPO and the California tax windfall",
+    date: "June 18, 2026",
+    url: "https://www.cnbc.com/2026/06/18/california-ipo-tax-windfall.html",
+    description: "Said that wildly lucrative tender offers and secondary sales are largely limited to the best startups, and that a heavy tax burden on newly wealthy tech employees could drive entrepreneurial talent out of California over the long term."
+  },
+  {
+    id: "n25",
+    outlet: "Financial Times",
+    title: "Quoted in the Financial Times on the private equity curriculum at Columbia Business School",
+    date: "June 14, 2026",
+    url: "https://www.ft.com/content/58f86b16-bd70-4725-8448-54e1d15f75b2",
+    description: "Said that student demand for private equity and private credit classes has pushed Columbia Business School to build a structured private equity curriculum and expand classroom capacity, and that private markets matter for the broader economy even for students who do not enter the industry."
+  },
+  {
     id: "n24",
     outlet: "NPR",
     title: "Quoted on NPR on the SpaceX IPO and investing in Elon Musk",
     date: "June 12, 2026",
-    url: "https://www.northcountrypublicradio.org/news/npr/nx-s1-5853199/spacex-blasts-off-with-a-record-breaking-75-billion-ipo",
+    url: "https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk",
     description: "Said that anyone buying into SpaceX is effectively investing in Elon Musk: his decision-making and where he chooses to direct resources, given his control of the board and voting power after the IPO."
   },
   {
