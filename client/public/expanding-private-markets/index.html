@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Expanding Access to Private Markets — July 30, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap">
+  <style>
+    :root {
+      --background: hsl(36 20% 98%);
+      --foreground: hsl(220 10% 15%);
+      --primary: hsl(350 40% 40%);
+      --primary-foreground: hsl(36 20% 98%);
+      --muted: hsl(36 10% 90%);
+      --muted-foreground: hsl(220 10% 40%);
+      --accent: hsl(36 30% 94%);
+      --border: hsl(220 10% 85%);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+    .mono {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Header */
+    header { padding: clamp(4rem, 10vw, 7rem) 0 3rem; border-bottom: 1px solid var(--border); }
+    .kicker { color: var(--primary); font-weight: 500; margin-bottom: 1.25rem; }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 46rem;
+      margin-bottom: 2rem;
+    }
+    .logistics { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; margin-bottom: 2rem; }
+    .logistics div { display: flex; flex-direction: column; gap: 0.15rem; }
+    .logistics .label { color: var(--muted-foreground); }
+    .logistics .value { font-size: 1rem; font-weight: 400; }
+    .logistics .value a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--primary); text-underline-offset: 3px; }
+    .logistics .value a:hover { color: var(--primary); }
+    .lede {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 42rem;
+      font-weight: 300;
+    }
+
+    /* Sections */
+    section { padding: 4rem 0 1rem; }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+    .section-head .mono { color: var(--muted-foreground); }
+
+    /* Schedule */
+    .session { display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    .session:last-child { border-bottom: none; }
+    .session .time { font-family: 'Space Grotesk', monospace; font-size: 0.85rem; color: var(--primary); font-weight: 500; padding-top: 0.2rem; white-space: nowrap; }
+    .session h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .session p { color: var(--muted-foreground); font-size: 0.95rem; max-width: 38rem; }
+    .session .names { font-weight: 400; color: var(--foreground); }
+    .premortem-q {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--foreground);
+      border-left: 2px solid var(--primary);
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      margin-top: 0.9rem;
+      max-width: 36rem;
+    }
+    @media (max-width: 640px) {
+      .session { grid-template-columns: 1fr; gap: 0.4rem; }
+    }
+
+    /* Participants */
+    .participants { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.1rem 2.5rem; padding-bottom: 2rem; }
+    .participants .person { border-bottom: 1px solid var(--muted); padding-bottom: 0.6rem; }
+    .participants .name { font-weight: 400; font-size: 0.98rem; }
+    .participants .affil { color: var(--muted-foreground); font-size: 0.85rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding: 2rem 0 3rem;
+      color: var(--muted-foreground);
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="kicker mono">Invitation-Only Workshop</div>
+      <h1>Expanding Access to Private&nbsp;Markets</h1>
+      <div class="logistics">
+        <div>
+          <span class="label mono">Date</span>
+          <span class="value">Thursday, July 30, 2026</span>
+        </div>
+        <div>
+          <span class="label mono">Time</span>
+          <span class="value">9:00 AM &ndash; 1:15 PM EDT</span>
+        </div>
+        <div>
+          <span class="label mono">Location</span>
+          <span class="value">Kravis Hall 680 &middot; Columbia Business School</span>
+        </div>
+        <div>
+          <span class="label mono">Organizers</span>
+          <span class="value"><a href="https://michaelewens.com">Michael Ewens</a> (Columbia) &amp; <a href="https://ben-bates.github.io/">Ben Bates</a> (BYU Law)</span>
+        </div>
+      </div>
+      <p class="lede">A small workshop bringing together financial economists, legal academics, and industry participants on the push to bring retail investors into private markets.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Schedule</h2>
+        <span class="mono">Run of Show</span>
+      </div>
+
+      <div class="session">
+        <div class="time">9:00 – 9:15</div>
+        <div>
+          <h3>Welcome &amp; Framing</h3>
+          <p><span class="names">Michael Ewens</span> (Columbia Business School) and <span class="names">Ben Bates</span> (BYU Law)</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="time">9:15 – 10:30</div>
+        <div>
+          <h3>Part I: Academic Presentations</h3>
+          <p><span class="names">Renée Jones</span> (Boston College Law School), <span class="names">Will Clayton</span> (BYU Law), and <span class="names">Elisabeth de Fontenay</span> (Duke Law School) present the skeptical view of the expansion. <span class="names">Michael Ewens</span> and <span class="names">Ben Bates</span> present the pro case. Papers pre-circulated; each talk 15 minutes plus open discussion.</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="time">10:30 – 10:50</div>
+        <div>
+          <h3>Break</h3>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="time">10:50 – 12:00</div>
+        <div>
+          <h3>Part II: Premortem Panel</h3>
+          <p><span class="names">Greg Brown</span> (UNC Kenan-Flagler), <span class="names">Drew Carrington</span> (iCapital), and a third panelist to be announced.</p>
+          <p class="premortem-q">&ldquo;Imagine retail investors gain widespread access to private markets, and it ends badly: a run, a valuation dispute, a conflict of interest, or something else. What went wrong? Why? And what should we have been watching?&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="time">12:00 – 12:15</div>
+        <div>
+          <h3>Wrap-Up &amp; Research Agenda</h3>
+          <p>Organizers collect ideas and open questions; circulated to participants afterward.</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="time">12:15 – 1:15</div>
+        <div>
+          <h3>Working Lunch</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Participants</h2>
+        <span class="mono">Confirmed</span>
+      </div>
+      <div class="participants">
+        <div class="person"><div class="name">Ben Bates</div><div class="affil">BYU Law</div></div>
+        <div class="person"><div class="name">Greg Brown</div><div class="affil">UNC Kenan-Flagler</div></div>
+        <div class="person"><div class="name">Drew Carrington</div><div class="affil">iCapital</div></div>
+        <div class="person"><div class="name">Johan Cassel Pegelow</div><div class="affil">Vanderbilt University</div></div>
+        <div class="person"><div class="name">Will Clayton</div><div class="affil">BYU Law</div></div>
+        <div class="person"><div class="name">Elisabeth de Fontenay</div><div class="affil">Duke Law School</div></div>
+        <div class="person"><div class="name">Michael Ewens</div><div class="affil">Columbia Business School</div></div>
+        <div class="person"><div class="name">Valeria Fedyk</div><div class="affil">Arizona State University</div></div>
+        <div class="person"><div class="name">Jeffrey Gordon</div><div class="affil">Columbia Law School</div></div>
+        <div class="person"><div class="name">Michael Gropper</div><div class="affil">University of Colorado Boulder</div></div>
+        <div class="person"><div class="name">Blake Jackson</div><div class="affil">Ohio State University</div></div>
+        <div class="person"><div class="name">Renée Jones</div><div class="affil">Boston College Law School</div></div>
+        <div class="person"><div class="name">Dorothy Lund</div><div class="affil">Columbia Law School</div></div>
+        <div class="person"><div class="name">Federico Mainardi</div><div class="affil">Columbia Business School</div></div>
+        <div class="person"><div class="name">Oksana Smirnova</div><div class="affil">Cornell University</div></div>
+        <div class="person"><div class="name">Luman Zou</div><div class="affil">Columbia University</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container mono">
+      Organized by <a href="https://michaelewens.com">Michael Ewens</a> &amp; Ben Bates &middot; Columbia Business School &middot; July 30, 2026
+    </div>
+  </footer>
+
+</body>
+</html>
