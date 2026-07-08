@@ -55,7 +55,7 @@ export default function About() {
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6 text-foreground">About Me</h1>
               <div className="prose prose-lg text-muted-foreground leading-relaxed max-w-none">
                 <p className="text-xl text-foreground font-light mb-6">
-                I am the David L. and Elsie M. Dodd Professor of Finance at the Columbia Business School and co-director of the school's <a href="https://business.columbia.edu/privateequity">Private Equity Program</a>. My <a href="/research">research</a> studies private equity, venture capital, and the financing of high-growth entrepreneurial firms. </p>
+                I am the David L. and Elsie M. Dodd Professor of Finance at the Columbia Business School and director of the school's <a href="https://business.columbia.edu/privateequity">Private Equity Program</a>. My <a href="/research">research</a> studies private equity, venture capital, and the financing of high-growth entrepreneurial firms. </p>
     
                 <p className="mb-4"> I investigate the interactions and differences between the public and private capital markets. It has appeared in the Journal of Finance, Journal of Financial Economics, Review of Financial Studies, and Management Science (among other). It has also appeared in the Economist, Bloomberg, and the New York Times. I am a Research Associate at the National Bureau of Economic Research and Associate Editor of the Journal of Financial Economics, Management Science and Journal of Corporate Finance. I edited the <a href="https://www.sciencedirect.com/journal/journal-of-corporate-finance/vol/81/suppl/C">JCF Special Issue on Private Equity</a> and was co-editor of the Journal of Economics & Management Strategy through 2024. </p>  
                  
@@ -155,7 +155,7 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
                   <div>
                     <h3 className="font-bold text-lg text-foreground">Private Equity Program</h3>
-                    <p className="text-muted-foreground">Columbia Business School · Co-director</p>
+                    <p className="text-muted-foreground">Columbia Business School · Director</p>
                   </div>
                   <span className="font-mono text-sm text-muted-foreground">2023 – present</span>
                 </div>

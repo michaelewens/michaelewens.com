@@ -85,7 +85,7 @@ export default function CV() {
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
               <div>
                 <h3 className="font-bold text-lg text-foreground">Private Equity Program, Columbia Business School</h3>
-                <p className="text-muted-foreground">Co-director</p>
+                <p className="text-muted-foreground">Director (2026 – present); Co-director (2023 – 2026)</p>
               </div>
               <span className="font-mono text-sm text-muted-foreground shrink-0">2023 – present</span>
             </div>
