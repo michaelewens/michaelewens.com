@@ -248,11 +248,11 @@ export default function CV() {
             <FileText className="h-6 w-6 text-primary" /> Working Papers
           </h2>
           <div className="space-y-4">
-            <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/yj4he_v2" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Corporate Hierarchy</a>" (with Xavier Giroud)</p>
+            <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/5897u_v1" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets</a>", 2026 (with Jacob Faber)</p>
+            <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/yj4he_v2" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Corporate Hierarchy</a>", 2025 (with Xavier Giroud)</p>
             <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/6ynf4" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Local Journalism Under Private Equity Ownership</a>", 2025 Revise & resubmit, <span className="italic">Review of Financial Studies</span> (with Arpit Gupta and Sabrina Howell)</p>
             <p className="text-muted-foreground leading-relaxed">"Irreplaceable Venture Capitalists", 2023, (with Denis Sosyura)</p>
             <p className="text-muted-foreground leading-relaxed">"Firm Age and Invention: A New Public-Access Dataset", 2024 (with Matt Marx)</p>
-            <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/5897u_v1" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Liquid Claims on Illiquid Assets: The Economics of Retail Access to Private Markets</a>", 2026 (with Jacob Faber)</p>
           </div>
         </div>
 
@@ -369,7 +369,9 @@ export default function CV() {
             <div>
               <h3 className="font-bold text-lg text-foreground mb-3">Columbia Business School</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>Private Equity Value Creation (Scheduled 2025–, MBA elective)</li>
+                <li>Private Equity Capstone (2026–, MBA elective)</li>
+                <li>Private Equity Value Creation (2025–, MBA elective)</li>
+                <li>Private Equity Deals (2025, MBA elective)</li>
                 <li>Private Equity Field Study (2024–, MBA elective)</li>
                 <li>Private Equity Finance (2024–, MBA elective)</li>
                 <li>Private Equity Allocation (2024, MBA elective)</li>
@@ -433,7 +435,7 @@ export default function CV() {
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <div>
               <h3 className="font-bold text-lg text-foreground mb-2">2026–2027</h3>
-              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>UBC Finance Conference, EFA, UC Berkeley Law School, USC, NHH, BI Norwegian Business School (Oslo), AFA 2027, University of Kentucky, ESADE Conference</p>
+              <p><span className="italic text-foreground">Conferences and invited seminars (inc. scheduled): </span>UBC Finance Conference, EFA, UC Berkeley Law School, USC, University of Maryland, NHH, BI Norwegian Business School (Oslo), Barcelona Conference, AFA 2027, University of Kentucky, Ivey Business School</p>
               <p className="mt-2"><span className="italic text-foreground">Discussions/keynotes (inc. scheduled): </span>AFA 2027</p>
             </div>
             <div>
