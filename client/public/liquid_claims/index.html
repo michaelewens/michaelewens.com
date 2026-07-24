@@ -348,6 +348,20 @@ body.role-speaker .editbadge{ display:none !important; }
 .taxonomy-col li{ margin:0 0 12px; font-size:29px; line-height:1.17; }
 .taxonomy-col li::marker{ color:var(--cbsblue); }
 .taxonomy-bridge{ margin-top:30px; color:var(--ink); font-size:34px; line-height:1.2; font-weight:600; }
+.acct-grid{ display:grid; grid-template-columns:1fr 1.12fr 1fr; gap:46px; margin-top:20px; align-items:start; }
+.acct-col h3{ margin:0 0 16px; color:var(--cbsblue); font-size:25px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.acct-ladder{ display:flex; flex-direction:column; gap:10px; }
+.acct-row{ display:flex; justify-content:space-between; align-items:baseline; padding:11px 16px; background:#f5f5f5; border-radius:8px; font-size:27px; line-height:1.15; }
+.acct-row .num{ font-weight:700; white-space:nowrap; margin-left:14px; }
+.acct-row.total{ background:#eef1fa; border:2px solid var(--cbsblue); font-weight:700; color:var(--cbsblue); }
+.acct-row.bad .num{ color:var(--cbsred); }
+.acct-row.good .num{ color:var(--cbsblue); }
+.sleeve-card{ padding:13px 16px; background:#f5f5f5; border-radius:8px; font-size:26px; line-height:1.25; margin-bottom:10px; }
+.sleeve-card b{ display:block; color:var(--cbsblue); font-size:26px; margin-bottom:3px; }
+.acct-punch{ margin-top:16px; font-size:28px; font-weight:700; color:var(--cbsblue); line-height:1.2; }
+.acct-eq{ display:block; margin:34px auto 0; width:60%; }
+.table-solo{ width:62%; margin:30px auto 0; }
+.table-solo .model-table-label{ font-size:25px; margin-bottom:12px; }
 .gap-chart{ display:grid; grid-template-columns:120px 1fr 280px; gap:22px 28px; align-items:center; margin:34px 36px 0; }
 .gap-label{ font-size:34px; font-weight:600; text-align:left; }
 .gap-track{ height:58px; background:#f1f2f5; border-right:4px solid var(--ink); border-radius:7px 0 0 7px; overflow:hidden; display:flex; justify-content:flex-end; }
@@ -817,38 +831,6 @@ body.role-speaker .editbadge{ display:none !important; }
     <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
   </section>
 
-  <!-- MEASURED WEDGES VERSUS MECHANISMS -->
-  <section class="slide chrome">
-    <div class="pad with-question">
-      <h2 class="ftitle">What explains the gap?</h2>
-      <div class="taxonomy-grid">
-        <div class="taxonomy-col">
-          <h3>Measured return wedges</h3>
-          <div class="tax-sub">Components of the accounting decomposition</div>
-          <ul>
-            <li>Retail fees</li>
-            <li>Cash and STIV drag</li>
-            <li>Drawdown-beta shortfall</li>
-            <li>Offsetting gross retail premium and public-market contribution</li>
-          </ul>
-        </div>
-        <div class="taxonomy-col">
-          <h3>Mechanisms and risk channels</h3>
-          <div class="tax-sub">Mechanism and risk evidence</div>
-          <ul>
-            <li>Portfolio composition and deployment speed</li>
-            <li>Model-based valuation and timing</li>
-            <li>Selection toward earlier distributions</li>
-            <li>Redemption capacity and manager incentives</li>
-          </ul>
-        </div>
-      </div>
-      <div class="taxonomy-bridge">Fees and cash measure the price of access. The drawdown-beta term shows whether the wrapper changes the exposure delivered.</div>
-    </div>
-    <div class="rule"></div><div class="wm">Columbia Business School</div>
-    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
-  </section>
-
   <!-- OUTLINE: RETURN WEDGE -->
   <section class="slide chrome">
     <div class="pad mid">
@@ -868,46 +850,65 @@ body.role-speaker .editbadge{ display:none !important; }
     <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
   </section>
 
+  <!-- WHY A FACTOR MODEL: ACCOUNTING VS EXPOSURE -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Decomposing the gap, accounting + model</h2>
+      <div class="econ-question">Does the sleeve deliver private-market exposure, or just private-market-sized returns?</div>
+      <div class="acct-grid">
+        <div class="acct-col">
+          <h3>What accounting sees</h3>
+          <div class="acct-ladder">
+            <div class="acct-row"><span>Retail minus MSCI</span><span class="num">−122 bp</span></div>
+            <div class="acct-row"><span>Fees</span><span class="num">−71</span></div>
+            <div class="acct-row"><span>Cash drag</span><span class="num">−21</span></div>
+            <div class="acct-row total"><span>Sleeve vs. index</span><span class="num">−30</span></div>
+          </div>
+        </div>
+        <div class="acct-col">
+          <h3>Same −30, two products</h3>
+          <div class="sleeve-card"><b>Sleeve A · β = 1</b>The index, minus frictions.</div>
+          <div class="sleeve-card"><b>Sleeve B · β = 0.47</b>47¢ of index per dollar; 53¢ of other assets that kept up.</div>
+        </div>
+        <div class="acct-col">
+          <h3>What the model sees</h3>
+          <div class="acct-ladder">
+            <div class="acct-row bad"><span>Missing index exposure</span><span class="num">−136</span></div>
+            <div class="acct-row good"><span>Equity risk inside the private book</span><span class="num">+61</span></div>
+            <div class="acct-row good"><span>Premium above exposures</span><span class="num">+46</span></div>
+            <div class="acct-row total"><span>Net</span><span class="num">−30</span></div>
+          </div>
+        </div>
+      </div>
+      <img class="acct-eq" src="assets/return_model_equation.png" alt="Annotated return model decomposing retail excess returns into alpha, public-market exposure, drawdown exposure, residual return, cash return, and retail fees">
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
   <!-- 10. RETURN MODEL AND ESTIMATES -->
   <section class="slide chrome with-question">
     <div class="pad">
       <h2 class="ftitle">Private exposure is meaningful and diluted</h2>
-      <div class="econ-question">After removing fees and cash, how much drawdown exposure remains?</div>
-      <div class="model-combined">
-        <div>
-          <ul class="model-bullets">
-            <li><b>Fees:</b> add back observed retail expenses.</li>
-            <li><b>Cash drag:</b> remove cash and STIV returns and rescale the non-cash sleeve.</li>
-            <li><b>Public markets:</b> estimate the public-market loading.</li>
-            <li><b>Private markets:</b> estimate the matched MSCI drawdown loading.</li>
-          </ul>
-          <img class="model-equation" src="assets/return_model_equation.png" alt="Annotated return model decomposing retail excess returns into alpha, public-market exposure, drawdown exposure, residual return, cash return, and retail fees">
-        </div>
-        <div>
-          <div class="model-table-label">Table 6. Fee- and liquidity-adjusted return model</div>
-          <table class="paper-table dense" aria-label="Fee- and liquidity-adjusted return model">
-            <thead>
-              <tr><th></th><th>All</th><th>Credit</th><th>PE</th><th>VC</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Alpha</td><td>0.005</td><td>−0.002</td><td>0.009</td><td>0.010</td></tr>
-              <tr class="se"><td></td><td>(0.007)</td><td>(0.005)</td><td>(0.007)</td><td>(0.008)</td></tr>
-              <tr><td>Market</td><td>0.182**</td><td>0.124**</td><td>0.027</td><td>0.377**</td></tr>
-              <tr class="se"><td></td><td>(0.070)</td><td>(0.046)</td><td>(0.074)</td><td>(0.131)</td></tr>
-              <tr><td>Private benchmark</td><td>0.466***</td><td>1.245***</td><td>0.593***</td><td>0.160</td></tr>
-              <tr class="se"><td></td><td>(0.076)</td><td>(0.239)</td><td>(0.097)</td><td>(0.101)</td></tr>
-              <tr class="midrule stat"><td>Cash + STIV share</td><td>7.63%</td><td>4.67%</td><td>9.41%</td><td>9.41%</td></tr>
-              <tr class="stat"><td>Annual retail expense ratio</td><td>2.86%</td><td>3.32%</td><td>2.58%</td><td>2.58%</td></tr>
-              <tr class="stat"><td>Observations</td><td>24</td><td>24</td><td>24</td><td>24</td></tr>
-              <tr class="stat"><td>Adjusted R²</td><td>0.814</td><td>0.889</td><td>0.733</td><td>0.689</td></tr>
-            </tbody>
-          </table>
-          <ul class="model-insights">
-            <li>Alpha is near zero in every strategy: little of the gap remains unexplained once exposure is modeled.</li>
-            <li>Private-benchmark loading: credit 1.245, PE 0.593, VC 0.160. The VC estimate is imprecise.</li>
-            <li>PE and VC share the pooled non-credit cash and fee calibration.</li>
-          </ul>
-        </div>
+      <div class="table-solo">
+        <div class="model-table-label">Table 6. Fee- and liquidity-adjusted return model</div>
+        <table class="paper-table dense" aria-label="Fee- and liquidity-adjusted return model">
+          <thead>
+            <tr><th></th><th>All</th><th>Credit</th><th>PE</th><th>VC</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Alpha</td><td>0.005</td><td>−0.002</td><td>0.009</td><td>0.010</td></tr>
+            <tr class="se"><td></td><td>(0.007)</td><td>(0.005)</td><td>(0.007)</td><td>(0.008)</td></tr>
+            <tr><td>Market</td><td>0.182**</td><td>0.124**</td><td>0.027</td><td>0.377**</td></tr>
+            <tr class="se"><td></td><td>(0.070)</td><td>(0.046)</td><td>(0.074)</td><td>(0.131)</td></tr>
+            <tr><td>Private benchmark</td><td>0.466***</td><td>1.245***</td><td>0.593***</td><td>0.160</td></tr>
+            <tr class="se"><td></td><td>(0.076)</td><td>(0.239)</td><td>(0.097)</td><td>(0.101)</td></tr>
+            <tr class="midrule stat"><td>Cash + STIV share</td><td>7.63%</td><td>4.67%</td><td>9.41%</td><td>9.41%</td></tr>
+            <tr class="stat"><td>Annual retail expense ratio</td><td>2.86%</td><td>3.32%</td><td>2.58%</td><td>2.58%</td></tr>
+            <tr class="stat"><td>Observations</td><td>24</td><td>24</td><td>24</td><td>24</td></tr>
+            <tr class="stat"><td>Adjusted R²</td><td>0.814</td><td>0.889</td><td>0.733</td><td>0.689</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="rule"></div><div class="wm">Columbia Business School</div>
@@ -927,40 +928,6 @@ body.role-speaker .editbadge{ display:none !important; }
       <ul class="decomp-intuition">
         <li><b>Intuition:</b> like an index fund that is only 47% invested in its index, these vehicles mechanically trail when the private benchmark rises, even if alpha is zero.</li>
       </ul>
-    </div>
-    <div class="rule"></div><div class="wm">Columbia Business School</div>
-    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
-  </section>
-
-  <!-- CLOSING THE RETURN LOOP -->
-  <section class="slide chrome">
-    <div class="pad">
-      <h2 class="ftitle">Return of the private sleeve</h2>
-      <div class="remaining-grid">
-        <div class="remaining-explain">
-          <p class="remaining-lead">Calculating the return on the private sleeve: add back expenses and remove the contributions from cash and priced public holdings.</p>
-          <div class="remaining-algebra" aria-label="Algebra for the return on the private sleeve">
-            <div class="lhs">Return on the private sleeve</div>
-            <div class="fraction">
-              <div class="numerator">Net fund return + expenses − cash contribution − priced-public contribution</div>
-              <div class="denominator">1 − cash share − priced-public share</div>
-            </div>
-          </div>
-          <ul class="remaining-steps">
-            <li>The resulting sleeve is 99% classified private assets.</li>
-            <li>This is not a return built security by security.</li>
-          </ul>
-          <div class="remaining-metrics">
-            <div class="remaining-metric"><b>−120 bp/q</b><span>whole-fund gap to MSCI</span></div>
-            <div class="remaining-arrow">→</div>
-            <div class="remaining-metric"><b>−31 bp/q</b><span>private-sleeve gap</span></div>
-          </div>
-        </div>
-        <div>
-          <img class="remaining-figure" src="assets/private_sleeve_returns_slide.png" alt="Quarterly and cumulative returns for the net retail portfolio, the calculated private sleeve, and MSCI">
-          <div class="remaining-caveat">May contain unmatched public positions, leverage, derivatives, and within-quarter trading. Sample: 2019Q4–2025Q3.</div>
-        </div>
-      </div>
     </div>
     <div class="rule"></div><div class="wm">Columbia Business School</div>
     <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
@@ -1260,7 +1227,7 @@ body.role-speaker .editbadge{ display:none !important; }
       <h2 class="ftitle">The limits of liquid access to private markets</h2>
       <ul class="b conclusion-list">
         <li><b>What survives:</b> meaningful exposure, but the whole fund trails its drawdown benchmark by 1.22% per quarter.</li>
-        <li><b>Where the gap sits:</b> after adding back expenses and removing cash and priced public holdings, the remaining-portfolio gap is 0.31% per quarter.</li>
+        <li><b>Where the gap sits:</b> after removing fees and cash drag, the sleeve trails the index by about 30 bp per quarter.</li>
         <li><b>What the model says:</b> alpha is near zero, so the gap mainly reflects the exposure delivered rather than unexplained underperformance.</li>
         <li><b>Why exposure differs:</b> composition, deployment, valuation, and selection help explain a drawdown loading below one; their separate return effects are not yet measured.</li>
         <li><b>Redemption behavior:</b> retail access is not associated with greater performance sensitivity in this sample. Severe stress remains untested.</li>
