@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Liquid Claims on Illiquid Assets — V5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+/* === FIXED 16:9 STAGE === */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#33363d;}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:#33363d;}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;transition:opacity .35s ease;}
+.slide.active{visibility:visible;opacity:1;}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.15s!important;}}
+
+/* === CBS / cbspe palette + type === */
+:root{
+  --cbsblue:#2c3e8f; --cbsred:#c0392b; --cbsgreen:#27ae60;
+  --cbsgray:#555555; --cbslightgray:#dddddd; --headergray:#888888;
+  --ink:#1a1a1a;
+}
+*{font-family:'Source Sans 3',sans-serif;}
+.slide{ background:#ffffff; color:var(--ink); }
+.pad{ position:absolute; left:150px; right:150px; top:96px; bottom:130px;
+      display:flex; flex-direction:column; justify-content:flex-start; }
+.pad.mid{ justify-content:center; top:70px; }   /* centered layout for title-page / dividers */
+
+/* cbspe-style footer chrome */
+.chrome .rule{ position:absolute; left:64px; right:64px; bottom:78px; height:1px; background:var(--cbslightgray); }
+.chrome .wm{ position:absolute; left:64px; bottom:42px; font-size:24px; font-weight:700; color:var(--cbsblue); letter-spacing:.01em; }
+.chrome .ctr{ position:absolute; left:0; right:0; bottom:46px; text-align:center; font-size:20px; color:var(--headergray); }
+.chrome .pg{ position:absolute; right:64px; bottom:38px; background:#f5f5f5; border-radius:6px; padding:5px 13px; font-size:20px; color:#444; }
+
+/* Frame title (cbspe: Large bold black, top-left) */
+.ftitle{ font-size:76px; font-weight:700; color:var(--ink); margin:0 0 40px; letter-spacing:-.01em; }
+.kick{ font-size:24px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--cbsblue); margin-bottom:14px; }
+
+/* Title slide (cbspe centered) */
+.center{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.t-title{ font-size:150px; font-weight:900; color:var(--cbsblue); letter-spacing:-.02em; line-height:1; }
+.t-sub{ font-size:48px; color:var(--cbsgray); margin-top:26px; }
+.t-meta{ margin-top:60px; font-size:30px; color:var(--ink); }
+.t-meta span{ display:block; color:var(--cbsgray); font-size:26px; margin-top:8px; }
+
+/* Section divider (cbspe Part style) */
+.d-wrap{ text-align:center; }
+.d-part{ font-size:34px; font-weight:700; letter-spacing:.35em; text-transform:uppercase; color:var(--cbsgray); }
+.d-title{ font-size:104px; font-weight:900; color:var(--cbsblue); margin-top:24px; line-height:1.04; }
+
+/* Bullets (cbspe blue square) */
+ul.b{ list-style:none; margin:0; padding:0; }
+ul.b li{ font-size:46px; line-height:1.34; margin:0 0 30px; padding-left:50px; position:relative; max-width:1480px; }
+ul.b li::before{ content:""; position:absolute; left:0; top:20px; width:20px; height:20px; background:var(--cbsblue); }
+ul.b li small{ display:block; font-size:34px; color:var(--cbsgray); margin-top:4px; }
+
+/* Fragments (click-to-reveal builds) */
+.frag{ opacity:0; transform:translateY(14px); transition:opacity .4s ease, transform .4s ease; }
+.frag.on{ opacity:1; transform:none; }
+.frag.dim-before{ opacity:.28; transform:none; filter:grayscale(1); }
+.frag.dim-before.on{ opacity:1; filter:none; }
+
+/* Hint chip */
+.hint{ position:absolute; right:64px; top:40px; font-size:20px; color:#fff; background:var(--cbsblue);
+       padding:8px 16px; border-radius:20px; opacity:.9; }
+
+/* Animated bar chart */
+.chart{ display:flex; align-items:flex-end; gap:46px; height:560px; margin-top:30px; padding-left:6px; }
+.bar{ width:150px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+.barfill{ width:100%; background:linear-gradient(var(--cbsblue),#4257b0); height:0; border-radius:6px 6px 0 0; transition:height 1.1s cubic-bezier(.2,.7,.2,1); }
+.slide.active .barfill{ height:var(--h); }
+.barlab{ margin-top:16px; font-size:30px; font-weight:600; color:var(--ink); }
+.barval{ font-size:26px; color:var(--cbsgray); margin-bottom:10px; }
+.note{ font-size:24px; color:var(--headergray); margin-top:18px; }
+
+/* Reveal-the-answer */
+.qa{ margin-top:20px; }
+.q{ font-size:54px; font-weight:700; color:var(--ink); }
+.a{ font-size:44px; color:var(--cbsblue); margin-top:34px; border-left:6px solid var(--cbsblue); padding-left:30px; }
+
+/* Two-column cards */
+.cols{ display:grid; grid-template-columns:1fr 1fr; gap:54px; margin-top:36px; }
+.card{ background:#f5f5f5; border-radius:10px; padding:42px 46px; }
+.card h3{ font-size:28px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cbsblue); margin:0 0 24px; }
+.card.warn h3{ color:var(--cbsred); }
+.card p{ font-size:40px; line-height:1.36; margin:0 0 18px; }
+
+/* Split: text column + stacked media (screenshots), all in flow.
+   Use for "bullets + supporting screenshots" slides INSTEAD of absolute imgs.
+   Markup: .pad > .split > (.txt > ul.b) + (.media > img...). Add .media-left to
+   put images on the left. Cap a tall/portrait image with inline max-height so
+   the stack fits. For many small images, stitch them to one (scripts/stitch_collage.py). */
+.split{ display:grid; grid-template-columns:1.08fr .92fr; gap:54px; margin-top:6px; align-items:start; }
+.split.media-left{ grid-template-columns:.92fr 1.08fr; }
+.split.media-left .media{ order:-1; }
+.split .media{ display:flex; flex-direction:column; gap:22px; align-items:center; }
+.split .media img{ display:block; max-width:100%; height:auto; border:1px solid var(--cbslightgray); border-radius:6px; }
+.split ul.b li{ font-size:38px; line-height:1.3; margin:0 0 18px; }
+
+/* Top-right corner image (QR / logo / small figure): text WRAPS around it
+   instead of the whole text block being narrowed. Put the <img> as the FIRST
+   child of the body container (.bodyflow or the content block) and set its
+   width inline. The negative top margin lifts it into the corner beside the
+   title; tune to the title height (1-line title ~ -150px, 2-line ~ -70px). */
+.corner-tr{ float:right; margin:-150px 0 22px 48px; }
+
+/* Looping motion demo (gif/video stand-in) */
+.flow{ display:flex; align-items:center; gap:0; margin-top:50px; }
+.node{ width:150px; height:150px; border-radius:50%; background:var(--cbsblue); color:#fff;
+       display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:700; flex:0 0 auto;
+       animation:pulse 2.4s ease-in-out infinite; }
+.node.n2{ animation-delay:.6s; background:#3a4ea0; } .node.n3{ animation-delay:1.2s; background:#4257b0; }
+.link{ flex:1; height:6px; background:var(--cbslightgray); position:relative; overflow:hidden; }
+.link::after{ content:""; position:absolute; left:-40%; top:0; width:40%; height:100%; background:var(--cbsblue);
+       animation:slidethru 2.4s linear infinite; }
+.link.l2::after{ animation-delay:.6s; }
+@keyframes pulse{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.12);} }
+@keyframes slidethru{ from{left:-40%;} to{left:100%;} }
+
+/* === In-slide show/hide toggles === */
+.togglerow{ display:flex; flex-direction:column; gap:20px; margin-top:30px; max-width:1520px; }
+.tg{ border:2px solid var(--cbslightgray); border-radius:10px; overflow:hidden; }
+.tg .head{ display:flex; justify-content:space-between; align-items:center; padding:24px 32px; cursor:pointer; font-size:38px; font-weight:600; }
+.tg .head .sign{ color:var(--cbsblue); font-weight:700; font-size:46px; line-height:1; }
+.tg .body{ max-height:0; overflow:hidden; transition:max-height .4s ease; background:#f5f7fc; }
+.tg .body p{ margin:0; padding:0 32px; font-size:32px; color:var(--cbsgray); line-height:1.4; }
+.tg.open .body{ max-height:260px; } .tg.open .body p{ padding:22px 32px; }
+
+/* === Tabs within a slide === */
+.tabs{ display:flex; gap:12px; margin-top:34px; }
+.tab{ padding:18px 38px; border-radius:10px 10px 0 0; background:#eef1f8; color:var(--cbsgray); font-size:34px; font-weight:600; cursor:pointer; }
+.tab.on{ background:var(--cbsblue); color:#fff; }
+.tabpanel{ display:none; border:2px solid var(--cbsblue); border-radius:0 12px 12px 12px; padding:46px 50px; font-size:44px; line-height:1.4; max-width:1500px; }
+.tabpanel.on{ display:block; }
+
+/* === Live slider widget === */
+.widget{ margin-top:40px; max-width:1500px; }
+.widget .row{ display:flex; align-items:center; gap:28px; font-size:40px; }
+.widget input[type=range]{ width:660px; accent-color:var(--cbsblue); height:12px; }
+.widget .out{ margin-top:36px; font-size:108px; font-weight:900; color:var(--cbsblue); line-height:1; }
+.widget .cap{ font-size:30px; color:var(--cbsgray); margin-top:16px; }
+
+/* === Count-up metrics + hover tooltip === */
+.metrics{ display:flex; gap:120px; margin-top:46px; }
+.metric .big{ font-size:130px; font-weight:900; color:var(--cbsblue); line-height:1; }
+.metric .lab{ font-size:32px; color:var(--cbsgray); margin-top:10px; }
+.term{ color:var(--cbsblue); border-bottom:3px dotted var(--cbsblue); cursor:help; position:relative; font-weight:600; }
+.term .tip{ position:absolute; left:0; bottom:135%; width:560px; background:#1a1a1a; color:#fff; font-size:27px; line-height:1.4;
+  padding:18px 24px; border-radius:12px; opacity:0; pointer-events:none; transition:opacity .25s; z-index:20; }
+.term:hover .tip{ opacity:1; }
+
+/* === Inline edit affordance (E key) === */
+.editing [contenteditable="true"]{ outline:2px dashed var(--cbsblue); outline-offset:6px; border-radius:4px; }
+.editbadge{ position:fixed; left:24px; top:20px; background:var(--cbsblue); color:#fff; font-size:22px; padding:9px 18px; border-radius:20px; display:none; z-index:9999; }
+.editing .editbadge{ display:block; }
+
+/* === Structured body from pptx import (numbered lists, nesting, plain, links) === */
+.bodyflow{ max-width:1480px; }
+ol.bn{ list-style:none; margin:0; padding:0; counter-reset:bn; }
+ol.bn>li{ counter-increment:bn; font-size:46px; line-height:1.34; margin:0 0 30px; padding-left:62px; position:relative; max-width:1480px; }
+ol.bn>li::before{ content:counter(bn) "."; position:absolute; left:0; top:0; color:var(--cbsblue); font-weight:700; }
+li > ul.b, li > ol.bn{ margin-top:12px; margin-left:34px; margin-bottom:8px; }
+li > ul.b > li, li > ol.bn > li{ font-size:40px; margin:0 0 16px; }
+p.bodyplain{ font-size:46px; line-height:1.34; margin:0 0 30px; max-width:1480px; }
+.bodyflow a{ color:var(--cbsblue); text-decoration:underline; }
+.bodyflow em{ font-style:italic; }
+.bodyflow strong{ font-weight:700; }
+    .so-wrap{ display:flex; align-items:center; height:100%; }
+    .so-left{ flex:0 0 60%; text-align:center; padding:0 56px; }
+    .so-title{ font-size:84px; font-weight:900; color:var(--cbsblue); line-height:1.05; }
+    .so-sub{ font-size:34px; color:var(--cbsgray); margin-top:22px; line-height:1.3; }
+    .so-rule{ width:2px; align-self:stretch; background:var(--cbslightgray,#d4d8e0); margin:70px 0; }
+    .so-list{ flex:1; padding-left:64px; }
+    .so-cur{ font-size:38px; font-weight:700; color:var(--cbsblue); margin:22px 0; padding-left:46px; text-indent:-46px; }
+    .so-cur::before{ content:"\25B6"; color:var(--cbsblue); margin-right:20px; font-size:30px; }
+    .so-oth{ font-size:34px; color:var(--cbsgray); margin:22px 0; padding-left:46px; text-indent:-46px; }
+    .so-oth::before{ content:"\25A0"; color:var(--cbsgray); margin-right:22px; font-size:22px; vertical-align:middle; }
+
+/* ===== Speaker notes + two-screen presenter view (reusable, zero-cost on audience) ===== */
+.notes{ display:none; }
+body.role-speaker .deck-viewport{ display:none; }
+body.role-speaker .editbadge{ display:none !important; }
+.present{ position:fixed; inset:0; z-index:9998; background:#1b1e25; color:#fff; display:flex; flex-direction:column; font-family:'Source Sans 3',sans-serif; }
+.present-bar{ display:flex; align-items:center; gap:30px; padding:14px 30px; background:#12141a; font-size:30px; }
+.present-bar .p-clock{ color:#c7cfe0; font-variant-numeric:tabular-nums; }
+.present-bar .p-timer{ color:#fff; font-weight:700; cursor:pointer; background:#2c3e8f; padding:4px 18px; border-radius:8px; font-variant-numeric:tabular-nums; }
+.present-bar .p-count{ margin-left:auto; color:#9aa6bf; font-weight:700; font-variant-numeric:tabular-nums; }
+.present-main{ flex:1; display:flex; gap:18px; padding:18px 22px; min-height:0; }
+.p-pane{ display:flex; flex-direction:column; min-width:0; }
+.p-pane.p-cur{ flex:3; } .p-pane.p-nxt{ flex:2; }
+.p-lab{ font-size:19px; letter-spacing:.16em; text-transform:uppercase; color:#8b97b3; margin-bottom:8px; }
+.p-frame{ flex:1; width:100%; border:0; border-radius:10px; background:#33363d; box-shadow:0 6px 26px rgba(0,0,0,.45); }
+.present-notes{ height:27%; padding:14px 30px 20px; background:#12141a; overflow:auto; }
+.present-notes .p-notes-body{ font-size:32px; line-height:1.45; color:#eef1f7; }
+.present-notes .p-notes-body p{ margin:0 0 12px; }
+.p-empty{ color:#5f6a85; font-style:italic; }
+
+/* === RETAIL PE TALK: FIRST-PASS LAYOUTS === */
+.so-grid{ display:grid; grid-template-columns:.76fr 1.24fr; gap:90px; align-items:center; width:100%; }
+.so-left{ border-right:2px solid var(--cbslightgray); padding-right:70px; }
+.so-title{ font-size:98px; line-height:1.02; font-weight:900; color:var(--cbsblue); }
+.so-sub{ margin-top:24px; font-size:31px; line-height:1.35; color:var(--cbsgray); }
+.so-list{ padding-left:20px; }
+.so-cur{ font-size:40px; font-weight:800; color:var(--cbsblue); margin:24px 0; padding-left:50px; text-indent:-50px; }
+.so-cur::before{ content:"\25B6"; color:var(--cbsblue); margin-right:22px; font-size:25px; vertical-align:middle; }
+.so-oth{ font-size:34px; color:var(--cbsgray); margin:22px 0; padding-left:46px; text-indent:-46px; }
+.so-oth::before{ content:"\25A0"; color:var(--cbsgray); margin-right:22px; font-size:22px; vertical-align:middle; }
+.placeholder-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.placeholder{
+  min-height:205px; border:3px dashed #aeb6ca; border-radius:10px; background:#f7f8fb;
+  display:flex; flex-direction:column; justify-content:center; padding:28px 34px; box-sizing:border-box;
+}
+.placeholder strong{ font-size:27px; letter-spacing:.10em; text-transform:uppercase; color:var(--cbsblue); }
+.placeholder span{ font-size:31px; line-height:1.25; color:var(--cbsgray); margin-top:10px; }
+.punch{
+  margin-top:26px; padding:22px 28px; background:#eef1fa; border-radius:8px;
+  font-size:36px; line-height:1.25; color:var(--cbsblue); font-weight:700;
+}
+.question-box{
+  background:#eef1fa; border-radius:12px; padding:46px 52px; font-size:48px;
+  line-height:1.23; color:var(--cbsblue); font-weight:800;
+}
+.research-question{ margin:0 0 30px; font-size:46px; line-height:1.18; color:var(--cbsblue); font-weight:800; }
+.with-question .ftitle{ margin-bottom:14px; }
+.econ-question{ margin:0 0 20px; font-size:31px; line-height:1.2; color:var(--cbsblue); font-weight:700; }
+.mechanism-tag{ margin-bottom:9px; color:var(--cbsblue); font-size:23px; line-height:1; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+.lesson-band{ margin-top:13px; padding:15px 20px; background:#eef1fa; color:var(--cbsblue); font-size:29px; line-height:1.18; font-weight:800; }
+.literature-heading{ margin:0 0 16px; font-size:37px; color:var(--ink); font-weight:700; }
+.literature-bullets{ margin:0; padding-left:35px; }
+.literature-bullets li{ margin:0 0 17px; padding-left:8px; font-size:36px; line-height:1.18; color:var(--ink); }
+.literature-bullets li::marker{ color:var(--cbsblue); }
+.literature-bullets b{ color:var(--cbsblue); }
+.relative-contribution{ margin-top:18px; padding-top:18px; border-top:2px solid var(--cbslightgray); font-size:36px; line-height:1.18; color:var(--ink); }
+.relative-contribution b{ color:var(--cbsblue); }
+.plain{ font-size:38px; line-height:1.35; color:var(--ink); }
+.plain.small{ font-size:31px; }
+.muted{ color:var(--cbsgray); }
+.vehicle-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:44px; align-items:start; }
+.vehicle-types{ display:flex; flex-direction:column; gap:22px; }
+.vehicle{
+  padding:28px 32px; background:#f4f5f8; border-radius:9px;
+  border-left:8px solid var(--cbsblue);
+}
+.vehicle h3{ margin:0 0 8px; font-size:34px; color:var(--cbsblue); }
+.vehicle p{ margin:0; font-size:30px; line-height:1.25; color:var(--cbsgray); }
+.mechanism{
+  display:grid; grid-template-columns:1fr 90px 1.7fr 90px 1.12fr; gap:15px;
+  align-items:center; margin-top:30px;
+}
+.mech-node{ background:#f4f5f8; border-radius:10px; padding:30px; text-align:center; }
+.mech-node.primary{ background:#eef1fa; border:3px solid var(--cbsblue); }
+.mech-node h3{ font-size:34px; margin:0 0 15px; color:var(--cbsblue); }
+.mech-node p{ font-size:28px; line-height:1.25; margin:0; color:var(--cbsgray); }
+.arrow{ font-size:62px; color:var(--cbsblue); text-align:center; font-weight:800; }
+.sleeves{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+.sleeve{ background:#fff; border:1px solid var(--cbslightgray); border-radius:6px; padding:16px 10px; font-size:25px; }
+.constraint-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px 22px; margin-top:12px; }
+.constraint{ min-height:170px; background:#f4f5f8; border-radius:9px; padding:26px 28px; box-sizing:border-box; }
+.constraint b{ display:block; font-size:31px; color:var(--cbsblue); margin-bottom:8px; }
+.constraint span{ font-size:27px; line-height:1.23; color:var(--cbsgray); }
+.promise-core{ width:78%; margin:0 auto; padding:12px 28px 14px; box-sizing:border-box; border:3px solid var(--cbsblue); border-radius:10px; background:#eef1fa; text-align:center; color:var(--cbsblue); }
+.promise-core b{ display:block; margin-bottom:4px; font-size:25px; line-height:1.05; letter-spacing:.08em; text-transform:uppercase; }
+.promise-core span{ display:block; font-size:37px; line-height:1.12; font-weight:900; }
+.promise-arrow{ height:40px; text-align:center; color:var(--cbsblue); font-size:43px; line-height:1; font-weight:900; }
+.promise-effects{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.promise-effect{ min-height:148px; padding:22px 20px; box-sizing:border-box; border-top:6px solid var(--cbsblue); background:#f4f5f8; }
+.promise-effect b{ display:block; margin-bottom:7px; color:var(--cbsblue); font-size:29px; line-height:1.08; }
+.promise-effect span{ color:var(--cbsgray); font-size:25px; line-height:1.17; }
+.access-rule-branch{ display:grid; grid-template-columns:1fr 80px 1fr; align-items:center; width:76%; margin:20px auto 0; }
+.access-rule-node{ padding:15px 20px; border-bottom:3px solid var(--cbsblue); text-align:center; font-size:28px; line-height:1.15; font-weight:700; }
+.access-rule-arrow{ text-align:center; color:var(--cbsblue); font-size:43px; font-weight:900; }
+.findings-thesis{ margin:0 0 18px; text-align:center; color:var(--cbsblue); font-size:35px; line-height:1.16; font-weight:800; }
+.evidence-table{ width:100%; border-collapse:collapse; margin-top:12px; }
+.evidence-table th{
+  text-align:left; padding:15px 20px; color:var(--cbsblue); font-size:26px;
+  text-transform:uppercase; letter-spacing:.08em; border-bottom:3px solid var(--cbsblue);
+}
+.evidence-table td{ padding:17px 20px; font-size:31px; line-height:1.2; border-bottom:1px solid var(--cbslightgray); vertical-align:top; }
+.results-list{ display:flex; flex-direction:column; gap:20px; margin-top:6px; }
+.result-row{ display:grid; grid-template-columns:210px 1fr; gap:28px; align-items:center; padding:20px 26px; background:#f5f6f9; border-radius:9px; }
+.result-num{ font-size:54px; line-height:1; color:var(--cbsblue); font-weight:900; text-align:right; }
+.result-text{ font-size:34px; line-height:1.23; }
+.figwide{ display:block; max-width:100%; max-height:690px; width:auto; height:auto; margin:0 auto; object-fit:contain; }
+.figwide.compact{ max-height:610px; }
+.model-grid{ display:grid; grid-template-columns:1.08fr .92fr; gap:52px; align-items:start; }
+.model-table{ width:100%; border-collapse:collapse; margin-top:12px; }
+.model-table th{ font-size:26px; color:var(--cbsblue); text-align:right; padding:15px 18px; border-bottom:3px solid var(--cbsblue); }
+.model-table th:first-child,.model-table td:first-child{ text-align:left; }
+.model-table td{ font-size:35px; padding:19px 18px; text-align:right; border-bottom:1px solid var(--cbslightgray); }
+.model-meta{ display:flex; gap:18px; margin-top:24px; }
+.model-meta span{ flex:1; background:#f4f5f8; border-radius:8px; padding:17px 20px; font-size:27px; text-align:center; color:var(--cbsgray); }
+.paper-table-wrap{ width:92%; margin:12px auto 0; }
+.paper-table{ width:100%; border-collapse:collapse; border-top:3px solid var(--ink); border-bottom:3px solid var(--ink); }
+.paper-table th{ padding:17px 18px 14px; font-size:29px; font-weight:600; text-align:center; border-bottom:2px solid var(--ink); }
+.paper-table th:first-child{ text-align:left; width:34%; }
+.paper-table td{ padding:10px 18px 1px; font-size:32px; text-align:center; font-variant-numeric:tabular-nums; }
+.paper-table td:first-child{ text-align:left; }
+.paper-table tr.se td{ padding:0 18px 11px; font-size:27px; }
+.paper-table tr.midrule td{ border-top:1.5px solid var(--ink); padding-top:13px; }
+.paper-table tr.stat td{ padding-top:8px; padding-bottom:8px; font-size:29px; }
+.paper-table.dense th{ font-size:25px; padding:11px 12px; }
+.paper-table.dense td{ font-size:27px; padding:7px 12px 1px; }
+.paper-table.dense tr.se td{ font-size:23px; padding:0 12px 7px; }
+.paper-table.dense tr.stat td{ font-size:25px; padding:6px 12px; }
+.mechanism-split{ display:grid; grid-template-columns:1.08fr .92fr; gap:44px; align-items:center; margin-top:4px; }
+.mechanism-split .existing-figure{ width:100%; max-height:610px; object-fit:contain; }
+.panel-label{ font-size:25px; font-weight:700; text-align:left; margin:0 0 8px; }
+.table-source{ font-size:20px; color:var(--headergray); margin-top:10px; text-align:left; }
+.decomp-figure{ width:80%; max-width:80%; }
+.decomp-callouts{ display:grid; grid-template-columns:1fr 1fr; gap:330px; width:88%; margin:-10px auto 4px; }
+.decomp-callout{ position:relative; min-height:78px; padding:14px 20px; box-sizing:border-box; border:2px solid var(--cbsblue); border-radius:8px; background:#f7f8fc; font-size:25px; line-height:1.16; color:var(--ink); }
+.decomp-callout b{ display:block; margin-bottom:3px; color:var(--cbsblue); font-size:27px; }
+.decomp-callout::after{ content:"↓"; position:absolute; bottom:-38px; color:var(--cbsblue); font-size:38px; line-height:1; font-weight:900; }
+.decomp-callout.gross::after{ left:74%; }
+.decomp-callout.shortfall::after{ left:37%; }
+.decomp-callouts + .decomp-figure{ max-height:500px; }
+.decomp-intuition{ width:80%; margin:2px auto 0; padding-left:30px; color:var(--ink); font-size:25px; line-height:1.18; }
+.decomp-intuition li{ padding-left:5px; }
+.decomp-intuition li::marker{ color:var(--cbsblue); }
+.remaining-grid{ display:grid; grid-template-columns:.88fr 1.12fr; gap:38px; align-items:start; margin-top:2px; }
+.remaining-explain{ padding-top:4px; }
+.remaining-lead{ margin:0 0 17px; font-size:31px; line-height:1.2; color:var(--ink); }
+.remaining-algebra{ padding:20px 22px; border-left:7px solid var(--cbsblue); background:#f5f6f9; }
+.remaining-algebra .lhs{ margin-bottom:10px; color:var(--cbsblue); font-size:30px; line-height:1.1; font-weight:800; }
+.remaining-algebra .fraction{ display:grid; grid-template-rows:auto auto; text-align:center; color:var(--ink); font-size:24px; line-height:1.2; }
+.remaining-algebra .numerator{ padding:0 7px 10px; border-bottom:2px solid var(--ink); }
+.remaining-algebra .denominator{ padding:9px 7px 0; }
+.remaining-steps{ margin:18px 0 0; padding-left:30px; }
+.remaining-steps li{ margin:0 0 9px; padding-left:5px; font-size:26px; line-height:1.18; color:var(--ink); }
+.remaining-steps li::marker{ color:var(--cbsblue); }
+.remaining-metrics{ display:grid; grid-template-columns:1fr 52px 1fr; gap:8px; align-items:center; margin-top:17px; }
+.remaining-metric{ text-align:center; }
+.remaining-metric b{ display:block; color:var(--cbsblue); font-size:49px; line-height:1; }
+.remaining-metric span{ display:block; margin-top:5px; color:var(--cbsgray); font-size:21px; line-height:1.12; }
+.remaining-arrow{ color:var(--cbsblue); text-align:center; font-size:42px; font-weight:900; }
+.remaining-figure{ display:block; width:100%; max-height:560px; object-fit:contain; }
+.remaining-caveat{ margin-top:8px; color:var(--cbsgray); font-size:21px; line-height:1.18; }
+.model-insights{ margin-top:13px; padding-left:27px; }
+.model-insights li{ margin:0 0 7px; padding-left:4px; color:var(--ink); font-size:23px; line-height:1.18; }
+.model-insights li::marker{ color:var(--cbsblue); }
+.taxonomy-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:14px; }
+.taxonomy-col{ padding-top:0; }
+.taxonomy-col h3{ margin:0 0 14px; color:var(--cbsblue); font-size:34px; line-height:1.1; }
+.taxonomy-col .tax-sub{ margin:0 0 14px; color:var(--cbsgray); font-size:25px; line-height:1.2; }
+.taxonomy-col ul{ margin:0; padding-left:33px; }
+.taxonomy-col li{ margin:0 0 12px; font-size:29px; line-height:1.17; }
+.taxonomy-col li::marker{ color:var(--cbsblue); }
+.taxonomy-bridge{ margin-top:30px; color:var(--ink); font-size:34px; line-height:1.2; font-weight:600; }
+.gap-chart{ display:grid; grid-template-columns:120px 1fr 280px; gap:22px 28px; align-items:center; margin:34px 36px 0; }
+.gap-label{ font-size:34px; font-weight:600; text-align:left; }
+.gap-track{ height:58px; background:#f1f2f5; border-right:4px solid var(--ink); border-radius:7px 0 0 7px; overflow:hidden; display:flex; justify-content:flex-end; }
+.gap-bar{ height:100%; width:var(--w); background:linear-gradient(90deg,var(--cbsred),#de796f); border-radius:7px 0 0 7px; }
+.gap-value{ font-size:38px; font-weight:900; color:var(--cbsred); font-variant-numeric:tabular-nums; text-align:right; }
+.gap-axis{ grid-column:2 / 3; display:flex; justify-content:space-between; color:var(--headergray); font-size:22px; margin-top:-12px; }
+.source-line{ font-size:21px; color:var(--headergray); margin:18px 36px 0; }
+.method-grid{ display:grid; grid-template-columns:.9fr 1.05fr 1.05fr; gap:26px; margin-top:26px; align-items:stretch; }
+.benchmark-setup-grid{ display:grid; grid-template-columns:1.35fr 1fr .85fr; gap:26px; margin-top:26px; align-items:stretch; }
+.method-card{ background:#f4f5f8; border-radius:10px; padding:28px 30px; min-height:500px; box-sizing:border-box; }
+.method-card h3{ margin:0 0 22px; font-size:33px; line-height:1.1; color:var(--cbsblue); }
+.method-card p{ margin:0 0 19px; font-size:27px; line-height:1.28; }
+.marketing-claims-panel{ display:block; width:100%; margin:8px auto 0; }
+.benchmark-question{ font-size:33px !important; line-height:1.3 !important; margin-top:34px !important; }
+.method-card .method-label{ display:block; font-size:23px; font-weight:800; color:var(--cbsgray); text-transform:uppercase; letter-spacing:.03em; margin:22px 0 6px; }
+.benchmark-slot{ border:2px dashed #aab2d7; background:#fff; border-radius:8px; min-height:155px; margin-top:24px; padding:21px 23px; display:flex; flex-direction:column; justify-content:center; gap:11px; color:var(--ink); font-size:24px; line-height:1.15; }
+.benchmark-slot div{ display:grid; grid-template-columns:118px 1fr; gap:12px; align-items:baseline; }
+.benchmark-slot span{ color:var(--cbsgray); font-weight:600; }
+.benchmark-slot b{ color:var(--cbsblue); font-weight:800; }
+.ops-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.op{ background:#f4f5f8; border-radius:10px; padding:27px 31px; min-height:240px; box-sizing:border-box; }
+.op h3{ color:var(--cbsblue); font-size:31px; margin:0 0 12px; }
+.op p{ font-size:28px; line-height:1.28; margin:0; color:var(--cbsgray); }
+.mini-values{ display:flex; justify-content:space-between; gap:12px; margin-top:16px; }
+.mini-values span{ flex:1; background:#fff; border-radius:6px; padding:11px 10px; font-size:23px; text-align:center; }
+.imp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:52px; margin-top:22px; }
+.imp-col{ padding:32px 38px; border-radius:10px; background:#f4f5f8; }
+.imp-col h3{ margin:0 0 22px; font-size:34px; color:var(--cbsblue); }
+.imp-col ul{ margin:0; padding-left:32px; }
+.imp-col li{ font-size:31px; line-height:1.28; margin:0 0 18px; }
+.market-grid{ display:grid; grid-template-columns:1.16fr .84fr; gap:52px; align-items:center; margin-top:2px; }
+.market-figure{ width:100%; max-height:590px; object-fit:contain; }
+.fact-table{ width:100%; border-collapse:collapse; border-top:3px solid var(--ink); border-bottom:3px solid var(--ink); }
+.fact-table tr+tr td{ border-top:1px solid var(--cbslightgray); }
+.fact-table td{ padding:22px 8px; font-size:31px; line-height:1.16; }
+.fact-table td:last-child{ text-align:right; color:var(--cbsblue); font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; }
+.portfolio-grid{ display:grid; grid-template-columns:.72fr 1fr 1.18fr; gap:48px; align-items:start; margin-top:22px; }
+.portfolio-lead{ padding-top:18px; }
+.portfolio-big{ font-size:164px; line-height:.88; font-weight:900; color:var(--cbsblue); letter-spacing:-.04em; }
+.portfolio-big-label{ margin-top:24px; font-size:38px; line-height:1.15; font-weight:700; }
+.portfolio-secondary{ margin-top:38px; padding-top:24px; border-top:2px solid var(--cbslightgray); }
+.portfolio-secondary b{ display:block; font-size:56px; line-height:1; color:var(--cbsblue); }
+.portfolio-secondary span{ display:block; margin-top:8px; font-size:27px; line-height:1.2; color:var(--cbsgray); }
+.portfolio-panel{ border-left:2px solid var(--cbslightgray); padding-left:42px; }
+.portfolio-panel h3{ margin:0 0 20px; font-size:29px; color:var(--cbsblue); text-transform:uppercase; letter-spacing:.08em; }
+.portfolio-row{ display:grid; grid-template-columns:1fr 110px; gap:20px; align-items:baseline; padding:18px 0; border-bottom:1px solid var(--cbslightgray); }
+.portfolio-row span{ font-size:32px; }
+.portfolio-row b{ text-align:right; font-size:42px; color:var(--ink); font-variant-numeric:tabular-nums; }
+.portfolio-note{ margin-top:30px; font-size:26px; line-height:1.25; color:var(--cbsgray); }
+.composition-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap:54px; align-items:start; margin-top:5px; }
+.composition-grid.with-liquidity-figure{ grid-template-columns:.78fr 1.22fr; gap:42px; align-items:center; }
+.composition-side-title{ margin:0 0 7px; color:var(--cbsblue); font-size:31px; line-height:1.1; font-weight:800; }
+.composition-liquidity-panel{ align-self:center; }
+.composition-liquidity-panel .composition-side-title{ text-align:center; }
+.composition-liquidity-figure{ display:block; width:100%; max-height:560px; object-fit:contain; }
+.liquidity-origin{ display:grid; grid-template-columns:1fr auto 90px; align-items:center; margin:9px 0 0; padding:8px 8px 7px; border-top:2px solid var(--cbsblue); color:var(--cbsblue); }
+.liquidity-origin span:first-child{ font-size:22px; font-weight:800; }
+.liquidity-origin b{ font-size:30px; }
+.liquidity-origin .flow-arrow{ text-align:right; font-size:52px; line-height:.7; font-weight:900; }
+.composition-grid .paper-table td:first-child{ color:var(--cbsgray); font-size:25px; }
+.composition-grid .paper-table td:last-child{ color:var(--cbsblue); font-weight:800; }
+.composition-grid .paper-table th:last-child,
+.composition-grid .paper-table tr:not(.group-row) td:last-child{ width:20%; text-align:right; }
+.composition-grid .paper-table tr.group-row td{ padding:11px 14px 5px; border-bottom:0; color:var(--cbsblue); font-size:22px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.composition-grid .paper-table tr.group-row:not(:first-child) td{ border-top:1px solid var(--cbslightgray); padding-top:12px; }
+.composition-bullets{ margin:8px 0 0; padding-left:36px; }
+.composition-bullets li{ margin:0 0 21px; font-size:31px; line-height:1.22; }
+.composition-bullets li::marker{ color:var(--cbsblue); }
+.composition-bullets b{ color:var(--cbsblue); }
+.with-question .composition-grid .paper-table.dense th{ padding:5px 8px; font-size:19px; }
+.with-question .composition-grid .paper-table.dense td{ padding:3px 8px 2px; font-size:20px; }
+.with-question .composition-grid .paper-table tr.group-row td{ padding:6px 8px 2px; font-size:18px; }
+.with-question .composition-grid .paper-table tr.group-row:not(:first-child) td{ padding-top:6px; }
+.composition-slide .composition-grid .paper-table.dense th{ padding:7px 9px; font-size:23px; }
+.composition-slide .composition-grid .paper-table.dense td{ padding:5px 9px 3px; font-size:25px; }
+.composition-slide .composition-grid .paper-table tr.group-row td{ padding:8px 9px 3px; font-size:21px; }
+.composition-slide .composition-grid .paper-table tr.group-row:not(:first-child) td{ padding-top:8px; }
+.composition-slide .panel-label{ font-size:27px; }
+.with-question .composition-bullets li{ margin-bottom:14px; font-size:27px; }
+.composition-summary{ margin-top:48px; padding-top:26px; border-top:3px solid var(--cbsblue); }
+.composition-summary b{ display:block; color:var(--cbsblue); font-size:39px; line-height:1.16; }
+.composition-summary span{ display:block; margin-top:22px; color:var(--ink); font-size:34px; line-height:1.2; }
+.composition-note{ margin-top:13px; font-size:21px; line-height:1.2; color:var(--headergray); }
+.composition-takeaway{ margin:12px auto 0; text-align:center; color:var(--cbsblue); font-size:27px; line-height:1.15; font-weight:800; }
+.model-equation{ display:block; width:100%; max-height:360px; object-fit:contain; margin:92px auto 0; }
+.model-equation-note{ margin:70px auto 0; width:84%; text-align:center; font-size:34px; line-height:1.28; color:var(--cbsgray); }
+.valuation-intro{ margin:-12px 0 22px; font-size:30px; line-height:1.25; color:var(--cbsgray); }
+.valuation-key{ margin-top:22px; text-align:center; font-size:28px; color:var(--cbsblue); font-weight:700; }
+.valuation-methods-stack{ display:grid; grid-template-rows:auto auto; gap:8px; margin-top:0; }
+.valuation-methods-stack .paper-table-wrap{ width:86%; margin:0 auto; }
+.valuation-methods-stack .panel-label{ margin-bottom:4px; font-size:19px; }
+.valuation-methods-stack .paper-table th{ padding:5px 8px 4px; font-size:18px; }
+.valuation-methods-stack .paper-table td{ padding:2px 8px 0; font-size:19px; }
+.valuation-methods-stack .paper-table tr.midrule td{ padding-top:4px; }
+.valuation-methods-stack .paper-table tr.stat td{ padding-top:2px; padding-bottom:2px; font-size:18px; }
+.valuation-filing-example{ display:block; width:100%; max-height:400px; object-fit:contain; margin:0 auto; }
+.valuation-filing-note{ margin:3px 7% 0 0; text-align:right; font-size:17px; line-height:1.1; color:var(--headergray); }
+.valuation-lag-sub{ margin:0 0 10px; font-size:31px; line-height:1.2; color:var(--ink); font-weight:400; }
+.valuation-lag-grid{ display:grid; grid-template-columns:1.52fr .98fr; gap:34px; align-items:start; }
+.valuation-pass-img{ display:block; width:100%; max-height:455px; object-fit:contain; margin:0 auto; }
+.valuation-pass-caption{ margin-top:8px; font-size:17px; line-height:1.2; color:var(--headergray); }
+.pass-list,.mark-tie-list{ margin:0; padding-left:28px; }
+.pass-list li{ margin:0 0 11px; font-size:24px; line-height:1.17; }
+.pass-list b{ color:var(--cbsblue); }
+.mark-tie-list{ margin-top:14px; padding-top:13px; border-top:1px solid var(--cbslightgray); }
+.mark-tie-list li{ margin:0 0 9px; font-size:21px; line-height:1.17; }
+.valuation-lag-takeaway{ margin-top:13px; padding:16px 21px; background:#eef1fa; color:var(--cbsblue); font-size:32px; line-height:1.18; font-weight:800; }
+.conclusion-statement{ width:86%; margin:58px auto 0; text-align:center; font-size:58px; line-height:1.18; color:var(--cbsblue); font-weight:800; }
+.conclusion-implication{ width:82%; margin:64px auto 0; padding-top:32px; border-top:2px solid var(--cbslightgray); text-align:center; font-size:36px; line-height:1.3; color:var(--ink); }
+.conclusion-list{ margin-top:8px; }
+.conclusion-list li{ font-size:38px !important; line-height:1.18 !important; margin-bottom:13px !important; }
+.conclusion-list b{ color:var(--cbsblue); }
+.conclusion-subhead{ margin:18px 0 8px; color:var(--cbsblue); font-size:38px; line-height:1.15; font-weight:800; }
+.conclusion-policy{ margin-top:0 !important; }
+.policy-card{ background:#eef1fa; border-left:9px solid var(--cbsblue); border-radius:10px; padding:34px 38px; }
+.policy-card .date{ font-size:25px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; color:var(--cbsblue); }
+.policy-card h3{ margin:12px 0 16px; font-size:39px; line-height:1.08; color:var(--ink); }
+.policy-card p{ margin:0; font-size:29px; line-height:1.28; color:var(--cbsgray); }
+.policy-moment-grid{ display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; margin-top:5px; }
+.policy-moment-list{ margin:0; padding-left:40px; }
+.policy-moment-list li{ margin:0 0 25px; font-size:40px; line-height:1.2; }
+.policy-moment-list li::marker{ color:var(--cbsblue); }
+.policy-moment-image{ display:block; width:100%; max-height:650px; object-fit:contain; }
+.vehicle-flow{ display:grid; grid-template-columns:1fr 65px 1.25fr 65px 1fr; gap:12px; align-items:center; margin-top:22px; }
+.vehicle-flow .flowbox{ min-height:150px; box-sizing:border-box; padding:27px 24px; border-radius:9px; background:#f4f5f8; text-align:center; }
+.vehicle-flow .flowbox b{ display:block; color:var(--cbsblue); font-size:31px; margin-bottom:8px; }
+.vehicle-flow .flowbox span{ font-size:26px; line-height:1.2; color:var(--cbsgray); }
+.access-menu-table{ width:100%; margin-top:5px; border-collapse:collapse; border-top:4px solid var(--ink); border-bottom:4px solid var(--ink); }
+.access-menu-table th{ padding:17px 15px; border-bottom:2px solid var(--ink); text-align:center; font-size:31px; line-height:1.1; }
+.access-menu-table th:first-child{ width:27%; text-align:left; }
+.access-menu-table th.drawdown{ color:var(--cbsgray); }
+.access-menu-table th.retail{ color:var(--cbsblue); }
+.access-menu-table td{ padding:10px 15px; font-size:28px; line-height:1.12; text-align:center; }
+.access-menu-table td:first-child{ text-align:left; font-weight:600; }
+.access-menu-table td.drawdown{ color:var(--cbsgray); }
+.access-menu-table td.retail{ color:var(--ink); }
+.access-menu-note{ margin-top:14px; text-align:center; color:var(--cbsblue); font-size:27px; line-height:1.18; font-weight:800; }
+.sample-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:28px; }
+.sample-stat{ background:#f5f6f9; border-radius:8px; padding:20px 18px; text-align:center; }
+.sample-stat b{ display:block; font-size:44px; line-height:1; color:var(--cbsblue); }
+.sample-stat span{ display:block; margin-top:8px; font-size:23px; line-height:1.15; color:var(--cbsgray); }
+.findings{ display:grid; grid-template-columns:1fr 1fr; gap:22px 26px; margin-top:4px; }
+.finding{ display:grid; grid-template-columns:74px 1fr; gap:20px; background:#f5f6f9; border-radius:10px; padding:26px 28px; }
+.finding .n{ width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--cbsblue); color:#fff; font-size:31px; font-weight:800; }
+.finding b{ display:block; font-size:36px; line-height:1.1; color:var(--ink); }
+.finding span{ display:block; margin-top:9px; font-size:31px; line-height:1.2; color:var(--cbsgray); }
+.figure-caption{ margin:12px auto 0; font-size:27px; line-height:1.25; color:var(--cbsgray); text-align:center; }
+.gap-caption-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:15px; width:94%; margin:8px auto 0; }
+.gap-caption-grid div{ text-align:center; font-size:25px; color:var(--cbsgray); }
+.gap-caption-grid b{ display:block; font-size:35px; color:var(--cbsblue); }
+.model-combined{ display:grid; grid-template-columns:1.02fr .98fr; gap:38px; align-items:start; }
+.model-bullets{ margin:0 0 12px; padding-left:36px; }
+.model-bullets li{ margin:0 0 12px; font-size:39px; line-height:1.14; color:var(--ink); }
+.model-bullets li::marker{ color:var(--cbsblue); }
+.model-bullets b{ color:var(--cbsblue); }
+.model-combined .model-equation{ margin:18px auto 0; max-height:250px; }
+.model-combined .paper-table.dense th{ font-size:22px; padding:7px 8px; }
+.model-combined .paper-table.dense td{ font-size:22px; padding:4px 8px 1px; }
+.model-combined .paper-table.dense tr.se td{ font-size:19px; padding:0 8px 4px; }
+.model-combined .paper-table.dense tr.stat td{ font-size:20px; padding:4px 8px; }
+.model-table-label{ margin:0 0 7px; color:var(--cbsblue); font-size:21px; line-height:1.1; font-weight:800; }
+.model-callout{ margin-top:16px; padding:17px 20px; background:#eef1fa; border-radius:8px; font-size:27px; line-height:1.2; color:var(--cbsblue); font-weight:700; }
+.fee-grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:48px; align-items:center; margin-top:0; }
+.fee-metrics{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.fee-metric{ padding:25px 22px; border-radius:9px; background:#f5f6f9; }
+.fee-metric b{ display:block; font-size:51px; color:var(--cbsblue); line-height:1; }
+.fee-metric span{ display:block; margin-top:8px; font-size:26px; line-height:1.18; color:var(--cbsgray); }
+.fee-note{ margin-top:20px; font-size:29px; line-height:1.3; color:var(--ink); }
+.fee-takeaways{ margin:25px 0 0; padding-left:36px; }
+.fee-takeaways li{ margin:0 0 18px; padding-left:8px; font-size:30px; line-height:1.22; color:var(--ink); }
+.fee-takeaways li::marker{ color:var(--cbsblue); }
+.fee-figure{ width:100%; max-height:535px; object-fit:contain; }
+.fee-figure-wrap{ position:relative; }
+.fee-figure-title{ margin:0 0 8px; text-align:center; color:var(--cbsblue); font-size:29px; line-height:1.1; font-weight:800; }
+.waiver-overlay{
+  position:absolute; top:20px; right:22px; width:250px; padding:18px 20px;
+  background:rgba(255,255,255,.94); border:2px solid var(--cbsblue); border-radius:9px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+.waiver-overlay b{ display:block; color:var(--cbsblue); font-size:49px; line-height:1; }
+.waiver-overlay span{ display:block; margin-top:7px; color:var(--ink); font-size:24px; line-height:1.15; }
+.redemption-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap:46px; align-items:center; margin-top:0; }
+.redemption-figure-wrap{ position:relative; }
+.redemption-figure-title{ position:absolute; z-index:2; top:12px; left:115px; margin:0; padding:7px 12px; border-radius:5px; background:rgba(255,255,255,.9); color:var(--cbsblue); font-size:28px; line-height:1.1; font-weight:800; }
+.redemption-figure{ width:100%; max-height:570px; object-fit:contain; }
+.redemption-takeaways{ margin:0; padding-left:36px; }
+.redemption-takeaways li{ margin:0 0 26px; padding-left:8px; font-size:32px; line-height:1.22; color:var(--ink); }
+.redemption-takeaways li::marker{ color:var(--cbsblue); }
+.redemption-coefs{ width:100%; margin:14px 0 0; border-collapse:collapse; }
+.redemption-coefs th{ padding:6px 5px; border-bottom:2px solid var(--ink); color:var(--cbsgray); font-size:19px; line-height:1.08; text-align:left; }
+.redemption-coefs td{ padding:7px 5px; border-bottom:1px solid var(--cbslightgray); color:var(--ink); font-size:21px; line-height:1.12; }
+.redemption-coefs td:last-child{ color:var(--cbsblue); text-align:right; font-weight:800; }
+.redemption-null{ margin-top:10px; color:var(--ink); font-size:23px; line-height:1.18; }
+.evidence-points{ display:flex; flex-direction:column; gap:18px; }
+.evidence-point{ padding:22px 25px; background:#f5f6f9; border-radius:9px; }
+.evidence-point b{ display:block; font-size:30px; color:var(--cbsblue); }
+.evidence-point span{ display:block; margin-top:6px; font-size:26px; line-height:1.22; color:var(--cbsgray); }
+.with-question .redemption-grid{ gap:36px; }
+.with-question .redemption-figure{ max-height:470px; }
+.with-question .evidence-points{ gap:12px; }
+.with-question .evidence-point{ padding:15px 20px; }
+.with-question .evidence-point b{ font-size:26px; }
+.with-question .evidence-point span{ font-size:22px; }
+.with-question .redemption-grid + .source-line{ margin-top:5px; font-size:20px; }
+.scale-takeaway{ margin:-3px auto 0; text-align:center; color:var(--cbsblue); font-size:29px; line-height:1.15; font-weight:800; }
+.clock-grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:50px; align-items:center; }
+.clock-card{ background:#eef1fa; border-radius:12px; padding:42px; text-align:center; }
+.clock-card .clock{ font-size:108px; line-height:1; color:var(--cbsblue); font-weight:900; }
+.clock-card h3{ margin:16px 0 10px; font-size:36px; color:var(--ink); }
+.clock-card p{ margin:0; font-size:29px; line-height:1.25; color:var(--cbsgray); }
+.deployment-grid{ display:grid; grid-template-columns:.62fr 1.38fr; gap:48px; align-items:center; margin-top:8px; }
+.deployment-text{ padding:0 8px 0 0; }
+.deployment-text p{ margin:0 0 28px; font-size:38px; line-height:1.2; }
+.deployment-text p:first-child{ color:var(--cbsblue); font-weight:800; }
+.deployment-text ul{ margin:0; padding-left:35px; }
+.deployment-text li{ font-size:32px; line-height:1.22; }
+.deployment-text li::marker{ color:var(--cbsblue); }
+.deployment-hypothesis{ margin-top:34px !important; padding-top:18px; border-top:1px solid var(--cbslightgray); font-size:28px !important; line-height:1.22 !important; color:var(--ink); }
+.deployment-hypothesis b{ color:var(--cbsblue); }
+.deployment-figure-title{ margin:0 0 9px; text-align:center; color:var(--cbsblue); font-size:28px; line-height:1.1; font-weight:800; }
+.deployment-figure{ display:block; width:108%; max-height:525px; object-fit:contain; margin-left:-4%; }
+.selection-method{ margin:-10px 0 18px; padding-left:36px; }
+.selection-method li{ margin:0 0 7px; font-size:31px; line-height:1.18; color:var(--ink); }
+.selection-method li::marker{ color:var(--cbsblue); }
+.selection-grid{ display:grid; grid-template-columns:1.22fr .78fr; gap:48px; align-items:start; }
+.selection-summary{ border-left:2px solid var(--cbslightgray); padding-left:38px; }
+.selection-summary h3{ margin:0 0 8px; color:var(--cbsblue); font-size:28px; }
+.selection-summary .big{ margin:0 0 8px; color:var(--cbsblue); font-size:66px; line-height:1; font-weight:900; }
+.selection-summary p{ margin:0; font-size:25px; line-height:1.22; }
+.selection-summary ul{ margin:8px 0 0; padding-left:29px; }
+.selection-summary li{ margin:0 0 12px; font-size:25px; line-height:1.22; }
+.selection-summary li::marker{ color:var(--cbsblue); }
+.selection-summary .summary-rule{ margin:28px 0 23px; border-top:1px solid var(--cbslightgray); }
+.selection-interpretation{ margin:14px 0 0; padding-left:28px; }
+.selection-interpretation li{ margin:0 0 12px; padding-left:5px; color:var(--ink); font-size:27px; line-height:1.25; }
+.selection-interpretation li::marker{ color:var(--cbsblue); }
+.selection-spec{ margin-top:12px; font-size:22px; line-height:1.2; color:var(--headergray); }
+.selection-takeaway{ background:#eef1fa; border-radius:10px; padding:36px; }
+.selection-takeaway b{ display:block; font-size:58px; line-height:1; color:var(--cbsblue); }
+.selection-takeaway h3{ margin:12px 0 18px; font-size:32px; color:var(--ink); }
+.selection-takeaway p{ margin:0; font-size:28px; line-height:1.27; color:var(--cbsgray); }
+.incentive-intro{ display:flex; flex-direction:column; gap:12px; margin:0 0 18px; }
+.incentive-setup{ margin:0; font-size:36px; line-height:1.2; color:var(--ink); }
+.incentive-facts{ margin:0; font-size:30px; line-height:1.18; color:var(--ink); }
+.incentive-facts b{ color:var(--cbsblue); }
+.incentive-grid{ display:grid; grid-template-columns:1.08fr .92fr; gap:42px; align-items:start; }
+.incentive-grid.section205{ grid-template-columns:1.18fr .82fr; gap:60px; align-items:center; margin-top:14px; }
+.section205-callout{ border-left:5px solid var(--cbsblue); padding:8px 0 8px 38px; }
+.section205-callout h3{ margin:0 0 20px; color:var(--cbsblue); font-size:37px; line-height:1.12; }
+.section205-callout .big{ color:var(--cbsblue); font-size:100px; line-height:.9; font-weight:900; }
+.section205-callout .big-label{ margin-top:12px; font-size:28px; line-height:1.22; color:var(--ink); }
+.section205-callout p{ margin:30px 0 0; padding-top:24px; border-top:1px solid var(--cbslightgray); font-size:26px; line-height:1.25; color:var(--cbsgray); }
+.incentive-right{ display:flex; flex-direction:column; gap:20px; }
+.section205-box{ padding:22px 25px; border:3px solid var(--cbsblue); border-radius:9px; background:#f7f8fc; color:var(--cbsblue); font-size:31px; line-height:1.16; font-weight:800; }
+.incentive-headline{ display:block; width:100%; border:1px solid var(--cbslightgray); }
+.exhibit-label{ margin:0 0 9px; font-size:27px; line-height:1.1; color:var(--cbsblue); font-weight:800; }
+.ownership-figure{ width:100%; max-height:430px; object-fit:contain; }
+.legal-callout{ margin-top:11px; padding-top:9px; border-top:1px solid var(--cbslightgray); font-size:19px; line-height:1.2; color:var(--cbsgray); font-weight:400; }
+.lit-list{ display:flex; flex-direction:column; gap:13px; }
+.lit-row{ padding-bottom:12px; border-bottom:1px solid var(--cbslightgray); }
+.lit-row b{ display:block; font-size:25px; color:var(--cbsblue); }
+.lit-row span{ display:block; margin-top:3px; font-size:23px; line-height:1.18; color:var(--cbsgray); }
+.contribution-box{ margin-top:15px; padding:18px 20px; border-radius:8px; background:#eef1fa; }
+.contribution-box b{ display:block; font-size:26px; color:var(--cbsblue); }
+.contribution-box span{ display:block; margin-top:5px; font-size:24px; line-height:1.2; color:var(--ink); }
+  </style>
+</head>
+<body>
+<div class="editbadge">EDIT MODE &middot; click text to change it &middot; press E to exit</div>
+<div class="deck-viewport"><div class="deck-stage">
+
+  <!-- 1. TITLE -->
+  <section class="slide active chrome">
+    <div class="center">
+      <div class="t-title" style="font-size:132px;">Liquid Claims on Illiquid Assets</div>
+      <div class="t-sub">The Economics of Retail Access to Private Markets</div>
+      <div class="t-meta">Michael Ewens · Jacob Faber<span>July 2026</span></div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div>
+  </section>
+
+  <!-- 2. WHY NOW -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">Private markets are entering individual portfolios</h2>
+      <img src="assets/private_markets_motivation.png" alt="Headlines about expanding private-market access to individual and retirement investors" style="display:block; width:120%; max-width:none; max-height:732px; object-fit:contain; margin:0 -10%;">
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 3. POLICY MOMENT -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">The policy moment</h2>
+      <div class="policy-moment-grid">
+        <ul class="policy-moment-list">
+          <li>The $14T defined-contribution market is the next frontier for private capital.</li>
+          <li>Trump executive order (August 2025), Blackstone and KKR’s retail push, and Department of Labor guidance.</li>
+          <li>Economists are skeptical: illiquidity, fees, and complexity.</li>
+          <li>The debate is happening <b>without data</b>.</li>
+        </ul>
+        <img class="policy-moment-image" src="assets/policy_moment_igm.png" alt="IGM Forum poll on whether diversified 401(k) accounts should include private equity and private credit">
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 3. VEHICLES -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">The retail access menu</h2>
+      <table class="access-menu-table" aria-label="Comparison of drawdown, interval, and tender-offer funds">
+        <thead>
+          <tr><th></th><th class="drawdown">Drawdown</th><th class="retail">Interval fund</th><th class="retail">Tender-offer fund</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SEC registered</td><td class="drawdown">No</td><td class="retail">Yes</td><td class="retail">Yes</td></tr>
+          <tr><td>Daily purchases</td><td class="drawdown">No</td><td class="retail">Yes</td><td class="retail">Yes</td></tr>
+          <tr><td>Redemption</td><td class="drawdown">On distribution</td><td class="retail">Periodic, mandatory</td><td class="retail">Discretionary</td></tr>
+          <tr><td>Typical repurchase</td><td class="drawdown">N/A</td><td class="retail">5% of NAV per quarter</td><td class="retail">Varies</td></tr>
+          <tr><td>Accredited only</td><td class="drawdown">Yes</td><td class="retail">Not necessarily</td><td class="retail">Not necessarily</td></tr>
+          <tr><td>NAV reporting</td><td class="drawdown">Quarterly</td><td class="retail">Daily</td><td class="retail">Daily</td></tr>
+          <tr><td>Governance</td><td class="drawdown">LP advisory</td><td class="retail">Independent board</td><td class="retail">Independent board</td></tr>
+          <tr><td>Taxation</td><td class="drawdown">K-1</td><td class="retail">1099</td><td class="retail">1099</td></tr>
+        </tbody>
+      </table>
+      <div class="access-menu-note">The registered structures replace capital calls and terminal distributions with continuous purchases and periodic fund-provided liquidity.</div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 4. OPERATING PROBLEM -->
+  <section class="slide chrome">
+    <div class="pad with-question">
+      <h2 class="ftitle">One promise changes the investment</h2>
+      <div class="econ-question">What must a fund do to offer periodic liquidity against assets that do not trade?</div>
+      <div class="promise-core"><b>Retail-access wrapper</b><span>Periodic liquidity + recurring NAV on nontraded assets</span></div>
+      <div class="promise-arrow">↓</div>
+      <div class="promise-effects">
+        <div class="promise-effect frag dim-before"><b>Liquidity sleeve</b><span>Keep cash and tradable assets ready for repurchases.</span></div>
+        <div class="promise-effect frag dim-before"><b>Deployment lag</b><span>Convert continuous subscriptions into private positions.</span></div>
+        <div class="promise-effect frag dim-before"><b>Recurring price</b><span>Mark assets that do not trade continuously.</span></div>
+        <div class="promise-effect frag dim-before"><b>Portfolio selection</b><span>Favor assets capable of supporting recurring liquidity.</span></div>
+      </div>
+      <div class="access-rule-branch frag dim-before">
+        <div class="access-rule-node">Retail eligibility and regulation</div>
+        <div class="access-rule-arrow">→</div>
+        <div class="access-rule-node">Altered manager incentive contract</div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 5. RESEARCH QUESTION + LITERATURE -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">The wrapper is part of the investment</h2>
+      <p class="research-question">How much institutional private-market exposure survives the retail wrapper, and why?</p>
+      <h3 class="literature-heading">Closest contemporaneous work</h3>
+      <ul class="literature-bullets">
+        <li><b>Pegoraro, Shive, and Zambrana (2026):</b> Interval-fund performance relative to actively managed ETFs.</li>
+        <li><b>Glover, Halliwell, and Silva (2026):</b> Closed-end funds-of-private-funds: growth, stated fees, benchmark performance, and accreditation changes.</li>
+        <li><b>Fang, Goldstein, and Zeng (2026):</b> Redemption fragility and portfolio responses in semi-liquid private-credit funds.</li>
+      </ul>
+      <div class="relative-contribution"><b>What’s new?</b> Strategy-matched institutional benchmarking plus a decomposition that opens the wrapper: holdings, valuation, retail ownership, deployment, selection, and incentives.</div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 6. WHAT WE FIND -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">Liquidity transformation carries structural costs</h2>
+      <div class="findings-thesis">The access contract changes what is held, when it is deployed, how it is priced, and how the manager is paid.</div>
+      <div class="findings">
+        <div class="finding">
+          <div class="n">1</div>
+          <div><b>Meaningful private exposure survives</b><span>The whole fund trails its matched private-market benchmark by 1.22% per quarter.</span></div>
+        </div>
+        <div class="finding">
+          <div class="n">2</div>
+          <div><b>Fees, cash, and public holdings explain most of the gap</b><span>After accounting for them, the remaining gap is 0.31% per quarter.</span></div>
+        </div>
+        <div class="finding">
+          <div class="n">3</div>
+          <div><b>Mechanisms explain why exposure differs</b><span>Liquidity management, deployment, valuation, and selection help explain why the loading is below one.</span></div>
+        </div>
+        <div class="finding">
+          <div class="n">4</div>
+          <div><b>Redemption sensitivity is similar across channels</b><span>Retail-facing and restricted channels respond similarly in the observed sample.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 7. OUTLINE -->
+  <section class="slide chrome">
+    <div class="pad mid">
+      <div class="so-grid">
+        <div class="so-left">
+          <div class="so-title">Benchmark: what exposure survives?</div>
+        </div>
+        <div class="so-list">
+          <div class="so-cur">Benchmark: what exposure survives?</div>
+          <div class="so-oth">Accounting: what explains the wedge?</div>
+          <div class="so-oth">Operations: why does exposure differ?</div>
+          <div class="so-oth">Access rules: what changes for managers?</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 8. RETURNS AND BENCHMARK -->
+  <section class="slide chrome">
+    <div class="pad with-question">
+      <h2 class="ftitle">The benchmark is what institutions receive</h2>
+      <div class="econ-question">What should a retail-access vehicle be compared with?</div>
+      <div class="benchmark-setup-grid">
+        <div class="method-card">
+          <h3>What funds promise</h3>
+          <img class="marketing-claims-panel" src="assets/website_pitch_panel_a.png" alt="Share of fund marketing materials emphasizing private-market exposure and other claims">
+        </div>
+        <div class="method-card">
+          <h3>Matched alternative</h3>
+          <p>Net-of-fee returns from institutional drawdown funds, matched to each vehicle’s stated strategy.</p>
+          <div class="benchmark-slot">
+            <div><span>Private credit</span><b>MSCI US Private Credit</b></div>
+            <div><span>Private equity</span><b>MSCI US Buyout</b></div>
+            <div><span>Venture capital</span><b>MSCI US Venture Capital</b></div>
+          </div>
+        </div>
+        <div class="method-card">
+          <h3>Why not the stated benchmark?</h3>
+          <p class="benchmark-question">Funds beat leading loan or bond benchmarks 80–100% of the time, but only 30% beat the S&amp;P 500 or MSCI ACWI.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 9. PERFORMANCE GAP -->
+  <section class="slide chrome">
+    <div class="pad with-question">
+      <h2 class="ftitle">Funds underperform drawdown benchmarks</h2>
+      <div class="econ-question">How much institutional private-market performance survives the wrapper?</div>
+      <img class="figwide" style="max-height:615px;" src="assets/returns_vs_msci_combined_v2.png" alt="Retail-access fund returns versus MSCI private-market benchmarks by strategy">
+      <div class="gap-caption-grid">
+        <div><b>−1.22%</b>All strategies</div>
+        <div><b>−0.30%</b>Private credit</div>
+        <div><b>−1.15%</b>Private equity</div>
+        <div><b>−1.61%</b>Venture capital</div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- MEASURED WEDGES VERSUS MECHANISMS -->
+  <section class="slide chrome">
+    <div class="pad with-question">
+      <h2 class="ftitle">What explains the gap?</h2>
+      <div class="taxonomy-grid">
+        <div class="taxonomy-col">
+          <h3>Measured return wedges</h3>
+          <div class="tax-sub">Components of the accounting decomposition</div>
+          <ul>
+            <li>Retail fees</li>
+            <li>Cash and STIV drag</li>
+            <li>Drawdown-beta shortfall</li>
+            <li>Offsetting gross retail premium and public-market contribution</li>
+          </ul>
+        </div>
+        <div class="taxonomy-col">
+          <h3>Mechanisms and risk channels</h3>
+          <div class="tax-sub">Mechanism and risk evidence</div>
+          <ul>
+            <li>Portfolio composition and deployment speed</li>
+            <li>Model-based valuation and timing</li>
+            <li>Selection toward earlier distributions</li>
+            <li>Redemption capacity and manager incentives</li>
+          </ul>
+        </div>
+      </div>
+      <div class="taxonomy-bridge">Fees and cash measure the price of access. The drawdown-beta term shows whether the wrapper changes the exposure delivered.</div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- OUTLINE: RETURN WEDGE -->
+  <section class="slide chrome">
+    <div class="pad mid">
+      <div class="so-grid">
+        <div class="so-left">
+          <div class="so-title">Accounting for the gap</div>
+        </div>
+        <div class="so-list">
+          <div class="so-oth">Benchmark: what exposure survives?</div>
+          <div class="so-cur">Accounting: what explains the wedge?</div>
+          <div class="so-oth">Operations: why does exposure differ?</div>
+          <div class="so-oth">Access rules: what changes for managers?</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 10. RETURN MODEL AND ESTIMATES -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Private exposure is meaningful and diluted</h2>
+      <div class="econ-question">After removing fees and cash, how much drawdown exposure remains?</div>
+      <div class="model-combined">
+        <div>
+          <ul class="model-bullets">
+            <li><b>Fees:</b> add back observed retail expenses.</li>
+            <li><b>Cash drag:</b> remove cash and STIV returns and rescale the non-cash sleeve.</li>
+            <li><b>Public markets:</b> estimate the public-market loading.</li>
+            <li><b>Private markets:</b> estimate the matched MSCI drawdown loading.</li>
+          </ul>
+          <img class="model-equation" src="assets/return_model_equation.png" alt="Annotated return model decomposing retail excess returns into alpha, public-market exposure, drawdown exposure, residual return, cash return, and retail fees">
+        </div>
+        <div>
+          <div class="model-table-label">Table 6. Fee- and liquidity-adjusted return model</div>
+          <table class="paper-table dense" aria-label="Fee- and liquidity-adjusted return model">
+            <thead>
+              <tr><th></th><th>All</th><th>Credit</th><th>PE</th><th>VC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Alpha</td><td>0.005</td><td>−0.002</td><td>0.009</td><td>0.010</td></tr>
+              <tr class="se"><td></td><td>(0.007)</td><td>(0.005)</td><td>(0.007)</td><td>(0.008)</td></tr>
+              <tr><td>Market</td><td>0.182**</td><td>0.124**</td><td>0.027</td><td>0.377**</td></tr>
+              <tr class="se"><td></td><td>(0.070)</td><td>(0.046)</td><td>(0.074)</td><td>(0.131)</td></tr>
+              <tr><td>Private benchmark</td><td>0.466***</td><td>1.245***</td><td>0.593***</td><td>0.160</td></tr>
+              <tr class="se"><td></td><td>(0.076)</td><td>(0.239)</td><td>(0.097)</td><td>(0.101)</td></tr>
+              <tr class="midrule stat"><td>Cash + STIV share</td><td>7.63%</td><td>4.67%</td><td>9.41%</td><td>9.41%</td></tr>
+              <tr class="stat"><td>Annual retail expense ratio</td><td>2.86%</td><td>3.32%</td><td>2.58%</td><td>2.58%</td></tr>
+              <tr class="stat"><td>Observations</td><td>24</td><td>24</td><td>24</td><td>24</td></tr>
+              <tr class="stat"><td>Adjusted R²</td><td>0.814</td><td>0.889</td><td>0.733</td><td>0.689</td></tr>
+            </tbody>
+          </table>
+          <ul class="model-insights">
+            <li>Alpha is near zero in every strategy: little of the gap remains unexplained once exposure is modeled.</li>
+            <li>Private-benchmark loading: credit 1.245, PE 0.593, VC 0.160. The VC estimate is imprecise.</li>
+            <li>PE and VC share the pooled non-credit cash and fee calibration.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 11. DECOMPOSITION -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">The beta shortfall is the largest accounting wedge</h2>
+      <div class="econ-question">Which measured components account for the retail-minus-MSCI return gap?</div>
+      <div class="decomp-callouts">
+        <div class="decomp-callout gross"><b>Gross retail premium: +46 bp/q</b>Positive return above the model’s factor exposures offsets part of the 71 bp retail fee.</div>
+        <div class="decomp-callout shortfall"><b>Drawdown-beta shortfall: −136 bp/q</b>The larger wedge comes from less than one-for-one exposure to the private benchmark.</div>
+      </div>
+      <img class="figwide compact decomp-figure" src="assets/return_gap_decomposition_v2.png" alt="Decomposition of the retail minus MSCI return gap">
+      <ul class="decomp-intuition">
+        <li><b>Intuition:</b> like an index fund that is only 47% invested in its index, these vehicles mechanically trail when the private benchmark rises, even if alpha is zero.</li>
+      </ul>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- CLOSING THE RETURN LOOP -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">Return of the private sleeve</h2>
+      <div class="remaining-grid">
+        <div class="remaining-explain">
+          <p class="remaining-lead">Calculating the return on the private sleeve: add back expenses and remove the contributions from cash and priced public holdings.</p>
+          <div class="remaining-algebra" aria-label="Algebra for the return on the private sleeve">
+            <div class="lhs">Return on the private sleeve</div>
+            <div class="fraction">
+              <div class="numerator">Net fund return + expenses − cash contribution − priced-public contribution</div>
+              <div class="denominator">1 − cash share − priced-public share</div>
+            </div>
+          </div>
+          <ul class="remaining-steps">
+            <li>The resulting sleeve is 99% classified private assets.</li>
+            <li>This is not a return built security by security.</li>
+          </ul>
+          <div class="remaining-metrics">
+            <div class="remaining-metric"><b>−120 bp/q</b><span>whole-fund gap to MSCI</span></div>
+            <div class="remaining-arrow">→</div>
+            <div class="remaining-metric"><b>−31 bp/q</b><span>private-sleeve gap</span></div>
+          </div>
+        </div>
+        <div>
+          <img class="remaining-figure" src="assets/private_sleeve_returns_slide.png" alt="Quarterly and cumulative returns for the net retail portfolio, the calculated private sleeve, and MSCI">
+          <div class="remaining-caveat">May contain unmatched public positions, leverage, derivatives, and within-quarter trading. Sample: 2019Q4–2025Q3.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- OUTLINE: WRAPPER OPERATIONS -->
+  <section class="slide chrome">
+    <div class="pad mid">
+      <div class="so-grid">
+        <div class="so-left">
+          <div class="so-title">Why β<sup style="font-size:.48em; margin-left:4px;">Drawdown</sup> &lt; 1</div>
+        </div>
+        <div class="so-list">
+          <div class="so-oth">Benchmark: what exposure survives?</div>
+          <div class="so-oth">Accounting: what explains the wedge?</div>
+          <div class="so-cur">Operations: why does exposure differ?</div>
+          <div class="so-oth">Access rules: what changes for managers?</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 12. PORTFOLIO COMPOSITION -->
+  <section class="slide chrome with-question composition-slide">
+    <div class="pad">
+      <h2 class="ftitle">What do these funds hold?</h2>
+      <div class="composition-grid with-liquidity-figure">
+        <div>
+          <div class="panel-label">Mean share of fund-quarter NAV (rows overlap)</div>
+          <table class="paper-table dense" aria-label="Portfolio composition as a mean share of fund-quarter NAV">
+            <thead>
+              <tr><th>Portfolio characteristic</th><th>% NAV</th></tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="2">Private exposure</td></tr>
+              <tr><td>Private assets</td><td>71%</td></tr>
+              <tr class="group-row"><td colspan="2">Valuation</td></tr>
+              <tr><td>Level 3 fair value</td><td>41%</td></tr>
+              <tr class="group-row"><td colspan="2">How exposure is held</td></tr>
+              <tr><td>Direct positions</td><td>53%</td></tr>
+              <tr><td>Fund positions</td><td>41%</td></tr>
+              <tr class="group-row"><td colspan="2">What securities are held</td></tr>
+              <tr><td>Debt</td><td>31%</td></tr>
+              <tr><td>Equity</td><td>18%</td></tr>
+              <tr><td>Asset-backed securities</td><td>13%</td></tr>
+            </tbody>
+          </table>
+          <div class="liquidity-origin"><span>Cash + STIV</span><b>6%</b><span class="flow-arrow">→</span></div>
+        </div>
+        <div class="composition-liquidity-panel">
+          <div class="composition-side-title">Liquidity sleeves</div>
+          <img class="composition-liquidity-figure" src="assets/liquidity_sleeve_panels_ab.png" alt="Liquidity sleeve over time for all funds and separately for interval and tender-offer funds">
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 13. VALUATION METHODS -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Recurring liquidity requires a model-based NAV</h2>
+      <div class="econ-question">At what price do investors subscribe and redeem when the underlying assets do not trade?</div>
+      <div class="valuation-methods-stack">
+        <figure style="margin:0;">
+          <img class="valuation-filing-example" src="assets/valuation_methods_filing_example.png" alt="Example fund filing disclosure showing valuation techniques, unobservable inputs, and their impact on fair value">
+          <figcaption class="valuation-filing-note">Stepstone Private Markets, 2025 NCSR</figcaption>
+        </figure>
+        <div class="paper-table-wrap">
+          <div class="panel-label">Share of funds using method / share of Level-3 dollars valued with method</div>
+          <table class="paper-table" aria-label="Selected Level 3 valuation methodologies by dominant private sleeve">
+            <thead>
+              <tr><th></th><th>Private credit</th><th>Private equity</th><th>Private funds</th><th>All</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Market approach</td><td>76 / 22</td><td>88 / 57</td><td>71 / 41</td><td>72 / 33</td></tr>
+              <tr><td>Income approach</td><td>31 / 48</td><td>12 / 4</td><td>22 / 5</td><td>23 / 32</td></tr>
+              <tr><td>Discounted cash flow</td><td>62 / 10</td><td>24 / 5</td><td>22 / 30</td><td>40 / 10</td></tr>
+              <tr><td>Recent transaction</td><td>56 / 1</td><td>59 / 6</td><td>44 / 6</td><td>52 / 3</td></tr>
+              <tr class="midrule stat"><td>Mean techniques per fund</td><td>3.9</td><td>2.8</td><td>2.8</td><td>3.2</td></tr>
+              <tr class="stat"><td>Funds</td><td>55</td><td>17</td><td>45</td><td>136</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- VALUATION PASS-THROUGH -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">Model-based marks move slowly</h2>
+      <div class="valuation-lag-sub">We compare changes in model inputs with changes in their public-market equivalents.</div>
+      <img class="valuation-pass-img" src="assets/valuation_passthrough.png" alt="Semiannual pass-through from matched public benchmarks to private equity and private credit marks">
+      <div class="valuation-pass-caption">Semiannual within-fund change in a private mark versus its matched public benchmark; line = pass-through slope.</div>
+      <div class="valuation-lag-takeaway">Investors transact at a recurring NAV that only partially reflects contemporaneous public-market moves.</div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 14. FEES AND WAIVERS -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Fee waivers partly subsidize observed costs</h2>
+      <div class="fee-grid">
+        <div>
+          <div class="fee-metrics">
+            <div class="fee-metric"><b>2.86%</b><span>annual retail-access expense calibration</span></div>
+            <div class="fee-metric"><b>1.81%</b><span>annual drawdown fee assumption</span></div>
+          </div>
+          <ul class="fee-takeaways">
+            <li>Fees subtract <b>71 bp per quarter</b>.</li>
+            <li>The drawdown-exposure shortfall is larger: <b>136 bp per quarter</b>.</li>
+            <li><b>74%</b> of funds report an expense waiver or cap.</li>
+          </ul>
+        </div>
+        <div class="fee-figure-wrap">
+          <div class="fee-figure-title">Use of fee waivers over the fund life cycle</div>
+          <img class="fee-figure" src="assets/fee_waivers_age.png" alt="Share of funds with expense waivers or caps by fund age">
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- EXPENSE SCALING -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Some operating costs decline with scale</h2>
+      <div class="econ-question">Which explicit costs fall as the industry grows?</div>
+      <img class="figwide" style="width:120%; max-width:none; max-height:654px; margin-left:-10%;" src="assets/expenses_time.png" alt="Administrative, distribution, transfer and custodian, and legal and accounting expenses as a share of NAV over time">
+      <div class="scale-takeaway">These scale economies reveal potential fee dynamics for 401(k)s.</div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 15. PERFORMANCE, FLOWS, AND REDEMPTIONS -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Retail does not amplify redemption sensitivity</h2>
+      <div class="econ-question">Does opening access make redemption demand more performance-sensitive?</div>
+      <div class="redemption-grid">
+        <div class="redemption-figure-wrap">
+          <div class="redemption-figure-title">Periods of redemption demand &gt; cap</div>
+          <img class="redemption-figure" src="assets/excess_demand_simple.png" alt="Share of interval and tender-offer funds with excess repurchase demand over time">
+        </div>
+        <div>
+          <ul class="redemption-takeaways">
+            <li>In 2025Q4, 19 of 78 interval funds had demand above the cap, representing 21% of interval-fund NAV.</li>
+          </ul>
+          <table class="redemption-coefs" aria-label="Differences in lagged-return sensitivity across investor channels">
+            <thead><tr><th>Difference in lagged-return sensitivity</th><th>Estimate</th></tr></thead>
+            <tbody>
+              <tr><td>Institutional vs. direct retail</td><td>−0.008<br><span class="se">(0.077)</span></td></tr>
+              <tr><td>Below- vs. above-median retail access</td><td>−0.172<br><span class="se">(0.115)</span></td></tr>
+            </tbody>
+          </table>
+          <div class="redemption-null">Neither difference is statistically distinguishable from zero.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 16. LIQUIDITY AND DEPLOYMENT -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Deployment lags investor exposure</h2>
+      <div class="econ-question">How quickly can continuous inflows become private assets?</div>
+      <div class="deployment-grid">
+        <div class="deployment-text">
+          <p>Funds offer immediate exposure to private markets.</p>
+          <p>But there are lags.</p>
+          <ul>
+            <li>New funds take 1–2 years to reach steady-state private exposure.</li>
+            <li>Perhaps explained by high underwriting hurdles or too few suitable deals.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="deployment-figure-title">Speed to private allocation after net inflow shock</div>
+          <img class="deployment-figure" src="assets/deployment_shock_irf.png" alt="Share of an unexpected inflow still undeployed after each quarter, by dominant private sleeve">
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 17. SELECTION -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Selection favors earlier distributions</h2>
+      <div class="econ-question">Does the need for liquidity affect which private investments are selected?</div>
+      <ul class="selection-method">
+        <li>Match underlying fund positions from N-PORT to PitchBook.</li>
+        <li>Compare held drawdown funds with similar unheld funds, conditional on vintage, strategy, and manager.</li>
+      </ul>
+      <div class="selection-grid">
+        <div>
+          <div class="panel-label">Difference for funds held by retail-access vehicles</div>
+          <table class="paper-table" aria-label="Selection analysis for underlying fund returns and distributions">
+            <thead>
+              <tr><th></th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>IRR difference (pp)</td><td>−1.22</td><td>−1.30</td><td>2.33</td></tr>
+              <tr class="se"><td></td><td>(2.68)</td><td>(2.32)</td><td>(1.93)</td></tr>
+              <tr class="midrule"><td>DPI difference</td><td><strong>0.095**</strong></td><td>0.016</td><td>0.044</td></tr>
+              <tr class="se"><td></td><td>(0.040)</td><td>(0.055)</td><td>(0.062)</td></tr>
+            </tbody>
+          </table>
+          <div class="selection-spec">Preferred specification includes vintage × category and manager fixed effects and excludes secondary purchases.</div>
+        </div>
+        <div class="selection-summary frag dim-before">
+          <h3>Liquidity tilt inside the private book</h3>
+          <ul class="selection-interpretation">
+            <li>Similar IRR + higher early DPI → capital comes back sooner.</li>
+            <li>Consistent with selecting more liquid assets within an otherwise illiquid portfolio.</li>
+          </ul>
+          <div class="summary-rule"></div>
+          <h3>Rules temper selection</h3>
+          <div class="big">65%</div>
+          <p>have a 17d-1 co-investment exemption, permitting access to affiliated deals subject to allocation procedures.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- OUTLINE: MANAGERS AND INVESTORS -->
+  <section class="slide chrome">
+    <div class="pad mid">
+      <div class="so-grid">
+        <div class="so-left">
+          <div class="so-title">Access changes alignment</div>
+        </div>
+        <div class="so-list">
+          <div class="so-oth">Benchmark: what exposure survives?</div>
+          <div class="so-oth">Accounting: what explains the wedge?</div>
+          <div class="so-oth">Operations: why does exposure differ?</div>
+          <div class="so-cur">Access rules: what changes for managers?</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 18. INCENTIVES AND ACCESS -->
+  <section class="slide chrome with-question">
+    <div class="pad">
+      <h2 class="ftitle">Retail eligibility shapes feasible incentive contracts</h2>
+      <div class="incentive-intro">
+        <div class="incentive-setup">Nearly all drawdown alternative funds charge incentive pay. Alignment is central to the institutional contract.</div>
+        <div class="incentive-facts"><b>36%</b> of retail-access funds report incentive pay; <b>51%</b> report portfolio-manager ownership in 2024.</div>
+      </div>
+      <div class="incentive-grid section205">
+        <div>
+          <div class="exhibit-label">Fund manager incentive pay</div>
+          <table class="paper-table dense" aria-label="Selected incentive-fee terms by fee basis">
+            <thead>
+              <tr><th></th><th>Income</th><th>Gains / NAV</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Funds</td><td>34</td><td>25</td></tr>
+              <tr><td>Median contractual rate</td><td>15.0%</td><td>10.0%</td></tr>
+              <tr><td>Share with hurdle</td><td>97%</td><td>20%</td></tr>
+              <tr><td>Loss recovery / high-water</td><td>3%</td><td>88%</td></tr>
+              <tr class="midrule stat"><td>Share private credit</td><td>100%</td><td>12%</td></tr>
+              <tr class="stat"><td>Share open to retail investors</td><td>68%</td><td>0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="incentive-right">
+          <div class="section205-box">Funds that allow non-accredited investors cannot charge incentive fees on NAV.</div>
+          <img class="incentive-headline" src="assets/wsj_paper_gains_headline.png" alt="Wall Street Journal headline about private-equity managers collecting fees on paper gains">
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 19. CONCLUSION -->
+  <section class="slide chrome">
+    <div class="pad">
+      <h2 class="ftitle">Liquidity transformation carries structural costs</h2>
+      <ul class="b conclusion-list">
+        <li><b>What survives:</b> meaningful exposure, but the whole fund trails its drawdown benchmark by 1.22% per quarter.</li>
+        <li><b>Where the gap sits:</b> after adding back expenses and removing cash and priced public holdings, the remaining-portfolio gap is 0.31% per quarter.</li>
+        <li><b>What the model says:</b> alpha is near zero, so the gap mainly reflects the exposure delivered rather than unexplained underperformance.</li>
+        <li><b>Why exposure differs:</b> composition, deployment, valuation, and selection help explain a drawdown loading below one; their separate return effects are not yet measured.</li>
+        <li><b>Redemption behavior:</b> retail access is not associated with greater performance sensitivity in this sample. Severe stress remains untested.</li>
+      </ul>
+      <div class="conclusion-subhead">What does this mean for 401(k)s?</div>
+      <ul class="b conclusion-list conclusion-policy">
+        <li>Scale will likely help fees, but selection, deployment, and valuation are currently unsolved.</li>
+      </ul>
+    </div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+  <!-- 20. THANK YOU -->
+  <section class="slide chrome">
+    <div class="pad mid"><div class="d-wrap">
+      <div class="d-title">Thank you</div>
+    </div></div>
+    <div class="rule"></div><div class="wm">Columbia Business School</div>
+    <div class="ctr">Liquid Claims on Illiquid Assets · UBC Summer Finance Conference 2026</div><div class="pg"></div>
+  </section>
+
+</div></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')]; let i=0;
+const frags=s=>[...s.querySelectorAll('.frag')];
+
+// auto page numbers (so adding slides never breaks numbering)
+slides.forEach((s,k)=>{ const pg=s.querySelector('.pg'); if(pg) pg.textContent=k+1; });
+
+// count-up metrics, fired when a slide becomes active
+function runCounters(s){
+  s.querySelectorAll('[data-count]').forEach(el=>{
+    const target=+el.dataset.count; let v=0; const step=Math.max(1,Math.round(target/40));
+    clearInterval(el._t);
+    el._t=setInterval(()=>{ v+=step; if(v>=target){v=target;clearInterval(el._t);} el.textContent=v; },25);
+  });
+}
+
+function show(n){
+  i=(n+slides.length)%slides.length;
+  slides.forEach((s,k)=>{ s.classList.toggle('active',k===i); if(k!==i) frags(s).forEach(f=>f.classList.remove('on')); });
+  runCounters(slides[i]);
+}
+function next(){ const s=slides[i]; const hidden=frags(s).find(f=>!f.classList.contains('on'));
+  if(hidden){ hidden.classList.add('on'); return; } if(i<slides.length-1) show(i+1); }
+function prev(){ const s=slides[i]; const shown=frags(s).filter(f=>f.classList.contains('on'));
+  if(shown.length){ shown[shown.length-1].classList.remove('on'); return; } if(i>0) show(i-1); }
+
+// advance on click — but NOT when clicking interactive controls or while editing
+addEventListener('click',e=>{
+  if(document.body.classList.contains('editing')) return;
+  if(e.target.closest('.no-advance')) return;
+  next();
+});
+
+// keyboard: skip nav while typing in an input or editing text
+addEventListener('keydown',e=>{
+  const ae=document.activeElement;
+  if((e.key==='e'||e.key==='E') && !(ae && ae.isContentEditable)){ toggleEdit(); return; }
+  if(ae && (ae.tagName==='INPUT' || ae.isContentEditable)) return;
+  if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();}
+});
+
+// in-slide show/hide toggles
+document.querySelectorAll('.tg .head').forEach(h=>h.addEventListener('click',()=>{
+  const open=h.parentElement.classList.toggle('open');
+  h.querySelector('.sign').textContent = open ? '–' : '+';
+}));
+
+// tabs
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  t.parentElement.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.toggle('on',p.id===t.dataset.tab));
+}));
+
+// live slider: present value of $100M in 5 years
+const rate=document.getElementById('rate');
+function pv(){ const r=+rate.value/100;
+  document.getElementById('rateval').textContent=rate.value;
+  document.getElementById('pv').textContent=(100/Math.pow(1+r,5)).toFixed(1); }
+if(rate){ rate.addEventListener('input',pv); pv(); }
+
+// inline edit (E): make current slide's text editable, autosave to localStorage
+function editTargets(){ return [...slides[i].querySelectorAll('.ftitle, ul.b li, .bn li, .tabpanel, .metric .lab, .card p, .qa .q, .d-title, .t-title, .t-sub, .so-title, .so-sub, .so-oth, .so-cur, .bubble p, .bodyplain')]; }
+function toggleEdit(){
+  const on=document.body.classList.toggle('editing');
+  editTargets().forEach(el=>{ el.contentEditable=on; });
+  if(!on){ try{ localStorage.setItem('s7edit', JSON.stringify(editTargets().map(el=>el.innerHTML))); }catch(e){} }
+}
+
+// Collaboration: edits live in this DOM (press E to edit). They are pulled on the
+// Claude side via cmux:  cmux browser eval "document.documentElement.outerHTML"
+// No clipboard / download / server needed.
+
+function fit(){const s=document.querySelector('.deck-stage');const k=Math.min(innerWidth/1920,innerHeight/1080);
+s.style.transform=`translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`;}
+addEventListener('resize',fit);fit();
+const start=(parseInt(location.hash.slice(1))||1)-1; show(start);
+addEventListener('hashchange',()=>show((parseInt(location.hash.slice(1))||1)-1));
+
+/* ===== Two-screen presenter view (reusable; press S on the slide to open) ===== */
+(function(){
+  const CH = ('BroadcastChannel' in window) ? new BroadcastChannel('styled-deck:'+location.pathname) : null;
+  const P = new URLSearchParams(location.search);
+  const ROLE = P.get('role') || 'stage';      // stage | speaker | embed
+  const WHICH = P.get('which') || 'current';   // embed only
+  document.body.classList.add('role-'+ROLE);
+
+  const _show = show;                          // wrap render: keep windows in sync
+  show = function(n, silent){
+    _show(n);
+    if(ROLE==='speaker') paint();
+    if(ROLE==='embed') return;                 // previews never broadcast
+    if(CH && !silent) CH.postMessage({t:'go', i:i});
+  };
+  if(CH){
+    CH.onmessage = function(e){
+      const m = e.data||{};
+      if(m.t==='ping'){ if(ROLE!=='embed') CH.postMessage({t:'go', i:i}); return; }
+      if(m.t!=='go') return;
+      let target = m.i;
+      if(ROLE==='embed' && WHICH==='next') target = Math.min(m.i+1, slides.length-1);
+      show(target, true);
+    };
+    CH.postMessage({t:'ping'});                // snap to a presentation already running
+  }
+  if(ROLE==='embed'){ document.documentElement.style.pointerEvents='none'; return; }
+
+  function openSpeaker(){
+    const u = new URL(location.href);
+    u.searchParams.set('role','speaker'); u.hash = '#'+(i+1);
+    window.open(u.href,'deck-speaker','width=1280,height=860');
+  }
+  if(ROLE==='stage'){
+    addEventListener('keydown', function(e){
+      const ae=document.activeElement;
+      if((e.key==='s'||e.key==='S') && !(ae && ae.isContentEditable)){ e.preventDefault(); openSpeaker(); }
+    });
+  }
+
+  function pad(n){ return (n<10?'0':'')+n; }
+  function paint(){
+    const node = slides[i].querySelector('.notes');
+    const body = document.querySelector('.p-notes-body');
+    if(body) body.innerHTML = (node && node.innerHTML.trim()) ? node.innerHTML : '<span class="p-empty">(no notes)</span>';
+    const cnt = document.querySelector('.p-count'); if(cnt) cnt.textContent = (i+1)+' / '+slides.length;
+  }
+  if(ROLE==='speaker'){
+    const base = location.pathname;
+    let T0 = Date.now();
+    const d = document.createElement('div'); d.className='present no-advance';
+    d.innerHTML =
+      '<div class="present-bar"><span class="p-clock"></span>'+
+      '<span class="p-timer" title="click to reset">00:00</span><span class="p-count"></span></div>'+
+      '<div class="present-main">'+
+      '<div class="p-pane p-cur"><div class="p-lab">Current</div>'+
+      '<iframe class="p-frame" src="'+base+'?role=embed&which=current#'+(i+1)+'"></iframe></div>'+
+      '<div class="p-pane p-nxt"><div class="p-lab">Next</div>'+
+      '<iframe class="p-frame" src="'+base+'?role=embed&which=next#'+Math.min(i+2,slides.length)+'"></iframe></div>'+
+      '</div>'+
+      '<div class="present-notes"><div class="p-lab">Notes</div><div class="p-notes-body"></div></div>';
+    document.body.appendChild(d);
+    function clock(){
+      const now=new Date();
+      const cl=d.querySelector('.p-clock'); if(cl) cl.textContent=pad(now.getHours())+':'+pad(now.getMinutes());
+      const s=Math.floor((Date.now()-T0)/1000);
+      const tm=d.querySelector('.p-timer'); if(tm) tm.textContent=pad(Math.floor(s/60))+':'+pad(s%60);
+    }
+    d.querySelector('.p-timer').addEventListener('click', function(ev){ ev.stopPropagation(); T0=Date.now(); clock(); });
+    setInterval(clock,1000); clock(); paint();
+  }
+})();
+</script>
+</body>
+</html>
