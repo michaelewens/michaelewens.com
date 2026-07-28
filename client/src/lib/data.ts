@@ -382,6 +382,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n28",
+    outlet: "Improving Alpha (Vidrio)",
+    title: "Guest on the Improving Alpha podcast on the public-private markets debate and its impact on allocators",
+    date: "July 28, 2026",
+    url: "https://www.vidrio.com/blog/improving-alpha-the-public-private-debate-its-impact-on-allocators",
+    description: "Discussed his research on why companies like SpaceX, Anthropic, and OpenAI stay private longer, the expansion of private capital markets and its link to US economic inequality, early-stage investor biases, and the impact of private equity ownership."
+  },
+  {
     id: "n27",
     outlet: "HR Brew",
     title: "Quoted in HR Brew on employee retention after the SpaceX IPO",
