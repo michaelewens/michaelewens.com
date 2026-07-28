@@ -26,6 +26,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u7",
+      text: "[July 2026] Guest on the Improving Alpha podcast (Vidrio) discussing the public-private markets debate and its impact on allocators",
+      url: "https://www.vidrio.com/blog/improving-alpha-the-public-private-debate-its-impact-on-allocators"
+    },
+    {
       id: "u6",
       text: "[May 2026] The Regulatory Costs of Being Public cited in SEC proposed rule on Semiannual Reporting (Release No. 33-11414)",
       url: "https://www.sec.gov/files/rules/proposed/2026/33-11414.pdf"
