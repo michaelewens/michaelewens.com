@@ -95,14 +95,15 @@ export const papers: Paper[] = [
     title: "Board Dynamics over the Startup Life Cycle",
     authors: ["Michael Ewens", "Nadya Malenko"],
     journal: "Journal of Finance",
-    year: 2024,
-    status: "Forthcoming",
+    year: 2026,
+    status: "Published",
     abstract: "This paper examines how the composition and control of venture capital (VC)-backed startup boards evolve over the company's life cycle. Using novel data, we find that boards transition from being entrepreneur-controlled to VC-controlled, with independent directors playing a key role in mediating conflicts and later providing advice. The findings align with financial contracting theories and highlight the unique, evolving function of independent directors in startups.",
     pdfUrl: "https://osf.io/preprints/socarxiv/t96yq/",
     codeUrl: "https://github.com/michaelewens/vc_backed_boards",
     slidesUrl: "/attached_assets/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
     tags: ["Corporate Governance", "Startups", "Venture Capital"], 
-    appendixUrl:"/attached_assets/internet_appendix.pdf"
+    appendixUrl:"/attached_assets/internet_appendix.pdf",
+    journalUrl: "https://onlinelibrary.wiley.com/doi/10.1111/jofi.70072"
   },
   {
     id: "p3",
@@ -311,7 +312,7 @@ export const projects: Project[] = [
   {
     id: "pr1",
     title: "Startup Board Composition Data",
-    description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2025), 'Board Dynamics over the Startup Life Cycle', Journal of Finance.",
+    description: "Composition of 7800 VC-backed startup boards from first VC financing to exit (or 2017). From Ewens and Malenko (2026), 'Board Dynamics over the Startup Life Cycle', Journal of Finance.",
     language: ["Data", "Stata"],
     url: "https://github.com/michaelewens/vc_backed_boards"
   },
