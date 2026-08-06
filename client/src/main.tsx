@@ -1,5 +1,13 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+const root = document.getElementById("root")!;
+const isPrerenderedHome = root.hasChildNodes() && window.location.pathname === "/";
+
+if (isPrerenderedHome) {
+  hydrateRoot(root, <App />);
+} else {
+  root.replaceChildren();
+  createRoot(root).render(<App />);
+}
