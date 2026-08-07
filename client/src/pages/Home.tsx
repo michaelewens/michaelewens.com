@@ -15,6 +15,7 @@ import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.
 import foundingPatentsImage from "@assets/optimized/founding_patents.webp";
 import foundingPatentsImageMd from "@assets/optimized/founding_patents_md.webp";
 import foundingPatentsImageSm from "@assets/optimized/founding_patents_sm.webp";
+import headshotMd from "@assets/optimized/michael_ewens_headshot_md.webp";
 import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
 
 export default function Home() {
@@ -91,7 +92,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
               <img
                 src={headshotSm}
-                srcSet={`${headshotSm} 320w, ${headshot} 773w`}
+                srcSet={`${headshotSm} 320w, ${headshotMd} 480w, ${headshot} 966w`}
                 sizes="(max-width: 768px) 128px, 160px"
                 alt="Prof. Michael Ewens"
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
