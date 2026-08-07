@@ -6,14 +6,15 @@ import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import headshot from "@assets/optimized/michael_ewens_headshot.webp";
 
-import wefiImage from "@assets/optimized/abstract_finance_innovation_network.webp";
-import wefiImageSm from "@assets/optimized/abstract_finance_innovation_network_sm.webp";
+import wefiImage from "@assets/optimized/wefi.webp";
+import wefiImageMd from "@assets/optimized/wefi_md.webp";
+import wefiImageSm from "@assets/optimized/wefi_sm.webp";
 import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
 import phdWorkshopImageMd from "@assets/optimized/academic_workshop_abstract_md.webp";
 import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.webp";
-import foundingPatentsImage from "@assets/optimized/high_frequency_trading_algorithmic_lines.webp";
-import foundingPatentsImageMd from "@assets/optimized/high_frequency_trading_algorithmic_lines_md.webp";
-import foundingPatentsImageSm from "@assets/optimized/high_frequency_trading_algorithmic_lines_sm.webp";
+import foundingPatentsImage from "@assets/optimized/founding_patents.webp";
+import foundingPatentsImageMd from "@assets/optimized/founding_patents_md.webp";
+import foundingPatentsImageSm from "@assets/optimized/founding_patents_sm.webp";
 import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
       description:
         "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
-      imageMd: wefiImage,
+      imageMd: wefiImageMd,
       imageSm: wefiImageSm,
       link: "https://workshop-efi.com/",
     },
@@ -81,7 +82,7 @@ export default function Home() {
   return (
     <>
       <title>Michael Ewens | Professor of Finance, Columbia Business School</title>
-      <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
+      <main className="min-h-screen bg-background font-sans selection:bg-primary/20">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
@@ -238,7 +239,7 @@ export default function Home() {
                   <img
                     src={item.imageSm}
                     srcSet={`${item.imageSm} 640w, ${item.imageMd} 800w, ${item.image} 1024w`}
-                    sizes="(max-width: 768px) 100vw, 400px"
+                    sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1151px) calc((100vw - 6rem) / 3), 352px"
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
@@ -381,7 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-    </div>
+    </main>
     </>
   );
 }

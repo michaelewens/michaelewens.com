@@ -60,7 +60,7 @@ export default function ResearchList({ papers, showAbstract = true, className }:
               
               <div className="flex flex-wrap gap-2 mt-4 pt-2">
                 {paper.tags.map(tag => (
-                  <span key={tag} className="text-xs font-mono text-muted-foreground/60 bg-secondary/30 px-2 py-1">
+                  <span key={tag} className="text-xs font-mono text-muted-foreground bg-secondary/30 px-2 py-1">
                     #{tag}
                   </span>
                 ))}
