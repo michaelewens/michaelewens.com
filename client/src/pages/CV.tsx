@@ -387,6 +387,12 @@ export default function CV() {
               </ul>
             </div>
             <div>
+              <h3 className="font-bold text-lg text-foreground mb-3">European Finance Association</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>PhD lecture “Private Equity”, EFA 2026.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-bold text-lg text-foreground mb-3">Caltech</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>Corporate Finance (undergraduate), Venture Capital (undergraduate), Applied Methods for the Social Sciences (PhD), Introduction to Financial Accounting (undergraduate)</li>
@@ -419,7 +425,6 @@ export default function CV() {
             <p>Co-organizer (with Arthur Korteweg, Rick Townsend and Xinxin Wang): Southern California Private Equity Finance Conference, 2015–2022.</p>
             <p>Private Equity Research Consortium Fellow, 2018–present.</p>
             <p>Associate Program Chair, Western Finance Association 2019–</p>
-            <p>European Finance Association, PhD lecture “Private Equity”, 2026</p>
             <p>Session Chair: AFA (Financial Intermediation: Entrepreneurial Finance/Venture Capital) 2027, European Finance Association 2026, SFS Cavalcade (Venture Capital and Private Equity) 2026.</p>
             <p>Carlyle/Alpinvest PERC Panel on Retail in PE, April 8, 2026.</p>
             <p>Program Committee member: UNSW Corporate Finance Workshop 2025–, HKUST Finance Symposium 2025–, UIC Finance Conference 2024–, SFS Asia Pacific 2022–, Midwest Finance Association 2016–, European Finance Association 2018–, Washington University Corporate Finance and Financial Intermediation 2019–, SFS Cavalcade 2021–, UK Finance Conference 2021–, FOM Conference 2020–, Mitsui Finance Symposium 2023–, UIC Finance Conference 2023–, FIRS 2024–, European FMA 2025–, 2025 GSU-MS AI and FinTech conference, RCFS/RAPS Europe Conference, JCF/Renmin University "Finance at a Time of Change and Uncertainty" Conference 2026, Oklahoma Aerospace and Defense Finance Conference.</p>
