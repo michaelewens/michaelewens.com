@@ -105,6 +105,13 @@ export default function CV() {
             </div>
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
               <div>
+                <h3 className="font-bold text-lg text-foreground">Defined Contribution Institutional Investment Association (DCIIA)</h3>
+                <p className="text-muted-foreground">Academic Advisory Council Member, Retirement Research Center</p>
+              </div>
+              <span className="font-mono text-sm text-muted-foreground shrink-0">2026 – present</span>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1">
+              <div>
                 <h3 className="font-bold text-lg text-foreground">National Bureau of Economic Research</h3>
                 <p className="text-muted-foreground">Research Associate</p>
               </div>
