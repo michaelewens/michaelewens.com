@@ -167,7 +167,8 @@ export const papers: Paper[] = [
     abstract: "This paper investigates whether the decline in Initial Public Offerings (IPOs) is linked to the deregulation of private equity markets, specifically the National Securities Markets Improvement Act (NSMIA) of 1996. We use a difference-in-differences analysis to show that NSMIA increased the supply of private capital to late-stage startups, enabling them to stay private longer and reach a larger size before going public. The findings suggest that the decline in IPOs is not a market failure but a response to improved private financing options.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
     codeUrl:"https://privatepublicmkts.com/",
-    tags: ["Private Equity", "IPO", "Entrepreneurship"], 
+    slidesUrl:"/attached_assets/public_private_ewens_posted.pdf",
+    tags: ["Private Equity", "IPO", "Entrepreneurship"],
     journalUrl: "https://www.annualreviews.org/content/journals/10.1146/annurev-financial-101821-121115"
   },
   {
