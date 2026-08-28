@@ -621,10 +621,11 @@ export function sortPressByDate(items: PressItem[]): PressItem[] {
 export const courses: Course[] = [
   {
     id: "c21",
-    title: "Private Equity",
+    title: "Private Equity PhD Workshop (EFA)",
     institution: "European Finance Association",
     level: "PhD",
-    year: "2026"
+    year: "2026",
+    syllabusUrl: "https://phd.pe.finance/"
   },
   {
     id: "c19",
