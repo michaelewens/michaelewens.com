@@ -394,12 +394,6 @@ export default function CV() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-foreground mb-3">European Finance Association</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>PhD lecture “Private Equity”, EFA 2026.</li>
-              </ul>
-            </div>
-            <div>
               <h3 className="font-bold text-lg text-foreground mb-3">Caltech</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>Corporate Finance (undergraduate), Venture Capital (undergraduate), Applied Methods for the Social Sciences (PhD), Introduction to Financial Accounting (undergraduate)</li>
