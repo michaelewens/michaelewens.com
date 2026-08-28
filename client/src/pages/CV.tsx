@@ -396,7 +396,7 @@ export default function CV() {
             <div>
               <h3 className="font-bold text-lg text-foreground mb-3">European Finance Association</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>PhD lecture “Private Equity”, EFA 2026.</li>
+                <li>PhD workshop “Private Equity”, 2026.</li>
               </ul>
             </div>
             <div>
