@@ -19,3 +19,5 @@ _Log.md
 
 # Local archive of media-mention PDFs (not published).
 /media_mentions/
+# Firecrawl scratch scrapes (local only)
+.firecrawl/
