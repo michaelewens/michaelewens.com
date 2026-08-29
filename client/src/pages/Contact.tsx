@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -47,7 +47,24 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Phone</h3>
-                  <p className="text-muted-foreground">+1 (610) 512-3820</p>
+                  <p className="text-muted-foreground">+1 (619) 512-3820</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3">
+                  <Linkedin className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground mb-1">LinkedIn</h3>
+                  <a
+                    href="https://www.linkedin.com/in/michaelewens/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Connect on LinkedIn
+                  </a>
                 </div>
               </div>
             </div>
