@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import { useSearch } from "wouter";
 import ResearchList from "@/components/ResearchList";
 import { papers, projects } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Search as SearchIcon } from "lucide-react";
 
 export default function Search() {
-  const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    const extractQuery = () => {
-      const params = new URLSearchParams(window.location.search);
-      const q = params.get("q") || "";
-      setQuery(q);
-    };
-
-    // Extract on mount
-    extractQuery();
-
-    // Listen for navigation changes to update when search query changes
-    window.addEventListener("popstate", extractQuery);
-    return () => window.removeEventListener("popstate", extractQuery);
-  }, []);
+  const search = useSearch();
+  const query = new URLSearchParams(search).get("q") ?? "";
 
   // Filter papers
   const filteredPapers = papers.filter(paper => {

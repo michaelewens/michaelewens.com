@@ -1,4 +1,4 @@
-import { useLocation, Link } from "wouter";
+import { useLocation, useSearch, Link } from "wouter";
 import { Search, Menu, X, FileText, Code, GraduationCap, Mail, User, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -6,10 +6,16 @@ import { Input } from "@/components/ui/input";
 
 export default function Navigation() {
   const [location, setLocation] = useLocation();
+  const search = useSearch();
+  const urlQuery = new URLSearchParams(search).get("q") ?? "";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(urlQuery);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+
+  useEffect(() => {
+    setSearchQuery(urlQuery);
+  }, [urlQuery]);
 
   useEffect(() => {
     const handleScroll = () => {
