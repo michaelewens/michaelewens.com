@@ -21,3 +21,6 @@ _Log.md
 /media_mentions/
 # Firecrawl scratch scrapes (local only)
 .firecrawl/
+
+# Playwright MCP scratch snapshots/logs (local only)
+.playwright-mcp/
