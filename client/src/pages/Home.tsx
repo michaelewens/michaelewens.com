@@ -28,6 +28,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u8",
+      text: "[August 2026] Taught the Private Equity PhD Workshop at the European Finance Association",
+      url: "https://phd.pe.finance/"
+    },
+    {
       id: "u7",
       text: "[July 2026] Guest on the Improving Alpha podcast (Vidrio) discussing the public-private markets debate and its impact on allocators",
       url: "https://www.vidrio.com/blog/improving-alpha-the-public-private-debate-its-impact-on-allocators"
@@ -37,16 +42,6 @@ export default function Home() {
       text: "[May 2026] The Regulatory Costs of Being Public cited in SEC proposed rule on Semiannual Reporting (Release No. 33-11414)",
       url: "https://www.sec.gov/files/rules/proposed/2026/33-11414.pdf"
     },
-    {
-      id: "u5",
-      text: "[May 2026] Quoted in MarketWatch on Google's SpaceX and Anthropic stakes",
-      url: "https://www.marketwatch.com/story/google-is-now-a-glorified-venture-capital-fund-thanks-to-its-spacex-and-anthropic-stakes-b13f3d56"
-    },
-    {
-      id: "u4",
-      text: "[Feb 2026] What the Data Reveals About Startup Boards and Private Equity (Boardroom Governance with Evan Epstein)",
-      url: "https://podcasts.apple.com/us/podcast/michael-ewens-columbia-business-school-what-the-data/id1513064579?i=1000747864227"
-    }
   ];
 
   const initiatives = [
