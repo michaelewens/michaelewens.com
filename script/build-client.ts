@@ -69,13 +69,20 @@ export async function buildClient() {
         `<div id="root" data-ssr-path="${route.path}">${appHtml}</div>`,
       );
       await writeFile(path.join(clientOutDir, route.file), html);
+      // Same page at /research/ (GitHub Pages serves research/index.html there, research.html at
+      // /research, no redirect), so saved links with a trailing slash still get a 200.
+      if (route.path !== "/") {
+        await mkdir(path.join(clientOutDir, route.path), { recursive: true });
+        await writeFile(path.join(clientOutDir, route.path, "index.html"), html);
+      }
     }
 
     // Old /press URL: static redirect to /media.
-    await writeFile(
-      path.join(clientOutDir, "press.html"),
-      `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Media | Michael Ewens</title><link rel="canonical" href="${SITE}/media" /><meta http-equiv="refresh" content="0; url=/media" /></head><body><a href="/media">Media</a></body></html>\n`,
-    );
+    const pressRedirect = 
+      `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Media | Michael Ewens</title><link rel="canonical" href="${SITE}/media" /><meta http-equiv="refresh" content="0; url=/media" /></head><body><a href="/media">Media</a></body></html>\n`;
+    await writeFile(path.join(clientOutDir, "press.html"), pressRedirect);
+    await mkdir(path.join(clientOutDir, "press"), { recursive: true });
+    await writeFile(path.join(clientOutDir, "press", "index.html"), pressRedirect);
 
     console.log("writing sitemap, robots, llms.txt, data files...");
     await writeFile(path.join(clientOutDir, "sitemap.xml"), sitemapXml());

@@ -5,10 +5,10 @@ import "./index.css";
 const root = document.getElementById("root")!;
 const ssrPath = root.dataset.ssrPath;
 
-// GitHub Pages also serves /research.html (and /index.html); show those under the clean URL.
+// GitHub Pages also serves /research.html, /research/ (and /index.html); show those under the clean URL.
 if (ssrPath) {
   const fileAlias = ssrPath === "/" ? "/index.html" : `${ssrPath}.html`;
-  if (window.location.pathname === fileAlias) {
+  if (window.location.pathname === fileAlias || window.location.pathname === `${ssrPath}/`) {
     window.history.replaceState(window.history.state, "", ssrPath + window.location.search + window.location.hash);
   }
 }
