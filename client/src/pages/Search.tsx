@@ -41,6 +41,12 @@ export default function Search() {
               "Enter a search term to find research and projects."
             )}
           </p>
+          <noscript>
+            <p className="mt-4 text-muted-foreground">
+              Search requires JavaScript. Browse <a href="/research" className="text-primary underline">Research</a> or{" "}
+              <a href="/data-code" className="text-primary underline">Data &amp; Code</a> instead.
+            </p>
+          </noscript>
         </header>
 
         {!query ? (
@@ -83,7 +89,7 @@ export default function Search() {
                             ))}
                           </div>
                           <Button asChild variant="ghost" size="sm" className="h-8 w-8 p-0 opacity-50 group-hover:opacity-100">
-                            <a href={project.url} target="_blank" rel="noopener noreferrer">
+                            <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title}`}>
                               <ExternalLink className="h-4 w-4" />
                             </a>
                           </Button>

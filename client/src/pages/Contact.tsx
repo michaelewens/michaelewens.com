@@ -21,7 +21,7 @@ export default function Contact() {
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Email</h3>
+                  <h2 className="font-bold text-foreground mb-1">Email</h2>
                   <p className="text-muted-foreground">michael.ewens@columbia.edu</p>
                 </div>
               </div>
@@ -31,7 +31,7 @@ export default function Contact() {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Office</h3>
+                  <h2 className="font-bold text-foreground mb-1">Office</h2>
                   <p className="text-muted-foreground">
                     Columbia Business School<br/>
                     665 W. 130th Street <br/>
@@ -46,7 +46,7 @@ export default function Contact() {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Phone</h3>
+                  <h2 className="font-bold text-foreground mb-1">Phone</h2>
                   <p className="text-muted-foreground">+1 (619) 512-3820</p>
                 </div>
               </div>
@@ -56,7 +56,7 @@ export default function Contact() {
                   <Linkedin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">LinkedIn</h3>
+                  <h2 className="font-bold text-foreground mb-1">LinkedIn</h2>
                   <a
                     href="https://www.linkedin.com/in/michaelewens/"
                     target="_blank"

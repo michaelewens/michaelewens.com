@@ -241,7 +241,7 @@ export default function Home() {
                     size="sm"
                     className="rounded-none font-mono text-xs tracking-wider bg-foreground text-background hover:bg-primary transition-all"
                   >
-                    <a href={item.link}>LEARN MORE</a>
+                    <a href={item.link}>LEARN MORE<span className="sr-only"> about {item.title}</span></a>
                   </Button>
                 </div>
               </div>

@@ -39,9 +39,9 @@ export default function Media() {
                   <div className="text-xs font-mono text-primary font-bold mb-1 uppercase tracking-wider">
                     {item.outlet}
                   </div>
-                  <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
+                  <h2 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
                     {item.title}
-                  </h3>
+                  </h2>
                   {item.description && (
                     <p className="text-sm text-muted-foreground mt-1">
                       {item.description}

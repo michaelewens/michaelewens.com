@@ -23,7 +23,7 @@ export default function DataCode() {
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Data & Code</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             Data and code releases from my research. All repositories are available on{" "}
-            <a href="https://github.com/michaelewens" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            <a href="https://github.com/michaelewens" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">
               my GitHub profile
             </a>.
           </p>
@@ -77,7 +77,7 @@ export default function DataCode() {
         <section className="mt-20 p-8 bg-secondary/30 border border-border">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="flex-1">
-              <h3 className="font-heading text-2xl font-bold mb-4">Replication Policy</h3>
+              <h2 className="font-heading text-2xl font-bold mb-4">Replication Policy</h2>
               <p className="text-muted-foreground">
                 I am committed to research transparency. Replication packages for many of my published papers are available on the journal websites, and when possible, the main datasets in my GitHub repositories. If you encounter any issues running the code, please open an issue on Github or email me.
               </p>

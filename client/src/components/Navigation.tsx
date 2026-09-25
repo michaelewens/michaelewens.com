@@ -142,6 +142,17 @@ export default function Navigation() {
         </div>
       )}
 
+      {/* Without JavaScript the mobile menu cannot open; show the page links instead. */}
+      <noscript>
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border px-6 py-3 flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
+          {navItems.map((item) => (
+            <a key={item.path} href={item.path} className="hover:text-primary">
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </noscript>
+
       {/* Mobile Nav */}
       {isOpen && (
         <div id="mobile-nav" className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">

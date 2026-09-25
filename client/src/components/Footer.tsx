@@ -3,9 +3,9 @@ export default function Footer() {
     <footer className="bg-foreground text-background py-10 px-6">
       <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <h4 className="font-heading text-xl font-bold mb-2 tracking-wide">
+          <p className="font-heading text-xl font-bold mb-2 tracking-wide">
             Michael Ewens
-          </h4>
+          </p>
           <p className="font-mono text-xs text-background/60">
             © Michael Ewens {new Date().getFullYear()}. All rights reserved.
           </p>

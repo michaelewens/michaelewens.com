@@ -43,7 +43,7 @@ export default function Teaching() {
                   <TableCell className="text-right">
                     {course.syllabusUrl && (
                       <Button asChild variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-none hover:bg-primary hover:text-primary-foreground">
-                        <a href={course.syllabusUrl} target="_blank" rel="noopener noreferrer">
+                        <a href={course.syllabusUrl} target="_blank" rel="noopener noreferrer" aria-label={`Syllabus: ${course.title}`}>
                           <FileText className="h-4 w-4" />
                         </a>
                       </Button>
