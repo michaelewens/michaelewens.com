@@ -24,3 +24,6 @@ _Log.md
 
 # Playwright MCP scratch snapshots/logs (local only)
 .playwright-mcp/
+
+# Local Codex/Cursor review archives (not published)
+codex_reviews/

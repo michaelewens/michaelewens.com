@@ -37,9 +37,9 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Playfair Display', serif;
-  --font-mono: 'Space Grotesk', monospace;
+  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-heading: 'Playfair Display', 'Playfair Display Fallback', serif;
+  --font-mono: 'Space Grotesk', 'Space Grotesk Fallback', monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -51,6 +51,34 @@
     to { transform: translateX(-50%); }
   }
   --animate-marquee: marquee 30s linear infinite;
+}
+
+/* Metric-matched local fallbacks: text laid out before the web fonts load takes the same
+   space, so the swap does not shift the page. Values computed from the font files
+   (average advance width and hhea metrics vs Arial / Times New Roman). */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  size-adjust: 106.91%;
+  ascent-override: 90.61%;
+  descent-override: 22.56%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Playfair Display Fallback";
+  src: local("Times New Roman"), local("Liberation Serif");
+  size-adjust: 111.73%;
+  ascent-override: 96.84%;
+  descent-override: 22.47%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Space Grotesk Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  size-adjust: 108.96%;
+  ascent-override: 90.31%;
+  descent-override: 26.8%;
+  line-gap-override: 0%;
 }
 
 @media (prefers-reduced-motion: reduce) {

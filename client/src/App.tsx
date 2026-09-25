@@ -2,6 +2,7 @@ import { Switch, Route, Router as WouterRouter, Redirect, useLocation } from "wo
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import HeadSync from "@/components/HeadSync";
 import { lazy, Suspense, useEffect } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
@@ -30,8 +31,9 @@ function RouteFallback() {
 
 function Router({ ssrPath }: { ssrPath?: string }) {
   return (
-    <WouterRouter ssrPath={ssrPath}>
+    <WouterRouter ssrPath={ssrPath} ssrSearch={ssrPath === undefined ? undefined : ""}>
       <ScrollToTop />
+      <HeadSync />
       <Navigation />
       <Suspense fallback={<RouteFallback />}>
         <Switch>
