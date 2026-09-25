@@ -11,7 +11,7 @@ import genderRaceLectureImage from "@assets/optimized/Screenshot_2025-12-21_at_1
 import workshopEFIImage from "@assets/optimized/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.webp";
 import entrepreneurialFinanceImage from "@assets/optimized/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.webp";
 import phdWebsiteImage from "@assets/optimized/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.webp";
-import intangiblesDataImage from "@assets/optimized/Screenshot_2026-09-24_at_7.50.49_PM_intangiblesdata.webp";
+import intangiblesDataImage from "@assets/optimized/intangiblesdata_fig01.webp";
 
 const projectImages: Record<string, string> = {
   "proj1": genderEquityImage,
