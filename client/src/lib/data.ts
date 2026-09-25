@@ -329,7 +329,7 @@ export const projects: Project[] = [
     title: "Intangible Capital Stocks",
     description: "Parameter estimates for intangible capital accumulation and estimated knowledge and organization capital stocks. From Ewens, Peters and Wang (2024), 'Measuring Intangible Capital with Market Prices', Management Science.",
     language: ["Stata", "Code"],
-    url: "https://github.com/michaelewens/Intangible-capital-stocks"
+    url: "https://intangiblesdata.org/"
   },
   {
     id: "pr4",
@@ -777,6 +777,12 @@ export const courses: Course[] = [
 ];
 
 export const projectItems: ProjectItem[] = [
+  {
+    id: "proj12",
+    title: "Intangible Capital Data",
+    description: "Annual knowledge and organization capital stocks for U.S. public firms, built from Compustat with the parameter estimates of Ewens, Peters and Wang (2024), Management Science. The site offers the stocks and the industry-level parameters as CSV downloads, a Python package, figures on what the data show, and documentation on how the stocks are built. The data are updated as fiscal years close.",
+    url: "https://intangiblesdata.org/"
+  },
   {
     id: "proj1",
     title: "Gender Equity in Private Equity",
