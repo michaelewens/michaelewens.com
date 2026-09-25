@@ -1,19 +1,21 @@
 import { projectItems } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
-import genderEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.webp";
-import blueSkyImage from "@assets/optimized/Screenshot_2025-12-21_at_10.49.33_AM_1766310595420.webp";
-import summerPhDImage from "@assets/optimized/Screenshot_2025-12-21_at_11.10.53_AM_1766313842713.webp";
-import publicPrivateEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.webp";
-import columbiaPEImage from "@assets/optimized/Screenshot_2025-12-21_at_11.54.43_AM_1766314506064.webp";
-import raceGenderImage from "@assets/optimized/Screenshot_2025-12-21_at_11.58.04_AM_1766314701128.webp";
-import genderRaceLectureImage from "@assets/optimized/Screenshot_2025-12-21_at_12.11.19_PM_1766315836431.webp";
-import workshopEFIImage from "@assets/optimized/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.webp";
-import entrepreneurialFinanceImage from "@assets/optimized/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.webp";
-import phdWebsiteImage from "@assets/optimized/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.webp";
-import intangiblesDataImage from "@assets/optimized/intangiblesdata_fig01.webp";
+import ResponsiveImage, { type Picture } from "@/components/ResponsiveImage";
+import genderEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_10.34.27_AM_1766309689165.webp?rw=480,720,1080&responsive";
+import blueSkyImage from "@assets/optimized/Screenshot_2025-12-21_at_10.49.33_AM_1766310595420.webp?rw=480,720,1080&responsive";
+import summerPhDImage from "@assets/optimized/Screenshot_2025-12-21_at_11.10.53_AM_1766313842713.webp?rw=480,720,1080&responsive";
+import publicPrivateEquityImage from "@assets/optimized/Screenshot_2025-12-21_at_11.53.00_AM_1766314397630.webp?rw=480,720,1080&responsive";
+import columbiaPEImage from "@assets/optimized/Screenshot_2025-12-21_at_11.54.43_AM_1766314506064.webp?rw=480,720,1080&responsive";
+import raceGenderImage from "@assets/optimized/Screenshot_2025-12-21_at_11.58.04_AM_1766314701128.webp?rw=480,720,1080&responsive";
+import genderRaceLectureImage from "@assets/optimized/Screenshot_2025-12-21_at_12.11.19_PM_1766315836431.webp?rw=480,720,1080&responsive";
+import workshopEFIImage from "@assets/optimized/Screenshot_2025-12-21_at_12.18.05_PM_1766315902568.webp?rw=480,720,1080&responsive";
+import entrepreneurialFinanceImage from "@assets/optimized/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.webp?rw=480,720,1080&responsive";
+import phdWebsiteImage from "@assets/optimized/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.webp?rw=480,720,1080&responsive";
+import intangiblesDataImage from "@assets/optimized/intangiblesdata_fig01.webp?rw=480,720,1080&responsive";
 
-const projectImages: Record<string, string> = {
+// Imported pictures get responsive AVIF/WebP; plain strings are served as-is from /public.
+const projectImages: Record<string, Picture | string> = {
   "proj1": genderEquityImage,
   "proj2": blueSkyImage,
   "proj3": summerPhDImage,
@@ -49,11 +51,21 @@ export default function Projects() {
             >
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/3 bg-secondary/30 flex items-center justify-center overflow-hidden">
-                  {projectImages[project.id] ? (
-                    <img 
-                      src={projectImages[project.id]} 
+                  {typeof projectImages[project.id] === "object" ? (
+                    <ResponsiveImage
+                      picture={projectImages[project.id] as Picture}
+                      sizes="(max-width: 767px) calc(100vw - 3rem), 330px"
+                      alt={project.title}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchPriority={index === 0 ? "high" : "auto"}
+                      className="w-full h-full object-cover aspect-video md:aspect-square"
+                    />
+                  ) : projectImages[project.id] ? (
+                    <img
+                      src={projectImages[project.id] as string}
                       alt={project.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover aspect-video md:aspect-square"
                     />
                   ) : (

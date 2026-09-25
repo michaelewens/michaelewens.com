@@ -4,19 +4,12 @@ import { papers, projects, FEATURED_COUNT } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveRight, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
-import headshot from "@assets/optimized/michael_ewens_headshot.webp";
+import headshot from "@assets/optimized/michael_ewens_headshot.webp?rw=160,320,480&responsive";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
-import wefiImage from "@assets/optimized/wefi.webp";
-import wefiImageMd from "@assets/optimized/wefi_md.webp";
-import wefiImageSm from "@assets/optimized/wefi_sm.webp";
-import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp";
-import phdWorkshopImageMd from "@assets/optimized/academic_workshop_abstract_md.webp";
-import phdWorkshopImageSm from "@assets/optimized/academic_workshop_abstract_sm.webp";
-import foundingPatentsImage from "@assets/optimized/founding_patents.webp";
-import foundingPatentsImageMd from "@assets/optimized/founding_patents_md.webp";
-import foundingPatentsImageSm from "@assets/optimized/founding_patents_sm.webp";
-import headshotMd from "@assets/optimized/michael_ewens_headshot_md.webp";
-import headshotSm from "@assets/optimized/michael_ewens_headshot_sm.webp";
+import wefiImage from "@assets/optimized/wefi.webp?rw=400,704,1024&responsive";
+import phdWorkshopImage from "@assets/optimized/academic_workshop_abstract.webp?rw=400,704,1024&responsive";
+import foundingPatentsImage from "@assets/optimized/founding_patents.webp?rw=400,704,1024&responsive";
 
 export default function Home() {
   const featuredPapers = papers.slice(0, FEATURED_COUNT);
@@ -50,8 +43,6 @@ export default function Home() {
       title: "Founding Patents",
       description: "Explore startup innovation through a unique connection between firm formation and patent data.",
       image: foundingPatentsImage,
-      imageMd: foundingPatentsImageMd,
-      imageSm: foundingPatentsImageSm,
       link: "https://foundingpatents.com/",
     },
     {
@@ -60,8 +51,6 @@ export default function Home() {
       description:
         "I co-organize the online seminar, Workshop on Entrepreneurial Finance and Innovation.",
       image: wefiImage,
-      imageMd: wefiImageMd,
-      imageSm: wefiImageSm,
       link: "https://workshop-efi.com/",
     },
     {
@@ -69,8 +58,6 @@ export default function Home() {
       title: "Entrepreneurial Finance PhD Workshop",
       description: "PhD workshop in entrepreneurial finance.",
       image: phdWorkshopImage,
-      imageMd: phdWorkshopImageMd,
-      imageSm: phdWorkshopImageSm,
       link: "https://entrepreneurial.finance/summer-phd-workshop/",
     },
   ];
@@ -85,10 +72,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative group shrink-0 mx-auto md:mx-0">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm transform translate-y-1 translate-x-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></div>
-              <img
-                src={headshotSm}
-                srcSet={`${headshotSm} 320w, ${headshotMd} 480w, ${headshot} 966w`}
+              <ResponsiveImage
+                picture={headshot}
                 sizes="(max-width: 768px) 128px, 160px"
+                loading="eager"
                 alt="Prof. Michael Ewens"
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background ring-1 ring-primary/20 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-xl"
               />
@@ -232,12 +219,10 @@ export default function Home() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img
-                    src={item.imageSm}
-                    srcSet={`${item.imageSm} 640w, ${item.imageMd} 800w, ${item.image} 1024w`}
+                  <ResponsiveImage
+                    picture={item.image}
                     sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1151px) calc((100vw - 6rem) / 3), 352px"
                     alt={item.title}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125 opacity-40 group-hover:opacity-30"
                   />
                   <div className="absolute inset-0 bg-background/80 transition-opacity duration-500 group-hover:opacity-70" />

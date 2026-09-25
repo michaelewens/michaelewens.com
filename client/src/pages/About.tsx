@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, BookOpen, GraduationCap, Newspaper, ArrowUpRight, Building2, Badge } from "lucide-react";
-import headshot from "@assets/optimized/ewens_arms.webp";
+import headshot from "@assets/optimized/ewens_arms.webp?rw=320,640,960&responsive";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { Link } from "wouter";
 import { press, sortPressByDate } from "@/lib/data";
 
@@ -15,10 +16,10 @@ export default function About() {
           <div className="hidden md:block space-y-8 sticky top-32">
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/10 rounded-sm transform translate-y-2 translate-x-2 -z-10"></div>
-              <img 
-                src={headshot} 
-                alt="Prof. Michael Ewens" 
-                loading="lazy"
+              <ResponsiveImage
+                picture={headshot}
+                sizes="310px"
+                alt="Prof. Michael Ewens"
                 className="w-full aspect-[3/4] object-cover rounded-sm border border-border shadow-sm grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
