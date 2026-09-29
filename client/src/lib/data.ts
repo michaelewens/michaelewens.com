@@ -384,6 +384,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n29",
+    outlet: "New York Times DealBook",
+    title: "Quoted in NYT DealBook on the S.E.C.'s private credit valuation warning",
+    date: "September 29, 2026",
+    url: "https://www.nytimes.com/section/business/dealbook",
+    description: "Commented on the S.E.C.'s reminder to private fund managers about fair value reporting, as more private market vehicles are launched for retail investors."
+  },
+  {
     id: "n28",
     outlet: "Improving Alpha (Vidrio)",
     title: "Guest on the Improving Alpha podcast on the public-private markets debate and its impact on allocators",
