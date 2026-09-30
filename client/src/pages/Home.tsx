@@ -23,7 +23,7 @@ export default function Home() {
     {
       id: "u10",
       text: "[September 2026] New version of \"Corporate Hierarchy\" (with Xavier Giroud) is now available",
-      url: "https://osf.io/preprints/socarxiv/yj4he"
+      url: "https://osf.io/preprints/socarxiv/yj4he_v3"
     },
     {
       id: "u9",
