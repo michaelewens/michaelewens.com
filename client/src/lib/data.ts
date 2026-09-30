@@ -12,6 +12,8 @@ export interface Paper {
   status: "Working Paper" | "Published" | "Forthcoming";
   abstract: string;
   pdfUrl: string;
+  ssrnUrl?: string;
+  nberUrl?: string;
   codeUrl?: string;
   slidesUrl?: string;
   appendixUrl?: string;
@@ -74,6 +76,8 @@ export const papers: Paper[] = [
     status: "Working Paper",
     abstract: "We introduce a novel measure of corporate hierarchy for 3,454 U.S. public firms. We construct this measure using online resumes of 18.1 million employees and a network estimation technique that allows us to identify hierarchical layers. Equipped with this measure, we document several facts about corporate hierarchies. Firms have on average six hierarchical layers and a pyramidal organizational structure. Firms with more layers have higher internal promotion rates and longer employee tenure. They exhibit higher operating performance and produce more patents, but not higher-quality patents. They also exhibit lower stock return volatility and operating asset volatility. At the same time, flatter firms fared better in response to the COVID-19 shock, consistent with greater organizational agility. We also examine potential determinants of hierarchical structures. Firms facing greater product market threats adopt flatter hierarchies. Moreover, firms increase their number of layers after going public, while they flatten their hierarchies following the adoption of artificial intelligence (AI). These findings are consistent with the theoretical predictions of existing models of corporate hierarchies and suggest that firms adjust their organizational structures to balance the benefits and costs of hierarchical layers.",
     pdfUrl: "https://osf.io/preprints/socarxiv/yj4he_v3",
+    ssrnUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7542400",
+    nberUrl: "https://www.nber.org/papers/w34162",
     tags: ["Corporate Finance", "Organization", "Hierarchy"]
   },
   {
@@ -87,6 +91,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates the causal role of venture capital supply in the geographic clustering of high-growth startups in the U.S. We exploit the 2013 Volcker Rule, which restricted bank investment in VC funds, as a quasi-natural experiment, noting its disproportionate impact on non-hub states that relied more heavily on bank capital. The difference-in-differences analysis finds that this restriction led to a decline in fund size and startup financing in affected regions, thereby contributing to increased geographic concentration of entrepreneurship.",
     pdfUrl: "https://osf.io/download/607362fc51f7ae0483f50a1b/",
+    nberUrl: "https://www.nber.org/papers/w29211",
     tags: ["Venture Capital", "Entrepreneurship", "Geography"],
     codeUrl: "https://github.com/michaelewens/Banks-In-VC"
   },
@@ -99,6 +104,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper examines how the composition and control of venture capital (VC)-backed startup boards evolve over the company's life cycle. Using novel data, we find that boards transition from being entrepreneur-controlled to VC-controlled, with independent directors playing a key role in mediating conflicts and later providing advice. The findings align with financial contracting theories and highlight the unique, evolving function of independent directors in startups.",
     pdfUrl: "https://osf.io/preprints/socarxiv/t96yq/",
+    nberUrl: "https://www.nber.org/papers/w27769",
     codeUrl: "https://github.com/michaelewens/vc_backed_boards",
     slidesUrl: "/attached_assets/Slides_Board_Dynamics_Over_Startup_Life_Cycle.pdf",
     tags: ["Corporate Governance", "Startups", "Venture Capital"], 
@@ -116,6 +122,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "We estimate the regulatory costs of being a public company using bunching estimation techniques.",
     pdfUrl: "https://osf.io/preprints/socarxiv/pdv8n/",
+    nberUrl: "https://www.nber.org/papers/w29143",
     tags: ["Regulation", "IPO", "Public Markets"]
   },
   {
@@ -128,6 +135,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates how founder-CEO compensation and the non-diversifiable risk faced by founders influence the selection of high-earning individuals into venture capital-backed entrepreneurship. Using a theoretical model and proprietary data, we find that cash compensation substantially increases after a startup's first product milestone, thereby alleviating risk and serving as a critical determinant of entrepreneurial talent supply.",
     pdfUrl: "https://osf.io/preprints/socarxiv/rku3m",
+    nberUrl: "https://www.nber.org/papers/w27296",
     tags: ["Entrepreneurship", "Compensation", "Venture Capital"],
     slidesUrl:"/attached_assets/short_present_ENS.pdf"
   },
@@ -140,6 +148,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper addresses the challenge of accurately measuring off-balance-sheet intangible capital, such as knowledge and organizational capital, which are typically expensed under current accounting standards. We propose a novel methodology to estimate the necessary capitalization parameters, specifically the R&D depreciation rate and the fraction of SG&A to be capitalized, by utilizing market prices from firm exits. The resulting intangible capital stocks are validated to outperform standard measures in explaining firm value.",
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
+    nberUrl: "https://www.nber.org/papers/w25960",
     codeUrl: "https://github.com/michaelewens/intangible_capital",
     tags: ["Intangible Capital", "Valuation", "Corporate Finance"],
     slidesUrl:"/attached_assets/intangibles_short.pdf", 
@@ -153,6 +162,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This chapter addresses the research question of how gender and race contribute to discrimination and economic friction in entrepreneurial finance. It reviews an extensive empirical literature, detailing major discrimination theories and the methods used to test them, to synthesize the nuanced evidence on bias and differential treatment of underrepresented founders. The work aims to provide a framework for understanding the participation and financing gaps experienced by female and minority entrepreneurs.",
     pdfUrl: "https://osf.io/preprints/socarxiv/djf8z/",
+    nberUrl: "https://www.nber.org/papers/w30444",
     tags: ["Diversity", "Entrepreneurship", "Venture Capital"],
       codeUrl: "https://foundinggaps.com/", 
     journalUrl: "https://www.sciencedirect.com/science/chapter/handbook/abs/pii/S2949964X23000061"
@@ -166,6 +176,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "The U.S. entrepreneurial finance market has changed dramatically over the last two decades. Entrepreneurs raising their first round of venture capital retain 30% more equity in their firm and are more likely to control their board of directors. Late-stage startups are raising larger amounts of capital in the private markets from a growing pool of traditional and new investors. These private market changes have coincided with a sharp decline in the number of firms going public—and when firms do go public, they are older and have raised more private capital. To understand these facts, we provide a systematic description of the differences between private and public firms. Next, we review several regulatory, technological, and competitive changes affecting both startups and investors that help explain how the trade-offs between going public and staying private have changed. We conclude by listing several open research questions.",
     pdfUrl: "https://osf.io/preprints/socarxiv/9am4w/",
+    nberUrl: "https://www.nber.org/papers/w29532",
     codeUrl:"https://privatepublicmkts.com/",
     slidesUrl:"/attached_assets/public_private_ewens_posted.pdf",
     tags: ["Private Equity", "IPO", "Entrepreneurship"],
@@ -180,6 +191,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates how venture capital contract terms affect startup success and the division of value between founders and investors. We develop a novel dynamic search and matching model, estimated using a large dataset of over 8,100 first-round VC financings. The results show that VCs use their bargaining power to secure investor-friendly terms that reduce the value of startups to founders while optimizing investor returns.",
     pdfUrl: "https://osf.io/preprints/socarxiv/hk38u/",
+    nberUrl: "https://www.nber.org/papers/w26115",
     tags: ["Venture Capital", "Contracts", "Corporate Finance"],
     slidesUrl:"/attached_assets/VCContr-general.pdf",
     journalUrl:"https://www.sciencedirect.com/science/article/abs/pii/S0304405X21003123?via%3Dihub"
@@ -194,6 +206,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates whether the decline in U.S. Initial Public Offerings (IPOs) is due to a failure in the public market or a shift in the going-public versus staying-private trade-off. We hypothesize that the deregulation of securities laws, specifically the National Securities Markets Improvement Act (NSMIA) of 1996, increased the supply of private capital. Using difference-in-differences and triple-difference analyses, the study finds that NSMIA facilitated late-stage startups remaining private, thereby explaining a significant portion of the IPO decline.",
     pdfUrl: "https://osf.io/preprints/socarxiv/67uzb/",
+    nberUrl: "https://www.nber.org/papers/w26317",
     tags: ["Regulation", "IPO", "Private Equity"], 
       appendixUrl:"/attached_assets/IA_122519.pdf"
   },
@@ -231,6 +244,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates how a technological shock that lowered the cost of starting new businesses has fundamentally altered the venture capital (VC) investment model over the last decade. We document an increased prevalence of a \"spray and pray\" approach, where VCs provide smaller initial funding and limited governance to a larger number of startups, which they are more likely to abandon early. This adaptation, driven by the higher value of abandonment options, has led to a disproportionate increase in early-stage seed funding.",
     pdfUrl: "/attached_assets/vc_evolve.pdf",
+    nberUrl: "https://www.nber.org/papers/w24523",
     tags: ["Venture Capital", "Innovation", "Experimentation"],
       appendixUrl:"/attached_assets/vc_evolveIA.pdf",
     journalUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0304405X18300631"
@@ -258,6 +272,7 @@ export const papers: Paper[] = [
     status: "Published",
     abstract: "This paper investigates whether a venture capital firm's success is driven by its organizational capital or the human capital of its individual partners. Using a unique dataset of VC investments, we find that a partner's individual skill is two to five times more important than the firm's organizational structure in explaining performance. The results suggest that the partnership's value is not greater than the sum of its skilled members.",
     pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2024209",
+    nberUrl: "https://www.nber.org/papers/w19120",
     tags: ["Venture Capital", "Performance", "Human Capital"],
       appendixUrl:"/attached_assets/vc-partners-appendix.pdf"
 
@@ -294,6 +309,7 @@ export const papers: Paper[] = [
     status: "Working Paper",
     abstract: "This paper investigates the impact of private equity (PE) ownership on local daily newspapers, a struggling but democratically important industry. Using a comprehensive dataset of U.S. newspapers, we find nuanced effects: PE ownership leads to higher digital circulation and lower chances of newspaper exit, but also results in fewer reporters and editors, and a shift in content away from local governance toward national news. These findings highlight the trade-offs of PE ownership for institutional quality.",
     pdfUrl: "https://osf.io/preprints/socarxiv/6ynf4",
+    nberUrl: "https://www.nber.org/papers/w29743",
     tags: ["Private Equity", "Media", "Journalism"],
     slidesUrl:"/attached_assets/Newspapers_and_PE_posted.pdf"
   },
