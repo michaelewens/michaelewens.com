@@ -21,6 +21,11 @@ export default function Home() {
 
   const updates = [
     {
+      id: "u10",
+      text: "[September 2026] New version of \"Corporate Hierarchy\" (with Xavier Giroud) is now available",
+      url: "https://osf.io/preprints/socarxiv/yj4he"
+    },
+    {
       id: "u9",
       text: "[September 2026] Launched intangiblesdata.org: annual knowledge and organization capital stocks for U.S. public firms, from Ewens, Peters and Wang (2024)",
       url: "https://intangiblesdata.org/"

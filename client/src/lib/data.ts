@@ -70,10 +70,10 @@ export const papers: Paper[] = [
     id: "p17",
     title: "Corporate Hierarchy",
     authors: ["Michael Ewens", "Xavier Giroud"],
-    year: 2025,
+    year: 2026,
     status: "Working Paper",
-    abstract: "This paper examines how to measure corporate hierarchy and its economic consequences for firms. We introduce a novel measure of hierarchical layers, derived from 7 million online employee resumes and a network estimation technique, and use it to document several facts about organizational structure, performance, and adjustment to shocks. The findings show that more hierarchical firms exhibit higher operating performance but also higher administrative costs, and they adjust their structure differently in response to economic changes.",
-    pdfUrl: "https://osf.io/preprints/socarxiv/yj4he_v2",
+    abstract: "We introduce a novel measure of corporate hierarchy for 3,454 U.S. public firms. We construct this measure using online resumes of 18.1 million employees and a network estimation technique that allows us to identify hierarchical layers. Equipped with this measure, we document several facts about corporate hierarchies. Firms have on average six hierarchical layers and a pyramidal organizational structure. Firms with more layers have higher internal promotion rates and longer employee tenure. They exhibit higher operating performance and produce more patents, but not higher-quality patents. They also exhibit lower stock return volatility and operating asset volatility. At the same time, flatter firms fared better in response to the COVID-19 shock, consistent with greater organizational agility. We also examine potential determinants of hierarchical structures. Firms facing greater product market threats adopt flatter hierarchies. Moreover, firms increase their number of layers after going public, while they flatten their hierarchies following the adoption of artificial intelligence (AI). These findings are consistent with the theoretical predictions of existing models of corporate hierarchies and suggest that firms adjust their organizational structures to balance the benefits and costs of hierarchical layers.",
+    pdfUrl: "https://osf.io/preprints/socarxiv/yj4he",
     tags: ["Corporate Finance", "Organization", "Hierarchy"]
   },
   {
