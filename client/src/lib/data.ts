@@ -400,6 +400,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n30",
+    outlet: "NerdWallet",
+    title: "Quoted in NerdWallet's The Nerdy Investor on why tech companies are delaying their IPOs",
+    date: "October 1, 2026",
+    url: "https://nerdyinvestor-nerdwallet.beehiiv.com/p/why-everyone-is-delaying-their-ipos",
+    description: "Said that tough questions from institutional investors during the roadshow can make companies like OpenAI and Oura pull back, and that many IPOs will likely wait until after the midterm elections and the holidays."
+  },
+  {
     id: "n29",
     outlet: "New York Times DealBook",
     title: "Quoted in NYT DealBook on the S.E.C.'s private credit valuation warning",
