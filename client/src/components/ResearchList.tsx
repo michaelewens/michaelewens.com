@@ -1,7 +1,7 @@
 import { Paper } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { FileDown, Github, Presentation, BookOpen, FileText } from "lucide-react";
+import { FileDown, Github, Database, Presentation, BookOpen, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ResearchListProps {
@@ -95,6 +95,14 @@ export default function ResearchList({ papers, showAbstract = true, className }:
                   <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="h-3 w-3" />
                     Code
+                  </a>
+                </Button>
+              )}
+              {paper.dataUrl && (
+                <Button variant="outline" size="sm" className="rounded-none gap-2 font-mono text-xs border-primary/20 hover:border-primary hover:bg-primary/5 w-24 justify-center" asChild>
+                  <a href={paper.dataUrl} target="_blank" rel="noopener noreferrer">
+                    <Database className="h-3 w-3" />
+                    Data
                   </a>
                 </Button>
               )}

@@ -15,6 +15,7 @@ export interface Paper {
   ssrnUrl?: string;
   nberUrl?: string;
   codeUrl?: string;
+  dataUrl?: string;
   slidesUrl?: string;
   appendixUrl?: string;
   tags: string[];
@@ -93,7 +94,7 @@ export const papers: Paper[] = [
     pdfUrl: "https://osf.io/download/607362fc51f7ae0483f50a1b/",
     nberUrl: "https://www.nber.org/papers/w29211",
     tags: ["Venture Capital", "Entrepreneurship", "Geography"],
-    codeUrl: "https://github.com/michaelewens/Banks-In-VC"
+    dataUrl: "https://github.com/michaelewens/Banks-In-VC"
   },
   {
     id: "p2",
@@ -149,7 +150,7 @@ export const papers: Paper[] = [
     abstract: "This paper addresses the challenge of accurately measuring off-balance-sheet intangible capital, such as knowledge and organizational capital, which are typically expensed under current accounting standards. We propose a novel methodology to estimate the necessary capitalization parameters, specifically the R&D depreciation rate and the fraction of SG&A to be capitalized, by utilizing market prices from firm exits. The resulting intangible capital stocks are validated to outperform standard measures in explaining firm value.",
     pdfUrl: "https://osf.io/preprints/socarxiv/kvp2f/",
     nberUrl: "https://www.nber.org/papers/w25960",
-    codeUrl: "https://github.com/michaelewens/intangible_capital",
+    dataUrl: "https://intangiblesdata.org/",
     tags: ["Intangible Capital", "Valuation", "Corporate Finance"],
     slidesUrl:"/attached_assets/intangibles_short.pdf", 
     journalUrl: "https://pubsonline.informs.org/doi/10.1287/mnsc.2021.02058"
@@ -164,7 +165,7 @@ export const papers: Paper[] = [
     pdfUrl: "https://osf.io/preprints/socarxiv/djf8z/",
     nberUrl: "https://www.nber.org/papers/w30444",
     tags: ["Diversity", "Entrepreneurship", "Venture Capital"],
-      codeUrl: "https://foundinggaps.com/", 
+    dataUrl: "https://foundinggaps.com/",
     journalUrl: "https://www.sciencedirect.com/science/chapter/handbook/abs/pii/S2949964X23000061"
   },
   {
