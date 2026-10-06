@@ -76,7 +76,7 @@ export const papers: Paper[] = [
     year: 2026,
     status: "Working Paper",
     abstract: "We introduce a novel measure of corporate hierarchy for 3,454 U.S. public firms. We construct this measure using online resumes of 18.1 million employees and a network estimation technique that allows us to identify hierarchical layers. Firms have on average six hierarchical layers and a pyramidal organizational structure. Firms with more layers exhibit higher operating performance and produce more patents, but not higher-quality patents. At the same time, flatter firms fared better in response to the COVID-19 shock, consistent with greater organizational agility. Firms facing greater product market threats adopt flatter hierarchies. Moreover, firms increase their number of layers after going public, while they flatten their hierarchies following the adoption of artificial intelligence (AI).",
-    pdfUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7542400",
+    pdfUrl: "https://osf.io/preprints/socarxiv/yj4he_v3/",
     ssrnUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7542400",
     nberUrl: "https://www.nber.org/papers/w34162",
     tags: ["Corporate Finance", "Organization", "Hierarchy"]
