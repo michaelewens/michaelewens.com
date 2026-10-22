@@ -61,18 +61,18 @@ export default function Navigation() {
           aria-current={location === "/" ? "page" : undefined}
         >
           <h1 className={cn(
-            "font-heading text-2xl font-bold tracking-tight transition-colors",
+            "font-heading text-2xl font-bold tracking-tight whitespace-nowrap transition-colors",
             location === "/" ? "text-primary" : "group-hover:text-primary"
           )}>
             Michael Ewens
           </h1>
-          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest sm:whitespace-nowrap group-hover:text-foreground transition-colors">
             Private Equity & Entrepreneurial Finance
           </p>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -89,7 +89,7 @@ export default function Navigation() {
             </Link>
           ))}
           
-          <div className="relative w-64 ml-4">
+          <div className="hidden xl:block relative w-64 ml-4">
             <form onSubmit={handleSearch}>
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -104,7 +104,7 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Controls */}
-        <div className="md:hidden flex items-center gap-1">
+        <div className="xl:hidden flex items-center gap-1">
           <button
             className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => { setMobileSearchOpen(!mobileSearchOpen); setIsOpen(false); }}
@@ -114,7 +114,7 @@ export default function Navigation() {
             <Search className="h-5 w-5" />
           </button>
           <button
-            className="p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
             onClick={() => { setIsOpen(!isOpen); setMobileSearchOpen(false); }}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -127,7 +127,7 @@ export default function Navigation() {
 
       {/* Mobile Search Bar */}
       {mobileSearchOpen && (
-        <div className="md:hidden border-b border-border bg-background px-6 py-3 animate-in slide-in-from-top-2">
+        <div className="xl:hidden border-b border-border bg-background px-6 py-3 animate-in slide-in-from-top-2">
           <form onSubmit={(e) => { handleSearch(e); setMobileSearchOpen(false); }} className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -144,7 +144,7 @@ export default function Navigation() {
 
       {/* Without JavaScript the mobile menu cannot open; show the page links instead. */}
       <noscript>
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border px-6 py-3 flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border px-6 py-3 flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
           {navItems.map((item) => (
             <a key={item.path} href={item.path} className="hover:text-primary">
               {item.name}
@@ -155,7 +155,7 @@ export default function Navigation() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div id="mobile-nav" className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">
+        <div id="mobile-nav" className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 animate-in slide-in-from-top-5">
           <div className="flex flex-col space-y-4">
              <form onSubmit={handleSearch} className="relative w-full mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
