@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -23,19 +21,6 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
-  --color-sidebar: hsl(var(--sidebar));
-  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
-  --color-sidebar-primary: hsl(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-accent: hsl(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
-  --color-sidebar-border: hsl(var(--sidebar-border));
-  --color-sidebar-ring: hsl(var(--sidebar-ring));
 
   --font-sans: 'Inter', 'Inter Fallback', sans-serif;
   --font-heading: 'Playfair Display', 'Playfair Display Fallback', serif;
@@ -45,12 +30,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  --animate-marquee: marquee 30s linear infinite;
 }
 
 /* Metric-matched local fallbacks: text laid out before the web fonts load takes the same
@@ -79,12 +58,6 @@
   ascent-override: 90.31%;
   descent-override: 26.8%;
   line-gap-override: 0%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none !important;
-  }
 }
 
 :root {
@@ -119,66 +92,6 @@
 
   --radius: 0rem; /* Sharp corners for academic/distinctive look */
 
-  --chart-1: 350 40% 40%;
-  --chart-2: 220 10% 40%;
-  --chart-3: 180 20% 40%;
-  --chart-4: 40 30% 50%;
-  --chart-5: 280 20% 40%;
-
-  --sidebar: 220 12% 97%;
-  --sidebar-foreground: 220 10% 15%;
-  --sidebar-primary: 350 40% 40%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 12% 95%;
-  --sidebar-accent-foreground: 350 40% 40%;
-  --sidebar-border: 220 10% 87%;
-  --sidebar-ring: 350 40% 40%;
-}
-
-.dark {
-  /* Dark Mode - Deep Slate Theme */
-  --background: 220 15% 10%;
-  --foreground: 36 20% 90%;
-
-  --card: 220 15% 10%;
-  --card-foreground: 36 20% 90%;
-
-  --popover: 220 15% 10%;
-  --popover-foreground: 36 20% 90%;
-
-  --primary: 350 40% 50%; /* Lighter Maroon */
-  --primary-foreground: 220 15% 10%;
-
-  --secondary: 220 15% 15%;
-  --secondary-foreground: 36 20% 90%;
-
-  --muted: 220 15% 15%;
-  --muted-foreground: 220 10% 60%;
-
-  --accent: 220 15% 15%;
-  --accent-foreground: 36 20% 90%;
-
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 220 15% 20%;
-  --input: 220 15% 20%;
-  --ring: 350 40% 50%;
-
-  --chart-1: 350 40% 50%;
-  --chart-2: 220 10% 50%;
-  --chart-3: 180 20% 50%;
-  --chart-4: 40 30% 60%;
-  --chart-5: 280 20% 50%;
-
-  --sidebar: 220 15% 12%;
-  --sidebar-foreground: 36 20% 90%;
-  --sidebar-primary: 350 40% 50%;
-  --sidebar-primary-foreground: 36 20% 98%;
-  --sidebar-accent: 220 15% 15%;
-  --sidebar-accent-foreground: 36 20% 90%;
-  --sidebar-border: 220 15% 20%;
-  --sidebar-ring: 350 40% 50%;
 }
 
 @layer base {
@@ -190,15 +103,6 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading text-foreground;
-  }
-  
-  /* Custom utility for the distinctive distinct academic look */
-  .font-academic {
-    @apply font-heading tracking-tight;
-  }
-  
-  .font-mono-distinct {
-    @apply font-mono tracking-wide;
   }
 }
 

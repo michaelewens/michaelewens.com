@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
-import { metaImagesPlugin } from "./vite-plugin-meta-images";
 import { imagetools } from "vite-imagetools";
 
 // `import pic from "...webp?rw=480,720,1080&responsive"` produces AVIF + WebP at those widths
@@ -25,26 +24,11 @@ function responsiveImages() {
   });
 }
 
-// Injects <link rel="preload"> for CSS to break the critical request chain
-function cssPreloadPlugin() {
-  return {
-    name: 'css-preload',
-    transformIndexHtml(html: string) {
-      return html.replace(
-        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
-        '<link rel="preload" as="style" crossorigin href="$1"><link rel="stylesheet" crossorigin href="$1">'
-      );
-    },
-  };
-}
-
 export default defineConfig({
   base: '/',
   plugins: [
     react(),
     tailwindcss(),
-    metaImagesPlugin(),
-    cssPreloadPlugin(),
     responsiveImages(),
   ],
   resolve: {

@@ -13,7 +13,7 @@ export default function NotFound() {
             </div>
 
             <p className="mt-4 text-sm text-muted-foreground">
-              Did you forget to add the page to the router?
+              This page doesn&apos;t exist. <a href="/" className="text-primary hover:underline">Go to the homepage</a>.
             </p>
           </CardContent>
         </Card>

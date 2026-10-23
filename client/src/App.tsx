@@ -5,7 +5,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import HeadSync from "@/components/HeadSync";
 import { lazy, Suspense, useEffect } from "react";
 import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
+const Home = lazy(() => import("@/pages/Home"));
 
 const About = lazy(() => import("@/pages/About"));
 const Research = lazy(() => import("@/pages/Research"));

@@ -311,12 +311,14 @@ export default function Home() {
               >
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
-                  />
+                  {project.imageUrl && (
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-background/90 transition-opacity duration-500 group-hover:opacity-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                 </div>

@@ -13,6 +13,7 @@ import workshopEFIImage from "@assets/optimized/Screenshot_2025-12-21_at_12.18.0
 import entrepreneurialFinanceImage from "@assets/optimized/Screenshot_2025-12-21_at_12.24.33_PM_1766316286605.webp?rw=480,720,1080&responsive";
 import phdWebsiteImage from "@assets/optimized/Screenshot_2025-12-21_at_12.26.39_PM_1766316421363.webp?rw=480,720,1080&responsive";
 import intangiblesDataImage from "@assets/optimized/intangiblesdata_fig01.webp?rw=480,720,1080&responsive";
+import foundingPatentsImage from "@assets/optimized/founding_patents_chart.png?rw=480,720,1080&responsive";
 
 // Imported pictures get responsive AVIF/WebP; plain strings are served as-is from /public.
 const projectImages: Record<string, Picture | string> = {
@@ -26,7 +27,7 @@ const projectImages: Record<string, Picture | string> = {
   "proj8": columbiaPEImage,
   "proj9": publicPrivateEquityImage,
   "proj10": phdWebsiteImage,
-  "proj11": "/attached_assets/founding_patents_chart.png",
+  "proj11": foundingPatentsImage,
   "proj12": intangiblesDataImage,
 };
 
