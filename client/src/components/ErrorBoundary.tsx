@@ -10,8 +10,8 @@ interface State {
 
 /**
  * Catches render-time errors anywhere below it and shows a refresh prompt
- * instead of a blank page: the safety net for a broken deploy or a lazy page
- * chunk that fails to load (e.g. a stale chunk after a redeploy).
+ * instead of a blank page. This is the safety net for a genuinely broken
+ * deploy (pages ship in one bundle, so no route chunk can go missing; see App.tsx).
  */
 class ErrorBoundary extends Component<Props, State> {
   state: State = { hasError: false };
