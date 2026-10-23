@@ -41,7 +41,7 @@ export default function HeadSync() {
     }
 
     if (!jsonLd.current) {
-      jsonLd.current = document.head.querySelector('script[type="application/ld+json"]');
+      jsonLd.current = document.head.querySelector('script[type="application/ld+json"][data-path]');
     }
     const ld = jsonLd.current;
     if (ld) {

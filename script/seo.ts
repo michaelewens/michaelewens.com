@@ -38,7 +38,7 @@ const person = {
     name: "Columbia Business School",
     url: "https://business.columbia.edu",
   },
-  image: `${SITE}/opengraph.jpg`,
+  image: `${SITE}/michael_ewens_headshot.jpg`,
   knowsAbout: ["Private equity", "Venture capital", "Entrepreneurial finance"],
   sameAs: [
     "https://business.columbia.edu/faculty/people/michael-ewens",
@@ -46,6 +46,9 @@ const person = {
     "https://www.linkedin.com/in/michaelewens/",
     "https://github.com/michaelewens",
     "https://x.com/startupecon",
+    "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1506180",
+    "https://www.nber.org/people/michael_ewens",
+    "https://orcid.org/0000-0002-6968-8451",
   ],
 };
 
@@ -99,8 +102,7 @@ export function applyHead(html: string, route: RouteMeta): string {
     .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${t}"`)
     .replace(/(<meta name="twitter:title" content=")[^"]*"/, `$1${t}"`)
     .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${d}"`)
-    .replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${d}"`)
-    .replace(/content="\/opengraph\.jpg"/g, `content="${SITE}/opengraph.jpg"`);
+    .replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${d}"`);
   const extra = [
     `<meta name="description" content="${d}" />`,
     `<link rel="canonical" href="${url}" />`,
