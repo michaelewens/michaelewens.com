@@ -21,24 +21,9 @@ export default function Home() {
 
   const updates = [
     {
-      id: "u10",
-      text: "[September 2026] New version of \"Corporate Hierarchy\" (with Xavier Giroud) is now available",
-      url: "https://osf.io/preprints/socarxiv/yj4he_v3"
-    },
-    {
       id: "u9",
-      text: "[September 2026] Launched intangiblesdata.org: annual knowledge and organization capital stocks for U.S. public firms, from Ewens, Peters and Wang (2024)",
+      text: "[September 2026] New intangibles data released",
       url: "https://intangiblesdata.org/"
-    },
-    {
-      id: "u8",
-      text: "[August 2026] Taught the Private Equity PhD Workshop at the European Finance Association",
-      url: "https://phd.pe.finance/"
-    },
-    {
-      id: "u7",
-      text: "[July 2026] Guest on the Improving Alpha podcast (Vidrio) discussing the public-private markets debate and its impact on allocators",
-      url: "https://www.vidrio.com/blog/improving-alpha-the-public-private-debate-its-impact-on-allocators"
     },
   ];
 

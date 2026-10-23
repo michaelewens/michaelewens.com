@@ -313,16 +313,6 @@ export const papers: Paper[] = [
     nberUrl: "https://www.nber.org/papers/w29743",
     tags: ["Private Equity", "Media", "Journalism"],
     slidesUrl:"/attached_assets/Newspapers_and_PE_posted.pdf"
-  },
-  {
-    id: "p19",
-    title: "Insider Financing and Venture Capital Returns",
-    authors: ["Michael Ewens", "Matthew Rhodes-Kropf", "Ilya Strebulaev"],
-    year: 2016,
-    status: "Working Paper",
-    abstract: "This paper investigates the outcomes of \"insider financings\" in venture capital, in which only existing investors participate, to test the hold-up theory. We find that, contrary to hold-up predictions, these rounds are associated with a likelihood of lower returns than rounds with new investors, suggesting that investors make inefficient continuation decisions. The study proposes an alternative explanation, arguing that the findings are consistent with an agency conflict between founders and existing investors.",
-    pdfUrl: "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2849681",
-    tags: ["Venture Capital", "Returns", "Insider Financing"]
   }
 ];
 
@@ -672,7 +662,7 @@ export const courses: Course[] = [
     title: "Advanced Private Equity",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2026"
+    year: "2025–"
   },
   {
     id: "c1",

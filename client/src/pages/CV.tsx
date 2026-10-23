@@ -231,7 +231,7 @@ export default function CV() {
           </h2>
           <div className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">"<a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13451" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Venture Capital and Startup Agglomeration</a>", 2025, <span className="italic">Journal of Finance</span> (with Jun Chen)</p>
-            <p className="text-muted-foreground leading-relaxed">"<a href="https://osf.io/preprints/socarxiv/t96yq/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Board Dynamics over the Startup Life Cycle</a>", 2026, <span className="italic">Journal of Finance</span> (with Nadya Malenko)</p>
+            <p className="text-muted-foreground leading-relaxed">"<a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.70072" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Board Dynamics over the Startup Life Cycle</a>", 2026, <span className="italic">Journal of Finance</span> (with Nadya Malenko)</p>
             <p className="text-muted-foreground leading-relaxed">"<a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13383" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Founder-CEO Compensation and Selection into Venture Capital-Backed Entrepreneurship</a>" (with Ramana Nanda and Christopher Stanton), <span className="italic">The Journal of Finance</span> 79.5 (2024): 3361-3405.</p>
             <p className="text-muted-foreground leading-relaxed">"<a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X23002155" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Regulatory Costs of Being Public: Evidence from Bunching Estimation</a>", 2024, <span className="italic">Journal of Financial Economics</span>, 153 (with Kairong Xiao and Ting Xu)</p>
             <p className="text-muted-foreground leading-relaxed">"<a href="https://pubsonline.informs.org/doi/10.1287/mnsc.2021.02058" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 decoration-primary/50 hover:decoration-primary">Measuring Intangible Capital with Market Prices</a>", (with Ryan Peters and Sean Wang) <span className="italic">Management Science</span> 71.1 (2024): 407-427.</p>
@@ -376,6 +376,7 @@ export default function CV() {
             <div>
               <h3 className="font-bold text-lg text-foreground mb-3">Columbia Business School</h3>
               <ul className="space-y-2 text-muted-foreground">
+                <li>Advanced Private Equity (2025–, MBA)</li>
                 <li>Private Equity Capstone (2026–, MBA elective)</li>
                 <li>Private Equity Value Creation (2025–, MBA elective)</li>
                 <li>Private Equity Deals (2025, MBA elective)</li>

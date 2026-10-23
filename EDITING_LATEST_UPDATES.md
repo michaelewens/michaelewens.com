@@ -1,5 +1,7 @@
 # How to Edit the Latest Updates
 
+> **Only Michael adds, edits, or removes entries.** AI assistants must not add, draft, or suggest entries on their own. The list shows the three most recent items.
+
 The "LATEST" updates appear at the top of the home page as a static list. Each update is **clickable and links to a page** you specify.
 
 ## File Location
