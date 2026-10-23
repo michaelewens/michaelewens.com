@@ -57,7 +57,7 @@ export default function Home() {
       <title>Michael Ewens | Professor of Finance, Columbia Business School</title>
       <main className="min-h-screen bg-background font-sans selection:bg-primary/20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 px-6 border-b border-border overflow-hidden flex flex-col items-start text-left">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-start gap-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative group shrink-0 mx-auto md:mx-0">
@@ -143,9 +143,9 @@ export default function Home() {
       </section>
 
       {/* Featured Research */}
-      <section className="py-20 md:py-32 px-6">
+      <section className="pt-10 pb-20 md:pt-14 md:pb-24 px-6">
         <div className="container mx-auto max-w-4xl">
-          <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
+          <div className="flex items-end justify-between mb-8 border-b border-border pb-4">
             <div>
               <h2 className="font-heading text-4xl font-bold mb-2">
                 Selected Research
@@ -182,7 +182,7 @@ export default function Home() {
       {/* Initiatives Section */}
       <section className="bg-secondary/5 py-20 border-t border-border">
         <div className="container mx-auto max-w-6xl px-6">
-          <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
+          <div className="flex items-end justify-between mb-8 border-b border-border pb-4">
             <div>
               <h2 className="font-heading text-4xl font-bold mb-2">
                 Projects
@@ -243,7 +243,7 @@ export default function Home() {
       {/* Data & Code Section */}
       <section className="bg-secondary/10 py-20 md:py-32 border-t border-border">
         <div className="container mx-auto max-w-6xl px-6">
-          <div className="flex items-end justify-between mb-16 border-b border-border pb-4">
+          <div className="flex items-end justify-between mb-8 border-b border-border pb-4">
             <div>
               <h2 className="font-heading text-4xl font-bold mb-2">
                 Data & Code
