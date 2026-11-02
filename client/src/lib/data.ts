@@ -655,21 +655,21 @@ export const courses: Course[] = [
     title: "Private Equity Capstone",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2026"
+    year: "2026–"
   },
   {
     id: "c20",
     title: "Advanced Private Equity",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2025–"
+    year: "2024–"
   },
   {
     id: "c1",
     title: "Private Equity Deals",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2025",
+    year: "2025–",
     syllabusUrl:"https://courses.business.columbia.edu/B8417"
   },
   {
@@ -677,7 +677,7 @@ export const courses: Course[] = [
     title: "Private Equity Value Creation",
     institution: "Columbia Business School",
     level: "MBA",
-    year: "2025–",
+    year: "2025–2026",
     syllabusUrl:"https://courses.business.columbia.edu/B8329"
   },
   {
@@ -687,13 +687,6 @@ export const courses: Course[] = [
     level: "MBA",
     year: "2024–",
     syllabusUrl:"https://business.columbia.edu/privateequity/private-equity-field-study"
-  },
-  {
-    id: "c5",
-    title: "Private Equity Finance",
-    institution: "Columbia Business School",
-    level: "MBA",
-    year: "2024–"
   },
   {
     id: "c4",

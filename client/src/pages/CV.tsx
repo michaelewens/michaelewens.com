@@ -376,12 +376,11 @@ export default function CV() {
             <div>
               <h3 className="font-bold text-lg text-foreground mb-3">Columbia Business School</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>Advanced Private Equity (2025–, MBA)</li>
+                <li>Advanced Private Equity (2024–, MBA)</li>
                 <li>Private Equity Capstone (2026–, MBA elective)</li>
-                <li>Private Equity Value Creation (2025–, MBA elective)</li>
-                <li>Private Equity Deals (2025, MBA elective)</li>
+                <li>Private Equity Value Creation (2025–2026, MBA elective)</li>
+                <li>Private Equity Deals (2025–, MBA elective)</li>
                 <li>Private Equity Field Study (2024–, MBA elective)</li>
-                <li>Private Equity Finance (2024–, MBA elective)</li>
                 <li>Private Equity Allocation (2024, MBA elective)</li>
                 <li>Current Topics in Private Equity (2023–2024, MBA elective)</li>
                 <li>Research in Entrepreneurial Finance (2023–, PhD)</li>
