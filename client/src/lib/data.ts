@@ -391,6 +391,23 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n32",
+    outlet: "New York Times DealBook",
+    title: "Quoted in NYT DealBook on New York City's equity stake in Vanderbilt research labs",
+    date: "November 17, 2026",
+    url: "https://www.nytimes.com/2026/11/17/business/dealbook/nvidia-ai-earnings-huang.html?unlocked_article_code=1.RFE.6h5G.L2eJzTcpf3U-",
+    description: "Said that government has historically not gotten equity upside from the science and engineering bets it helps fund, and noted that most early-stage tech fails."
+  },
+  {
+    id: "n31",
+    outlet: "The Economist",
+    title: "Research cited in The Economist on why startups still go public",
+    date: "November 17, 2026",
+    url: "https://www.economist.com/finance-and-economics/2026/11/17/why-startups-still-go-public-eventually",
+    paperId: "p3",
+    description: "Cites research with co-authors finding that regulatory burdens account for only 7% of the decline since 2000 in private firms' probability of going public."
+  },
+  {
     id: "n30",
     outlet: "NerdWallet",
     title: "Quoted in NerdWallet's The Nerdy Investor on why tech companies are delaying their IPOs",
