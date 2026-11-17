@@ -391,6 +391,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n33",
+    outlet: "Columbia Business School",
+    title: "Interviewed by Columbia Business School on five things to know about the Anthropic IPO",
+    date: "November 17, 2026",
+    url: "https://business.columbia.edu/insights/anthropic-ipo-investors-five-things-to-know",
+    description: "Discussed Anthropic's growth outlook, its debt-like compute commitments, its ties to Amazon, Google and Microsoft, and why companies time their IPOs."
+  },
+  {
     id: "n32",
     outlet: "New York Times DealBook",
     title: "Quoted in NYT DealBook on New York City's equity stake in Vanderbilt research labs",
