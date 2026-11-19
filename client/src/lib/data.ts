@@ -391,6 +391,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n35",
+    outlet: "Wall Street Journal",
+    title: "Quoted in the Wall Street Journal on Anthropic's IPO and what it means for venture capital",
+    date: "November 19, 2026",
+    url: "https://www.wsj.com/pro/venture-capital/anthropics-ipo-is-a-win-for-venture-its-success-could-reshape-the-industry-2bfdecc0",
+    description: "Quoted on changes to the venture capital market after the Anthropic IPO."
+  },
+  {
     id: "n34",
     outlet: "Marketplace",
     title: "Quoted in Marketplace on why IPOs have gotten so large",
