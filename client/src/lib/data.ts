@@ -395,8 +395,8 @@ export const press: PressItem[] = [
     outlet: "Wall Street Journal",
     title: "Quoted in the Wall Street Journal on Anthropic's IPO and what it means for venture capital",
     date: "November 19, 2026",
-    url: "https://www.wsj.com/pro/venture-capital/anthropics-ipo-is-a-win-for-venture-its-success-could-reshape-the-industry-2bfdecc0",
-    description: "Quoted on changes to the venture capital market after the Anthropic IPO."
+    url: "https://www.wsj.com/pro/venture-capital/anthropics-ipo-is-a-win-for-venture-its-success-could-reshape-the-industry-2bfdecc0?st=3TpZSk&reflink=desktopwebshare_permalink",
+    description: "Said the original venture model of writing small checks to early-stage companies is unlikely to disappear, and that AI's high startup costs are an aberration rather than the long-term venture model."
   },
   {
     id: "n34",
