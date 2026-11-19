@@ -391,6 +391,14 @@ export const projects: Project[] = [
 
 export const press: PressItem[] = [
   {
+    id: "n34",
+    outlet: "Marketplace",
+    title: "Quoted in Marketplace on why IPOs have gotten so large",
+    date: "November 18, 2026",
+    url: "https://www.marketplace.org/story/2026/11/18/ipos-are-soaring-the-ai-boom-isnt-the-only-reason",
+    description: "Said there are roughly half as many public companies as in the late '90s, and that firms going public later means much of their growth happens before ordinary investors can buy shares."
+  },
+  {
     id: "n33",
     outlet: "Columbia Business School",
     title: "Interviewed by Columbia Business School on five things to know about the Anthropic IPO",
